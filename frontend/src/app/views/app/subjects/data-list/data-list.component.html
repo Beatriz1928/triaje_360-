@@ -1,0 +1,96 @@
+<app-list-page-header [itemOptionsPerPage]="[10,25,50]" [itemsPerPage]="itemsPerPage" [selectAllState]="selectAllState" (addNewItem)="showAddNewModal()" 
+(selectAllChange)="selectAllChange($event)" (itemsPerPageChange)="itemsPerPageChange($event)" (schoolYearChange)="schoolYearChange($event)" 
+[selected]="selected" (dropUsers)="dropSubjects($event)">
+</app-list-page-header>
+<app-add-new-subject-modal #addNewModalRef></app-add-new-subject-modal>
+<app-manage-subject-modal #manageModalRef></app-manage-subject-modal>
+
+<div class="row">
+    <div class="col-12 list" *ngIf="displayMode==='list'">
+
+        <div *ngIf="totalItem == 0" [ngClass]="{'card d-flex flex-row mb-3': true}">
+            <div class="d-flex flex-grow-1 min-width-zero">
+                <div class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
+                    No hay resultados relacionados con la búsqueda.
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="totalItem > 0" [ngClass]="{'card d-flex flex-row mb-3': true}">
+            <div class="card-dashboard d-flex flex-grow-1 min-width-zero">
+                <div class="tc card-body align-self-center d-flex flex-column flex-md-row min-width-zero align-items-md-center">
+                    <span class="codigo title-card list-item-heading mb-0 w-10 w-xs-100">
+                        <span>Código</span>
+                    </span>
+                    <span class="nombre title-card list-item-heading mb-0 w-xs-100">
+                        <span>Nombre</span>
+                    </span>
+                    <span class="curso title-card list-item-heading mb-0 w-xs-100">
+                        <span>Curso</span>
+                    </span>
+                    <span class="datos title-card list-item-heading mb-0 w-xs-100">
+                        <span>Datos</span>
+                    </span>
+                    <span class="acciones title-card list-item-heading mb-0 w-xs-100">
+                        <span>Acciones</span>
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div [ngClass]="{'card d-flex flex-row mb-3': true, 'active':isSelected(p)}" *ngFor="let p of data; let i=index">
+            <div class="d-flex flex-grow-1 min-width-zero atc">
+                <div class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
+                    <!-- INFO -->
+                    <div class="codigo">
+                        <p class="list-item-heading mb-0 truncate w-xs-100">
+                            {{p.nombrecorto}} ({{ p.codigo }})
+                        </p>
+                    </div>
+                    <div class="nombre">
+                        <p class="mb-0 text-muted text-small w-xs-100">{{p.nombre}}</p>
+                    </div>
+                    <div class="curso">
+                        <p class="mb-0 text-muted text-small w-xs-100">{{p.curso.nombrecorto}}</p>
+                    </div>
+                    <!-- DATOS -->
+                    <div class="datos atc d-flex mb-0 text-muted text-small w-xs-100">
+                        <p class="mb-0 text-muted text-small">Ejercicios: {{p.ejercicios.length}}</p>
+                        <p class="mb-0 text-muted text-small">Profesores: {{p.profesores.length}}</p>
+                        <p *ngIf="userRole == 0 || userRole == 1" class="mb-0 text-muted text-small">Alumnos: {{p.alumnos.length}}</p>
+                    </div>
+
+                    <!-- ACCIONES -->
+                    <div [className]="userRole==0 ? 'acciones atc up d-flex mb-0 text-muted text-small w-xs-100' : 'acciones atc d-flex mb-0 text-muted text-small w-xs-100'">
+                        <i *ngIf="userRole != 2" class="simple-icon-plus" data-toggle="tooltip" data-placement="bottom" title="Añadir Ejercicio" (click)="toCreateExercise(p.uid)"></i>
+                        <i class="simple-icon-notebook ml-3" data-toggle="tooltip" data-placement="bottom" title="Ver Ejercicios" (click)="toExercises(p.uid)"></i>
+                        <i *ngIf="userRole != 2" class="simple-icon-user ml-3" data-toggle="tooltip" data-placement="bottom" title="Gestionar Asignatura" (click)="showManageModal(p)"></i>
+                        <i *ngIf="userRole == 0" class="simple-icon-pencil ml-3" data-toggle="tooltip" data-placement="bottom" title="Editar Asignatura" (click)="showAddNewModal(p)"></i>
+                        <i *ngIf="userRole == 0" class="last-icon simple-icon-trash ml-3" data-toggle="tooltip" data-placement="bottom" title="Eliminar Asignatura" (click)="confirmDelete(p)"></i>
+                        <!-- CHECKBOX SELECCIONAR -->
+                        <label *ngIf="userRole == 0" class="custom-control custom-checkbox mb-1 align-self-center pr-4">
+                            <input type="checkbox" class="custom-control-input" [id]="'customCheck'+i" [checked]="isSelected(p)"
+                            (change)="onSelect(p)">
+                            <label class="custom-control-label" [for]="'customCheck'+i"></label>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="totalItem > 0" class="col-12">
+        <pagination [totalItems]="totalItem" [itemsPerPage]="itemsPerPage" [rotate]="true" [maxSize]="5" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" class="justify-content-center" [customNextTemplate]="nextTemplate" [customPreviousTemplate]="prevTemplate">
+        </pagination>
+    </div>
+</div>
+<simple-notifications></simple-notifications>
+
+<ng-template #nextTemplate let-disabled="disabled" let-currentPage="currentPage">
+    <i class='simple-icon-arrow-right'></i>
+</ng-template>
+<ng-template #prevTemplate let-disabled="disabled" let-currentPage="currentPage">
+    <i class='simple-icon-arrow-left'></i>
+</ng-template>

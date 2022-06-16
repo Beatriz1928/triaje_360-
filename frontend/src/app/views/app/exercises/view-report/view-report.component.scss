@@ -1,0 +1,243 @@
+// RESUMEN
+table {
+    text-align: center;
+}
+
+.resumen_content {
+    margin: 0 auto;
+    width: 50%;
+}
+
+.simple-icon-check::before {
+    padding: 0em;
+    border-radius: 50px;
+    font-size: 18px;
+    vertical-align: middle;
+    margin: 0.25em;
+    border: 1px solid black;
+    // display: block;
+}
+
+.Verde::before, .verde::before {
+    color: green !important;
+    background-color: green !important;
+}
+
+.Amarillo::before, .amarillo::before {
+    color: yellow !important;
+    background-color: yellow !important;
+}
+
+.Rojo::before, .rojo::before {
+    color: red !important;
+    background-color: red !important;
+}
+
+.Negro::before, .negro::before {
+    color: black !important;
+    background-color: black !important;
+}
+
+.NoTriado::before, .noTriado::before {
+    color: transparent !important;
+    background-color: transparent !important;
+}
+
+// PACIENTES
+.separated {
+    display: flex;
+    padding: 1.75em;
+}
+
+.separated1 {
+    width: 25%;
+}
+.separated2 {
+    width: 70%;
+}
+
+.descripcion {
+    justify-content: center;
+}
+
+.descripcion p {
+    margin-right: 0 !important;
+    margin-bottom: 0 !important;
+    text-align: center;
+    font-size: 14px;
+}
+
+.imgs {
+    flex-wrap: wrap;
+    position: relative;
+    text-align: center;
+}
+
+    .imgs label {
+        height: 90px;
+        width: 90px;
+        // margin: 10px;
+        border: 1px solid #145388;
+        border-radius: 25px;
+        overflow: hidden;
+        // box-shadow: 0 3px 5px #145388;
+    }
+
+        .imgs label img {
+            height: 100%;
+            width: 100%;
+            padding: .5em;
+            object-fit: cover;
+        }
+
+.color, .acciones {
+    padding-left: 1em;
+}
+
+.color {
+    padding-top: 0 !important;
+    padding-bottom: 1em !important;
+}
+
+.acciones {
+    padding-top: 1em !important;
+    padding-bottom: 0 !important;
+}
+
+.color p, .acciones p, .acciones>.accionesRealizadas {
+    margin-left: 0 !important;
+}
+.acciones>.accionesRealizadas {
+    margin-top: .5em !important;
+    margin-bottom: .25em !important;
+}
+
+.acciones>.accionesRealizadas>p {
+    margin-right: .25em;
+}
+
+.color p {
+    margin-top: .25em !important;
+    margin-bottom: .5em !important;
+}
+
+.acciones .accionesRealizadas>p, .acciones .accionesRealizadas>div {
+    display: inline;
+}
+
+
+// ACTIVIDAD
+.contenedor {
+    max-height: 100%;
+    position: relative;
+    padding: 0 !important;
+    margin: 1.75rem;
+}
+
+.contenedor button {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.resumen_content, .actividad_content {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.tiempos {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1em;
+}
+
+.tiempos p {
+    margin: .5em 1.5em;
+}
+
+.actividades {
+    max-height: 480px;
+    overflow-y: scroll;
+}
+.actividad_content .d-flex {
+    margin-right: 1.5em;
+}
+.actividad_content .card-body {
+    padding: 1em;
+    width: 100%;
+}
+
+.card-body>div {
+    text-align: left !important;
+}
+
+.infoPaciente {
+    position: absolute;
+    display: none;
+    padding: 10px;
+    margin-top: 1em;
+    background-color: #fff;
+    z-index: 10;
+    color: #3c3c3c;
+    cursor: default;
+}
+
+.infoPaciente p, .infoPaciente div {
+    width: 100%;
+    height: auto;
+    margin-bottom: .5em;
+    margin-right: .25em;
+    text-align: left;
+}
+
+.infoPaciente .first {
+    margin-top: 1em !important;
+}
+
+.infoPaciente .accionesRealizadas>p {
+    display: inline;
+}
+
+.infoPaciente .nombre_paciente {
+    text-align: center !important;
+}
+
+.paciente {
+    color: #145388;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+}
+
+.normal {
+    color: #3c3c3c !important;
+    cursor: default !important;
+    font-weight: normal !important;
+}
+
+.paciente:hover .infoPaciente {
+    display: contents;
+    margin-top: 1em;
+}
+
+// .normal:hover .infoPaciente {
+//     display: none !important;
+// }
+
+///////// SCROLLBAR /////////
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+  //   background: #f1f1f1;
+    border-radius: 10px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #145388;
+    border-radius: 10px;
+  }

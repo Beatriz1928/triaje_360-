@@ -1,0 +1,72 @@
+
+.block {
+    display: inline-block;
+}
+
+.tc {
+    padding: 1em 1.75em;
+}
+
+.tc {
+    padding: 1em 1.75em;
+    background-color: #145388;
+    border: 3px solid transparent;
+    border-radius: 10px;
+    box-shadow: 0 1px 15px rgb(0 0 0 / 4%), 0 1px 6px rgb(0 0 0 / 4%);
+    text-align: center;
+    width: 100%;
+    border-spacing: 0 1em;
+}
+
+.atc {
+    text-align: center !important;
+}
+
+.title-card {
+    line-height: 2.5;
+}
+
+.title-card>span {
+    background-color: #145388;
+    color: white;
+    padding: .15rem .4em;
+    border-bottom: 1.5px solid white;
+}
+
+.codigo {
+    width: 10% !important;
+}
+
+.nombre {
+    width: 20% !important;
+}
+
+.curso {
+    width: 10% !important;
+} 
+
+.datos {
+    width: 35% !important;
+    justify-content: center;
+}
+
+.datos>p {
+    padding: 0 1em;
+}
+
+.acciones {
+    width: 25%;
+    justify-content: center;
+}
+
+.up>i {
+    transform: translateY(6px);
+}
+
+.acciones>label {
+    transform: translateY(4px);
+}
+
+.last-icon {
+    padding-right: 3em;
+}

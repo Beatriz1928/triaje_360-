@@ -1,0 +1,595 @@
+
+h5 {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0 !important;
+}
+
+h3 {
+    margin-top: 1rem !important;
+    margin-bottom: 1rem !important;
+}
+
+input, textarea, .ng-select, .ng-select-container {
+    border-radius: 25px !important;
+}
+
+#asignatura .ng-select, #color .ng-select {
+    padding: 0 !important;
+    border: none;
+}
+
+.gallery {
+    height: 260px;
+    overflow-y: scroll;
+    position: relative;
+}
+
+.gallery, .imgsSelected {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0rem auto 1rem auto;
+}
+
+.is, .paso .locate-patients {
+    text-align: center;
+    width: 1100px;
+    position: relative;
+	overflow-x: auto;
+	white-space: nowrap;
+}
+
+.imgsSelected {
+    border-top: 1px solid #145388;
+    padding-top: .5rem;
+    margin-top: 1rem;
+}
+
+.mini-img {
+    margin: -1.5rem .9rem 0 .9rem;
+}
+
+    .gallery p {
+        color: black;
+        position: absolute;
+        width: 320px;
+        text-align: center;
+        margin-top: 5px;
+    }
+
+    .gallery .selected p {
+        margin-top: 10px;
+    }
+
+    .gallery label {
+        height: 80px;
+        width: 320px;
+        margin: 20px;
+        border-radius: 3px;
+        overflow: hidden;
+        // box-shadow: 0 3px 5px #145388;
+    }
+
+        .gallery label img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            cursor: pointer;
+        }
+
+        // .gallery label img:hover {
+        //     transform: scale(1.1);
+        // }
+
+    .imgsSelected label {
+        height: 75px;
+        width: 200px;
+        margin: 15px;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+        .imgsSelected label img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+    .mini-img label {
+        height: 90px;
+        width: 90px;
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        border-radius: 5px;
+        // margin: 15px;
+        // overflow: hidden;
+    }
+
+        .mini-img label img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+
+.simple-icon-check::before {
+    background-color: #145388;
+    color: #fff;
+    padding: 0em;
+    border-radius: 50px;
+    border-color: #fff;
+    font-size: 26px;
+}
+
+.gallery .selected {
+    border: 5px solid #145388;
+}
+
+.selected .simple-icon-check {
+    display: block;
+    position: absolute;
+    transform: translate(280px, -65px);
+    color: #145388;
+}
+
+.noSelected {
+    border: none;
+}
+
+.noSelected .simple-icon-check {
+    display: none;
+    color: #145388;
+}
+
+.simple-icon-arrow-right-circle {
+    display: block;
+    position: absolute;
+    transform: translate(175px, -25px);
+    cursor: pointer;
+}
+.simple-icon-arrow-left-circle {
+    display: block;
+    position: absolute;
+    transform: translate(5px, -25px);
+    cursor: pointer;
+}
+.simple-icon-arrow-right-circle::before, .simple-icon-arrow-left-circle::before {
+    background-color: #145388;
+    color: #fff;
+    padding: 0em;
+    border-radius: 50px;
+    border-color: #fff;
+    font-size: 20px;
+}
+
+.simple-icon-close {
+    display: block;
+    position: absolute;
+    transform: translate(175px, -70px);
+    cursor: pointer;
+}
+.simple-icon-close::before {
+    background-color: #de2f18;
+    color: #fff;
+    padding: 0em;
+    border-radius: 50px;
+    border-color: #fff;
+    font-size: 20px;
+}
+
+input[type="checkbox"] {
+    width: auto;
+}
+
+#acciones div {
+    display: flex;
+}
+
+    #acciones div label {
+        width: auto;
+        padding-right: 0em !important;
+    }
+
+    #acciones div p {
+        width: 130px;
+        margin-top: 12px;
+    }
+
+    #acciones div input[type="number"] {
+        width: 100px;
+        margin-bottom: .3em;
+    }
+
+.pacientes {
+    margin-top: 1.5em;
+    display: table;
+    width: 100%;
+}
+.lista-pacientes, .configurar-pacientes {
+    display: table-cell;
+}
+
+.configurar-pacientes {
+    width: 65%;
+    padding-right: 3em;
+    margin-bottom: 0 !important;
+}
+
+.lista-pacientes {
+    width: 30%;
+    padding-right: 3em;
+}
+
+.lista {
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 15px;
+    height: 300px;
+    overflow-y: scroll;
+    position: relative;
+}
+
+    .lista div div {
+        padding: .75em;
+        display: flex;
+        border-radius: 10px;
+    }
+
+    .lista>p {
+        margin: .75rem;
+        font-size: 1em !important;
+        color: #3e3e3e;
+    }
+
+    .lista p {
+        font-size: 1.1em !important;
+    }
+
+    .lista .paciente {
+        cursor: pointer;
+        margin: 0 .5em;
+        width: 93%;
+    }
+
+    .lista .simple-icon-close {
+        position: relative;
+        transform: none;
+        float: right;
+    }
+    .lista .simple-icon-close::before {
+        font-size: 15px;
+        background-color: #fff;
+        color: #145388;
+    }
+
+.activo {
+    background-color: #145388;
+}
+
+    .activo p {
+        color: #fff !important;
+    }
+
+.ng-select-disabled, .ng-select-disabled>* {
+    background-color:#e9ecef !important;
+}
+
+// PRIMER PASO
+// .form-control .asignatura {
+//     width: 200px;
+// }
+
+// #asignatura, #nombre, #descripcion {
+//     display: flex;
+// }
+
+.form-group {
+    display: table;
+    width: 100%;
+}
+
+.form-group>div {
+    display: table-cell;
+    vertical-align: top;
+}
+
+.form-group>div label {
+    display: block;
+}
+
+.form-group>#asignatura {
+    width: 15%;
+    padding-right: 3em;
+}
+
+    #asignatura>.db {
+        width: 100%;
+    }
+
+.form-group>#nombre {
+    width: 40%;
+    padding-right: 3em;
+}
+
+//     .form-group>#nombre label label {
+//         margin-bottom: 1.3em;
+//     }
+
+.form-group>#descripcion {
+    width: 58%;
+    padding-right: 3em;
+}
+
+    .form-group #descripcion>textarea {
+        resize: none;
+        min-height: 80px;
+    }
+
+.form-group>#desde {
+    width: 20%;
+    padding-right: 3em;
+}
+
+.form-group>#hasta {
+    width: 20%;
+    padding-right: 3em;
+}
+
+.form-group #pre-intentos {
+    display: block;
+    padding-right: 3em;
+}
+.form-group #intentos {
+    display: flex;
+}
+.form-group #intentos input[type="number"] {
+    width: auto;
+    margin-left: 1em;
+}
+
+.form-group #acciones {
+    width: 35%;
+}
+
+.separated {
+    width: 60%;
+    padding-right: 3em;
+}
+
+.separated2 {
+    display: flex;
+    margin-top: 1rem;
+}
+
+.separated2 #camina {
+    width: 20%;
+}
+
+.separated2 #color {
+    width: 80%;
+}
+
+.form-group #empeora {
+    width: 12%;
+}
+
+.form-group #tiempoEmpeora {
+    width: 51%;
+    padding-right: 3em;
+}
+
+.invisible {
+    display: none !important;
+}
+
+.img-content {
+    display: flex;
+}
+
+.img-content button {
+    max-height: 37px;
+}
+
+
+/// UBICAR PACIENTES /////
+
+.paso {
+    position: relative;
+}
+
+.paso .locate-patients {
+    display: block !important;
+}
+
+.label-img-selected {
+    margin: 0 auto;
+}
+
+        .label-img-selected>label>img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+.locate-patients label {
+    cursor: pointer;
+}
+
+.locate-patients .selected {
+    border: 5px solid #145388;
+}
+
+.paso .tabla{
+    position:absolute;
+    top: 0;
+    width: 100%;
+    height: 58%;
+}
+
+table {
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+}
+
+    .celda {
+        border: 1px solid #145388;
+        position: relative;
+    }
+
+    .celda p {
+        position: absolute;
+    }
+
+    .celda label {
+        height: 70px;
+        width: 70px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+    }
+
+        .celda label img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+    
+    .celda .simple-icon-close {
+        transform: none;
+        top: 0;
+        right: 0;
+    }
+
+    .celda .simple-icon-close::before {
+        font-size: 16px;
+    }
+
+    .celdaVacia {
+        cursor: pointer;
+    }
+
+.complete-message-centered {
+    margin-top: 2em;
+}
+
+///////// SCROLLBAR /////////
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+//   background: #f1f1f1;
+  border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #145388;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+// ::-webkit-scrollbar-thumb:hover {
+//   background: #145388;
+// }
+
+///////// INPUT RANGE /////////
+input[type=range] {
+    height: 38px;
+    -webkit-appearance: none;
+    // margin: 10px 0;
+    width: 100%;
+  }
+  input[type=range]:focus {
+    outline: none;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    cursor: pointer;
+    // box-shadow: 1px 1px 1px #000000;
+    background: #145388;
+    border-radius: 5px;
+    // border: 1px solid #000000;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    // box-shadow: 1px 1px 1px #000000;
+    border: 1px solid #145388;
+    height: 24px;
+    width: 12px;
+    border-radius: 5px;
+    background: #FFFFFF;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -8px;
+  }
+  input[type=range]:focus::-webkit-slider-runnable-track {
+    background: #145388;
+  }
+  input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 10px;
+    cursor: pointer;
+    // box-shadow: 1px 1px 1px #000000;
+    background: #145388;
+    border-radius: 5px;
+    // border: 1px solid #000000;
+  }
+  input[type=range]::-moz-range-thumb {
+    // box-shadow: 1px 1px 1px #000000;
+    border: 1px solid #145388;
+    height: 30px;
+    width: 15px;
+    border-radius: 5px;
+    background: #FFFFFF;
+    cursor: pointer;
+  }
+  input[type=range]::-ms-track {
+    width: 100%;
+    height: 10px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  input[type=range]::-ms-fill-lower {
+    background: #145388;
+    // border: 1px solid #000000;
+    border-radius: 10px;
+    // box-shadow: 1px 1px 1px #000000;
+  }
+  input[type=range]::-ms-fill-upper {
+    background: #145388;
+    // border: 1px solid #000000;
+    border-radius: 10px;
+    // box-shadow: 1px 1px 1px #000000;
+  }
+  input[type=range]::-ms-thumb {
+    margin-top: 1px;
+    // box-shadow: 1px 1px 1px #000000;
+    border: 1px solid #145388;
+    height: 30px;
+    width: 15px;
+    border-radius: 5px;
+    background: #FFFFFF;
+    cursor: pointer;
+  }
+  input[type=range]:focus::-ms-fill-lower {
+    background: #145388;
+  }
+  input[type=range]:focus::-ms-fill-upper {
+    background: #145388;
+  }
+
+  @media (min-width: 1680px) {
+    .paso .tabla{
+        height: 66%;
+    }
+}
+  

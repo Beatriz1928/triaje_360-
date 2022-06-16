@@ -1,0 +1,117 @@
+<div class="card mb-4">
+    <div class="card-body contenedor">
+      <button class="top-right-button btn btn-primary btn-lg mr-1" (click)="goBack()">VOLVER</button>
+      <h5 *ngIf="ejercicio && usuario" class="mb-4">Informe de Ejercicio: '{{ejercicio.nombre}}' de {{usuario.apellidos}}, {{usuario.nombre}} </h5>
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link c-pointer resumen active" (click)="setActive('resumen')">Resumen</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link c-pointer pacientes" (click)="setActive('pacientes')">Pacientes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link c-pointer actividad" (click)="setActive('actividad')">Actividad</a>
+        </li>
+      </ul>
+      <div *ngIf="pillActive=='resumen'" class="resumen_content card">
+        <table class="table table-borderless card-body">
+          <thead>
+              <tr>
+                  <th scope="col"></th>
+                  <th scope="col">Configurados</th>
+                  <th scope="col">% Configurados</th>
+                  <th scope="col">Triados</th>
+                  <th scope="col">% Triados</th>
+              </tr>
+          </thead>
+          <tbody *ngFor="let p of colours; let i=index">
+              <tr>
+                <td><i class="simple-icon-check {{p}}"></i></td>
+                <td>{{configurados[i]}}</td>
+                <td *ngIf="i == colours.length-1">{{configuradosP[i]}}</td>
+                <td *ngIf="i != colours.length-1">{{configuradosP[i]}}%</td>
+                <td>{{triados[i]}}</td>
+                <td>{{triadosP[i]}}%</td>
+              </tr>
+          </tbody>
+        </table>
+      </div>
+      <div *ngIf="pillActive=='pacientes'" class="pacientes_content">
+        <div [ngClass]="{'card d-flex flex-row mt-3 mb-3': true}" *ngFor="let p of ejercicio.pacientes; let i=index">
+          <div class="d-flex flex-grow-1 min-width-zero atc">
+              <div class="separated card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
+                <div class="separated1">
+                  <div class="imgs">
+                      <label>
+                          <img src={{urlPrefixPacientes+p.paciente.img}}>
+                          <!-- <i class="simple-icon-check"></i> -->
+                      </label>
+                  </div>
+                  <div class="descripcion">
+                      <p><b>Paciente {{i+1}}</b></p>
+                      <p>{{p.paciente.descripcion}}.
+                        <span *ngIf="p.paciente.camina">Camina.</span>
+                        <span *ngIf="!p.paciente.camina">No camina.</span>
+                      </p>
+                  </div>
+                </div>
+                <div class="separated2 card">
+                  <div class="acciones card-body" id="color">
+                    <div class="accionesRealizadas">
+                      <p *ngIf="p.paciente.acciones.length==0"><b>&#8226; Acciones Configuradas: Ninguna</b></p>
+                      <p *ngIf="p.paciente.acciones.length>0"><b>&#8226; Acciones Configuradas:</b></p>
+                      <p *ngFor="let item of p.paciente.acciones; let i=index">
+                          <span *ngIf="i == p.paciente.acciones.length-1">{{item.accion.nombre}}</span>
+                          <span *ngIf="i != p.paciente.acciones.length-1">{{item.accion.nombre}},</span>
+                      </p>
+                    </div>
+                    <div class="accionesRealizadas">
+                      <p class="mt-2"><b>&#8226; Acciones Realizadas: </b>{{searchActions(p.paciente)}}</p>
+                    </div>
+                  </div>
+                  <div class="color card-body" id="color">
+                      <p><b>&#8226; Color Configurado:</b> <i class="simple-icon-check {{p.paciente.color}}"></i></p>
+                      <p><b>&#8226; Color Asignado:</b><i class="simple-icon-check {{searchColour(p.paciente)}}"></i></p>
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="pillActive=='actividad'" class="actividad_content">
+        <div *ngIf="ejercicioUsuario" class="tiempos">
+            <p><b>Fecha Inicio:</b> {{ changeDateFormat(ejercicioUsuario.fecha_ejecucion) }}</p>
+            <p><b>Fecha Fin:</b> {{ changeDateFormat(ejercicioUsuario.fecha_fin) }}</p>
+            <p><b>Tiempo Total:</b> {{ ejercicioUsuario.tiempoTotal }}</p>
+        </div>
+        <div class="actividades">
+            <div [ngClass]="{'card d-flex flex-row mb-3': true}" *ngFor="let p of actividades; let i=index">
+                <div class="d-flex flex-grow-1 min-width-zero atc">
+                    <div class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
+                        <div class="list-item-heading mb-0 truncate w-xs-100">{{p.nombre}} 
+                            <span *ngIf="!p.paciente">({{p.momento}})</span>
+                            <span *ngIf="p.paciente" class="paciente">Paciente {{searchPatient(p.paciente)}} <span class="normal">({{p.momento}})</span> 
+                                <div class="infoPaciente">
+                                    <p *ngIf="p.paciente.camina" class="first"><b>&#8226; Camina:</b> Sí</p>
+                                    <p *ngIf="!p.paciente.camina" class="first"><b>&#8226; Camina:</b> No</p>
+                                    <p><b>&#8226; Descripción:</b> {{p.paciente.descripcion}}</p>
+                                    <p><b>&#8226; Color:</b> {{p.paciente.color}}</p>
+                                    <p *ngIf="p.paciente.empeora"><b>&#8226; Empeora:</b> Sí, tras {{p.paciente.tiempoEmpeora}} segundos</p>
+                                    <p *ngIf="!p.paciente.empeora"><b>&#8226; Empeora:</b> No</p>
+                                    <div class="accionesRealizadas">
+                                        <p *ngIf="p.paciente.acciones.length>0"><b>&#8226; Acciones:</b></p>
+                                        <p *ngFor="let item of p.paciente.acciones; let i=index">
+                                            <span *ngIf="i == p.paciente.acciones.length-1">{{item.accion.nombre}}</span>
+                                            <span *ngIf="i != p.paciente.acciones.length-1">{{item.accion.nombre}},</span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+</div>

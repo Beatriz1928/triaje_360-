@@ -1,0 +1,69 @@
+input[type="checkbox"] {
+    margin-left: .4em;
+}
+
+.act {
+    margin: 0;
+}
+
+.tc {
+    padding: 1em 1.75em;
+    background-color: #145388;
+    border: 3px solid transparent;
+    border-radius: 10px;
+    box-shadow: 0 1px 15px rgb(0 0 0 / 4%), 0 1px 6px rgb(0 0 0 / 4%);
+    text-align: center;
+}
+
+.title-card {
+    line-height: 2.5;
+}
+
+.title-card>span {
+    background-color: #145388;
+    color: white;
+    padding: .15rem .4em;
+    border-bottom: 1.5px solid white;
+}
+
+.atc {
+    text-align: center !important;
+}
+
+.atc>div>.nombre, .tc>.nombre {
+    text-align: left !important;
+    padding-left: 1em;
+}
+
+.nombre {
+    width: 35% !important;
+}
+
+.email {
+    width: 20% !important;
+}
+
+.rol {
+    width: 15% !important;
+}
+
+.activo {
+    width: 15% !important;
+}
+
+.acciones {
+    width: 20%;
+    justify-content: center;
+}
+
+.acciones>i {
+    transform: translateY(6px);
+}
+
+.acciones>label {
+    transform: translateY(4px);
+}
+
+.last-icon {
+    padding-right: 3em;
+}
