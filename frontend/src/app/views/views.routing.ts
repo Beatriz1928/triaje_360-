@@ -58,6 +58,13 @@ let routes: Routes = [
     canActivate: [AuthGuard],
     canActivateChild: [AuthGuard],
   },
+  {
+    path: 'scenes',
+    loadChildren: () => import('./app/scenes/scenes.module').then((m) => m.ScenesModule),
+    data: { roles: [UserRole.Admin] },
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
+  },
   { path: 'error', component: ErrorComponent },
   { path: 'unauthorized', component: UnauthorizedComponent },
   { path: '**', redirectTo: '/error' },

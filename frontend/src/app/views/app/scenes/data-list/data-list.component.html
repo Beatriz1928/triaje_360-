@@ -1,0 +1,93 @@
+<app-list-page-header [subjectId]="sender.idSubject" [itemOptionsPerPage]="[10,25,50]" [itemsPerPage]="itemsPerPage" [selectAllState]="selectAllState" (selectAllChange)="selectAllChange($event)" (itemsPerPageChange)="itemsPerPageChange($event)">
+    <!-- (subjectChange)="subjectChange($event)" -->
+    [selected]="selected">
+    <!-- (dropUsers)="dropExercises($event)"> -->
+
+</app-list-page-header>
+
+<div class="row">
+    <div class="col-12 list" *ngIf="displayMode==='list'">
+
+        <div *ngIf="totalItem == 0" [ngClass]="{'card d-flex flex-row mb-3': true}">
+            <div class="d-flex flex-grow-1 min-width-zero">
+                <div class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
+                    No hay resultados relacionados con la búsqueda.
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="totalItem > 0" [ngClass]="{'card d-flex flex-row mb-3': true}">
+            <div class="card-dashborad d-flex flex-grow-1 min-width-zero">
+                <div class="tc card-body align-self-center d-flex flex-column flex-md-row min-width-zero align-items-md-center">
+                    <span class="nombre title-card list-item-heading mb-0 w-xs-100">
+                    <span>Nombre</span>
+                    </span>
+                    <span class="asignatura title-card list-item-heading mb-0 w-xs-100">
+                      <span>Asignatura</span>
+                    </span>
+                    <span class="desde title-card list-item-heading mb-0 w-xs-100">
+                        <span>Desde</span>
+                    </span>
+                    <span class="hasta title-card list-item-heading mb-0 w-xs-100">
+                        <span>Hasta</span>
+                    </span>
+                    <span class="intentos title-card list-item-heading mb-0 w-xs-100">
+                        <span *ngIf="userRole == 2">Intentos Restantes</span>
+                    <span *ngIf="userRole != 2">Intentos</span>
+                    </span>
+                    <span class="acciones title-card list-item-heading mb-0 w-xs-100">
+                        <span>Acciones</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+        <div [ngClass]="{'card d-flex flex-row mb-3': true, 'active':isSelected(p)}" *ngFor="let p of data; let i=index">
+            <div class="d-flex flex-grow-1 min-width-zero atc">
+                <div class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
+                    <p class="nombre list-item-heading mb-0 truncate w-25 w-xs-100">
+                        {{p.nombre}}
+                    </p>
+                    <p class="asignatura mb-0 text-muted w-xs-100">{{p.asignatura.nombrecorto}}</p>
+                    <p class="desde mb-0 text-muted text-small w-xs-100">{{p.desde}}</p>
+                    <p class="hasta mb-0 text-muted text-small w-xs-100">{{p.hasta}}</p>
+                    <p *ngIf="userRole!=2 && p.intentos_limitados" class="intentos mb-0 text-muted text-small w-xs-100">{{p.max_intentos}}</p>
+                    <p *ngIf="userRole!=2 && !p.intentos_limitados" class="intentos no-intentos mb-0 text-muted text-small w-xs-100">&infin;</p>
+                    <p *ngIf="userRole==2 && p.intentos_limitados" class="intentos mb-0 text-muted text-small w-xs-100">{{p.max_intentos-p.intentos}}</p>
+                    <p *ngIf="userRole==2 && !p.intentos_limitados" class="intentos no-intentos mb-0 text-muted text-small w-xs-100">&infin;</p>
+
+
+
+                    <div [className]="userRole==0 ? 'acciones atc up d-flex mb-0 text-muted text-small w-xs-100' : 'acciones atc d-flex mb-0 text-muted text-small w-xs-100'">
+                        <!-- <i *ngIf="userRole==2 && p.intentos!=undefined && (!p.intentos_limitados || p.intentos<p.max_intentos) && inTime(p._id)" class="simple-icon-plus ml-3" data-toggle="tooltip" data-placement="bottom" title="Hacer Ejercicio" (click)="createUserExercise(p)"></i> -->
+                        <i *ngIf="userRole==2 && p.intentos!=undefined && (!p.intentos_limitados || p.intentos<p.max_intentos) && inTime(p._id)" class="simple-icon-plus ml-3" data-toggle="tooltip" data-placement="bottom" title="Hacer Ejercicio" (click)="toDoExercise(p)"></i>
+                        <i *ngIf="userRole==2 && p.intentos_limitados && (p.intentos>=p.max_intentos || !inTime(p._id))" class="simple-icon-plus-disabled ml-3" data-toggle="tooltip" data-placement="bottom" title="Hacer Ejercicio" (click)="exerciseDisabled()"></i>
+                        <i *ngIf="userRole!=2" class="sr simple-icon-eye ml-3" data-toggle="tooltip" data-placement="bottom" title="Ver Registros" (click)="toViewExercise(p.uid)"></i>
+                        <i *ngIf="userRole!=2" class="sr simple-icon-pencil ml-3" data-toggle="tooltip" data-placement="bottom" title="Editar Ejercicio" (click)="toEditExercise(p)"></i>
+                        <i *ngIf="userRole==0" class="last-icon sr simple-icon-trash ml-3" data-toggle="tooltip" data-placement="bottom" title="Eliminar Ejercicio" (click)="confirmDelete(p)"></i>
+
+                        <label *ngIf="userRole == 0" class="custom-control custom-checkbox mb-1 align-self-center pr-4">
+                            <input type="checkbox" class="custom-control-input" [id]="'customCheck'+i" [checked]="isSelected(p)"
+                                (change)="onSelect(p)">
+                            <label class="custom-control-label" [for]="'customCheck'+i"></label>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12">
+        <pagination *ngIf="totalItem > 0" [totalItems]="totalItem" [itemsPerPage]="itemsPerPage" [rotate]="true" [maxSize]="5" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" class="justify-content-center" [customNextTemplate]="nextTemplate" [customPreviousTemplate]="prevTemplate">
+        </pagination>
+    </div>
+</div>
+<simple-notifications></simple-notifications>
+
+<ng-template #nextTemplate let-disabled="disabled" let-currentPage="currentPage">
+    <i class='simple-icon-arrow-right'></i>
+</ng-template>
+<ng-template #prevTemplate let-disabled="disabled" let-currentPage="currentPage">
+    <i class='simple-icon-arrow-left'></i>
+</ng-template>

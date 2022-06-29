@@ -43,6 +43,12 @@ const routes: Routes = [
           data: { roles: [UserRole.Admin, UserRole.Teacher, UserRole.Student] },
       },
       {
+        path: 'scenes',
+        loadChildren: () =>
+          import('./scenes/scenes.module').then((m) => m.ScenesModule),
+          data: { roles: [UserRole.Admin] },
+      },
+      {
         path: 'menu',
         loadChildren: () =>
           import('./menu/menu.module').then((m) => m.MenuModule),
