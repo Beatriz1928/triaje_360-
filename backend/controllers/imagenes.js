@@ -1,13 +1,18 @@
-
 const { response } = require('express');
 const { infoToken } = require('../helpers/infotoken');
 const Imagen = require('../models/imagenes');
 
 // funciones
 const getImagenes = async(req, res = response) => {
-    
+
     // parametros
+    var ObjectId = require('mongodb').ObjectID;
     const id = req.query.id;
+    const currentPage = Number(req.query.currentPage);
+    const pageSize = Number(req.query.pageSize) || 0;
+    const desde = (currentPage - 1) * pageSize;
+    //const imagen = req.query.;
+    const userId = req.query.userId;
 
     // Comprobamos roles
     const token = req.header('x-token');
@@ -30,10 +35,12 @@ const getImagenes = async(req, res = response) => {
 
         } else { // si no nos pasan el id
             [imagenes, totalImagenes] = await Promise.all([
-                Imagen.find({}, 'nombre descripcion ruta'),
+                Imagen
+                .find({}, 'nombre descripcion ruta')
+                .skip(desde).limit(pageSize),
                 Imagen.countDocuments()
             ]);
-            
+
 
         }
 
@@ -176,7 +183,7 @@ const borrarImagen = async(req, res = response) => {
 
         // si se ha superado la comprobacion, eliminamos el curso
         const imagen = await Imagen.findByIdAndRemove(uid);
-        
+
         res.json({
             ok: true,
             msg: 'Imagen borrada',
