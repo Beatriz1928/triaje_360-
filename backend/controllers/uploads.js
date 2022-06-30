@@ -367,10 +367,8 @@ const getImagenes = async(req, res = response) => {
             return res.status(400).json({
                 ok: false,
                 msg: `El tipo de operación no es permitido `,
-
             });
     }
-
 
 }
 
@@ -388,9 +386,6 @@ const borrarImagen = async(req, res = response) => {
             msg: 'No tiene permisos para borrar imagenes',
         });
     }
-
-
-
     switch (tipo) {
         case 'tiles':
 

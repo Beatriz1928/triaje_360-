@@ -1,15 +1,17 @@
-// RUTA BASE: /api/acciones
+/*
+Ruta base: /api/imagenes
+*/
 
 const { Router } = require('express');
-const { getImagenes, crearImagen, actualizarImagen, borrarImagen } = require('../controllers/imagenes');
 const { check } = require('express-validator');
-const { validarCampos } = require('../middleware/validar-campos');
+
+const { crearImagen, getImagenes, actualizarImagen, borrarImagen } = require('../controllers/uploads');
 const { validarJWT } = require('../middleware/validar-jwt');
+const { validarCampos } = require('../middleware/validar-campos');
 
 const router = Router();
 
-// definimos las rutas
-router.get('/', [
+router.get('/:tipo', [
     validarJWT,
     // comprobamos campos opcionales
     check('id', 'El id debe ser válido').optional().isMongoId(),
@@ -20,26 +22,31 @@ router.get('/', [
     validarCampos
 ], getImagenes);
 
-router.post('/', [
+router.get('/:tipo/:id', [
+    validarJWT,
+    check('id', 'El id debe ser válido').isMongoId(),
+    check('userId', 'Desde debe ser una cadena de texto').optional().isString(),
+    validarCampos
+], getImagen);
+
+router.post('/:tipo', [
     validarJWT,
     check('nombre', 'El argumento nombre es obligatorio').isString(),
     check('descripcion', 'El argumento descripcion es obligatorio').isString(),
-    validarCampos
+    validarCampos,
 ], crearImagen);
 
-router.put('/:id', [
+router.put('/:tipo/:id', [
     validarJWT,
-    check('nombre', 'El argumento nombre es obligatorio').isString(),
-    check('descripcion', 'El argumento descripcion es obligatorio').isString(),
-    validarCampos
+
+    check('id', 'El identificador no es válido').isMongoId(),
+    validarCampos,
 ], actualizarImagen);
 
-router.delete('/:id', [
+router.delete('/:tipo/:id', [
     validarJWT,
     check('id', 'El identificador no es válido').isMongoId(),
     validarCampos
 ], borrarImagen);
 
-
-// Exportamos el modulo
 module.exports = router;
