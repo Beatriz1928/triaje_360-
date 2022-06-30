@@ -46,11 +46,9 @@
                         <img class="imagen" src="./../../../../../assets/img/tiles/{{p.ruta}}" alt="Imagen escena">
                     </p>
                     <p class="desde mb-0 text-muted text-small w-xs-100">{{p.descripcion}}</p>
-                    <!-- <p class="hasta mb-0 text-muted text-small w-xs-100">{{p.hasta}}</p> -->
 
+                    <!-- ACCIONES -->
                     <div [className]="userRole!=2 ? 'acciones atc up d-flex mb-0 text-muted text-small w-xs-100' : 'acciones atc d-flex mb-0 text-muted text-small w-xs-100'">
-
-                        <i *ngIf="userRole!=2" class="sr simple-icon-eye ml-3" data-toggle="tooltip" data-placement="bottom" title="Ver Registros" (click)="toViewExercise(p.uid)"></i>
                         <i *ngIf="userRole!=2" class="sr simple-icon-pencil ml-3" data-toggle="tooltip" data-placement="bottom" title="Editar Escena" (click)="toEditExercise(p)"></i>
                         <i *ngIf="userRole!=2" class="last-icon sr simple-icon-trash ml-3" data-toggle="tooltip" data-placement="bottom" title="Eliminar Escena" (click)="confirmDelete(p)"></i>
 
@@ -64,7 +62,7 @@
             </div>
         </div>
     </div>
-
+    <!--Paginacion-->
     <div class="col-12">
         <pagination *ngIf="totalItem > 0" [totalItems]="totalItem" [itemsPerPage]="itemsPerPage" [rotate]="true" [maxSize]="5" [(ngModel)]="currentPage" (pageChanged)="pageChanged($event)" class="justify-content-center" [customNextTemplate]="nextTemplate" [customPreviousTemplate]="prevTemplate">
         </pagination>
