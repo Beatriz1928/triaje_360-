@@ -12,8 +12,8 @@ export class ImagenService {
 
   // ******* PETICIONES IMAGENES *********
 
-  getImages(pageSize?: number, currentPage?: number) {
-    const url = environment.base_url + '/imagenes';
+  getImages(tipo?:string ,pageSize?: number, currentPage?: number) {
+    const url = environment.base_url + '/imagenes/'+tipo;
     const token = localStorage.getItem('token');
 
     // HEADERS

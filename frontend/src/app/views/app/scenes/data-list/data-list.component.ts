@@ -43,7 +43,7 @@ export class DataListComponent implements OnInit {
 
     this.itemsPerPage = pageSize;
     this.currentPage = currentPage;
-    this.sceneService.getImages(pageSize, currentPage).subscribe(
+    this.sceneService.getImages('tiles',pageSize, currentPage).subscribe(
       data => {
         this.data = data['imagenes'];
         this.totalItem = data['totalImagenes'];
