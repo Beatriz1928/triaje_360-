@@ -22,12 +22,7 @@ router.get('/:tipo', [
     validarCampos
 ], getImagenes);
 
-router.get('/:tipo/:id', [
-    validarJWT,
-    check('id', 'El id debe ser válido').isMongoId(),
-    check('userId', 'Desde debe ser una cadena de texto').optional().isString(),
-    validarCampos
-], getImagen);
+
 
 router.post('/:tipo', [
     validarJWT,
