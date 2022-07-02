@@ -1,9 +1,18 @@
 <ng-template #template>
     <div class="modal-header">
-        <h4 class="modal-title pull-left">{{'pages.add-new-scene' | translate}}</h4>
-        <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
-          <span aria-hidden="true">&times;</span>
-      </button>
+        <ng-template *ngIf="scene then editar else crear"> </ng-template>
+        <ng-template #crear>
+            <h4 class="modal-title pull-left">{{'pages.add-new-scene' | translate}}</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+  </button>
+        </ng-template>
+        <ng-template #editar>
+            <h4 class="modal-title pull-left">{{'pages.edit-scene' | translate}}</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+      <span aria-hidden="true">&times;</span>
+  </button>
+        </ng-template>
     </div>
     <form id="formElem" class="form-horizontal m-t-20 scrollMio" [formGroup]="formData" (ngSubmit)="createUpdateScene()">
         <div class="modal-body">

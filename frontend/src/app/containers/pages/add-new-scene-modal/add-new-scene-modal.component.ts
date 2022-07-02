@@ -23,6 +23,8 @@ export class AddNewSceneModalComponent  {
 
   scene: Imagen;
   public foto: File = null;
+
+  //FORM
   private formSubmited = false;
   public formData=this.fb.group({
     nombre: ['', [Validators.required]],
@@ -40,6 +42,7 @@ export class AddNewSceneModalComponent  {
 
   show(id? : number): void {
     this.formData.reset();
+
     this.scene = undefined;
     if(id){
       this.getScene(id);
@@ -97,7 +100,7 @@ export class AddNewSceneModalComponent  {
   getScene(id:number): void{
     this.sceneService.getImage(id).subscribe(
       data =>{
-        this.scene = data['imagen'];
+        this.scene = data['imagenes'];
         this.loadSceneData();
       },
     error => {

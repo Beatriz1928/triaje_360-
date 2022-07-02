@@ -55,7 +55,7 @@ export class AddNewSchoolYearModalComponent {
     if (this.formData.invalid) { return; }
 
     let curso: any;
-    if(this.schoolYear) { 
+    if(this.schoolYear) {
       curso = this.schoolYear.uid
     } else {
       curso = '';
@@ -146,7 +146,7 @@ export class AddNewSchoolYearModalComponent {
   }
 
   msgCursoActivo(curso: Curso): void {
-    
+
     Swal.fire({
       title: 'Crear Curso Activo',
       text: 'Solo puede existir un Curso activo, si confirmas esta creación, el otro curso activo se desactivará.',
@@ -162,14 +162,14 @@ export class AddNewSchoolYearModalComponent {
       if (result.isConfirmed) {
 
         let idCurso: any;
-        if(this.schoolYear) { 
+        if(this.schoolYear) {
           idCurso = this.schoolYear.uid;
         } else {
           idCurso = '';
         }
-        
+
         this.cursoService.createUpdateSchoolYear( this.formData.value, idCurso, curso[0].uid).subscribe( res => {
-  
+
           this.dataList.loadSchoolYears(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemYear);
           this.closeModal();
 
