@@ -35,6 +35,7 @@ const crearImagen = async(req, res = response) => {
 
     const archivo = req.files.archivo;
     const nombrePartido = archivo.name.split('.');
+    const nom = nombrePartido[0];
     const extension = nombrePartido[nombrePartido.length - 1];
     const archivosValidos = {
         tiles: ['jpeg', 'jpg', 'png'],
@@ -44,26 +45,7 @@ const crearImagen = async(req, res = response) => {
     let ruta = '';
 
 
-    // comprobamos si ya existe el nombre
-    const existeImagen = await Imagen.findOne({ nombre });
-    if (existeImagen) {
-        return res.status(400).json({
-            ok: false,
-            msg: 'El nombre ya existe para otra imagen'
-        });
-    }
 
-    // comprobamos si ya existe el nombre
-    const existeImagen2 = await ImagenPaciente.findOne({ nombre });
-    if (existeImagen2) {
-        return res.status(400).json({
-            ok: false,
-            msg: 'El nombre ya existe para otra imagen'
-        });
-    }
-
-
-    const nom = uuidv4();
     //comprobamos tipo operación realizada
     switch (tipo) {
         case 'tiles':
@@ -74,8 +56,8 @@ const crearImagen = async(req, res = response) => {
 
                 });
             };
-            patharchivo = `${process.env.PATHUPLOAD}${tipo}/${req.body.nombre}/${nom}.${extension}`;
-            ruta = `${req.body.nombre}/${nom}.${extension}`;
+            patharchivo = `${process.env.PATHUPLOAD}/tiles/${nom}/preview.${extension}`;
+            ruta = `${nom}/preview.${extension}`;
             break;
         case 'pacientes':
             if (!archivosValidos.pacientes.includes(extension)) {
@@ -85,15 +67,17 @@ const crearImagen = async(req, res = response) => {
 
                 });
             };
-            patharchivo = `${process.env.PATHUPLOAD}${tipo}/${nom}.${extension}`;
+            patharchivo = `${process.env.PATHUPLOAD}/pacientes/${nom}.${extension}`;
             ruta = `${nom}.${extension}`;
             break;
         default:
-            return res.status(400).json({
-                ok: false,
-                msg: `El tipo de operación no es permitido `,
+            patharchivo = `${process.env.PATHUPLOAD}/tiles/${nom}/preview.${extension}`;
+            ruta = `${nom}/preview.${extension}`;
+            // return res.status(400).json({
+            //     ok: false,
+            //     msg: `El tipo de operación no es permitido `,
 
-            });
+            // });
     }
 
     console.log(patharchivo);
@@ -105,22 +89,6 @@ const crearImagen = async(req, res = response) => {
                 tipoOperacion: tipo
             });
         }
-        switch (tipo) {
-            case 'tiles':
-                req.body.ruta = ruta;
-                console.log(req.body.ruta);
-                const imagen = new Imagen(req.body);
-                imagen.save();
-                break;
-            case 'pacientes':
-                req.body.ruta = ruta;
-                console.log(req.body.ruta);
-                const img = new ImagenPaciente(req.body);
-                img.save();
-
-                break;
-        }
-
 
         res.json({
             ok: true,

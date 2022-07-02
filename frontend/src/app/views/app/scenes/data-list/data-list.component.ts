@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AddNewSchoolYearModalComponent } from '../../../../../app/containers/pages/add-new-school-year-modal/add-new-school-year-modal.component';
+import { AddNewSceneModalComponent } from '../../../../containers/pages/add-new-scene-modal/add-new-scene-modal.component';
 import { Imagen } from './../../../../models/imagen.model';
 import { ImagenService } from '../../../../../app/data/imagen.service';
 import { NotificationsService, NotificationType } from 'angular2-notifications';
@@ -25,7 +25,7 @@ export class DataListComponent implements OnInit {
   totalPage = 0;
   itemYear = 0;
 
- // @ViewChild('addNewModalRef', { static: true }) addNewModalRef: AddNewSchoolYearModalComponent;
+  @ViewChild('addNewModalRef', { static: true }) addNewModalRef: AddNewSceneModalComponent;
 
 
   constructor(private sceneService: ImagenService, private notifications: NotificationsService,
@@ -59,42 +59,43 @@ export class DataListComponent implements OnInit {
     );
   }
 
-  // showAddNewModal(scene? : Imagen): void {
-  //   if(scene) {
-  //     console.log(scene.uid);
-  //     this.addNewModalRef.show(scene.uid);
-  //   } else {
-  //     this.addNewModalRef.show();
-  //   }
-  // }
+  showAddNewModal(img? : Imagen): void {
+    if(img) {
+      console.log(img.uid);
+      this.addNewModalRef.show(img.uid);
+    } else {
+      this.addNewModalRef.show();
+    }
+  }
 
-  // dropScenes(scenes: Imagen[]): void {
+  dropScenes(imgs: Imagen[]): void {
 
-  //   for(let i=0; i<scenes.length; i++){
-  //     this.sceneService.dropImage(scenes[i].uid).subscribe(
-  //       data => {
-  //         this.loadScenes(this.itemsPerPage, this.currentPage);
+    for(let i=0; i<imgs.length; i++){
+      this.sceneService.dropImage(imgs[i].uid).subscribe(
+        data => {
+          this.loadScenes(this.itemsPerPage, this.currentPage);
 
-  //         this.notifications.create('Cursos Académicos eliminados', 'Se han eliminado los Cursos Académicos correctamente', NotificationType.Info, {
-  //           theClass: 'outline primary',
-  //           timeOut: 6000,
-  //           showProgressBar: false
-  //         });
+          this.notifications.create('Cursos Académicos eliminados', 'Se han eliminado las escenas correctamente', NotificationType.Info, {
+            theClass: 'outline primary',
+            timeOut: 6000,
+            showProgressBar: false
+          });
 
-  //       },
-  //       error => {
+        },
+        error => {
 
-  //         this.notifications.create('Error', 'No se han podido eliminar los Cursos Académicos', NotificationType.Error, {
-  //           theClass: 'outline primary',
-  //           timeOut: 6000,
-  //           showProgressBar: false
-  //         });
+          this.notifications.create('Error', 'No se han podido eliminar las escenas', NotificationType.Error, {
+            theClass: 'outline primary',
+            timeOut: 6000,
+            showProgressBar: false
+          });
 
-  //         return;
-  //       }
-  //     );
-  //   }
-  // }
+          return;
+        }
+      );
+    }
+  }
+
 
   // dropScene(imagen: Imagen): void {
 

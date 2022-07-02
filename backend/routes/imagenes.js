@@ -4,8 +4,7 @@ Ruta base: /api/imagenes
 
 const { Router } = require('express');
 const { check } = require('express-validator');
-
-const { crearImagen, getImagenes, actualizarImagen, borrarImagen } = require('../controllers/uploads');
+const { crearImagen, getImagenes, getImagen, actualizarImagen, borrarImagen } = require('../controllers/imagenes');
 const { validarJWT } = require('../middleware/validar-jwt');
 const { validarCampos } = require('../middleware/validar-campos');
 
@@ -23,11 +22,18 @@ router.get('/:tipo', [
 ], getImagenes);
 
 
+router.get('/:tipo/:id', [
+    validarJWT,
+    check('id', 'El identificador no es válido').isMongoId(),
+    validarCampos,
+], getImagen);
+
 
 router.post('/:tipo', [
     validarJWT,
     check('nombre', 'El argumento nombre es obligatorio').isString(),
     check('descripcion', 'El argumento descripcion es obligatorio').isString(),
+    check('ruta', 'El argumento ruta es obligatorio').isString(),
     validarCampos,
 ], crearImagen);
 

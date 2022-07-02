@@ -16,34 +16,14 @@ const crearImagen = async(req, res = response) => {
         });
     }
     //comprobamos que se manda un archivo
-    if (!req.files || Object.keys(req.files).length === 0) {
-        return res.status(400).json({
-            ok: false,
-            msg: 'No se ha enviado archivo'
-        });
-    }
-    // comprobamos el peso del archivo y si pesa mucho no lo aceptamos
-    if (req.files.archivo.truncated) {
-        return res.status(400).json({
-            ok: false,
-            msg: `El archivo es demasiado grande, permitido hasta ${process.env.MAXSIZEUPLOAD}MB `
 
-        });
-    }
-    const { nombre } = req.body;
+    const nombre = req.body.nombre;
     const tipo = req.params.tipo //fotoEscena o fotoVictima
-
-    const archivo = req.files.archivo;
-    const nombrePartido = archivo.name.split('.');
+    const archivo = req.body.ruta;
+    console.log(archivo);
+    const nombrePartido = archivo.split('.');
     const extension = nombrePartido[nombrePartido.length - 1];
-    const archivosValidos = {
-        tiles: ['jpeg', 'jpg', 'png'],
-        pacientes: ['jpeg', 'jpg', 'png']
-    }
-    let patharchivo = '';
-    let ruta = '';
-
-
+    const nom = nombrePartido[0];
     // comprobamos si ya existe el nombre
     const existeImagen = await Imagen.findOne({ nombre });
     if (existeImagen) {
@@ -63,39 +43,65 @@ const crearImagen = async(req, res = response) => {
     }
 
 
-    const nom = uuidv4();
-    //comprobamos tipo operación realizada
     switch (tipo) {
         case 'tiles':
-            if (!archivosValidos.tiles.includes(extension)) {
-                return res.status(400).json({
-                    ok: false,
-                    msg: `El tipo de archivo ${extension} no es valido (${archivosValidos.fotoEscena}) `,
-
-                });
-            };
-            patharchivo = `${process.env.PATHUPLOAD}${tipo}/${req.body.nombre}/${nom}.${extension}`;
-            ruta = `${req.body.nombre}/${nom}.${extension}`;
+            req.body.ruta = `${nom}/preview.${extension}`;
+            console.log(req.body.ruta);
+            const imagen = new Imagen(req.body);
+            imagen.save();
             break;
         case 'pacientes':
-            if (!archivosValidos.pacientes.includes(extension)) {
-                return res.status(400).json({
-                    ok: false,
-                    msg: `El tipo de archivo ${extension} no es valido (${archivosValidos.fotoVictima}) `,
+            console.log(req.body.ruta);
+            const img = new ImagenPaciente(req.body);
+            img.save();
 
-                });
-            };
-            patharchivo = `${process.env.PATHUPLOAD}${tipo}/${nom}.${extension}`;
-            ruta = `${nom}.${extension}`;
             break;
-        default:
-            return res.status(400).json({
-                ok: false,
-                msg: `El tipo de operación no es permitido `,
-
-            });
     }
 
+
+    res.json({
+        ok: true,
+        msg: 'Subir archivo',
+    });
+
+
+}
+
+const actualizarImagen = async(req, res = response) => {
+    //comprobamos si es admin
+    const token = req.header('x-token');
+    if (!(infoToken(token).rol === 'ROL_ADMIN')) {
+        return res.status(400).json({
+            ok: false,
+            msg: 'No tiene permisos para crear imagenes',
+        });
+    }
+    //comprobamos que se manda un archivo
+
+    const nombre = req.body.nombre;
+    const tipo = req.params.tipo //fotoEscena o fotoVictima
+    const archivo = req.body.ruta;
+    console.log(archivo);
+    const nombrePartido = archivo.split('.');
+    const extension = nombrePartido[nombrePartido.length - 1];
+    const nom = nombrePartido[0];
+    // comprobamos si ya existe el nombre
+    const existeImagen = await Imagen.findOne({ nombre });
+    if (existeImagen) {
+        return res.status(400).json({
+            ok: false,
+            msg: 'El nombre ya existe para otra imagen'
+        });
+    }
+
+    // comprobamos si ya existe el nombre
+    const existeImagen2 = await ImagenPaciente.findOne({ nombre });
+    if (existeImagen2) {
+        return res.status(400).json({
+            ok: false,
+            msg: 'El nombre ya existe para otra imagen'
+        });
+    }
     console.log(patharchivo);
     archivo.mv(patharchivo, (err) => {
         if (err) {
@@ -109,165 +115,22 @@ const crearImagen = async(req, res = response) => {
             case 'tiles':
                 req.body.ruta = ruta;
                 console.log(req.body.ruta);
-                const imagen = new Imagen(req.body);
-                imagen.save();
+                const imagen = Imagen.findByIdAndUpdate(uid, req.body, { new: true });
                 break;
             case 'pacientes':
                 req.body.ruta = ruta;
                 console.log(req.body.ruta);
-                const img = new ImagenPaciente(req.body);
-                img.save();
-
+                const img = ImagenPaciente.findByIdAndUpdate(uid, req.body, { new: true });
                 break;
         }
 
-
         res.json({
             ok: true,
-            msg: 'Subir archivo',
+            msg: 'Actualizar archivo',
         });
 
     });
 
-}
-
-const actualizarImagen = async(req, res = response) => {
-
-    //comprobamos si es admin
-    const token = req.header('x-token');
-    if (!(infoToken(token).rol === 'ROL_ADMIN')) {
-        return res.status(400).json({
-            ok: false,
-            msg: 'No tiene permisos para actualizar imagenes',
-        });
-    }
-    //comprobamos que se manda un archivo
-    if (!req.files || Object.keys(req.files).length === 0) {
-        return res.status(400).json({
-            ok: false,
-            msg: 'No se ha enviado archivo'
-        });
-    }
-    // comprobamos el peso del archivo y si pesa mucho no lo aceptamos
-    if (req.files.archivo.truncated) {
-        return res.status(400).json({
-            ok: false,
-            msg: `El archivo es demasiado grande, permitido hasta ${process.env.MAXSIZEUPLOAD}MB `
-
-        });
-    }
-    const { nombre } = req.body;
-    const tipo = req.params.tipo //fotoEscena o fotoVictima
-
-    const uid = req.params.id;
-    const archivo = req.files.archivo;
-    const nombrePartido = archivo.name.split('.');
-    const extension = nombrePartido[nombrePartido.length - 1];
-    const archivosValidos = {
-        tiles: ['jpeg', 'jpg', 'png'],
-        pacientes: ['jpeg', 'jpg', 'png']
-    }
-    let patharchivo = '';
-    let ruta = '';
-    try {
-        // comprobamos si ya existe el id
-        const existeImagen = await Imagen.findById(uid);
-        const existeImagen2 = await ImagenPaciente.findById(uid);
-        if (!existeImagen && !existeImagen2) {
-            return res.status(400).json({
-                ok: false,
-                msg: 'No existe el recurso'
-            });
-        }
-
-        // comprobamos si ya existe el id
-        const existeImagen3 = await Imagen.findOne({ nombre });
-        if (existeImagen3) {
-            return res.status(400).json({
-                ok: false,
-                msg: 'El nombre ya existe para otra imagen'
-            });
-        }
-
-        // comprobamos si ya existe el id
-        const existeImagen4 = await ImagenPaciente.findOne({ nombre });
-        if (existeImagen4) {
-            return res.status(400).json({
-                ok: false,
-                msg: 'El nombre ya existe para otra imagen'
-            });
-        }
-
-        const nom = uuidv4();
-        //comprobamos tipo operación realizada
-        switch (tipo) {
-            case 'tiles':
-                if (!archivosValidos.tiles.includes(extension)) {
-                    return res.status(400).json({
-                        ok: false,
-                        msg: `El tipo de archivo ${extension} no es valido (${archivosValidos.fotoEscena}) `,
-
-                    });
-                };
-
-                patharchivo = `${process.env.PATHUPLOAD}${tipo}/${req.body.nombre}/${nom}.${extension}`;
-                ruta = `${req.body.nombre}/${nom}.${extension}`;
-                break;
-            case 'pacientes':
-                if (!archivosValidos.pacientes.includes(extension)) {
-                    return res.status(400).json({
-                        ok: false,
-                        msg: `El tipo de archivo ${extension} no es valido (${archivosValidos.fotoVictima}) `,
-
-                    });
-                };
-                patharchivo = `${process.env.PATHUPLOAD}${tipo}/${nom}.${extension}`;
-                ruta = `${nom}.${extension}`;
-                break;
-            default:
-                return res.status(400).json({
-                    ok: false,
-                    msg: `El tipo de operación no es permitido `,
-
-                });
-        }
-
-        console.log(patharchivo);
-        archivo.mv(patharchivo, (err) => {
-            if (err) {
-                return res.status(400).json({
-                    ok: false,
-                    msg: `No se pudo guardar el archivo `,
-                    tipoOperacion: tipo
-                });
-            }
-            switch (tipo) {
-                case 'tiles':
-                    req.body.ruta = ruta;
-                    console.log(req.body.ruta);
-                    const imagen = Imagen.findByIdAndUpdate(uid, req.body, { new: true });
-                    break;
-                case 'pacientes':
-                    req.body.ruta = ruta;
-                    console.log(req.body.ruta);
-                    const img = ImagenPaciente.findByIdAndUpdate(uid, req.body, { new: true });
-                    break;
-            }
-
-
-            res.json({
-                ok: true,
-                msg: 'Actualizar archivo',
-            });
-
-        });
-    } catch (error) {
-        console.log(error);
-        res.status(400).json({
-            ok: false,
-            msg: 'Error actualizando la imagen'
-        });
-    }
 }
 
 
@@ -375,6 +238,84 @@ const getImagenes = async(req, res = response) => {
 }
 
 
+const getImagen = async(req, res = response) => {
+
+    const uid = req.params.id;
+    const tipo = req.params.tipo //fotoEscena o fotoVictima
+        // Solo puede borrar cursos un admin
+    const token = req.header('x-token');
+    // lo puede obtener cualquier usuario
+    if (!(infoToken(token).rol === 'ROL_ADMIN') && !(infoToken(token).rol === 'ROL_PROFESOR') && !(infoToken(token).rol === 'ROL_ALUMNO')) {
+        return res.status(400).json({
+            ok: false,
+            msg: 'No tiene permisos para obtener el recurso',
+        });
+    }
+
+    switch (tipo) {
+        case 'tiles':
+            try {
+                // comprobamos si la imagen que se esta intentando obtener existe
+                const existeImagen = await Imagen.findById(uid);
+                if (!existeImagen) {
+                    return res.status(400).json({
+                        ok: false,
+                        msg: 'La imagen no existe'
+                    });
+                }
+                imagen = existeImagen;
+
+                res.json({
+                    ok: true,
+                    msg: 'Imagen obtenida',
+                    imagen
+                });
+            } catch (error) {
+                console.log(error);
+                res.status(400).json({
+                    ok: false,
+                    msg: 'Error obteniendo la imagen'
+                });
+            }
+            break;
+        case 'pacientes':
+            try {
+                // comprobamos si la imagen que se esta intentando obtener existe
+                const existeImagen = await ImagenPaciente.findById(uid);
+                if (!existeImagen) {
+                    return res.status(400).json({
+                        ok: false,
+                        msg: 'La imagen no existe'
+                    });
+                }
+                imagen = existeImagen;
+
+                res.json({
+                    ok: true,
+                    msg: 'Imagen obtenida',
+                    imagen
+                });
+            } catch (error) {
+                console.log(error);
+                res.status(400).json({
+                    ok: false,
+                    msg: 'Error obteniendo la imagen'
+                });
+            }
+            break;
+        default:
+            return res.status(400).json({
+                ok: false,
+                msg: `El tipo de operación no es permitido `,
+
+            });
+    }
+
+
+}
+
+
+
 const borrarImagen = async(req, res = response) => {
 
     const uid = req.params.id;
@@ -394,7 +335,7 @@ const borrarImagen = async(req, res = response) => {
 
             try {
 
-                // comprobamos si el curso que se esta intentando eliminar existe
+                // comprobamos si la imagen que se esta intentando eliminar existe
                 const existeImagen = await Imagen.findById(uid);
                 if (!existeImagen) {
                     return res.status(400).json({
@@ -404,7 +345,7 @@ const borrarImagen = async(req, res = response) => {
                 }
 
 
-                // si se ha superado la comprobacion, eliminamos el curso
+                // si se ha superado la comprobacion, eliminamos la imagen
                 const imagen = await Imagen.findByIdAndRemove(uid);
 
                 res.json({
@@ -426,7 +367,7 @@ const borrarImagen = async(req, res = response) => {
 
             try {
 
-                // comprobamos si el curso que se esta intentando eliminar existe
+                // comprobamos si la imagen que se esta intentando eliminar existe
                 const existeImagen = await ImagenPaciente.findById(uid);
                 if (!existeImagen) {
                     return res.status(400).json({
@@ -436,7 +377,7 @@ const borrarImagen = async(req, res = response) => {
                 }
 
 
-                // si se ha superado la comprobacion, eliminamos el curso
+                // si se ha superado la comprobacion, eliminamos la imagen
                 const imagen = await ImagenPaciente.findByIdAndRemove(uid);
 
                 res.json({
@@ -467,4 +408,4 @@ const borrarImagen = async(req, res = response) => {
 
 
 // exportamos las funciones 
-module.exports = { crearImagen, getImagenes, actualizarImagen, borrarImagen };
+module.exports = { crearImagen, getImagenes, actualizarImagen, borrarImagen, getImagen };

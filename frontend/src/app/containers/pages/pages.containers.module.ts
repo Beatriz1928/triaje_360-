@@ -38,6 +38,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AddNewUserModalComponent } from './add-new-user-modal/add-new-user-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddNewSchoolYearModalComponent } from './add-new-school-year-modal/add-new-school-year-modal.component';
+import { AddNewSceneModalComponent } from './add-new-scene-modal/add-new-scene-modal.component';
 import { AddNewSubjectModalComponent } from './add-new-subject-modal/add-new-subject-modal.component';
 import { ManageSubjectModalComponent } from './manage-subject-modal/manage-subject-modal.component';
 import { SimpleNotificationsModule } from 'angular2-notifications';
@@ -73,6 +74,7 @@ import { TriarPatientComponent } from './triar-patient/triar-patient.component';
     AddNewUserModalComponent,
     AddNewSchoolYearModalComponent,
     AddNewSubjectModalComponent,
+    AddNewSceneModalComponent,
     ManageSubjectModalComponent,
     ShowStudentRegisterModalComponent,
     SelectPatientImgModalComponent,
@@ -103,6 +105,7 @@ import { TriarPatientComponent } from './triar-patient/triar-patient.component';
     AddNewUserModalComponent,
     AddNewSchoolYearModalComponent,
     AddNewSubjectModalComponent,
+    AddNewSceneModalComponent,
     ManageSubjectModalComponent,
     ListPageHeaderComponent,
     ProfileUserSocialComponent,

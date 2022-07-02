@@ -5,6 +5,7 @@ import {
   HttpHeaders
 } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { Imagen } from '../models/imagen.model';
 
 @Injectable({ providedIn: 'root' })
 export class ImagenService {
@@ -30,7 +31,7 @@ export class ImagenService {
   }
 
   getImage(id: number) {
-    const url = environment.base_url + '/imagenes';
+    const url = environment.base_url + '/imagenes/tiles/';
     const token = localStorage.getItem('token');
 
     // HEADERS
@@ -42,6 +43,67 @@ export class ImagenService {
     params = params.append('id', id + '');
 
     return this.http.get(url, { headers, params });
+  }
+
+
+  updateImage(data: Imagen,id: number) {
+    const url = environment.base_url + '/imagenes/tiles/';
+    const token = localStorage.getItem('token');
+
+    // HEADERS
+    let headers = new HttpHeaders();
+    headers = headers.append('x-token', token);
+
+    // DATA
+    const sendData = {
+      "nombre": data['nombre'],
+      "descripcion": data['descripcion'],
+      "ruta": data['ruta']
+    }
+
+    // PARAMS
+    let params = new HttpParams();
+    params = params.append('id', id + '');
+
+    return this.http.put(url, sendData, { headers, params });
+  }
+
+  createImage(data: Imagen) {
+    const url = environment.base_url + '/imagenes/tiles';
+    const token = localStorage.getItem('token');
+
+    // HEADERS
+    let headers = new HttpHeaders();
+    headers = headers.append('x-token', token);
+
+    // DATA
+    const sendData = {
+      "nombre": data['nombre'],
+      "descripcion": data['descripcion'],
+      "ruta": data['ruta']
+    }
+
+    // PARAMS
+    let params = new HttpParams();
+
+    return this.http.post(url, sendData, { headers, params });
+  }
+
+  subirFoto( file: File) {
+    const url = `${environment.base_url}/upload/tiles`;
+    const token = localStorage.getItem('token');
+      // HEADERS
+    let headers = new HttpHeaders();
+    headers = headers.append('x-token', token);
+    // PARAMS
+   // PARAMS
+   let params = new HttpParams();
+   params = params.append('archivo', file + '');
+
+    const datos: FormData = new FormData();
+    datos.append('archivo', file, file.name);
+
+    return this.http.post(url, datos, { headers });
   }
 
   dropImage(id: number) {

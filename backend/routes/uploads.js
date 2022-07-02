@@ -24,8 +24,6 @@ router.get('/:tipo', [
 
 router.post('/:tipo', [
     validarJWT,
-    check('nombre', 'El argumento nombre es obligatorio').isString(),
-    check('descripcion', 'El argumento descripcion es obligatorio').isString(),
     validarCampos,
 ], crearImagen);
 
