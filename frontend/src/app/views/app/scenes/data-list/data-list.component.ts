@@ -23,7 +23,7 @@ export class DataListComponent implements OnInit {
   orderBy = '';
   totalItem = 0;
   totalPage = 0;
-  itemYear = 0;
+  itemScene = '';
 
   @ViewChild('addNewModalRef', { static: true }) addNewModalRef: AddNewSceneModalComponent;
 
@@ -36,14 +36,14 @@ export class DataListComponent implements OnInit {
     //this.sender.id = undefined;
     //this.sender.idSubjectExercise = undefined;
     //this.sender.idExercise = undefined;
-    this.loadScenes(this.itemsPerPage, this.currentPage);
+    this.loadScenes(this.itemsPerPage, this.currentPage, this.itemScene, '');
   }
 
-  loadScenes(pageSize: number, currentPage: number): void {
+  loadScenes(pageSize: number, currentPage: number, nomScene: string, search?: string): void {
 
     this.itemsPerPage = pageSize;
     this.currentPage = currentPage;
-    this.sceneService.getImages('tiles',pageSize, currentPage).subscribe(
+    this.sceneService.getImages('tiles',pageSize, currentPage, search).subscribe(
       data => {
         this.data = data['imagenes'];
         this.totalItem = data['totalImagenes'];
@@ -88,7 +88,7 @@ export class DataListComponent implements OnInit {
             timeOut: 6000,
             showProgressBar: false
           });
-          this.loadScenes(this.itemsPerPage, this.currentPage);
+          this.loadScenes(this.itemsPerPage, this.currentPage, this.itemScene, this.search);
           return;
         }
       );
@@ -99,7 +99,7 @@ export class DataListComponent implements OnInit {
   dropScene(imagen: Imagen): void {
     this.sceneService.dropImage(imagen.uid,'tiles').subscribe(
       data => {
-        this.loadScenes(this.itemsPerPage, this.currentPage);
+        this.loadScenes(this.itemsPerPage, this.currentPage, this.itemScene, this.search);
 
         this.notifications.create('Escena eliminada', 'Se ha eliminado la escena correctamente', NotificationType.Info, {
           theClass: 'outline primary',
@@ -176,16 +176,16 @@ export class DataListComponent implements OnInit {
   }
 
   pageChanged(event: any): void {
-    this.loadScenes(this.itemsPerPage, event.page);
+    this.loadScenes(this.itemsPerPage, event.page, this.itemScene, this.search);
   }
 
   itemsPerPageChange(perPage: number): void {
-    this.loadScenes(perPage, 1);
+    this.loadScenes(perPage, 1, this.itemScene, this.search);
   }
 
   searchKeyUp(val: string): void {
     this.search = val;
-    this.loadScenes(this.itemsPerPage, this.currentPage);
+    this.loadScenes(this.itemsPerPage, this.currentPage, this.itemScene, this.search);
   }
 
   // changeOrderBy(item: any): void {

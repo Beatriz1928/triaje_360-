@@ -137,7 +137,7 @@ export class AddNewSceneModalComponent  {
         // si no tenemos id de escena, creamos una
         this.sceneService.createImage(this.formData.value)
         .subscribe(res => {
-          this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage)
+          this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
           this.closeModal();
 
           this.notifications.create('Escena creada', 'Se ha creado la escena correctamente', NotificationType.Info, {
@@ -161,7 +161,7 @@ export class AddNewSceneModalComponent  {
         console.log('el id  es: '+ escena);
         this.sceneService.updateImage(this.formData.value, escena)
         .subscribe(res => {
-          this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage)
+          this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
           this.closeModal();
 
           this.notifications.create('Escena editada', 'Se ha editado la escena correctamente', NotificationType.Info, {
@@ -192,7 +192,7 @@ export class AddNewSceneModalComponent  {
         });
       }
 
-    this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage)
+    this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
     this.closeModal();
     }
 

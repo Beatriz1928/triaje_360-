@@ -134,6 +134,11 @@ const getImagenes = async(req, res = response) => {
     // parametros
     var ObjectId = require('mongodb').ObjectID;
     const id = req.query.id;
+    const texto = req.query.texto;
+    let textoBusqueda = '';
+    if (texto) {
+        textoBusqueda = new RegExp(texto, 'i');
+    }
     const currentPage = Number(req.query.currentPage);
     const pageSize = Number(req.query.pageSize) || 0;
     const desde = (currentPage - 1) * pageSize;
@@ -161,12 +166,19 @@ const getImagenes = async(req, res = response) => {
                     ]);
 
                 } else { // si no nos pasan el id
-                    [imagenes, totalImagenes] = await Promise.all([
-                        Imagen
-                        .find({}, 'nombre descripcion ruta')
-                        .skip(desde).limit(pageSize),
-                        Imagen.countDocuments()
-                    ]);
+
+
+                    if (texto != undefined) {
+                        [imagenes, totalImagenes] = await Promise.all([
+                            Imagen.find({ $or: [{ nombre: textoBusqueda }, { descripcion: textoBusqueda }] }, 'nombre descripcion').skip(desde).limit(pageSize),
+                            Imagen.countDocuments({ $or: [{ nombre: textoBusqueda }, { descripcion: textoBusqueda }] })
+                        ]);
+                    } else {
+                        [imagenes, totalImagenes] = await Promise.all([
+                            Imagen.find({}, 'nombre descripcion ruta').skip(desde).limit(pageSize),
+                            Imagen.countDocuments()
+                        ]);
+                    }
 
 
                 }

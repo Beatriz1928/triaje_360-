@@ -13,7 +13,7 @@ export class ImagenService {
 
   // ******* PETICIONES IMAGENES *********
 
-  getImages(tipo?:string ,pageSize?: number, currentPage?: number) {
+  getImages(tipo?:string ,pageSize?: number, currentPage?: number, texto?: string) {
     const url = environment.base_url + '/imagenes/'+tipo;
     const token = localStorage.getItem('token');
 
@@ -25,6 +25,7 @@ export class ImagenService {
     let params = new HttpParams();
     if(pageSize) { params = params.append('pageSize', pageSize + ''); }
     if(currentPage) { params = params.append('currentPage', currentPage + ''); }
+    if(texto && texto!='') { params = params.append('texto', texto + ''); }
 
     return this.http.get(url, { headers, params });
 
