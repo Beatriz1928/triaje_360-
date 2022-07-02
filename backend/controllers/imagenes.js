@@ -313,6 +313,7 @@ const getImagen = async(req, res = response) => {
 const borrarImagen = async(req, res = response) => {
 
     const uid = req.params.id;
+    console.log('es :' + uid);
     const tipo = req.params.tipo //fotoEscena o fotoVictima
         // Solo puede borrar cursos un admin
     const token = req.header('x-token');

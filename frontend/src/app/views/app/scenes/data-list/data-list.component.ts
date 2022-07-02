@@ -71,11 +71,10 @@ export class DataListComponent implements OnInit {
   dropScenes(imgs: Imagen[]): void {
 
     for(let i=0; i<imgs.length; i++){
-      this.sceneService.dropImage(imgs[i].uid).subscribe(
+      this.sceneService.dropImage(imgs[i].uid,'tiles').subscribe(
         data => {
-          this.loadScenes(this.itemsPerPage, this.currentPage);
 
-          this.notifications.create('Cursos Académicos eliminados', 'Se han eliminado las escenas correctamente', NotificationType.Info, {
+          this.notifications.create('Escenas eliminadas', 'Se han eliminado las escenas correctamente', NotificationType.Info, {
             theClass: 'outline primary',
             timeOut: 6000,
             showProgressBar: false
@@ -89,7 +88,7 @@ export class DataListComponent implements OnInit {
             timeOut: 6000,
             showProgressBar: false
           });
-
+          this.loadScenes(this.itemsPerPage, this.currentPage);
           return;
         }
       );
@@ -97,51 +96,53 @@ export class DataListComponent implements OnInit {
   }
 
 
-  // dropScene(imagen: Imagen): void {
+  dropScene(imagen: Imagen): void {
+    this.sceneService.dropImage(imagen.uid,'tiles').subscribe(
+      data => {
+        this.loadScenes(this.itemsPerPage, this.currentPage);
 
-  //   this.sceneService.dropImage(imagen.uid).subscribe(
-  //     data => {
-  //       this.loadScenes(this.itemsPerPage, this.currentPage);
+        this.notifications.create('Escena eliminada', 'Se ha eliminado la escena correctamente', NotificationType.Info, {
+          theClass: 'outline primary',
+          timeOut: 6000,
+          showProgressBar: false
+        });
 
-  //       this.notifications.create('Escena eliminada', 'Se ha eliminado la escena correctamente', NotificationType.Info, {
-  //         theClass: 'outline primary',
-  //         timeOut: 6000,
-  //         showProgressBar: false
-  //       });
-  //     },
-  //     error => {
 
-  //       this.notifications.create('Error', 'No se ha podido eliminar la escena', NotificationType.Error, {
-  //         theClass: 'outline primary',
-  //         timeOut: 6000,
-  //         showProgressBar: false
-  //       });
+      },
+      error => {
 
-  //       return;
-  //     }
-  //   );
-  // }
+        this.notifications.create('Error', 'No se ha podido eliminar el Usuario', NotificationType.Error, {
+          theClass: 'outline primary',
+          timeOut: 6000,
+          showProgressBar: false
+        });
 
-  // confirmDelete(imagen: Imagen): void {
-  //   Swal.fire({
-  //     title: 'Eliminar Escena',
-  //     text: '¿Estás seguro de que quieres eliminar la escena?',
-  //     icon: 'warning',
-  //     showDenyButton: true,
-  //     iconColor: '#145388',
-  //     confirmButtonColor: '#145388',
-  //     denyButtonColor: '#145388',
-  //     confirmButtonText: `Sí`,
-  //     denyButtonText: `No`,
-  //   }).then((result) => {
-  //     if (result.isConfirmed) {
-  //       this.dropScene(imagen);
-  //     } else if (result.isDenied) {
-  //       Swal.close();
-  //     }
-  //   });
-  // }
+        return;
+      }
+    );
 
+}
+
+
+  confirmDelete(imagen: Imagen): void {
+    Swal.fire({
+      title: 'Eliminar Escena',
+      text: '¿Estás seguro de que quieres eliminar la Escena?',
+      icon: 'warning',
+      showDenyButton: true,
+      iconColor: '#145388',
+      confirmButtonColor: '#145388',
+      denyButtonColor: '#145388',
+      confirmButtonText: `Sí`,
+      denyButtonText: `No`,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.dropScene(imagen);
+      } else if (result.isDenied) {
+        Swal.close();
+      }
+    });
+  }
   // LIST PAGE HEADER METHODS
   isSelected(p: Imagen): boolean {
     return this.selected.findIndex(x => x.uid === p.uid) > -1;

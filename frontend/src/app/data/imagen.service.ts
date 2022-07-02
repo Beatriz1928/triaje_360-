@@ -107,8 +107,8 @@ export class ImagenService {
     return this.http.post(url, datos, { headers });
   }
 
-  dropImage(id: number) {
-    const url = environment.base_url + '/imagenes';
+  dropImage(id: number, tipo: string) {
+    const url = environment.base_url + '/imagenes/'+tipo+'/'+id;
     const token = localStorage.getItem('token');
 
     // HEADERS
@@ -116,10 +116,8 @@ export class ImagenService {
     headers = headers.append('x-token', token);
 
     // PARAMS
-    let params = new HttpParams();
-    params = params.append('id', id + '');
 
-    return this.http.get(url, { headers, params });
+    return this.http.delete(url, { headers });
   }
 
 }
