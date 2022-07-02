@@ -119,7 +119,7 @@ export class AddNewSceneModalComponent  {
   createUpdateScene(): void{
     if(this.foto.name!=''){
       console.log('Envío formulario');
-      this.loadSceneData();
+     // this.loadSceneData();
       this.formSubmited = true;
       if (this.formData.invalid) {
         console.log('Estoy saliendo');
@@ -140,7 +140,7 @@ export class AddNewSceneModalComponent  {
           this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage)
           this.closeModal();
 
-          this.notifications.create('Escena editada', 'Se ha creado la escena correctamente', NotificationType.Info, {
+          this.notifications.create('Escena creada', 'Se ha creado la escena correctamente', NotificationType.Info, {
             theClass: 'outline primary',
             timeOut: 6000,
             showProgressBar: false
@@ -158,6 +158,7 @@ export class AddNewSceneModalComponent  {
       }else{
         console.log('Estoy editando');
         // si tenemos id de escena, la editamos
+        console.log('el id  es: '+ escena);
         this.sceneService.updateImage(this.formData.value, escena)
         .subscribe(res => {
           this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage)

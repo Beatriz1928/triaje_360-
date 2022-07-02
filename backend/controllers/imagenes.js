@@ -3,7 +3,6 @@ require('dotenv').config();
 const { infoToken } = require('../helpers/infotoken');
 const Imagen = require('../models/imagenes');
 const ImagenPaciente = require('../models/imagenesPaciente');
-const { v4: uuidv4 } = require('uuid');
 // funciones
 const crearImagen = async(req, res = response) => {
 
@@ -76,51 +75,38 @@ const actualizarImagen = async(req, res = response) => {
             msg: 'No tiene permisos para crear imagenes',
         });
     }
-    //comprobamos que se manda un archivo
+    try {
+        //comprobamos que se manda un archivo
+        const uid = req.params.id;
+        const nombre = req.body.nombre;
+        const tipo = req.params.tipo //fotoEscena o fotoVictima
+        const archivo = req.body.ruta;
+        const nombrePartido = archivo.split('.');
+        const extension = nombrePartido[nombrePartido.length - 1];
+        const nom = nombrePartido[0];
+        // comprobamos si ya existe el nombre
 
-    const nombre = req.body.nombre;
-    const tipo = req.params.tipo //fotoEscena o fotoVictima
-    const archivo = req.body.ruta;
-    console.log(archivo);
-    const nombrePartido = archivo.split('.');
-    const extension = nombrePartido[nombrePartido.length - 1];
-    const nom = nombrePartido[0];
-    // comprobamos si ya existe el nombre
-    const existeImagen = await Imagen.findOne({ nombre });
-    if (existeImagen) {
-        return res.status(400).json({
-            ok: false,
-            msg: 'El nombre ya existe para otra imagen'
-        });
-    }
-
-    // comprobamos si ya existe el nombre
-    const existeImagen2 = await ImagenPaciente.findOne({ nombre });
-    if (existeImagen2) {
-        return res.status(400).json({
-            ok: false,
-            msg: 'El nombre ya existe para otra imagen'
-        });
-    }
-    console.log(patharchivo);
-    archivo.mv(patharchivo, (err) => {
-        if (err) {
+        const existeImagen0 = await Imagen.findById(uid);
+        if (!existeImagen0) {
             return res.status(400).json({
                 ok: false,
-                msg: `No se pudo guardar el archivo `,
-                tipoOperacion: tipo
+                msg: 'no hay imagen con ese id'
             });
         }
+
         switch (tipo) {
             case 'tiles':
-                req.body.ruta = ruta;
+                console.log('Estoy en tiles: ' + uid + ' ' + req.body.nombre + ' ' + req.body.descripcion + ' ' + req.body.ruta);
+                req.body.ruta = `${nom}/preview.${extension}`;
                 console.log(req.body.ruta);
-                const imagen = Imagen.findByIdAndUpdate(uid, req.body, { new: true });
+                const imagen = await Imagen.findByIdAndUpdate(uid, req.body, { new: true });
+
                 break;
             case 'pacientes':
-                req.body.ruta = ruta;
+                console.log('Estoy en pacientes: ' + uid + ' ' + req.body.nombre + ' ' + req.body.descripcion + ' ' + req.body.ruta);
                 console.log(req.body.ruta);
-                const img = ImagenPaciente.findByIdAndUpdate(uid, req.body, { new: true });
+                const img = await ImagenPaciente.findByIdAndUpdate(uid, req.body, { new: true });
+
                 break;
         }
 
@@ -129,7 +115,15 @@ const actualizarImagen = async(req, res = response) => {
             msg: 'Actualizar archivo',
         });
 
-    });
+
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({
+            ok: false,
+            msg: 'Error actualizando imagen'
+        });
+    }
+
 
 }
 

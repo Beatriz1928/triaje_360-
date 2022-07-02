@@ -47,7 +47,7 @@ export class ImagenService {
 
 
   updateImage(data: Imagen,id: number) {
-    const url = environment.base_url + '/imagenes/tiles/';
+    const url = environment.base_url + '/imagenes/tiles/'+id;
     const token = localStorage.getItem('token');
 
     // HEADERS
@@ -63,6 +63,7 @@ export class ImagenService {
 
     // PARAMS
     let params = new HttpParams();
+    console.log('JEJE EL ID: '+id)
     params = params.append('id', id + '');
 
     return this.http.put(url, sendData, { headers, params });
