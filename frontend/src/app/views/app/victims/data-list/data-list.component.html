@@ -21,9 +21,7 @@
                     <span class="imagen1 title-card list-item-heading mb-0 w-xs-100">
                       <span>Imagen</span>
                     </span>
-                    <span class="descripcion title-card list-item-heading mb-0 w-xs-100">
-                      <span>Descripcion</span>
-                    </span>
+
                     <span class="acciones title-card list-item-heading mb-0 w-xs-100">
                       <span>Acciones</span>
                     </span>
@@ -39,9 +37,9 @@
                         {{p.nombre}}
                     </p>
                     <p class="desde mb-0 text-muted text-small w-xs-100">
-                        <img class="imagen" src="./../../../../../assets/img/tiles/{{p.ruta}}" alt="Imagen escena">
+                        <img class="imagen" src="./../../../../../assets/img/pacientes/{{p.ruta}}" alt="Imagen escena">
                     </p>
-                    <p class="desde mb-0 text-muted text-small w-xs-100">{{p.descripcion}}</p>
+
                     <!-- <p class="hasta mb-0 text-muted text-small w-xs-100">{{p.hasta}}</p> -->
 
                     <div [className]="userRole!=2 ? 'acciones atc up d-flex mb-0 text-muted text-small w-xs-100' : 'acciones atc d-flex mb-0 text-muted text-small w-xs-100'">

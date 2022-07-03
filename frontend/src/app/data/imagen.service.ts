@@ -70,8 +70,8 @@ export class ImagenService {
     return this.http.put(url, sendData, { headers, params });
   }
 
-  createImage(data: Imagen) {
-    const url = environment.base_url + '/imagenes/tiles';
+  createImage(data: Imagen,tipo) {
+    const url = environment.base_url + '/imagenes/'+tipo;
     const token = localStorage.getItem('token');
 
     // HEADERS
@@ -90,6 +90,8 @@ export class ImagenService {
 
     return this.http.post(url, sendData, { headers, params });
   }
+
+
 
   subirFoto( file: File) {
     const url = `${environment.base_url}/upload/tiles`;

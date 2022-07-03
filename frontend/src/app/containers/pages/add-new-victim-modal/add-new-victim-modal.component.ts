@@ -102,7 +102,7 @@ export class AddNewVictimModalComponent  {
         this.loadSceneData();
       },
     error => {
-      this.notifications.create('Error', 'No se ha podido obtener la escena', NotificationType.Error, {
+      this.notifications.create('Error', 'No se ha podido obtener la víctima', NotificationType.Error, {
         theClass: 'outline primary',
         timeOut: 6000,
         showProgressBar: false
@@ -133,19 +133,19 @@ export class AddNewVictimModalComponent  {
       if(escena == ''){
         console.log('Estoy creando');
         // si no tenemos id de escena, creamos una
-        this.sceneService.createImage(this.formData.value)
+        this.sceneService.createImage(this.formData.value,'pacientes')
         .subscribe(res => {
           this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
           this.closeModal();
 
-          this.notifications.create('Escena creada', 'Se ha creado la escena correctamente', NotificationType.Info, {
+          this.notifications.create('Escena creada', 'Se ha creado la víctima correctamente', NotificationType.Info, {
             theClass: 'outline primary',
             timeOut: 6000,
             showProgressBar: false
           });
         }, (err) => {
 
-          this.notifications.create('Error', 'No se ha podido crear la escena', NotificationType.Error, {
+          this.notifications.create('Error', 'No se ha podido crear la víctima', NotificationType.Error, {
             theClass: 'outline primary',
             timeOut: 6000,
             showProgressBar: false
@@ -162,14 +162,14 @@ export class AddNewVictimModalComponent  {
           this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
           this.closeModal();
 
-          this.notifications.create('Escena editada', 'Se ha editado la escena correctamente', NotificationType.Info, {
+          this.notifications.create('Escena editada', 'Se ha editado la víctima correctamente', NotificationType.Info, {
             theClass: 'outline primary',
             timeOut: 6000,
             showProgressBar: false
           });
         }, (err) => {
 
-          this.notifications.create('Error', 'No se ha podido editar la escena', NotificationType.Error, {
+          this.notifications.create('Error', 'No se ha podido editar la víctima', NotificationType.Error, {
             theClass: 'outline primary',
             timeOut: 6000,
             showProgressBar: false
@@ -184,7 +184,7 @@ export class AddNewVictimModalComponent  {
         .subscribe( res => {
           // cambiamos el DOM el objeto que contiene la fot
         }, (err) => {
-          const errtext = err.error.msg || 'No se pudo cargar la imagen';
+          const errtext = err.error.msg || 'No se pudo cargar la víctima';
           Swal.fire({icon: 'error', title: 'Oops...', text: errtext});
           return;
         });

@@ -136,7 +136,7 @@ export class AddNewSceneModalComponent  {
       if(escena == ''){
         console.log('Estoy creando');
         // si no tenemos id de escena, creamos una
-        this.sceneService.createImage(this.formData.value)
+        this.sceneService.createImage(this.formData.value,'tiles')
         .subscribe(res => {
           this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
           this.closeModal();
