@@ -45,24 +45,70 @@
 }
 
 .nombre {
-    width: 40% !important;
+    width: 15% !important;
+}
+
+.img1 {
+    width: 15% !important;
+}
+
+.descripcion {
+    width: 20% !important;
+}
+
+.descripcion2 {
+    width: 20% !important;
+    padding-left: 3em;
+}
+
+.item {
+    width: 10% !important;
+}
+
+.img {
+    width: 15% !important;
+}
+
+.color {
+    overflow: hidden;
+    border-radius: 0.8em;
+    -moz-border-radius: 0.8em;
+    color: #ffffff;
+    font-weight: bold;
+    line-height: 1.6em;
+    margin-right: 15px;
+    height: 1.5em;
+    text-align: center;
+    width: 6.6em;
+}
+
+.verde {
+    background: #0e953c;
+}
+
+.amarillo {
+    background: #aa9c15;
+}
+
+.rojo {
+    background: #bf0a0a;
+}
+
+.negro {
+    background: #393939;
 }
 
 .acciones {
-    width: 33% !important;
+    width: 19% !important;
     justify-content: center;
 }
 
-.imagen1 {
-    width: 25%;
-}
-
 .imagen {
     height: 28px;
 }
 
-.imagen {
-    height: 28px;
+.item2 {
+    padding-left: 1em;
 }
 
 .up>i {
@@ -75,6 +121,11 @@
 
 .last-icon {
     padding-right: 3em;
+}
+
+.desc {
+    width: 18% !important;
+    padding-left: 1.8em !important;
 }
 
 // SWAL ALERTS
