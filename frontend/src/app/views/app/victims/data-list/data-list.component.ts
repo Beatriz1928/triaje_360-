@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {AddNewVictimModalComponent} from '../../../../containers/pages/add-new-victim-modal/add-new-victim-modal.component';
-import { Imagen } from './../../../../models/imagen.model';
+import { PacienteService } from '../../../../../app/data/paciente.service';
 import { ImagenService } from '../../../../../app/data/imagen.service';
 import { NotificationsService, NotificationType } from 'angular2-notifications';
 import { SenderService } from './../../../../data/sender.service';
 import Swal from 'sweetalert2';
+import { Paciente } from '../../../../models/paciente.model';
 
 
 @Component({
@@ -15,8 +16,8 @@ import Swal from 'sweetalert2';
 export class DataListComponent implements OnInit {
   displayMode = 'list';
   selectAllState = '';
-  selected: Imagen[] = [];
-  data: Imagen[] = [];
+  selected: Paciente[] = [];
+  data: Paciente[] = [];
   currentPage = 1;
   itemsPerPage = 5;
   search = '';
@@ -28,7 +29,7 @@ export class DataListComponent implements OnInit {
   @ViewChild('addNewModalRef', { static: true }) addNewModalRef: AddNewVictimModalComponent;
 
 
-  constructor(private sceneService: ImagenService, private notifications: NotificationsService,
+  constructor(private victimService: PacienteService, imageService: ImagenService, private notifications: NotificationsService,
     public sender: SenderService) {
   }
 
@@ -43,10 +44,15 @@ export class DataListComponent implements OnInit {
 
     this.itemsPerPage = pageSize;
     this.currentPage = currentPage;
-    this.sceneService.getImages('pacientes',pageSize, currentPage, search).subscribe(
+    this.victimService.getPatients(pageSize, currentPage, search).subscribe(
       data => {
-        this.data = data['imagenes'];
-        this.totalItem = data['totalImagenes'];
+        this.data = data['pacientes'];
+        this.totalItem = data['totalPacientes'];
+        for (let a =0; a < this.data.length; a++){
+          console.log('El nombre es; '+ this.data[a].nombre);
+          console.log('La descripcion es; '+ this.data[a].descripcion);
+
+        }
         this.setSelectAllState();
       },
       error => {
@@ -59,7 +65,7 @@ export class DataListComponent implements OnInit {
     );
   }
 
-  showAddNewModal(img? : Imagen): void {
+  showAddNewModal(img? : Paciente): void {
     if(img) {
       console.log(img.uid);
       this.addNewModalRef.show(img.uid);
@@ -68,10 +74,10 @@ export class DataListComponent implements OnInit {
     }
   }
 
-  dropScenes(imgs: Imagen[]): void {
+  dropScenes(victims: Paciente[]): void {
 
-    for(let i=0; i<imgs.length; i++){
-      this.sceneService.dropImage(imgs[i].uid,'tiles').subscribe(
+    for(let i=0; i<victims.length; i++){
+      this.victimService.dropPatient(victims[i].uid).subscribe(
         data => {
 
           this.notifications.create('Escenas eliminadas', 'Se han eliminado las víctimas correctamente', NotificationType.Info, {
@@ -96,12 +102,12 @@ export class DataListComponent implements OnInit {
   }
 
 
-  dropScene(imagen: Imagen): void {
-    this.sceneService.dropImage(imagen.uid,'pacientes').subscribe(
+  dropScene(victim: Paciente): void {
+    this.victimService.dropPatient(victim.uid).subscribe(
       data => {
         this.loadScenes(this.itemsPerPage, this.currentPage, this.itemScene, this.search);
 
-        this.notifications.create('Escena eliminada', 'Se ha eliminado la víctima correctamente', NotificationType.Info, {
+        this.notifications.create('Victima eliminada', 'Se ha eliminado la víctima correctamente', NotificationType.Info, {
           theClass: 'outline primary',
           timeOut: 6000,
           showProgressBar: false
@@ -124,7 +130,7 @@ export class DataListComponent implements OnInit {
 }
 
 
-  confirmDelete(imagen: Imagen): void {
+  confirmDelete(imagen: Paciente): void {
     Swal.fire({
       title: 'Eliminar Escena',
       text: '¿Estás seguro de que quieres eliminar la víctima?',
@@ -144,10 +150,10 @@ export class DataListComponent implements OnInit {
     });
   }
   // LIST PAGE HEADER METHODS
-  isSelected(p: Imagen): boolean {
+  isSelected(p: Paciente): boolean {
     return this.selected.findIndex(x => x.uid === p.uid) > -1;
   }
-  onSelect(item: Imagen): void {
+  onSelect(item: Paciente): void {
     if (this.isSelected(item)) {
       this.selected = this.selected.filter(x => x.uid !== item.uid);
     } else {

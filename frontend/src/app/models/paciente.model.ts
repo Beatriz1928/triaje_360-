@@ -4,6 +4,7 @@ export class Paciente {
 
     constructor( public uid: number,
                  public descripcion: string,
+                 public nombre: string,
                  public camina: boolean,
                  public color: string,
                  public acciones: Array< { accion: Accion, _id: number } >,

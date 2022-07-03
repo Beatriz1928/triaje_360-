@@ -15,7 +15,7 @@ export class PacienteService {
 
   // ******* PETICIONES PACIENTES *********
 
-  getPatients(ejercicio?: number) {
+  getPatients(pageSize?: number, currentPage?: number, texto?: string, ejercicio?: number) {
     const url = environment.base_url + '/pacientes';
     const token = localStorage.getItem('token');
 
@@ -26,10 +26,14 @@ export class PacienteService {
     // PARAMS
     let params = new HttpParams();
     if(ejercicio) params = params.append('ejercicio', ejercicio + '');
+    if(pageSize) { params = params.append('pageSize', pageSize + ''); }
+    if(currentPage) { params = params.append('currentPage', currentPage + ''); }
+    if(texto && texto!='') { params = params.append('texto', texto + ''); }
 
     return this.http.get(url, { headers, params });
 
   }
+
 
   getPatient(id: number) {
     const url = environment.base_url + '/pacientes';
@@ -42,9 +46,9 @@ export class PacienteService {
     // PARAMS
     let params = new HttpParams();
     params = params.append('id', id + '');
-    
+
     return this.http.get(url, { headers, params });
-  } 
+  }
 
   createPatient(data: Object, exerciseId: number) {
     const url = environment.base_url + '/pacientes';
@@ -90,6 +94,19 @@ export class PacienteService {
     }
 
     return this.http.put(url, sendData, { headers });
+
+  }
+
+    dropPatient(id: number) {
+    const url = environment.base_url + '/pacientes/' + id;
+    const token = localStorage.getItem('token');
+
+    // HEADERS
+    let headers = new HttpHeaders();
+    headers = headers.append('x-token', token);
+
+
+    return this.http.delete(url, { headers });
 
   }
 

@@ -1,4 +1,3 @@
-
 const { response } = require('express');
 const { infoToken } = require('../helpers/infotoken');
 const Paciente = require('../models/pacientes');
@@ -6,7 +5,7 @@ const { updateEjercicio } = require('../helpers/hEjercicio');
 
 // funciones
 const getPacientes = async(req, res = response) => {
-    
+
     // parametros
     const id = req.query.id;
 
@@ -31,17 +30,17 @@ const getPacientes = async(req, res = response) => {
 
         } else { // si no nos pasan el id
             [pacientes, totalPacientes] = await Promise.all([
-                Paciente.find({}, 'descripcion camina color img acciones empeora tiempoEmpeora'),
+                Paciente.find({}, 'nombre descripcion camina color img acciones empeora tiempoEmpeora'),
                 Paciente.countDocuments()
             ]);
-            
+
 
         }
 
         res.json({
             ok: true,
             msg: 'Pacientes obtenidas',
-            pacientes, 
+            pacientes,
             totalPacientes
         });
 
@@ -166,7 +165,7 @@ const borrarPaciente = async(req, res = response) => {
 
         // si se ha superado la comprobacion, eliminamos el curso
         const paciente = await Paciente.findByIdAndRemove(uid);
-        
+
         res.json({
             ok: true,
             msg: 'Paciente borrado',

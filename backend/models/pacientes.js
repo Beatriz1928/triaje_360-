@@ -1,6 +1,10 @@
 const { Schema, model } = require('mongoose');
 
 const PacienteSchema = Schema({
+    nombre: {
+        type: String,
+        require: true,
+    },
     descripcion: {
         type: String,
         require: true,
