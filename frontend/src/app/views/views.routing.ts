@@ -65,6 +65,13 @@ let routes: Routes = [
     canActivate: [AuthGuard],
     canActivateChild: [AuthGuard],
   },
+  {
+    path: 'victims',
+    loadChildren: () => import('./app/victims/victims.module').then((m) => m.VictimsModule),
+    data: { roles: [UserRole.Admin,  UserRole.Teacher], },
+    canActivate: [AuthGuard],
+    canActivateChild: [AuthGuard],
+  },
   { path: 'error', component: ErrorComponent },
   { path: 'unauthorized', component: UnauthorizedComponent },
   { path: '**', redirectTo: '/error' },

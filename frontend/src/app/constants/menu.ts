@@ -43,5 +43,11 @@ const data: IMenuItem[] = [
     to: `${adminRoot}/scenes/data-list`,
     roles: [UserRole.Admin],
   },
+  {
+    icon: 'iconsminds-file',
+    label: 'menu.victims',
+    to: `${adminRoot}/victims/data-list`,
+    roles: [UserRole.Admin, UserRole.Teacher],
+  },
 ];
 export default data;

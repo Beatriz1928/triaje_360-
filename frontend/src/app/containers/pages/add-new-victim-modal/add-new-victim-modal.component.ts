@@ -1,19 +1,18 @@
 import { Component, TemplateRef,  ViewChild } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { DataListComponent } from 'src/app/views/app/scenes/data-list/data-list.component';
+import { DataListComponent } from 'src/app/views/app/victims/data-list/data-list.component';
 import { ImagenService } from '../../../data/imagen.service';
 import { Imagen } from '../../../models/imagen.model';
 import { FormBuilder, Validators } from '@angular/forms';
 import { NotificationsService, NotificationType } from 'angular2-notifications';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-
 @Component({
-  selector: 'app-add-new-scene-modal',
-  templateUrl: './add-new-scene-modal.component.html',
+  selector: 'app-add-new-victim-modal',
+  templateUrl: './add-new-victim-modal.component.html',
   styles: []
 })
-export class AddNewSceneModalComponent  {
+export class AddNewVictimModalComponent  {
   modalRef: BsModalRef;
   config = {
     backdrop: true,
@@ -32,8 +31,6 @@ export class AddNewSceneModalComponent  {
     ruta: [''],
     archivo: ['']
   });
-
-
   @ViewChild('template', { static: true }) template: TemplateRef<any>;
 
   constructor(private modalService: BsModalService, private sceneService: ImagenService, private fb: FormBuilder, private router: Router , private dataList: DataListComponent,

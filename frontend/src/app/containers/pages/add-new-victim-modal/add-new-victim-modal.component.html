@@ -1,0 +1,37 @@
+<ng-template #template>
+    <div class="modal-header">
+        <ng-template *ngIf="scene then editar else crear"> </ng-template>
+        <ng-template #crear>
+            <h4 class="modal-title pull-left">{{'pages.add-new-scene' | translate}}</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+    <span aria-hidden="true">&times;</span>
+</button>
+        </ng-template>
+        <ng-template #editar>
+            <h4 class="modal-title pull-left">{{'pages.edit-scene' | translate}}</h4>
+            <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
+    <span aria-hidden="true">&times;</span>
+</button>
+        </ng-template>
+    </div>
+    <form id="formElem" class="form-horizontal m-t-20 scrollMio" [formGroup]="formData" (ngSubmit)="createUpdateScene()">
+        <div class="modal-body">
+            <div>
+                <label>{{ 'pages.nombre' | translate }}</label>
+                <input type="email" class="form-control" formControlName="nombre" placeholder="" placeholder="">
+            </div>
+            <div class="mt-4">
+                <label>{{ 'pages.descripcion' | translate }}</label>
+                <textarea class="form-control" formControlName="descripcion" placeholder="" rows="3"></textarea>
+            </div>
+            <div class="mt-4">
+                <label>{{ 'pages.archivo' | translate }}</label>
+                <input class="form-control" rows="3" type="file" id="file-selector" (change)="cambioImagen( $event )" name="imagenEscena" />
+            </div>
+        </div>
+    </form>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary" (click)="modalRef.hide()">{{'pages.cancel' | translate }}</button>
+        <button type="submit" class="btn btn-primary float-right" (click)="createUpdateScene()">{{ 'pages.submit' | translate}}</button>
+    </div>
+</ng-template>
