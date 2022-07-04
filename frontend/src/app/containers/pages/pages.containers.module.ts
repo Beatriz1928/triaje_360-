@@ -39,6 +39,7 @@ import { AddNewUserModalComponent } from './add-new-user-modal/add-new-user-moda
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddNewSchoolYearModalComponent } from './add-new-school-year-modal/add-new-school-year-modal.component';
 import { AddNewSceneModalComponent } from './add-new-scene-modal/add-new-scene-modal.component';
+import { TratamientoModalComponent } from './tratamiento-modal/tratamiento-modal-component';
 import { AddNewVictimModalComponent } from './add-new-victim-modal/add-new-victim-modal.component';
 import { AddNewSubjectModalComponent } from './add-new-subject-modal/add-new-subject-modal.component';
 import { ManageSubjectModalComponent } from './manage-subject-modal/manage-subject-modal.component';
@@ -81,7 +82,8 @@ import { TriarPatientComponent } from './triar-patient/triar-patient.component';
     ShowStudentRegisterModalComponent,
     SelectPatientImgModalComponent,
     LocatePatientComponent,
-    TriarPatientComponent
+    TriarPatientComponent,
+    TratamientoModalComponent
   ],
   imports: [
     CommonModule,
@@ -133,7 +135,8 @@ import { TriarPatientComponent } from './triar-patient/triar-patient.component';
     ShowStudentRegisterModalComponent,
     SelectPatientImgModalComponent,
     LocatePatientComponent,
-    TriarPatientComponent
+    TriarPatientComponent,
+    TratamientoModalComponent
   ]
 })
 export class PagesContainersModule { }

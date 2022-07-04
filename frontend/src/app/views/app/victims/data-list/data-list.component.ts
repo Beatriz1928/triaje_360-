@@ -2,10 +2,14 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import {AddNewVictimModalComponent} from '../../../../containers/pages/add-new-victim-modal/add-new-victim-modal.component';
 import { PacienteService } from '../../../../../app/data/paciente.service';
 import { ImagenService } from '../../../../../app/data/imagen.service';
+import { AccionService } from '../../../../../app/data/accion.service';
 import { NotificationsService, NotificationType } from 'angular2-notifications';
 import { SenderService } from './../../../../data/sender.service';
 import Swal from 'sweetalert2';
 import { Paciente } from '../../../../models/paciente.model';
+import { TratamientoModalComponent } from '../../../../containers/pages/tratamiento-modal/tratamiento-modal-component';
+import { Accion } from '../../../../models/accion.model';
+import { AccionPaciente } from '../../../../models/accion-paciente.model';
 
 
 @Component({
@@ -25,9 +29,11 @@ export class DataListComponent implements OnInit {
   totalItem = 0;
   totalPage = 0;
   itemScene = '';
+  acciones: AccionPaciente[];
+
 
   @ViewChild('addNewModalRef', { static: true }) addNewModalRef: AddNewVictimModalComponent;
-
+  @ViewChild('Tratamientos', { static: true }) tratamientos: TratamientoModalComponent;
 
   constructor(private victimService: PacienteService, imageService: ImagenService, private notifications: NotificationsService,
     public sender: SenderService) {
@@ -48,11 +54,7 @@ export class DataListComponent implements OnInit {
       data => {
         this.data = data['pacientes'];
         this.totalItem = data['totalPacientes'];
-        for (let a =0; a < this.data.length; a++){
-          console.log('El nombre es; '+ this.data[a].nombre);
-          console.log('La descripcion es; '+ this.data[a].descripcion);
 
-        }
         this.setSelectAllState();
       },
       error => {
@@ -64,6 +66,21 @@ export class DataListComponent implements OnInit {
       }
     );
   }
+
+  showTratamientos(tratamientos?: Array< { accion: Accion, _id: number }> ){
+    this.acciones = [];
+    if(tratamientos) {
+       for (let a = 0; a < tratamientos.length; a++){
+        let nombre =tratamientos[a].accion.nombre;
+        let tiempo =tratamientos[a].accion.tiempo;
+         this.acciones.push({nombre,tiempo});
+       }
+      this.tratamientos.show(this.acciones);
+    } else {
+      this.tratamientos.show();
+    }
+  }
+
 
   showAddNewModal(img? : Paciente): void {
     if(img) {
@@ -198,4 +215,15 @@ export class DataListComponent implements OnInit {
   //   this.loadData(this.itemsPerPage, 1, this.search, item.value);
   // }
 
+  modal(p){
+    console.log('llego al modal sweettie');
+    var myInput = document.getElementById('exampleModalPromo2');
+    myInput.focus()
+  }
+
+
 }
+
+
+
+

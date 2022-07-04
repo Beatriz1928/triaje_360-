@@ -128,9 +128,23 @@
     padding-left: 1.8em !important;
 }
 
+.mi-icono {
+    content: "\e606";
+    color: white;
+    background: #145388;
+    font-size: medium;
+    font-size: bolder;
+    font-weight: bolder;
+    border-radius: 2em;
+    padding: 7px;
+    text-align: center;
+}
+
 // SWAL ALERTS
 .swal-confirm-button {
     color: #145388 !important;
     background-color: #fff !important;
     border: 1px solid #145388 !important;
 }
+
+////PARA EL MODAL

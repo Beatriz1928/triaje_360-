@@ -1,6 +1,9 @@
 <app-list-page-header [itemOptionsPerPage]="[5,10,25]" [itemsPerPage]="itemsPerPage" [selectAllState]="selectAllState" (addNewItem)="showAddNewModal()" (dropUsers)="dropScenes($event)" (searchKeyUp)="searchKeyUp($event)">
 </app-list-page-header>
 <app-add-new-victim-modal #addNewModalRef></app-add-new-victim-modal>
+<app-tratamiento-modal #Tratamientos></app-tratamiento-modal>
+
+
 <div class="row">
     <div class="col-12 list" *ngIf="displayMode==='list'">
 
@@ -33,6 +36,9 @@
                     </span>
                     <span class="item title-card list-item-heading mb-0 w-xs-100">
                       <span>Color</span>
+                    </span>
+                    <span class="item title-card list-item-heading mb-0 w-xs-100">
+                      <span>Tratamiento</span>
                     </span>
                     <span class="acciones title-card list-item-heading mb-0 w-xs-100">
                       <span>Acciones</span>
@@ -71,6 +77,7 @@
 
 
                     <!-- <p class="hasta mb-0 text-muted text-small w-xs-100">{{p.hasta}}</p> -->
+                    <i *ngIf="userRole!=2" class="mi-icono last-icon simple-icon-arrow-right ml-3" data-toggle="tooltip" data-placement="bottom" title="Ver tratamientos de la víctima" (click)="showTratamientos(p.acciones)"></i>
 
                     <div [className]="userRole!=2 ? 'acciones atc up d-flex mb-0 text-muted text-small w-xs-100' : 'acciones atc d-flex mb-0 text-muted text-small w-xs-100'">
                         <i *ngIf="userRole!=2" class="simple-icon-pencil ml-3" data-toggle="tooltip" data-placement="bottom" title="Editar Curso Académico" (click)="showAddNewModal(p)"></i>

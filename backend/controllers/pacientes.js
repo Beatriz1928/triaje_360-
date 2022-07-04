@@ -71,10 +71,13 @@ const crearPaciente = async(req, res = response) => {
         // creamos el curso  y lo almacenamos los datos en la BBDD
         const paciente = new Paciente(req.body);
 
-        // actualizamos la asignatura incluyendo el ejercicio
-        await updateEjercicio(idEjercicio, paciente).then(actualizarPacientesEjercicio => {
-            console.log('Pacientes de Ejercicio actualizados:', actualizarPacientesEjercicio);
-        });
+        // Esto se hace para añadir ejercicios a asignaturas pero vamos a cambiarlo
+        // para tener un banco de pacientes que se puedan añadir directamente
+        // no se crean ejercicios en la asignatura
+        // // actualizamos la asignatura incluyendo el ejercicio
+        // await updateEjercicio(idEjercicio, paciente).then(actualizarPacientesEjercicio => {
+        //     console.log('Pacientes de Ejercicio actualizados:', actualizarPacientesEjercicio);
+        // });
 
         await paciente.save();
 

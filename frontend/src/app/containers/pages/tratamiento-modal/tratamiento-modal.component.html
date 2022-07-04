@@ -1,0 +1,37 @@
+<ng-template #template>
+    <div class="modal-header">
+        <h4 class="modal-title ">{{'Tratamientos de la víctima' | translate}}</h4>
+        <button type="button" class="close " aria-label="Close" (click)="modalRef.hide()">
+          <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <div>
+        </div>
+        <div class="mt-4">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col"> Nombre</th>
+                        <th scope="col">Tiempo</th>
+                        <th scope="col">Añadir</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr *ngFor="let index of tratamientos; let i=index">
+                        <td>{{index.nombre}}</td>
+                        <td><input class="input" type="text" id="name" name="name" required size="5" value="{{index.tiempo}}"></td>
+                        <td><input type="checkbox" id="cbox1" value="first_checkbox" style="margin-left: 0.9rem;margin-top: 0.3rem;"></td><br>
+                    </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-primary" (click)="modalRef.hide()">{{'pages.cancel' | translate }}</button>
+        <button type="submit" class="btn btn-primary float-right">{{ 'pages.submit' | translate}}</button>
+    </div>
+</ng-template>

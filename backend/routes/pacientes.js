@@ -22,10 +22,9 @@ router.post('/', [
     check('camina', 'El argumento camina es obligatorio').isBoolean(),
     check('color', 'El argumento color es obligatorio').not().isEmpty(),
     check('img', 'El argumento img ser un string').not().isEmpty(),
-    check('acciones', 'El argumento acciones es obligatorio').not().isEmpty(),
+    //check('acciones', 'El argumento acciones es obligatorio').not().isEmpty(),
     check('empeora', 'El estado debe ser true o false').isBoolean(),
     check('tiempoEmpeora', 'El tiempo debe ser una cantidad').optional().isNumeric(),
-    check('exerciseId', 'Desde debe ser una cadena de texto').isString(),
     validarCampos
 ], crearPaciente);
 
@@ -35,7 +34,7 @@ router.put('/:id', [
     check('camina', 'El argumento camina es obligatorio').isBoolean(),
     check('color', 'El argumento color es obligatorio').not().isEmpty(),
     check('img', 'El argumento img ser un string').not().isEmpty(),
-    check('acciones', 'El argumento acciones es obligatorio').not().isEmpty(),
+    // check('acciones', 'El argumento acciones es obligatorio').not().isEmpty(),
     check('empeora', 'El estado debe ser true o false').isBoolean(),
     check('tiempoEmpeora', 'El tiempo debe ser una cantidad').optional().isNumeric(),
     validarCampos
