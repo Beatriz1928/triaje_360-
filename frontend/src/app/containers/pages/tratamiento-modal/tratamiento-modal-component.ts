@@ -36,10 +36,11 @@ export class TratamientoModalComponent  {
 
     this.tratamientos_vista =[];
     this.tratamientos = [];
-    var nombres = [];
+    this.nombresAcciones = [];
     this.cantidad = tratamientos.length;
      for (let a = 0; a < tratamientos.length ;a++){
      this.tratamientos.push(tratamientos[a]);
+     this.nombresAcciones.push(tratamientos[a].nombre);
     }
     //guardamos los nombres de las acciones definidas en la base de datos
     this.tratamientos_vista = this.tratamientos;
