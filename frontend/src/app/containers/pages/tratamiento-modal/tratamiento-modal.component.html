@@ -19,10 +19,16 @@
                 </thead>
                 <tbody>
 
-                    <tr *ngFor="let index of tratamientos; let i=index">
+                    <tr *ngFor="let index of tratamientos_vista; let i=index">
                         <td>{{index.nombre}}</td>
                         <td><input class="input" type="text" id="name" name="name" required size="5" value="{{index.tiempo}}"></td>
-                        <td><input type="checkbox" id="cbox1" value="first_checkbox" style="margin-left: 0.9rem;margin-top: 0.3rem;"></td><br>
+                        <div *ngIf="i<cantidad; then thenBlock else elseBlock"></div>
+                        <ng-template #thenBlock>
+                            <td><input type="checkbox" checked id="cbox1" value="Submit" style="margin-left: 0.9rem;margin-top: 0.3rem;"></td>
+                        </ng-template>
+                        <ng-template #elseBlock>
+                            <td><input type="checkbox" id="cbox1" style="margin-left: 0.9rem;margin-top: 0.3rem;"></td>
+                        </ng-template>
                     </tr>
                 </tbody>
             </table>
