@@ -1,0 +1,28 @@
+/* #Verde {
+    background: #0e953c;
+}
+
+#Amarillo {
+    background: #aa9c15;
+}
+
+#Rojo {
+    background: #bf0a0a;
+}
+
+#Negro {
+    background: #393939;
+} */
+
+
+/* .checkbox {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+} */
+
+.checkbox {
+    margin-left: 20px;
+}

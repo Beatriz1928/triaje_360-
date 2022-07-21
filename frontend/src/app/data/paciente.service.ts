@@ -50,7 +50,7 @@ export class PacienteService {
     return this.http.get(url, { headers, params });
   }
 
-  createPatient(data: Object, exerciseId: number) {
+  createPatient(data: Object, exerciseId?: number) {
     const url = environment.base_url + '/pacientes';
     const token = localStorage.getItem('token');
 
@@ -59,7 +59,7 @@ export class PacienteService {
     headers = headers.append('x-token', token);
 
     let params = new HttpParams();
-    params = params.append('exerciseId', exerciseId + '');
+    //params = params.append('exerciseId', exerciseId + '');
 
     const sendData = {
       "descripcion": data['descripcion'],

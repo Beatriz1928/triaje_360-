@@ -1,8 +1,9 @@
 import { Component, TemplateRef,  ViewChild } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { DataListComponent } from 'src/app/views/app/victims/data-list/data-list.component';
+import { PacienteService } from '../../../data/paciente.service';
 import { ImagenService } from '../../../data/imagen.service';
-import { Imagen } from '../../../models/imagen.model';
+import { Paciente } from '../../../models/paciente.model';
 import { FormBuilder, Validators } from '@angular/forms';
 import { NotificationsService, NotificationType } from 'angular2-notifications';
 import { Router } from '@angular/router';
@@ -10,7 +11,7 @@ import Swal from 'sweetalert2';
 @Component({
   selector: 'app-add-new-victim-modal',
   templateUrl: './add-new-victim-modal.component.html',
-  styles: []
+  styleUrls: ['./add-new-victim-modal.component.css']
 })
 export class AddNewVictimModalComponent  {
   modalRef: BsModalRef;
@@ -20,7 +21,7 @@ export class AddNewVictimModalComponent  {
     class: 'modal-right'
   };
 
-  scene: Imagen;
+  paciente: Paciente;
   public foto: File = null;
 
   //FORM
@@ -28,30 +29,39 @@ export class AddNewVictimModalComponent  {
   public formData=this.fb.group({
     nombre: ['', [Validators.required]],
     descripcion: ['', [Validators.required]],
-    ruta: [''],
-    archivo: ['']
+    camina: [''],
+    acciones: [''],
+    img: [''],
+    empeora: [''],
+    tiempoEmpeora: [''],
+    color: ['']
   });
   @ViewChild('template', { static: true }) template: TemplateRef<any>;
 
-  constructor(private modalService: BsModalService, private sceneService: ImagenService, private fb: FormBuilder, private router: Router , private dataList: DataListComponent,
+  constructor(private modalService: BsModalService, private victimService: PacienteService,private imagenService: ImagenService, private fb: FormBuilder, private router: Router , private dataList: DataListComponent,
     private notifications: NotificationsService) { }
 
 
   show(id? : number): void {
     this.formData.reset();
-
-    this.scene = undefined;
+    console.log(id);
+    this.paciente = undefined;
     if(id){
-      this.getScene(id);
+      this.getVictim(id);
     }
     this.modalRef = this.modalService.show(this.template, this.config);
   }
 
-  loadSceneData() {
-    if(this.scene ) {
-      this.formData.get('nombre').setValue(this.scene.nombre);
-      this.formData.get('descripcion').setValue(this.scene.descripcion);
-      //console.log('la foto es '+this.foto);
+  loadVictimData() {
+    if(this.paciente ) {
+      this.formData.get('nombre').setValue(this.paciente.nombre);
+      this.formData.get('descripcion').setValue(this.paciente.descripcion);
+      this.formData.get('acciones').setValue(this.paciente.acciones);
+      this.formData.get('img').setValue(this.paciente.img);
+      this.formData.get('empeora').setValue(this.paciente.empeora);
+      this.formData.get('color').setValue(this.paciente.color);
+      this.formData.get('tiempoEmpeora').setValue(this.paciente.tiempoEmpeora);
+      this.formData.get('camina').setValue(this.paciente.camina);
     }
   }
 
@@ -95,11 +105,12 @@ export class AddNewVictimModalComponent  {
     }
   }
 
-  getScene(id:number): void{
-    this.sceneService.getImage(id).subscribe(
+  getVictim(id:number): void{
+    console.log('estoy en get victim')
+    this.victimService.getPatient(id).subscribe(
       data =>{
-        this.scene = data['imagenes'];
-        this.loadSceneData();
+        this.paciente = data['pacientes'];
+        this.loadVictimData();
       },
     error => {
       this.notifications.create('Error', 'No se ha podido obtener la víctima', NotificationType.Error, {
@@ -124,8 +135,8 @@ export class AddNewVictimModalComponent  {
         return; }
 
       let escena: any;
-      if(this.scene){
-        escena = this.scene.uid;
+      if(this.paciente){
+        escena = this.paciente.uid;
       }else{
         escena = '';
       }
@@ -133,7 +144,7 @@ export class AddNewVictimModalComponent  {
       if(escena == ''){
         console.log('Estoy creando');
         // si no tenemos id de escena, creamos una
-        this.sceneService.createImage(this.formData.value,'pacientes')
+        this.victimService.createPatient(this.formData.value)
         .subscribe(res => {
           this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
           this.closeModal();
@@ -157,7 +168,7 @@ export class AddNewVictimModalComponent  {
         console.log('Estoy editando');
         // si tenemos id de escena, la editamos
         console.log('el id  es: '+ escena);
-        this.sceneService.updateImage(this.formData.value, escena)
+        this.victimService.updatePatient(this.formData.value)
         .subscribe(res => {
           this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
           this.closeModal();
@@ -180,7 +191,7 @@ export class AddNewVictimModalComponent  {
 
       }
       if (this.foto ) {
-        this.sceneService.subirFoto( this.foto)
+        this.imagenService.subirFoto( this.foto,'pacientes')
         .subscribe( res => {
           // cambiamos el DOM el objeto que contiene la fot
         }, (err) => {

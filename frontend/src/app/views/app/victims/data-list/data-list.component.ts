@@ -150,7 +150,7 @@ export class DataListComponent implements OnInit {
 
   confirmDelete(imagen: Paciente): void {
     Swal.fire({
-      title: 'Eliminar Escena',
+      title: 'Eliminar Víctima',
       text: '¿Estás seguro de que quieres eliminar la víctima?',
       icon: 'warning',
       showDenyButton: true,

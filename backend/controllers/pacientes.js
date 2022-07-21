@@ -55,7 +55,7 @@ const getPacientes = async(req, res = response) => {
 
 const crearPaciente = async(req, res = response) => {
 
-    const idEjercicio = req.query.exerciseId;
+    // const idEjercicio = req.query.exerciseId;
     // Solo puede crear cursos un admin
     const token = req.header('x-token');
     // lo puede actualizar un administrador
@@ -80,9 +80,6 @@ const crearPaciente = async(req, res = response) => {
         // });
 
         await paciente.save();
-
-
-
         res.json({
             ok: true,
             msg: 'Paciente creado',

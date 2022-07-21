@@ -183,7 +183,7 @@ export class AddNewSceneModalComponent  {
 
       }
       if (this.foto ) {
-        this.sceneService.subirFoto( this.foto)
+        this.sceneService.subirFoto( this.foto,'tiles')
         .subscribe( res => {
           // cambiamos el DOM el objeto que contiene la fot
         }, (err) => {

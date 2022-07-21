@@ -6,7 +6,6 @@ import { AccionPaciente } from '../../../../app/models/accion-paciente.model';
 import { NotificationsService, NotificationType } from 'angular2-notifications';
 import { AccionService } from '../../../data/accion.service';
 import { DataListComponent } from 'src/app/views/app/victims/data-list/data-list.component';
-import { lineChartData } from '../../../data/charts';
 import { Paciente } from 'src/app/models/paciente.model';
 
 @Component({
@@ -73,24 +72,20 @@ export class TratamientoModalComponent  {
 
   }
 
-  confirmDelete(i: number){
-    // console.log('La posicion de la accion a borrar: '+ i);
-  }
-
   getAcciones(){
     this.acciones =[];
     this.accionesService.getActions().subscribe(
       data =>{
         // console.log(data['acciones']);
-            this.acciones = data['acciones'];
+        this.acciones = data['acciones'];
             // console.log(this.acciones);
 
-            for (let a = 0; a < this.acciones.length; a++){
-              if(!this.nombresAcciones.includes(this.acciones[a].nombre)){
-                var trata = new AccionPaciente(this.acciones[a].nombre,this.acciones[a].tiempo)
-                this.tratamientos_vista.push(trata);
-              }
-            }
+        for (let a = 0; a < this.acciones.length; a++){
+          if(!this.nombresAcciones.includes(this.acciones[a].nombre)){
+            var trata = new AccionPaciente(this.acciones[a].nombre,this.acciones[a].tiempo)
+            this.tratamientos_vista.push(trata);
+          }
+        }
       }
   );
 
@@ -99,7 +94,6 @@ export class TratamientoModalComponent  {
 UpdateTreatment(nom){
   // se añade o elimina un tratamiento del paciente cuando marcamos el checkbox
   //console.log(value,nom, tiempo);
- //var inputElements  = document.getElementsByClassName('messageCheckbox');
   var time = (<HTMLInputElement>document.getElementById(nom)).value;
   console.log(time);
   if(!this.nombresAcciones.includes(nom)){
@@ -114,8 +108,6 @@ UpdateTreatment(nom){
       }
     }
   }
-
-
   }
 
 
@@ -128,10 +120,10 @@ UpdateTreatment(nom){
     this.tratamientos.push(uno);
   }
   // console.log('Los tratamientos a añadir son: ')
-  for(var i = 0; i < this.tratamientos.length; i++){
-    // console.log(this.tratamientos[i].nombre);
-    // console.log(this.tratamientos[i].tiempo);
-  }
+  // for(var i = 0; i < this.tratamientos.length; i++){
+  //   console.log(this.tratamientos[i].nombre);
+  //   console.log(this.tratamientos[i].tiempo);
+  // }
   for(let i=0; i<this.tratamientos.length; i++) {
     this.dataPaciente.acciones[i] = {
       "accion": {
@@ -163,8 +155,8 @@ UpdateTreatment(nom){
         return;
     });
   }
-
   }
+
   closeModal(): void {
     this.modalRef.hide();
   }

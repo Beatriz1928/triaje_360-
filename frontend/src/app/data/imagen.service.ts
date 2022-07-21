@@ -93,8 +93,8 @@ export class ImagenService {
 
 
 
-  subirFoto( file: File) {
-    const url = `${environment.base_url}/upload/tiles`;
+  subirFoto( file: File, tipo) {
+    const url = `${environment.base_url}/upload/`+tipo;
     const token = localStorage.getItem('token');
       // HEADERS
     let headers = new HttpHeaders();
