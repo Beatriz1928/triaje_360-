@@ -77,7 +77,7 @@
 
 
                     <!-- <p class="hasta mb-0 text-muted text-small w-xs-100">{{p.hasta}}</p> -->
-                    <i *ngIf="userRole!=2" class="mi-icono last-icon simple-icon-arrow-right ml-3" data-toggle="tooltip" data-placement="bottom" title="Ver tratamientos de la víctima" (click)="showTratamientos(p.acciones)"></i>
+                    <i *ngIf="userRole!=2" class="mi-icono last-icon simple-icon-arrow-right ml-3" data-toggle="tooltip" data-placement="bottom" title="Ver tratamientos de la víctima" (click)="showTratamientos(p)"></i>
 
                     <div [className]="userRole!=2 ? 'acciones atc up d-flex mb-0 text-muted text-small w-xs-100' : 'acciones atc d-flex mb-0 text-muted text-small w-xs-100'">
                         <i *ngIf="userRole!=2" class="simple-icon-pencil ml-3" data-toggle="tooltip" data-placement="bottom" title="Editar Curso Académico" (click)="showAddNewModal(p)"></i>

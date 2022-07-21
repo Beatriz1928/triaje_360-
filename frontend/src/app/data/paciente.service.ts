@@ -65,6 +65,7 @@ export class PacienteService {
       "descripcion": data['descripcion'],
       "camina": data['camina'],
       "color": data['color'],
+      "nombre": data['nombre'],
       "img": data['img'],
       "acciones": data['acciones'],
       "empeora": data['empeora'],

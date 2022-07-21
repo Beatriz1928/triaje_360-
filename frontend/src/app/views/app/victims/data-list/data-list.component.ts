@@ -67,18 +67,19 @@ export class DataListComponent implements OnInit {
     );
   }
 
-  showTratamientos(tratamientos?: Array< { accion: Accion, _id: number }> ){
+  showTratamientos(p: Paciente ){
     this.acciones = [];
-    if(tratamientos) {
-       for (let a = 0; a < tratamientos.length; a++){
-        let nombre =tratamientos[a].accion.nombre;
-        let tiempo =tratamientos[a].accion.tiempo;
+    if(p.acciones) {
+       for (let a = 0; a < p.acciones.length; a++){
+        let nombre =p.acciones[a].accion.nombre;
+        let tiempo =p.acciones[a].accion.tiempo;
          this.acciones.push({nombre,tiempo});
        }
-      this.tratamientos.show(this.acciones);
-    } else {
-      this.tratamientos.show();
-    }
+      this.tratamientos.show(p);
+      }
+      else {
+        this.tratamientos.show();
+      }
   }
 
 
