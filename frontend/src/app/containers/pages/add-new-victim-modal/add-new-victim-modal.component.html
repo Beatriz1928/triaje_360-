@@ -1,6 +1,6 @@
 <ng-template #template>
     <div class="modal-header">
-        <ng-template *ngIf="scene then editar else crear"> </ng-template>
+        <ng-template *ngIf="paciente then editar else crear"> </ng-template>
         <ng-template #crear>
             <h4 class="modal-title pull-left">{{'pages.add-new-scene' | translate}}</h4>
             <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
@@ -16,17 +16,71 @@
     </div>
     <form id="formElem" class="form-horizontal m-t-20 scrollMio" [formGroup]="formData" (ngSubmit)="createUpdateScene()">
         <div class="modal-body">
-            <div>
-                <label>{{ 'pages.nombre' | translate }}</label>
-                <input type="email" class="form-control" formControlName="nombre" placeholder="" placeholder="">
+            <div class="mt-4">
+                <label>{{ 'pages.victim-name' | translate }}</label>
+                <input type="text" class="form-control" formControlName="nombre" id="nombre" placeholder="" required>
             </div>
             <div class="mt-4">
-                <label>{{ 'pages.descripcion' | translate }}</label>
-                <textarea class="form-control" formControlName="descripcion" placeholder="" rows="3"></textarea>
+                <label>{{ 'pages.imagen' | translate }}</label>
+                <input class="form-control" rows="3" type="file" id="file-selector" (change)="cambioImagen( $event )" name="imagenVictima" />
             </div>
             <div class="mt-4">
-                <label>{{ 'pages.archivo' | translate }}</label>
-                <input class="form-control" rows="3" type="file" id="file-selector" (change)="cambioImagen( $event )" name="imagenEscena" />
+                <label>{{ 'pages.victim-description' | translate }}</label>
+                <textarea type="text" class="form-control" formControlName="descripcion" id="nombre" placeholder="" required></textarea>
+            </div>
+            <div class="mt-4">
+                <label>Camina:</label>
+                <input type="checkbox" class="checkbox" formControlName="camina" placeholder="">
+
+            </div>
+            <div class="mt-4">
+                <label>Empeora:</label>
+                <input type="checkbox" class="checkbox" formControlName="empeora" placeholder="">
+            </div>
+            <div class="mt-4">
+                <label>{{ 'pages.victim-time' | translate }}</label>
+                <input type="text" class="form-control" formControlName="tiempo" id="tiempo" placeholder="" required>
+            </div>
+            <div class="mt-4">
+
+                <label>{{ 'pages.color' | translate }}</label>
+                <label class="w-100">
+                  <ng-select  [searchable]="false" formControlName="color" required>
+                      <ng-option [value]="Verde">Verde</ng-option>
+                      <ng-option [value]="Amarillo">Amarillo</ng-option>
+                      <ng-option [value]="Rojo">Rojo</ng-option>
+                      <ng-option [value]="Negro">Negro</ng-option>
+                  </ng-select>
+              </label>
+                <!-- <table class="table">
+                    <tbody>
+                        <tr>
+                            <td>
+                                <p class="item color verde list-item-heading mb-0 truncate w-xs-100" style="background: #0e953c; overflow: hidden;border-radius: 0.8em;color: #ffffff;font-weight: bold;line-height: 1.6em;margin-right: 15px;height: 1.5em; text-align: center;width: 90% !important;">Verde</p>
+                            </td>
+                            <td> <input type="checkbox" class="form-control" formControlName="Verde" value="Verde" placeholder="" rows="3"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="item color verde list-item-heading mb-0 truncate w-xs-100" style="background: #aa9c15; overflow: hidden;border-radius: 0.8em;color: #ffffff;font-weight: bold;line-height: 1.6em;margin-right: 15px;height: 1.5em; text-align: center;width: 90% !important;">Amarillo</p>
+                            </td>
+                            <td> <input type="checkbox" class="form-control" formControlName="Amarillo" value="Amarillo" placeholder="" rows="3"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="item color verde list-item-heading mb-0 truncate w-xs-100" style="background: #bf0a0a; overflow: hidden;border-radius: 0.8em;color: #ffffff;font-weight: bold;line-height: 1.6em;margin-right: 15px;height: 1.5em; text-align: center;width: 90% !important;">Rojo</p>
+                            </td>
+                            <td> <input type="checkbox" class="form-control" formControlName="Rojo" value="Rojo" placeholder="" rows="3"></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <p class="item color verde list-item-heading mb-0 truncate w-xs-100" style="background: #393939; overflow: hidden;border-radius: 0.8em;color: #ffffff;font-weight: bold;line-height: 1.6em;margin-right: 15px;height: 1.5em; text-align: center;width: 90% !important;">Negro</p>
+                            </td>
+                            <td> <input type="checkbox" class="form-control" formControlName="Negro" value="Negro" placeholder="" rows="3"></td>
+                        </tr>
+                    </tbody>
+                </table> -->
+
             </div>
         </div>
     </form>
