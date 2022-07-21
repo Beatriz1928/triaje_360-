@@ -40,10 +40,9 @@ export class TratamientoModalComponent  {
     this.cantidad = tratamientos.length;
      for (let a = 0; a < tratamientos.length ;a++){
      this.tratamientos.push(tratamientos[a]);
+     this.tratamientos_vista.push(tratamientos[a]);
      this.nombresAcciones.push(tratamientos[a].nombre);
     }
-    //guardamos los nombres de las acciones definidas en la base de datos
-    this.tratamientos_vista = this.tratamientos;
     this.getAcciones();
 
     this.modalRef = this.modalService.show(this.template, this.config);
@@ -73,29 +72,49 @@ export class TratamientoModalComponent  {
 
   }
 
-UpdateTreatment(nom, tiempo){
+UpdateTreatment(nom){
   // se añade o elimina un tratamiento del paciente cuando marcamos el checkbox
   //console.log(value,nom, tiempo);
  //var inputElements  = document.getElementsByClassName('messageCheckbox');
+  var time = (<HTMLInputElement>document.getElementById(nom)).value;
+  var tiempo: number = +time
+  console.log(time);
   if(!this.nombresAcciones.includes(nom)){
     console.log('el nombre de la accion a añadir es: '+nom);
     this.nombresAcciones.push(nom);
-    this.tratamientos.push(nom, tiempo);
   }
   else{
     for(let i=0; i < this.nombresAcciones.length; ++i){
       if(this.nombresAcciones[i] == nom){
         this.nombresAcciones.splice(i);
-        this.tratamientos.splice(i);
         console.log('el nombre de la accion a borrar es: '+nom);
       }
     }
   }
 
-}
+
+  }
+
+
 
 
   UpdateTreatments(): void {
+
+  this.tratamientos = [];
+  for (let a = 0; a < this.nombresAcciones.length ; a++){
+    var time = +(<HTMLInputElement>document.getElementById(this.nombresAcciones[a])).value;
+    let uno = new AccionPaciente(this.nombresAcciones[a], time);
+    this.tratamientos.push(uno);
+  }
+  console.log('Los tratamientos a añadir son: ')
+  for(var i = 0; i < this.tratamientos.length; i++){
+    console.log(this.tratamientos[i].nombre);
+    console.log(this.tratamientos[i].tiempo);
+  }
+
+
+
+
     // for(let i=0; i<this.selected.length; i++) {
     //   this.dataPaciente.acciones[i] = {
     //     "accion": {
