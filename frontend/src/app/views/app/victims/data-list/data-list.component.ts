@@ -28,7 +28,6 @@ export class DataListComponent implements OnInit {
   orderBy = '';
   totalItem = 0;
   totalPage = 0;
-  itemScene = '';
   acciones: AccionPaciente[];
 
 
@@ -43,10 +42,10 @@ export class DataListComponent implements OnInit {
     //this.sender.id = undefined;
     //this.sender.idSubjectExercise = undefined;
     //this.sender.idExercise = undefined;
-    this.loadScenes(this.itemsPerPage, this.currentPage, this.itemScene, '');
+    this.loadVictims(this.itemsPerPage, this.currentPage, '');
   }
 
-  loadScenes(pageSize: number, currentPage: number, nomScene: string, search?: string): void {
+  loadVictims(pageSize: number, currentPage: number, search?: string): void {
 
     this.itemsPerPage = pageSize;
     this.currentPage = currentPage;
@@ -112,7 +111,7 @@ export class DataListComponent implements OnInit {
             timeOut: 6000,
             showProgressBar: false
           });
-          this.loadScenes(this.itemsPerPage, this.currentPage, this.itemScene, this.search);
+          this.loadVictims(this.itemsPerPage, this.currentPage, this.search);
           return;
         }
       );
@@ -123,7 +122,7 @@ export class DataListComponent implements OnInit {
   dropScene(victim: Paciente): void {
     this.victimService.dropPatient(victim.uid).subscribe(
       data => {
-        this.loadScenes(this.itemsPerPage, this.currentPage, this.itemScene, this.search);
+        this.loadVictims(this.itemsPerPage, this.currentPage, this.search);
 
         this.notifications.create('Victima eliminada', 'Se ha eliminado la víctima correctamente', NotificationType.Info, {
           theClass: 'outline primary',
@@ -200,16 +199,16 @@ export class DataListComponent implements OnInit {
   }
 
   pageChanged(event: any): void {
-    this.loadScenes(this.itemsPerPage, event.page, this.itemScene, this.search);
+    this.loadVictims(this.itemsPerPage, event.page, this.search);
   }
 
   itemsPerPageChange(perPage: number): void {
-    this.loadScenes(perPage, 1, this.itemScene, this.search);
+    this.loadVictims(perPage, 1,this.search);
   }
 
   searchKeyUp(val: string): void {
     this.search = val;
-    this.loadScenes(this.itemsPerPage, this.currentPage, this.itemScene, this.search);
+    this.loadVictims(this.itemsPerPage, this.currentPage,  this.search);
   }
 
   // changeOrderBy(item: any): void {

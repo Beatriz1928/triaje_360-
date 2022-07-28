@@ -8,7 +8,14 @@ const getPacientes = async(req, res = response) => {
 
     // parametros
     const id = req.query.id;
-
+    const texto = req.query.texto;
+    let textoBusqueda = '';
+    if (texto) {
+        textoBusqueda = new RegExp(texto, 'i');
+    }
+    const currentPage = Number(req.query.currentPage);
+    const pageSize = Number(req.query.pageSize) || 0;
+    const desde = (currentPage - 1) * pageSize;
     // Comprobamos roles
     const token = req.header('x-token');
 
@@ -28,11 +35,20 @@ const getPacientes = async(req, res = response) => {
                 Paciente.countDocuments()
             ]);
 
-        } else { // si no nos pasan el id
-            [pacientes, totalPacientes] = await Promise.all([
-                Paciente.find({}, 'nombre descripcion camina color img acciones empeora tiempoEmpeora'),
-                Paciente.countDocuments()
-            ]);
+        } else {
+            // si no nos pasan el id
+            if (texto != undefined) {
+                [pacientes, totalPacientes] = await Promise.all([
+                    Paciente.find({ $or: [{ nombre: textoBusqueda }, { descripcion: textoBusqueda }, { color: textoBusqueda }] }, 'nombre descripcion camina color img acciones empeora tiempoEmpeora').skip(desde).limit(pageSize),
+                    Paciente.countDocuments({ $or: [{ nombre: textoBusqueda }, { descripcion: textoBusqueda }, { color: textoBusqueda }] })
+                ]);
+            } else {
+                [pacientes, totalPacientes] = await Promise.all([
+                    Paciente.find({}, 'nombre descripcion camina color img acciones empeora tiempoEmpeora').skip(desde).limit(pageSize),
+                    Paciente.countDocuments({})
+                ]);
+            }
+
 
 
         }

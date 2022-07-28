@@ -162,7 +162,7 @@ export class AddNewVictimModalComponent  {
         console.log(this.formData.get('color'));
         this.victimService.createPatient(this.formData.value)
         .subscribe(res => {
-          this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
+          this.dataList.loadVictims(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
           this.closeModal();
 
           this.notifications.create('Escena creada', 'Se ha creado la víctima correctamente', NotificationType.Info, {
@@ -186,7 +186,7 @@ export class AddNewVictimModalComponent  {
         console.log('el id  es: '+ escena);
         this.victimService.updatePatient(this.formData.value)
         .subscribe(res => {
-          this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
+          this.dataList.loadVictims(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
           this.closeModal();
 
           this.notifications.create('Escena editada', 'Se ha editado la víctima correctamente', NotificationType.Info, {
@@ -217,7 +217,7 @@ export class AddNewVictimModalComponent  {
         });
       }
 
-    this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
+    this.dataList.loadVictims(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
     this.closeModal();
     //}
 
