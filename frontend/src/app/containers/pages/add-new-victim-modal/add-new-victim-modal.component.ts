@@ -27,13 +27,14 @@ export class AddNewVictimModalComponent  {
   //FORM
   private formSubmited = false;
   public formData=this.fb.group({
-    nombre: ['', [Validators.required]],
-    descripcion: ['', [Validators.required]],
+    uid:[''],
+    nombre: [''],
+    descripcion: [''],
     camina: [''],
     acciones: [''],
     img: [''],
     empeora: [''],
-    tiempoEmpeora: [''],
+    tiempoEmpeora: undefined,
     color: ['']
   });
   @ViewChild('template', { static: true }) template: TemplateRef<any>;
@@ -87,7 +88,7 @@ export class AddNewVictimModalComponent  {
       reader.readAsDataURL(evento.target.files[0]);
 
       console.log(evento.target.files[0]);
-     this.formData.get('ruta').setValue(evento.target.files[0].name);
+     this.formData.get('img').setValue(evento.target.files[0].name);
 
      // this.formData.get('ruta').setValue(this.foto.name);
       this.foto =evento.target.files[0];
@@ -106,9 +107,12 @@ export class AddNewVictimModalComponent  {
   }
 
   getVictim(id:number): void{
+    this.formData.get('uid').setValue(id); // guardamos el valor del id en el form data
+
     console.log('estoy en get victim')
     this.victimService.getPatient(id).subscribe(
       data =>{
+
         this.paciente = data['pacientes'];
         this.loadVictimData();
       },
@@ -125,12 +129,13 @@ export class AddNewVictimModalComponent  {
 
   }
 
-  createUpdateScene(): void{
-    if(this.foto.name!=''){
+  createUpdateVictim(): void{
+   // if(this.foto.name!=''){
       console.log('Envío formulario');
      // this.loadSceneData();
       this.formSubmited = true;
       if (this.formData.invalid) {
+        console.log(this.formData)
         console.log('Estoy saliendo');
         return; }
 
@@ -140,10 +145,21 @@ export class AddNewVictimModalComponent  {
       }else{
         escena = '';
       }
-      console.log('La escena:'+ escena+"eso ");
       if(escena == ''){
         console.log('Estoy creando');
         // si no tenemos id de escena, creamos una
+        console.log(this.formData.get('empeora'));
+        if (this.formData.get('empeora').value == null){
+          this.formData.get('empeora').setValue(false);
+          this.formData.removeControl('tiempoEmpeora');
+        }
+        if (this.formData.get('camina').value == null){
+          this.formData.get('camina').setValue(false);
+        }
+        if (this.formData.get('acciones').value == null){
+          this.formData.get('acciones').setValue([]);
+        }
+        console.log(this.formData.get('color'));
         this.victimService.createPatient(this.formData.value)
         .subscribe(res => {
           this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
@@ -203,7 +219,7 @@ export class AddNewVictimModalComponent  {
 
     this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
     this.closeModal();
-    }
+    //}
 
 
   }

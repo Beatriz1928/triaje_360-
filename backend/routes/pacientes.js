@@ -21,7 +21,7 @@ router.post('/', [
     check('descripcion', 'El argumento descripcion es obligatorio').isString(),
     check('camina', 'El argumento camina es obligatorio').isBoolean(),
     check('color', 'El argumento color es obligatorio').not().isEmpty(),
-    check('img', 'El argumento img ser un string').not().isEmpty(),
+    //check('img', 'El argumento img ser un string').optional(),
     //check('acciones', 'El argumento acciones es obligatorio').not().isEmpty(),
     check('empeora', 'El estado debe ser true o false').isBoolean(),
     check('tiempoEmpeora', 'El tiempo debe ser una cantidad').optional().isNumeric(),

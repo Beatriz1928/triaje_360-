@@ -61,11 +61,12 @@ export class PacienteService {
     let params = new HttpParams();
     //params = params.append('exerciseId', exerciseId + '');
 
+
     const sendData = {
+      "nombre": data['nombre'],
       "descripcion": data['descripcion'],
       "camina": data['camina'],
       "color": data['color'],
-      "nombre": data['nombre'],
       "img": data['img'],
       "acciones": data['acciones'],
       "empeora": data['empeora'],
@@ -85,6 +86,7 @@ export class PacienteService {
     headers = headers.append('x-token', token);
 
     const sendData = {
+      "nombre": data['nombre'],
       "descripcion": data['descripcion'],
       "camina": data['camina'],
       "color": data['color'],

@@ -57,6 +57,7 @@ const crearPaciente = async(req, res = response) => {
 
     // const idEjercicio = req.query.exerciseId;
     // Solo puede crear cursos un admin
+    console.log('llego en el backend');
     const token = req.header('x-token');
     // lo puede actualizar un administrador
     if (!(infoToken(token).rol === 'ROL_ADMIN') && !(infoToken(token).rol === 'ROL_PROFESOR')) {
