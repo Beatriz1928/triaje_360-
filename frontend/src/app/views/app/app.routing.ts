@@ -55,6 +55,12 @@ const routes: Routes = [
           data: { roles: [UserRole.Admin, UserRole.Teacher] },
       },
       {
+        path: 'victims-images',
+        loadChildren: () =>
+          import('./victims-images/victims-images.module').then((m) => m.VictimsImagesModule),
+          data: { roles: [UserRole.Admin, UserRole.Teacher] },
+      },
+      {
         path: 'menu',
         loadChildren: () =>
           import('./menu/menu.module').then((m) => m.MenuModule),

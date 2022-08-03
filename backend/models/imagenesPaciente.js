@@ -6,6 +6,10 @@ const ImagenPacienteSchema = Schema({
         require: true,
         unique: true
     },
+    descripcion: {
+        type: String,
+        require: true,
+    },
     ruta: {
         type: String,
         require: true,

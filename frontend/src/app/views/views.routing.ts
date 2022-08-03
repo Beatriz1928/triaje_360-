@@ -109,6 +109,10 @@ if (!environment.isAuthGuardActive) {
       path: 'exercises',
       loadChildren: () => import('./app/exercises/exercises.module').then((m) => m.ExercisesModule),
     },
+    {
+      path: 'victims-images',
+      loadChildren: () => import('./app/victims-images/victims-images.module').then((m) => m.VictimsImagesModule),
+    },
     { path: 'error', component: ErrorComponent },
     { path: '**', redirectTo: '/error' },
   ];
