@@ -39,6 +39,7 @@ import { AddNewUserModalComponent } from './add-new-user-modal/add-new-user-moda
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddNewSchoolYearModalComponent } from './add-new-school-year-modal/add-new-school-year-modal.component';
 import { AddNewSceneModalComponent } from './add-new-scene-modal/add-new-scene-modal.component';
+import { AddNewVictimImageModalComponent } from './add-new-victim-image-modal/add-new-victim-image-modal.component';
 import { TratamientoModalComponent } from './tratamiento-modal/tratamiento-modal-component';
 import { AddNewVictimModalComponent } from './add-new-victim-modal/add-new-victim-modal.component';
 import { AddNewSubjectModalComponent } from './add-new-subject-modal/add-new-subject-modal.component';
@@ -78,6 +79,7 @@ import { TriarPatientComponent } from './triar-patient/triar-patient.component';
     AddNewSubjectModalComponent,
     AddNewSceneModalComponent,
     AddNewVictimModalComponent,
+    AddNewVictimImageModalComponent,
     ManageSubjectModalComponent,
     ShowStudentRegisterModalComponent,
     SelectPatientImgModalComponent,
@@ -111,6 +113,7 @@ import { TriarPatientComponent } from './triar-patient/triar-patient.component';
     AddNewSubjectModalComponent,
     AddNewSceneModalComponent,
     AddNewVictimModalComponent,
+    AddNewVictimImageModalComponent,
     ManageSubjectModalComponent,
     ListPageHeaderComponent,
     ProfileUserSocialComponent,

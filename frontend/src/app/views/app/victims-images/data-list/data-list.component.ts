@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { AddNewSceneModalComponent } from '../../../../containers/pages/add-new-scene-modal/add-new-scene-modal.component';
+import { AddNewVictimImageModalComponent } from '../../../../containers/pages/add-new-victim-image-modal/add-new-victim-image-modal.component';
 import { Imagen } from '../../../../models/imagen.model';
 import { ImagenService } from '../../../../data/imagen.service';
 import { NotificationsService, NotificationType } from 'angular2-notifications';
@@ -25,7 +25,7 @@ export class DataListComponent implements OnInit {
   totalPage = 0;
   itemScene = '';
 
-  @ViewChild('addNewModalRef', { static: true }) addNewModalRef: AddNewSceneModalComponent;
+  @ViewChild('addNewModalRef', { static: true }) addNewModalRef: AddNewVictimImageModalComponent;
 
 
   constructor(private sceneService: ImagenService, private notifications: NotificationsService,
