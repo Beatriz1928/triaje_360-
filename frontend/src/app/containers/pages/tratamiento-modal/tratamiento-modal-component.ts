@@ -136,7 +136,7 @@ UpdateTreatment(nom){
   if(this.dataPaciente.uid) {
     this.victimService.updatePatient(this.dataPaciente).subscribe(
       data => {
-        this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene);
+        this.victimService.getPatients(this.dataList.itemsPerPage, this.dataList.currentPage);
         this.closeModal();
         this.notifications.create('Paciente editado', 'Se han editado los tratamientos correctamente', NotificationType.Info, {
           theClass: 'outline primary',
