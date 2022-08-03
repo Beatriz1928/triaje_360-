@@ -43,14 +43,14 @@ export class DataListComponent implements OnInit {
 
     this.itemsPerPage = pageSize;
     this.currentPage = currentPage;
-    this.sceneService.getImages('tiles',pageSize, currentPage, search).subscribe(
+    this.sceneService.getImages('pacientes',pageSize, currentPage, search).subscribe(
       data => {
         this.data = data['imagenes'];
         this.totalItem = data['totalImagenes'];
         this.setSelectAllState();
       },
       error => {
-        this.notifications.create('Error', 'No se han podido cargar las escenas', NotificationType.Error, {
+        this.notifications.create('Error', 'No se han podido cargar las imagenes', NotificationType.Error, {
           theClass: 'outline primary',
           timeOut: 6000,
           showProgressBar: false
@@ -71,7 +71,7 @@ export class DataListComponent implements OnInit {
   dropScenes(imgs: Imagen[]): void {
 
     for(let i=0; i<imgs.length; i++){
-      this.sceneService.dropImage(imgs[i].uid,'tiles').subscribe(
+      this.sceneService.dropImage(imgs[i].uid,'pacientes').subscribe(
         data => {
 
           this.notifications.create('Escenas eliminadas', 'Se han eliminado las escenas correctamente', NotificationType.Info, {
@@ -97,11 +97,11 @@ export class DataListComponent implements OnInit {
 
 
   dropScene(imagen: Imagen): void {
-    this.sceneService.dropImage(imagen.uid,'tiles').subscribe(
+    this.sceneService.dropImage(imagen.uid,'pacientes').subscribe(
       data => {
         this.loadScenes(this.itemsPerPage, this.currentPage, this.itemScene, this.search);
 
-        this.notifications.create('Escena eliminada', 'Se ha eliminado la escena correctamente', NotificationType.Info, {
+        this.notifications.create('Escena eliminada', 'Se ha eliminado la imagen correctamente', NotificationType.Info, {
           theClass: 'outline primary',
           timeOut: 6000,
           showProgressBar: false
@@ -111,7 +111,7 @@ export class DataListComponent implements OnInit {
       },
       error => {
 
-        this.notifications.create('Error', 'No se ha podido eliminar el Usuario', NotificationType.Error, {
+        this.notifications.create('Error', 'No se ha podido eliminar la imagen', NotificationType.Error, {
           theClass: 'outline primary',
           timeOut: 6000,
           showProgressBar: false
