@@ -31,8 +31,8 @@ export class ImagenService {
 
   }
 
-  getImage(id: number) {
-    const url = environment.base_url + '/imagenes/tiles/';
+  getImage(id: number,tipo: string) {
+    const url = environment.base_url + '/imagenes/'+tipo+'/';
     const token = localStorage.getItem('token');
 
     // HEADERS

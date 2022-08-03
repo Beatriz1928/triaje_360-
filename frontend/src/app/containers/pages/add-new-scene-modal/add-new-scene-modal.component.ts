@@ -99,7 +99,7 @@ export class AddNewSceneModalComponent  {
   }
 
   getScene(id:number): void{
-    this.sceneService.getImage(id).subscribe(
+    this.sceneService.getImage(id,'tiles').subscribe(
       data =>{
         this.scene = data['imagenes'];
         this.loadSceneData();

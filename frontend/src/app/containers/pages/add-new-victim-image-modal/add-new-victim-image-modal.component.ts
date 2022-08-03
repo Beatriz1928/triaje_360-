@@ -99,7 +99,7 @@ export class AddNewVictimImageModalComponent  {
   }
 
   getScene(id:number): void{
-    this.sceneService.getImage(id).subscribe(
+    this.sceneService.getImage(id,'pacientes').subscribe(
       data =>{
         this.scene = data['imagenes'];
         this.loadSceneData();
