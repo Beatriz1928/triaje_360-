@@ -36,7 +36,7 @@ export class AddNewVictimImageModalComponent  {
 
   @ViewChild('template', { static: true }) template: TemplateRef<any>;
 
-  constructor(private modalService: BsModalService, private sceneService: ImagenService, private fb: FormBuilder, private router: Router , private dataList: DataListComponent,
+  constructor(private modalService: BsModalService, private imageService: ImagenService, private fb: FormBuilder, private router: Router , private dataList: DataListComponent,
     private notifications: NotificationsService) { }
 
 
@@ -99,13 +99,13 @@ export class AddNewVictimImageModalComponent  {
   }
 
   getScene(id:number): void{
-    this.sceneService.getImage(id,'pacientes').subscribe(
+    this.imageService.getImage(id,'pacientes').subscribe(
       data =>{
         this.scene = data['imagenes'];
         this.loadSceneData();
       },
     error => {
-      this.notifications.create('Error', 'No se ha podido obtener la escena', NotificationType.Error, {
+      this.notifications.create('Error', 'No se ha podido obtener la imagen', NotificationType.Error, {
         theClass: 'outline primary',
         timeOut: 6000,
         showProgressBar: false
@@ -117,7 +117,7 @@ export class AddNewVictimImageModalComponent  {
 
   }
 
-  createUpdateScene(): void{
+  createUpdateVictimImage(): void{
     if(this.foto.name!=''){
       console.log('Envío formulario');
      // this.loadSceneData();
@@ -132,23 +132,21 @@ export class AddNewVictimImageModalComponent  {
       }else{
         escena = '';
       }
-      console.log('La escena:'+ escena+"eso ");
       if(escena == ''){
-        console.log('Estoy creando');
         // si no tenemos id de escena, creamos una
-        this.sceneService.createImage(this.formData.value,'tiles')
+        this.imageService.createImage(this.formData.value,'pacientes')
         .subscribe(res => {
           this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
           this.closeModal();
 
-          this.notifications.create('Escena creada', 'Se ha creado la escena correctamente', NotificationType.Info, {
+          this.notifications.create('Imagen creada', 'Se ha creado la imagen correctamente', NotificationType.Info, {
             theClass: 'outline primary',
             timeOut: 6000,
             showProgressBar: false
           });
         }, (err) => {
 
-          this.notifications.create('Error', 'No se ha podido crear la escena', NotificationType.Error, {
+          this.notifications.create('Error', 'No se ha podido crear la imagen', NotificationType.Error, {
             theClass: 'outline primary',
             timeOut: 6000,
             showProgressBar: false
@@ -160,19 +158,19 @@ export class AddNewVictimImageModalComponent  {
         console.log('Estoy editando');
         // si tenemos id de escena, la editamos
         console.log('el id  es: '+ escena);
-        this.sceneService.updateImage(this.formData.value, escena)
+        this.imageService.updateImage(this.formData.value, escena,'pacientes')
         .subscribe(res => {
           this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
           this.closeModal();
 
-          this.notifications.create('Escena editada', 'Se ha editado la escena correctamente', NotificationType.Info, {
+          this.notifications.create('Imagen editada', 'Se ha editado la imagen correctamente', NotificationType.Info, {
             theClass: 'outline primary',
             timeOut: 6000,
             showProgressBar: false
           });
         }, (err) => {
 
-          this.notifications.create('Error', 'No se ha podido editar la escena', NotificationType.Error, {
+          this.notifications.create('Error', 'No se ha podido editar la imagen', NotificationType.Error, {
             theClass: 'outline primary',
             timeOut: 6000,
             showProgressBar: false
@@ -183,7 +181,7 @@ export class AddNewVictimImageModalComponent  {
 
       }
       if (this.foto ) {
-        this.sceneService.subirFoto( this.foto,'tiles')
+        this.imageService.subirFoto( this.foto,'pacientes')
         .subscribe( res => {
           // cambiamos el DOM el objeto que contiene la fot
         }, (err) => {

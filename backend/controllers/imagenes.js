@@ -87,7 +87,8 @@ const actualizarImagen = async(req, res = response) => {
         // comprobamos si ya existe el nombre
 
         const existeImagen0 = await Imagen.findById(uid);
-        if (!existeImagen0) {
+        const existeImagen1 = await ImagenPaciente.findById(uid);
+        if (!existeImagen0 && !existeImagen1) {
             return res.status(400).json({
                 ok: false,
                 msg: 'no hay imagen con ese id'

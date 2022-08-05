@@ -1,11 +1,10 @@
-
 const { response } = require('express');
 const { infoToken } = require('../helpers/infotoken');
 const ImagenPaciente = require('../models/imagenesPaciente');
 
 // funciones
 const getImagenesPaciente = async(req, res = response) => {
-    
+
     // parametros
     const id = req.query.id;
 
@@ -33,7 +32,7 @@ const getImagenesPaciente = async(req, res = response) => {
                 ImagenPaciente.find({}, 'nombre ruta'),
                 ImagenPaciente.countDocuments()
             ]);
-            
+
 
         }
 
@@ -176,7 +175,7 @@ const borrarImagenPaciente = async(req, res = response) => {
 
         // si se ha superado la comprobacion, eliminamos el curso
         const imagenPaciente = await ImagenPaciente.findByIdAndRemove(uid);
-        
+
         res.json({
             ok: true,
             msg: 'Imagen de Paciente borrada',

@@ -16,16 +16,21 @@ router.get('/', [
     validarCampos
 ], getImagenesPaciente);
 
-router.post('/', [
+
+
+router.post('/:tipo', [
     validarJWT,
     check('nombre', 'El argumento nombre es obligatorio').isString(),
+    check('descripcion', 'El argumento descripcion es obligatorio').isString(),
     check('ruta', 'El argumento ruta es obligatorio').isString(),
     validarCampos
 ], crearImagenPaciente);
 
-router.put('/:id', [
+router.put('/:tipo/:id', [
     validarJWT,
+    check('id', 'El identificador no es válido').isMongoId(),
     check('nombre', 'El argumento nombre es obligatorio').isString(),
+    check('descripcion', 'El argumento descripcion es obligatorio').isString(),
     check('ruta', 'El argumento ruta es obligatorio').isString(),
     validarCampos
 ], actualizarImagenPaciente);

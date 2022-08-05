@@ -1,7 +1,7 @@
 import { Component, TemplateRef,  ViewChild } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { DataListComponent } from 'src/app/views/app/scenes/data-list/data-list.component';
-import { ImagenService } from '../../../data/imagen.service';
+import { ImagenPacienteService } from '../../../data/imagenPaciente.service';
 import { Imagen } from '../../../models/imagen.model';
 import { FormBuilder, Validators } from '@angular/forms';
 import { NotificationsService, NotificationType } from 'angular2-notifications';
@@ -36,7 +36,7 @@ export class AddNewSceneModalComponent  {
 
   @ViewChild('template', { static: true }) template: TemplateRef<any>;
 
-  constructor(private modalService: BsModalService, private sceneService: ImagenService, private fb: FormBuilder, private router: Router , private dataList: DataListComponent,
+  constructor(private modalService: BsModalService, private sceneService: ImagenPacienteService, private fb: FormBuilder, private router: Router , private dataList: DataListComponent,
     private notifications: NotificationsService) { }
 
 
@@ -99,7 +99,7 @@ export class AddNewSceneModalComponent  {
   }
 
   getScene(id:number): void{
-    this.sceneService.getImage(id,'tiles').subscribe(
+    this.sceneService.getImagePaciente(id).subscribe(
       data =>{
         this.scene = data['imagenes'];
         this.loadSceneData();
@@ -160,7 +160,7 @@ export class AddNewSceneModalComponent  {
         console.log('Estoy editando');
         // si tenemos id de escena, la editamos
         console.log('el id  es: '+ escena);
-        this.sceneService.updateImage(this.formData.value, escena)
+        this.sceneService.updateImage(this.formData.value, escena,'pacientes')
         .subscribe(res => {
           this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
           this.closeModal();
