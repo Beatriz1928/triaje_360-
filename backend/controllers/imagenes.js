@@ -19,7 +19,7 @@ const crearImagen = async(req, res = response) => {
     const nombre = req.body.nombre;
     const tipo = req.params.tipo //fotoEscena o fotoVictima
     const archivo = req.body.ruta;
-    console.log(archivo);
+    // console.log(archivo);
     const nombrePartido = archivo.split('.');
     const extension = nombrePartido[nombrePartido.length - 1];
     const nom = nombrePartido[0];
@@ -45,12 +45,12 @@ const crearImagen = async(req, res = response) => {
     switch (tipo) {
         case 'tiles':
             req.body.ruta = `${nom}/preview.${extension}`;
-            console.log(req.body.ruta);
+            // console.log(req.body.ruta);
             const imagen = new Imagen(req.body);
             imagen.save();
             break;
         case 'pacientes':
-            console.log(req.body.ruta);
+            //console.log(req.body.ruta);
             const img = new ImagenPaciente(req.body);
             img.save();
 
