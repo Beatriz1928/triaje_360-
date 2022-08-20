@@ -13,20 +13,19 @@
                     <tr>
                         <th scope="col"> Nombre</th>
                         <th scope="col">Tiempo</th>
-                        <th scope="col">Añadir</th>
+                        <th scope="col">Nº veces</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let index of tratamientos_vista; let i=index">
                         <td>{{index.nombre}}</td>
-                        <td><input id='{{index.nombre}}' class="input" type="number" id="name" name="name" required size="5" value="{{index.tiempo}}"></td>
+                        <td><input id='{{index.nombre}}' class="input" type="number" id="name" name="name" required size="5" value="{{index.tiempo}}" style="width: 70px;margin-top: 0.3rem;"></td>
                         <div *ngIf="i<cantidad; then thenBlock else elseBlock"></div>
                         <ng-template #thenBlock>
-                            <td><input type="checkbox" checked class="messageCheckbox" value="Submit" (click)="UpdateTreatment(index.nombre,index.tiempo)" style="margin-left: 0.9rem;margin-top: 0.3rem;"></td>
+                            <td><input class="input" type="number" class="messageCheckbox" value="{{index.cantidad}}" (click)="UpdateTreatment(index.nombre,index.tiempo, index.cantidad)" style="width: 70px; ;margin-top: 0.3rem;"></td>
                         </ng-template>
                         <ng-template #elseBlock>
-                            <td>
-                                <input type="checkbox" class="messageCheckbox" (click)=" UpdateTreatment(index.nombre) " style="margin-left: 0.9rem;margin-top: 0.3rem; "></td>
+                            <td><input class="input" type="number" class="messageCheckbox" value="0" (click)="UpdateTreatment(index.nombre,index.tiempo, index.cantidad)" style=" width: 70px ;margin-top: 0.3rem;"></td>
                         </ng-template>
                     </tr>
                 </tbody>

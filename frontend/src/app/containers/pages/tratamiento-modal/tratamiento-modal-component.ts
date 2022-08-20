@@ -96,11 +96,13 @@ UpdateTreatment(nom){
   //console.log(value,nom, tiempo);
   var time = (<HTMLInputElement>document.getElementById(nom)).value;
   console.log(time);
+  // lo añadimos
   if(!this.nombresAcciones.includes(nom)){
     // console.log('el nombre de la accion a añadir es: '+nom);
     this.nombresAcciones.push(nom);
   }
   else{
+    // actualizamos la cantidad si es distinta a 0 o si no la eliminamos
     for(let i=0; i < this.nombresAcciones.length; ++i){
       if(this.nombresAcciones[i] == nom){
         this.nombresAcciones.splice(i);
@@ -119,11 +121,6 @@ UpdateTreatment(nom){
     let uno = new AccionPaciente(this.nombresAcciones[a], time);
     this.tratamientos.push(uno);
   }
-  // console.log('Los tratamientos a añadir son: ')
-  // for(var i = 0; i < this.tratamientos.length; i++){
-  //   console.log(this.tratamientos[i].nombre);
-  //   console.log(this.tratamientos[i].tiempo);
-  // }
   for(let i=0; i<this.tratamientos.length; i++) {
     this.dataPaciente.acciones[i] = {
       "accion": {

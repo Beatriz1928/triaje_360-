@@ -35,9 +35,9 @@
             </div>
             <div class="mt-4">
                 <label>Empeora:</label>
-                <input type="checkbox" class="checkbox" formControlName="empeora" placeholder="">
+                <input type="checkbox" class="checkbox" formControlName="empeora" (click)="muestraTiempo()" id='empeora'>
             </div>
-            <div class="mt-4">
+            <div class="mt-4" *ngIf=" this.formData.get('empeora').value == true">
                 <label>{{ 'pages.victim-time' | translate }}</label>
                 <input type="number" class="form-control" formControlName="tiempoEmpeora" id="tiempoEmpeora" placeholder="">
             </div>
@@ -52,35 +52,6 @@
                       <ng-option value="Negro">Negro</ng-option>
                   </ng-select>
               </label>
-                <!-- <table class="table">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <p class="item color verde list-item-heading mb-0 truncate w-xs-100" style="background: #0e953c; overflow: hidden;border-radius: 0.8em;color: #ffffff;font-weight: bold;line-height: 1.6em;margin-right: 15px;height: 1.5em; text-align: center;width: 90% !important;">Verde</p>
-                            </td>
-                            <td> <input type="checkbox" class="form-control" formControlName="Verde" value="Verde" placeholder="" rows="3"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p class="item color verde list-item-heading mb-0 truncate w-xs-100" style="background: #aa9c15; overflow: hidden;border-radius: 0.8em;color: #ffffff;font-weight: bold;line-height: 1.6em;margin-right: 15px;height: 1.5em; text-align: center;width: 90% !important;">Amarillo</p>
-                            </td>
-                            <td> <input type="checkbox" class="form-control" formControlName="Amarillo" value="Amarillo" placeholder="" rows="3"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p class="item color verde list-item-heading mb-0 truncate w-xs-100" style="background: #bf0a0a; overflow: hidden;border-radius: 0.8em;color: #ffffff;font-weight: bold;line-height: 1.6em;margin-right: 15px;height: 1.5em; text-align: center;width: 90% !important;">Rojo</p>
-                            </td>
-                            <td> <input type="checkbox" class="form-control" formControlName="Rojo" value="Rojo" placeholder="" rows="3"></td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <p class="item color verde list-item-heading mb-0 truncate w-xs-100" style="background: #393939; overflow: hidden;border-radius: 0.8em;color: #ffffff;font-weight: bold;line-height: 1.6em;margin-right: 15px;height: 1.5em; text-align: center;width: 90% !important;">Negro</p>
-                            </td>
-                            <td> <input type="checkbox" class="form-control" formControlName="Negro" value="Negro" placeholder="" rows="3"></td>
-                        </tr>
-                    </tbody>
-                </table> -->
-
             </div>
         </div>
     </form>

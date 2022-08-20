@@ -25,7 +25,8 @@ const PacienteSchema = Schema({
     acciones: [{
         accion: {
             nombre: String,
-            tiempo: Number
+            tiempo: Number,
+            cantidad: Number
         }
     }],
     empeora: {
