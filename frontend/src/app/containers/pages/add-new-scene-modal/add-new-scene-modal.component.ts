@@ -1,7 +1,7 @@
 import { Component, TemplateRef,  ViewChild } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { DataListComponent } from 'src/app/views/app/scenes/data-list/data-list.component';
-import { ImagenPacienteService } from '../../../data/imagenPaciente.service';
+import { ImagenService } from '../../../data/imagen.service';
 import { Imagen } from '../../../models/imagen.model';
 import { FormBuilder, Validators } from '@angular/forms';
 import { NotificationsService, NotificationType } from 'angular2-notifications';
@@ -22,6 +22,7 @@ export class AddNewSceneModalComponent  {
   };
 
   scene: Imagen;
+  ruta="vacio";
   public foto: File = null;
 
   //FORM
@@ -36,11 +37,12 @@ export class AddNewSceneModalComponent  {
 
   @ViewChild('template', { static: true }) template: TemplateRef<any>;
 
-  constructor(private modalService: BsModalService, private sceneService: ImagenPacienteService, private fb: FormBuilder, private router: Router , private dataList: DataListComponent,
+  constructor(private modalService: BsModalService, private sceneService: ImagenService, private fb: FormBuilder, private router: Router , private dataList: DataListComponent,
     private notifications: NotificationsService) { }
 
 
   show(id? : number): void {
+    this.ruta = "vacio";
     this.formData.reset();
 
     this.scene = undefined;
@@ -51,12 +53,18 @@ export class AddNewSceneModalComponent  {
   }
 
   loadSceneData() {
+
     if(this.scene ) {
       this.formData.get('nombre').setValue(this.scene.nombre);
       this.formData.get('descripcion').setValue(this.scene.descripcion);
+      this.formData.get('ruta').setValue(this.scene.ruta);
       //console.log('la foto es '+this.foto);
+      this.ruta = this.scene.ruta;
     }
+
   }
+
+
 
   cambioImagen( evento ): void {
     if (evento.target.files && evento.target.files[0]) {
@@ -89,17 +97,30 @@ export class AddNewSceneModalComponent  {
       var data = new FormData();
       data.append("archivo", evento.target.files[0]);
       //req.send(formData);
-
-
-
-
+      this.updateImage();
     } else {
       console.log('no llega target:', evento);
     }
   }
 
+
+updateImage(){
+
+  if (this.foto ) {
+    this.sceneService.subirFoto( this.foto,'tiles')
+    .subscribe( res => {
+      console.log('se ha cambiado la foto');
+    }, (err) => {
+      const errtext = err.error.msg || 'No se pudo cargar la imagen';
+      Swal.fire({icon: 'error', title: 'Oops...', text: errtext});
+      return;
+    });
+  }
+}
+
+
   getScene(id:number): void{
-    this.sceneService.getImagePaciente(id).subscribe(
+    this.sceneService.getImage(id,'tiles').subscribe(
       data =>{
         this.scene = data['imagenes'];
         this.loadSceneData();
@@ -159,8 +180,7 @@ export class AddNewSceneModalComponent  {
       }else{
         console.log('Estoy editando');
         // si tenemos id de escena, la editamos
-        console.log('el id  es: '+ escena);
-        this.sceneService.updateImage(this.formData.value, escena,'pacientes')
+        this.sceneService.updateImage(this.formData.value, escena,'tiles')
         .subscribe(res => {
           this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
           this.closeModal();
@@ -182,16 +202,7 @@ export class AddNewSceneModalComponent  {
       });
 
       }
-      if (this.foto ) {
-        this.sceneService.subirFoto( this.foto,'tiles')
-        .subscribe( res => {
-          // cambiamos el DOM el objeto que contiene la fot
-        }, (err) => {
-          const errtext = err.error.msg || 'No se pudo cargar la imagen';
-          Swal.fire({icon: 'error', title: 'Oops...', text: errtext});
-          return;
-        });
-      }
+      this.updateImage();
 
     this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
     this.closeModal();
