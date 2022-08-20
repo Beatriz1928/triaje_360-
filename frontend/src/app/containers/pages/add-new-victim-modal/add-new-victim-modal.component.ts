@@ -23,6 +23,7 @@ export class AddNewVictimModalComponent  {
 
   paciente: Paciente;
   public foto: File = null;
+  mostrar = false;
 
   //FORM
   private formSubmited = false;
@@ -51,7 +52,9 @@ export class AddNewVictimModalComponent  {
       this.getVictim(id);
     }
     this.modalRef = this.modalService.show(this.template, this.config);
+    //this.muestraTiempo();
   }
+
 
   loadVictimData() {
     if(this.paciente ) {
@@ -64,6 +67,7 @@ export class AddNewVictimModalComponent  {
       this.formData.get('tiempoEmpeora').setValue(this.paciente.tiempoEmpeora);
       this.formData.get('camina').setValue(this.paciente.camina);
     }
+
   }
 
   cambioImagen( evento ): void {
