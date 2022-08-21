@@ -186,23 +186,23 @@ export class DoExerciseComponent implements OnInit {
             "pitch": -0.37,
             "rotation": 4.71238898038469,
             "target": targetLeft
-          }, 
+          },
           {
             "yaw": 0,
             "pitch": -0.42,
             "rotation": -4.71238898038469,
             "target": targetRight
-          }, 
+          },
         ],
         "infoHotspots": []
       });
     }
-    
+
     this.getExercisePatients();
   }
 
   setColour(event): void {
-    
+
     var icon, encontrado = false;
     for(let i=0; i<this.pacientesEjercicio.length; i++) {
       if(event.paciente['_id'] == this.pacientesEjercicio[i].idPaciente['_id'] && !encontrado) {
@@ -214,12 +214,12 @@ export class DoExerciseComponent implements OnInit {
             if(this.data.scenes[j].infoHotspots[k].paciente['_id'] == event.paciente['_id']) {
               this.data.scenes[j].infoHotspots[k].color = event.color;
             }
-          } 
-          
+          }
+
         }
       }
     }
-    
+
     switch (event.color) {
       case 'Verde':
         icon.classList.remove('amarillo');
@@ -271,7 +271,7 @@ export class DoExerciseComponent implements OnInit {
           accionAsiganda = true;
           this.data.scenes[j].infoHotspots[k].acciones.push(event.accion);
         }
-      }      
+      }
     }
     // this.setPenalizacion(event.accion.tiempo);
     let nombre = "Realización de Acción '" + event.accion.nombre + "' a";
@@ -330,7 +330,7 @@ export class DoExerciseComponent implements OnInit {
         this.actividad.accion = accion;
       }
     }
-    
+
     this.actividadService.createActivity(this.actividad).subscribe(data => {
       if(data['actividad'].nombre == "Terminar Ejercicio") {
         this.sender.ejercicioUsuario = undefined;
@@ -399,12 +399,11 @@ export class DoExerciseComponent implements OnInit {
     var scenes = this.data.scenes.map(function(data) {
       var urlPrefix = "././././assets/img/tiles";
       var source = Marzipano.ImageUrlSource.fromString(
-        urlPrefix + "/" + data.id + "/{f}.png",
-        { cubeMapPreviewUrl: urlPrefix + "/" + data.id + "/scenePreview.png" });
-      var geometry = new Marzipano.CubeGeometry(data.levels);
+        "./../../../../../assets/img/tiles/river_walk_1-min/scenePreview.png");
+        var geometry = new Marzipano.EquirectGeometry([{ width: 4000 }]);
 
-      var limiter = Marzipano.RectilinearView.limit.traditional(data.faceSize, 100*Math.PI/180, 120*Math.PI/180);
-      var view = new Marzipano.RectilinearView(data.initialViewParameters, limiter);
+        var limiter = Marzipano.RectilinearView.limit.traditional(1024, 100*Math.PI/180);
+        var view = new Marzipano.RectilinearView({ yaw: Math.PI }, limiter);
 
       var scene = viewer.createScene({
         source: source,
@@ -527,7 +526,7 @@ export class DoExerciseComponent implements OnInit {
           // that.createActivity("Entra a atender a Paciente " + i, 10, hotspot.paciente);
           that.createActivity("Entra a atender a", 10, hotspot.paciente);
         }
-        
+
       });
 
       var icon = document.createElement('img');
