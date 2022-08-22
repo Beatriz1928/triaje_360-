@@ -399,7 +399,7 @@ export class DoExerciseComponent implements OnInit {
     var scenes = this.data.scenes.map(function(data) {
       var urlPrefix = "././././assets/img/tiles";
       var source = Marzipano.ImageUrlSource.fromString(
-        "./../../../../../assets/img/tiles/river_walk_1-min/scenePreview.png");
+        urlPrefix + "/" + data.id + "/preview.png");
         var geometry = new Marzipano.EquirectGeometry([{ width: 4000 }]);
 
         var limiter = Marzipano.RectilinearView.limit.traditional(1024, 100*Math.PI/180);
