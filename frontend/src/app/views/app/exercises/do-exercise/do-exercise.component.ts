@@ -383,6 +383,7 @@ export class DoExerciseComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.createActivity("Terminar Ejercicio", 0);
+      document.getElementById("navbar").style.display = "flex";
       } else if (result.isDenied) {
         Swal.close();
       }
