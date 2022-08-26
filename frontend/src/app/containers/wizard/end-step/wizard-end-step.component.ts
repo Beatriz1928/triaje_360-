@@ -299,14 +299,14 @@ export class WizardEndStepComponent implements OnInit {
       valid = true;
     }
 
-    return valid;    
+    return valid;
   }
 
 
   // **************** IMAGE METHODS ***************
 
   getImages():void {
-    this.imagenService.getImages().subscribe(
+    this.imagenService.getImages('tiles').subscribe(
       data => {
         if (data['ok']) {
           this.imgs = data['imagenes'];
@@ -336,7 +336,7 @@ export class WizardEndStepComponent implements OnInit {
       this.dataEjercicio.imgs[i] = {
         "img": this.imgsSelect[i].uid
       }
-      
+
     }
   }
 
@@ -346,15 +346,15 @@ export class WizardEndStepComponent implements OnInit {
     for(let i=0; i<this.exercise.imgs.length; i++) {
       this.dataEjercicio.imgs[i] = this.exercise.imgs[i].img;
     }
-    
+
     for(let j=0; j<this.dataEjercicio.imgs.length; j++) {
       for(let k=0; k<this.imgs.length; k++) {
         if(this.dataEjercicio.imgs[j]['_id'] == this.imgs[k].uid) {
           this.selectImgs(this.imgs[k]);
-        }  
+        }
       }
     }
-    
+
   }
 
   formatExercisePatients() {
@@ -379,12 +379,12 @@ export class WizardEndStepComponent implements OnInit {
       // console.log(this.imgsSelect);
       var element = document.querySelector('[src="' + this.urlPrefix + img.ruta +'"]');
       element.parentElement.className = 'selected';
-    
+
     }
-    
+
   }
 
-  unselectImg(img, pos) { 
+  unselectImg(img, pos) {
     // eliminamos la ruta del array
     this.imgsSelect.splice(pos, 1);
     this.dataEjercicio.imgs.splice(this.dataEjercicio.imgs.indexOf(pos));
@@ -394,12 +394,12 @@ export class WizardEndStepComponent implements OnInit {
     element.parentElement.className = 'noSelected';
   }
 
-  moveImgL(img, pos) { 
+  moveImgL(img, pos) {
     this.imgsSelect.splice(pos, 1);
     this.imgsSelect.splice(pos-1, 0, img);
   }
 
-  moveImgR(img, pos) { 
+  moveImgR(img, pos) {
     this.imgsSelect.splice(pos, 1);
     this.imgsSelect.splice(pos+1, 0, img);
   }
@@ -410,7 +410,7 @@ export class WizardEndStepComponent implements OnInit {
       valid = true;
     }
 
-    return valid;    
+    return valid;
   }
 
 
@@ -465,7 +465,7 @@ export class WizardEndStepComponent implements OnInit {
   // ***************** CONFIGURE PATIENT METHODS ********************
 
   createPatient(): void {
-    
+
     for(let i=0; i<this.selected.length; i++) {
       this.dataPaciente.acciones[i] = {
         "accion": {
@@ -473,12 +473,12 @@ export class WizardEndStepComponent implements OnInit {
           "tiempo": this.selected[i].tiempo
         }
       }
-    }   
-    
+    }
+
     if(this.dataPaciente['uid']) {
-      this.pacienteService.updatePatient(this.dataPaciente).subscribe( 
+      this.pacienteService.updatePatient(this.dataPaciente).subscribe(
         data => {
-          
+
           let parar = false;
           for(let i=0; i<this.dataEjercicio.pacientes.length && !parar; i++) {
             if(this.dataEjercicio.pacientes[i].uid == data['paciente'].uid) {
@@ -525,7 +525,7 @@ export class WizardEndStepComponent implements OnInit {
             timeOut: 6000,
             showProgressBar: false
           });
-  
+
           return;
         }
       );
@@ -534,7 +534,7 @@ export class WizardEndStepComponent implements OnInit {
   }
 
   loadPatientData(paciente: Paciente, i: number): void {
-    
+
     this.childrenImg = paciente.img;
     this.dataPaciente = paciente;
     this.selected = [];
@@ -546,7 +546,7 @@ export class WizardEndStepComponent implements OnInit {
         }
       }
     }
-  
+
   }
 
   deletePatient(i: number) {
@@ -601,7 +601,7 @@ export class WizardEndStepComponent implements OnInit {
       valid = true;
     }
 
-    return valid;    
+    return valid;
   }
 
   // ***************** LOCATE PATIENT METHODS ********************
@@ -622,7 +622,7 @@ export class WizardEndStepComponent implements OnInit {
       element.parentElement.className = 'noSelected';
       var element2 = document.querySelector('[src="'+ this.urlPrefix + i.ruta +'"]');
       element2.parentElement.className = 'selected';
-    } 
+    }
 
     this.imgSelected = i;
     this.getExercisePatients();
@@ -757,7 +757,7 @@ export class WizardEndStepComponent implements OnInit {
   }
 
   dislocatePatient(x: number, y: number, pacEj?: PacienteEjercicio) {
-    
+
     let pe;
     if(!pacEj) {
       pe = this.findExercisePatient(x, y);
@@ -765,7 +765,7 @@ export class WizardEndStepComponent implements OnInit {
     else {
       pe = pacEj;
     }
-    
+
     this.pacienteEjercicioService.dropExercisePatient(pe.uid).subscribe(
       data => {
         let encontrado = false;
@@ -811,7 +811,7 @@ export class WizardEndStepComponent implements OnInit {
       }
     }
 
-    return valid;    
+    return valid;
   }
 
 }

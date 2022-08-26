@@ -1,3 +1,5 @@
+<app-select-patient-img-modal #addNewModalRef (seleccionarImg)="getImgSelect($event)" (resetParentImg)="resetChildrenImg()" [parentImg]="childrenImg"></app-select-patient-img-modal>
+
 <ng-template #template>
     <div class="modal-header">
         <ng-template *ngIf="paciente then editar else crear"> </ng-template>
@@ -21,8 +23,8 @@
                 <input type="text" class="form-control" formControlName="nombre" id="nombre" placeholder="" required>
             </div>
             <div class="mt-4">
-                <label>{{ 'pages.imagen' | translate }}</label>
-                <input class="form-control" rows="3" type="file" id="file-selector" (change)="cambioImagen( $event )" name="imagenVictima" />
+                <label>{{ 'pages.imagen:' | translate }}</label>
+                <button type="button" class="btn btn-outline-primary selecimg" (click)="showSelectPatientImgModal()">Seleccionar Imagen</button>
             </div>
             <div class="mt-4">
                 <label>{{ 'pages.victim-description' | translate }}</label>
@@ -35,7 +37,7 @@
             </div>
             <div class="mt-4">
                 <label>Empeora:</label>
-                <input type="checkbox" class="checkbox" formControlName="empeora" (click)="muestraTiempo()" id='empeora'>
+                <input type="checkbox" class="checkbox" formControlName="empeora" id='empeora'>
             </div>
             <div class="mt-4" *ngIf=" this.formData.get('empeora').value == true">
                 <label>{{ 'pages.victim-time' | translate }}</label>

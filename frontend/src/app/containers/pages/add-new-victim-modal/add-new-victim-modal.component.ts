@@ -6,6 +6,7 @@ import { ImagenService } from '../../../data/imagen.service';
 import { Paciente } from '../../../models/paciente.model';
 import { FormBuilder, Validators } from '@angular/forms';
 import { NotificationsService, NotificationType } from 'angular2-notifications';
+import { SelectPatientImgModalComponent } from 'src/app/containers/pages/select-patient-img-modal/select-patient-img-modal.component';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 @Component({
@@ -38,8 +39,9 @@ export class AddNewVictimModalComponent  {
     tiempoEmpeora: undefined,
     color: ['']
   });
+  childrenImg: string = undefined;
   @ViewChild('template', { static: true }) template: TemplateRef<any>;
-
+  @ViewChild('addNewModalRef', { static: true }) addNewModalRef: SelectPatientImgModalComponent;
   constructor(private modalService: BsModalService, private victimService: PacienteService,private imagenService: ImagenService, private fb: FormBuilder, private router: Router , private dataList: DataListComponent,
     private notifications: NotificationsService) { }
 
@@ -108,6 +110,18 @@ export class AddNewVictimModalComponent  {
     } else {
       console.log('no llega target:', evento);
     }
+  }
+  getImgSelect(e): void {
+    this.formData.get('img').setValue('/'+e);
+    this.childrenImg = e;
+    console.log('Select1:', e);
+     console.log('Select:', this.formData.get('img').value);
+  }
+  showSelectPatientImgModal(): void {
+    this.addNewModalRef.show();
+  }
+  resetChildrenImg() {
+    this.childrenImg = undefined;
   }
 
   getVictim(id:number): void{
