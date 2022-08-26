@@ -10,6 +10,11 @@ import { getThemeColor, setThemeColor, getUserRole } from 'src/app/utils/util';
 @Component({
   selector: 'app-topnav',
   templateUrl: './topnav.component.html',
+  // styles: [
+  //   `
+  //     :host ::ng-deep .navbar  { display: none; }
+  //   `
+  // ]
 })
 export class TopnavComponent implements OnInit, OnDestroy {
   buyUrl = environment.buyUrl;

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, QueryList, Renderer2, ViewChild,ViewChildren, } from '@angular/core';
 import { NotificationsService, NotificationType } from 'angular2-notifications';
 import { EjercicioService } from 'src/app/data/ejercicio.service';
 import { PacienteEjercicioService } from 'src/app/data/pacienteEjercicio.service';
@@ -18,14 +18,18 @@ var Marzipano = require('marzipano');
   selector: 'app-do-exercise',
   templateUrl: './do-exercise.component.html',
   styleUrls: ['./do-exercise.component.scss'],
-  providers: [DatePipe]
+  providers: [DatePipe],
+
+
 })
 
 export class DoExerciseComponent implements OnInit {
-
+  @ViewChild('triarModalRef', { static: true }) triarModalRef: TriarPatientComponent;
+  @ViewChild('buttonInfo') buttonInfo: ElementRef;
   urlPrefixPacientes: string = environment.prefix_urlPacientes;
   ejercicio: Ejercicio;
   pacientesEjercicio: PacienteEjercicio[] = [];
+  realizaEjercicio = true;
   data = {
     "scenes": [],
     "name": "",
@@ -56,11 +60,17 @@ export class DoExerciseComponent implements OnInit {
     "accion": undefined
   }
 
-  @ViewChild('triarModalRef', { static: true }) triarModalRef: TriarPatientComponent;
 
-  constructor(private sender: SenderService, private ejercicioService: EjercicioService, private notifications: NotificationsService,
-    private pacienteEjercicioService: PacienteEjercicioService, private datePipe: DatePipe, private actividadService: ActividadService,
-    private router: Router) { }
+  constructor(
+    private sender: SenderService,
+    private ejercicioService: EjercicioService,
+    private notifications: NotificationsService,
+    private pacienteEjercicioService: PacienteEjercicioService,
+    private datePipe: DatePipe,
+    private actividadService: ActividadService,
+    private router: Router,
+    private renderer: Renderer2,
+    ) {}
 
   ngOnInit(): void {
     this.getExercise();
@@ -68,6 +78,7 @@ export class DoExerciseComponent implements OnInit {
     this.formatTime();
     this.createActivity("Empieza el Ejercicio", 0);
     setInterval(() => this.tick(), 1000);
+    document.getElementById("navbar").style.display = "none";
   }
 
   resetTimer() {

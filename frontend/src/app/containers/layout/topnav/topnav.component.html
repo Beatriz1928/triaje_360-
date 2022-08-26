@@ -1,4 +1,4 @@
-<nav class="navbar fixed-top">
+<nav class="navbar fixed-top" id="navbar">
     <div class="d-flex align-items-center navbar-left">
         <a *ngIf="!doExercise()" (click)="menuButtonClick($event, sidebar.menuClickCount, sidebar.containerClassnames); false;" href="javascript:;" class="menu-button d-none d-md-block">
             <svg class="main" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 17">
@@ -57,7 +57,7 @@
 
             <div class="position-relative d-inline-block">
 
-            <!-- NOTIFICACIONES -->
+                <!-- NOTIFICACIONES -->
                 <!-- <div dropdown>
                     <button id="button-basic" dropdownToggle type="button" id="notificationButton" class="header-icon btn btn-empty">
             <i class="simple-icon-bell"></i>
