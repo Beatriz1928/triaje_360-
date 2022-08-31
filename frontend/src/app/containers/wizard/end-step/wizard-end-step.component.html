@@ -1,5 +1,6 @@
 <!-- <h5 class="mb-4">{{ 'wizard.last-end' | translate }}</h5> -->
 <app-select-patient-img-modal #addNewModalRef (seleccionarImg)="getImgSelect($event)" (resetParentImg)="resetChildrenImg()" [parentImg]="childrenImg"></app-select-patient-img-modal>
+<app-add-patient-modal #addPatientModalRef (seleccionarImg)="getImgSelect($event)" (resetParentImg)="resetChildrenImg()" [parentImg]="childrenImg"></app-add-patient-modal>
 <app-locate-patient #locateModalRef (seleccionarPaciente)="getPatientSelected($event)"></app-locate-patient>
 
 <div class="card mb-5">
@@ -100,9 +101,12 @@
                 </div>
             </aw-wizard-step>
 
-            <aw-wizard-step stepTitle="{{ 'wizard.third-step' | translate }}" style="min-height: 120px;">
+            <!-- <aw-wizard-step stepTitle="{{ 'wizard.third-step' | translate }}" style="min-height: 120px;"> -->
+            <aw-wizard-step stepTitle="{{ 'Añadir pacientes existentes' | translate }}" style="min-height: 120px;">
                 <div class="pacientes">
                     <h3 class="mb-2">{{ 'wizard.third-step' | translate }}</h3>
+                    <button type="button" class="btn btn-primary" (click)="showAddPatientImgModal()">{{ 'Añadir pacientes' | translate }}</button>
+                    <h3 class="mb-2">Editar o crear paciente</h3>
                     <div class="form-group configurar-pacientes">
                         <div class="separated">
                             <div id="descripcion">
@@ -144,6 +148,7 @@
                         </div>
                     </div>
                     <div class="form-group configurar-pacientes">
+
                         <div id="empeora">
                             <label>{{ 'wizard.gets-worse' | translate }}</label>
                             <label class="custom-control custom-checkbox mb-1 align-self-center pr-4">
@@ -187,7 +192,7 @@
                                 <div class="activo" *ngIf="dataPaciente.uid != undefined && dataPaciente.uid == p.uid">
                                     <p class="paciente mb-0 text-muted text-small w-xs-100" (click)="createPatient()">Paciente {{i+1}}</p>
                                     <i class="simple-icon-close" (click)="deletePatient(i)"></i>
-                                </div>src
+                                </div>
                                 <div class="noActivo" *ngIf="dataPaciente.uid == undefined || dataPaciente.uid != p.uid">
                                     <p class="paciente mb-0 text-muted text-small w-xs-100" (click)="loadPatientData(p, i)">Paciente {{i+1}}</p>
                                     <i class="simple-icon-close" (click)="deletePatient(i)"></i>

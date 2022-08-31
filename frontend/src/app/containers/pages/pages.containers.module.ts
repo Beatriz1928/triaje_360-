@@ -43,6 +43,7 @@ import { AddNewVictimImageModalComponent } from './add-new-victim-image-modal/ad
 import { TratamientoModalComponent } from './tratamiento-modal/tratamiento-modal-component';
 import { AddNewVictimModalComponent } from './add-new-victim-modal/add-new-victim-modal.component';
 import { AddNewSubjectModalComponent } from './add-new-subject-modal/add-new-subject-modal.component';
+import { AddPatientModalComponent } from './add-patient-modal/add-patient-modal.component';
 import { ManageSubjectModalComponent } from './manage-subject-modal/manage-subject-modal.component';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { ShowStudentRegisterModalComponent } from './show-student-register-modal/show-student-register-modal.component';
@@ -80,6 +81,7 @@ import { TriarPatientComponent } from './triar-patient/triar-patient.component';
     AddNewSceneModalComponent,
     AddNewVictimModalComponent,
     AddNewVictimImageModalComponent,
+    AddPatientModalComponent,
     ManageSubjectModalComponent,
     ShowStudentRegisterModalComponent,
     SelectPatientImgModalComponent,
@@ -114,6 +116,7 @@ import { TriarPatientComponent } from './triar-patient/triar-patient.component';
     AddNewSceneModalComponent,
     AddNewVictimModalComponent,
     AddNewVictimImageModalComponent,
+    AddPatientModalComponent,
     ManageSubjectModalComponent,
     ListPageHeaderComponent,
     ProfileUserSocialComponent,

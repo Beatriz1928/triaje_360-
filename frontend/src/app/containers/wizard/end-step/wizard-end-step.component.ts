@@ -18,6 +18,7 @@ import { PacienteEjercicio } from 'src/app/models/pacienteEjercicio.model';
 import { Accion } from 'src/app/models/accion.model';
 import { AccionService } from 'src/app/data/accion.service';
 import { SelectPatientImgModalComponent } from 'src/app/containers/pages/select-patient-img-modal/select-patient-img-modal.component';
+import { AddPatientModalComponent } from 'src/app/containers/pages/add-patient-modal/add-patient-modal.component';
 import { LocatePatientComponent } from '../../pages/locate-patient/locate-patient.component';
 import { AuthService } from 'src/app/shared/auth.service';
 
@@ -90,6 +91,7 @@ export class WizardEndStepComponent implements OnInit {
 
   @ViewChild('template', { static: true }) template: TemplateRef<any>;
   @ViewChild('addNewModalRef', { static: true }) addNewModalRef: SelectPatientImgModalComponent;
+  @ViewChild('addPatientModalRef', { static: true }) addPatientModalRef: AddPatientModalComponent;
   @ViewChild('locateModalRef', { static: true }) locateModalRef: LocatePatientComponent;
 
   constructor(private asignaturaService: AsignaturaService, private ejercicioService: EjercicioService, private fb: FormBuilder,
@@ -584,6 +586,11 @@ export class WizardEndStepComponent implements OnInit {
   showSelectPatientImgModal(): void {
     this.addNewModalRef.show();
   }
+
+  showAddPatientImgModal(): void {
+    this.addPatientModalRef.show();
+  }
+
 
   getImgSelect(e): void {
     this.dataPaciente.img = e;

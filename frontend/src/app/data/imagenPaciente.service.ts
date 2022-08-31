@@ -65,8 +65,8 @@ export class ImagenPacienteService {
 
     // PARAMS
     let params = new HttpParams();
-    console.log('JEJE EL ID: '+id)
-    params = params.append('id', id + '');
+    // console.log('JEJE EL ID: '+id)
+    // params = params.append('id', id + '');
 
     return this.http.put(url, sendData, { headers, params });
   }
