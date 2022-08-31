@@ -25,7 +25,7 @@ export class AddPatientModalComponent implements OnInit {
   userRole: number;
   ejercicio: number;
   pacientes: Paciente[] =[];
-  imagenes: ImagenPaciente[] = [];
+  idAnyadidos: string[] =[];
   @Input() parentImg: string;
   imagenSeleccionada: string;
   urlPrefixPacientes: string = environment.prefix_urlPacientes;
@@ -46,10 +46,10 @@ export class AddPatientModalComponent implements OnInit {
   ngOnInit(): void {
     this.userRole = this.auth.rol;
     this.ejercicio = this.sender.idExercise;
-    this.getImagesPaciente();
+    this.getPacientes();
   }
 
-  getImagesPaciente(): void {
+  getPacientes(): void {
     this.pacienteService.getPatients().subscribe(
       data => {
         if (data['ok']) {
@@ -57,7 +57,7 @@ export class AddPatientModalComponent implements OnInit {
         }
       },
       error => {
-        this.notifications.create('Error', 'No se han podido obtener las Imagenes de Paciente', NotificationType.Error, {
+        this.notifications.create('Error', 'No se han podido obtener las victimas', NotificationType.Error, {
           theClass: 'outline primary',
           timeOut: 6000,
           showProgressBar: false
@@ -68,18 +68,20 @@ export class AddPatientModalComponent implements OnInit {
     );
   }
 
-  selectImg(img: ImagenPaciente) {
-
-    if(this.imagenSeleccionada != undefined && img.ruta != this.imagenSeleccionada) {
-      var unSelect = document.querySelector('[src="' + this.urlPrefixPacientes + this.imagenSeleccionada +'"]');
+  selectpacientes(id: string ) {
+    console.log(id);
+    // si anyadir es true se anyade si no se elimina de array de victimas seleccionadas
+    if(this.idAnyadidos.length == 0 || !this.idAnyadidos.includes(id)) {
+      var element = document.getElementById(id);
+      element.parentElement.className = 'selected';
+      this.idAnyadidos.push(id);
+    }else{
+      console.log(this.idAnyadidos.indexOf(id));
+      this.idAnyadidos.splice(this.idAnyadidos.indexOf(id),1);
+      var unSelect = document.getElementById(id);
       unSelect.parentElement.className = 'noSelected';
     }
-
-    if(img.ruta != this.imagenSeleccionada) {
-      var element = document.querySelector('img[src="' + this.urlPrefixPacientes + img.ruta +'"]');
-      element.parentElement.className = 'selected';
-      this.imagenSeleccionada = img.ruta;
-    }
+    console.log(this.idAnyadidos);
   }
 
   show() {
