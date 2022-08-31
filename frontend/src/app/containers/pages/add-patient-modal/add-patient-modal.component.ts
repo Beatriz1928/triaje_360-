@@ -68,15 +68,17 @@ export class AddPatientModalComponent implements OnInit {
     );
   }
 
+  incluye(id){
+    return this.idAnyadidos.includes(id)
+  }
   selectpacientes(id: string ) {
     console.log(id);
     // si anyadir es true se anyade si no se elimina de array de victimas seleccionadas
-    if(this.idAnyadidos.length == 0 || !this.idAnyadidos.includes(id)) {
+    if(this.idAnyadidos.length == 0 || !this.incluye(id)) {
       var element = document.getElementById(id);
       element.parentElement.className = 'selected';
       this.idAnyadidos.push(id);
     }else{
-      console.log(this.idAnyadidos.indexOf(id));
       this.idAnyadidos.splice(this.idAnyadidos.indexOf(id),1);
       var unSelect = document.getElementById(id);
       unSelect.parentElement.className = 'noSelected';
