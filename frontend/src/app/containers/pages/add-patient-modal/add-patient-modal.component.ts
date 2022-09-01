@@ -25,12 +25,12 @@ export class AddPatientModalComponent implements OnInit {
   userRole: number;
   ejercicio: number;
   pacientes: Paciente[] =[];
-  idAnyadidos: string[] =[];
+  idAnyadidos: Paciente[] =[];
   @Input() parentImg: string;
   imagenSeleccionada: string;
   urlPrefixPacientes: string = environment.prefix_urlPacientes;
 
-  @Output() seleccionarImg = new EventEmitter<String>();
+  @Output() seleccionarVictimas = new EventEmitter<Paciente[]>();
   @Output() resetParentImg = new EventEmitter();
   @ViewChild('template', { static: true }) template: TemplateRef<any>;
 
@@ -38,7 +38,6 @@ export class AddPatientModalComponent implements OnInit {
     private modalService: BsModalService,
     private auth: AuthService,
     private sender: SenderService,
-    private imagenPacienteService: ImagenPacienteService,
     private notifications: NotificationsService,
     private pacienteService: PacienteService) { }
 
@@ -69,21 +68,26 @@ export class AddPatientModalComponent implements OnInit {
   }
 
   incluye(id){
-    return this.idAnyadidos.includes(id)
+
+    for(let i = 0; i< this.idAnyadidos.length ; i++){
+      if(this.idAnyadidos[i].uid == id){
+        return true;
+      }
+    }
+    return false;
   }
-  selectpacientes(id: string ) {
-    console.log(id);
-    // si anyadir es true se anyade si no se elimina de array de victimas seleccionadas
-    if(this.idAnyadidos.length == 0 || !this.incluye(id)) {
-      var element = document.getElementById(id);
+
+  selectpacientes(paciente) {
+    // si esta el paciente en el array de id se elimina y si no se anyade
+    if(this.idAnyadidos.length == 0 || !this.incluye(paciente.uid)) {
+      var element = document.getElementById(paciente.uid);
       element.parentElement.className = 'selected';
-      this.idAnyadidos.push(id);
+      this.idAnyadidos.push(paciente);
     }else{
-      this.idAnyadidos.splice(this.idAnyadidos.indexOf(id),1);
-      var unSelect = document.getElementById(id);
+      this.idAnyadidos.splice(this.idAnyadidos.indexOf(paciente.uid),1);
+      var unSelect = document.getElementById(paciente.uid);
       unSelect.parentElement.className = 'noSelected';
     }
-    console.log(this.idAnyadidos);
   }
 
   show() {
@@ -95,7 +99,7 @@ export class AddPatientModalComponent implements OnInit {
   }
 
   closeModal(): void {
-    this.seleccionarImg.emit(this.imagenSeleccionada);
+    this.seleccionarVictimas.emit(this.idAnyadidos);
     this.modalRef.hide();
   }
 

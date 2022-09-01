@@ -1,4 +1,3 @@
-
 h5 {
     width: 100%;
     text-align: center;
@@ -10,11 +9,15 @@ h3 {
     margin-bottom: 1rem !important;
 }
 
-input, textarea, .ng-select, .ng-select-container {
+input,
+textarea,
+.ng-select,
+.ng-select-container {
     border-radius: 25px !important;
 }
 
-#asignatura .ng-select, #color .ng-select {
+#asignatura .ng-select,
+#color .ng-select {
     padding: 0 !important;
     border: none;
 }
@@ -25,19 +28,21 @@ input, textarea, .ng-select, .ng-select-container {
     position: relative;
 }
 
-.gallery, .imgsSelected {
+.gallery,
+.imgsSelected {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     margin: 0rem auto 1rem auto;
 }
 
-.is, .paso .locate-patients {
+.is,
+.paso .locate-patients {
     text-align: center;
     width: 1100px;
     position: relative;
-	overflow-x: auto;
-	white-space: nowrap;
+    overflow-x: auto;
+    white-space: nowrap;
 }
 
 .imgsSelected {
@@ -50,66 +55,65 @@ input, textarea, .ng-select, .ng-select-container {
     margin: -1.5rem .9rem 0 .9rem;
 }
 
-    .gallery p {
-        color: black;
-        position: absolute;
-        width: 320px;
-        text-align: center;
-        margin-top: 5px;
-    }
+.gallery p {
+    color: black;
+    position: absolute;
+    width: 320px;
+    text-align: center;
+    margin-top: 5px;
+}
 
-    .gallery .selected p {
-        margin-top: 10px;
-    }
+.gallery .selected p {
+    margin-top: 10px;
+}
 
-    .gallery label {
-        height: 80px;
-        width: 320px;
-        margin: 20px;
-        border-radius: 3px;
-        overflow: hidden;
-        // box-shadow: 0 3px 5px #145388;
-    }
+.gallery label {
+    height: 80px;
+    width: 320px;
+    margin: 20px;
+    border-radius: 3px;
+    overflow: hidden;
+    // box-shadow: 0 3px 5px #145388;
+}
 
-        .gallery label img {
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-            cursor: pointer;
-        }
+.gallery label img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+}
 
-        // .gallery label img:hover {
-        //     transform: scale(1.1);
-        // }
+// .gallery label img:hover {
+//     transform: scale(1.1);
+// }
+.imgsSelected label {
+    height: 75px;
+    width: 200px;
+    margin: 15px;
+    border-radius: 5px;
+    overflow: hidden;
+}
 
-    .imgsSelected label {
-        height: 75px;
-        width: 200px;
-        margin: 15px;
-        border-radius: 5px;
-        overflow: hidden;
-    }
+.imgsSelected label img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
 
-        .imgsSelected label img {
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-        }
+.mini-img label {
+    height: 90px;
+    width: 90px;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 5px;
+    // margin: 15px;
+    // overflow: hidden;
+}
 
-    .mini-img label {
-        height: 90px;
-        width: 90px;
-        border: 1px solid rgba(0, 0, 0, 0.125);
-        border-radius: 5px;
-        // margin: 15px;
-        // overflow: hidden;
-    }
-
-        .mini-img label img {
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-        }
+.mini-img label img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
 
 .simple-icon-check::before {
     background-color: #145388;
@@ -146,13 +150,16 @@ input, textarea, .ng-select, .ng-select-container {
     transform: translate(175px, -25px);
     cursor: pointer;
 }
+
 .simple-icon-arrow-left-circle {
     display: block;
     position: absolute;
     transform: translate(5px, -25px);
     cursor: pointer;
 }
-.simple-icon-arrow-right-circle::before, .simple-icon-arrow-left-circle::before {
+
+.simple-icon-arrow-right-circle::before,
+.simple-icon-arrow-left-circle::before {
     background-color: #145388;
     color: #fff;
     padding: 0em;
@@ -167,6 +174,7 @@ input, textarea, .ng-select, .ng-select-container {
     transform: translate(175px, -70px);
     cursor: pointer;
 }
+
 .simple-icon-close::before {
     background-color: #de2f18;
     color: #fff;
@@ -184,27 +192,29 @@ input[type="checkbox"] {
     display: flex;
 }
 
-    #acciones div label {
-        width: auto;
-        padding-right: 0em !important;
-    }
+#acciones div label {
+    width: auto;
+    padding-right: 0em !important;
+}
 
-    #acciones div p {
-        width: 130px;
-        margin-top: 12px;
-    }
+#acciones div p {
+    width: 130px;
+    margin-top: 12px;
+}
 
-    #acciones div input[type="number"] {
-        width: 100px;
-        margin-bottom: .3em;
-    }
+#acciones div input[type="number"] {
+    width: 100px;
+    margin-bottom: .3em;
+}
 
 .pacientes {
     margin-top: 1.5em;
     display: table;
     width: 100%;
 }
-.lista-pacientes, .configurar-pacientes {
+
+.lista-pacientes,
+.configurar-pacientes {
     display: table-cell;
 }
 
@@ -227,60 +237,75 @@ input[type="checkbox"] {
     position: relative;
 }
 
-    .lista div div {
-        padding: .75em;
-        display: flex;
-        border-radius: 10px;
-    }
+.lista div div {
+    padding: .75em;
+    display: flex;
+    border-radius: 10px;
+}
 
-    .lista>p {
-        margin: .75rem;
-        font-size: 1em !important;
-        color: #3e3e3e;
-    }
+.lista>p {
+    margin: .75rem;
+    font-size: 1em !important;
+    color: #3e3e3e;
+}
 
-    .lista p {
-        font-size: 1.1em !important;
-    }
+.lista p {
+    font-size: 1.1em !important;
+}
 
-    .lista .paciente {
-        cursor: pointer;
-        margin: 0 .5em;
-        width: 93%;
-    }
+.lista .paciente {
+    cursor: pointer;
+    margin: 0 .5em;
+    width: 93%;
+}
 
-    .lista .simple-icon-close {
-        position: relative;
-        transform: none;
-        float: right;
-    }
-    .lista .simple-icon-close::before {
-        font-size: 15px;
-        background-color: #fff;
-        color: #145388;
-    }
+.lista .simple-icon-close {
+    position: relative;
+    transform: none;
+    float: right;
+}
+
+.lista .simple-icon-close::before {
+    font-size: 15px;
+    background-color: #fff;
+    color: #145388;
+}
+
+.noActivo {
+    display: flex;
+    margin-left: 10px;
+    margin-top: 6px;
+    margin-right: 6px;
+    box-shadow: 0px 0px 7px 0px rgb(0 0 0 / 65%);
+    padding: 0.75em;
+}
 
 .activo {
+    display: flex;
+    margin-left: 10px;
+    margin-top: 6px;
+    margin-right: 6px;
+    box-shadow: 0px 0px 7px 0px rgb(0 0 0 / 65%);
+    padding: 0.75em;
     background-color: #145388;
 }
 
-    .activo p {
-        color: #fff !important;
-    }
+.activo p {
+    color: #fff !important;
+}
 
-.ng-select-disabled, .ng-select-disabled>* {
-    background-color:#e9ecef !important;
+.ng-select-disabled,
+.ng-select-disabled>* {
+    background-color: #e9ecef !important;
 }
 
 // PRIMER PASO
 // .form-control .asignatura {
 //     width: 200px;
 // }
-
 // #asignatura, #nombre, #descripcion {
 //     display: flex;
 // }
-
 .form-group {
     display: table;
     width: 100%;
@@ -300,9 +325,9 @@ input[type="checkbox"] {
     padding-right: 3em;
 }
 
-    #asignatura>.db {
-        width: 100%;
-    }
+#asignatura>.db {
+    width: 100%;
+}
 
 .form-group>#nombre {
     width: 40%;
@@ -312,16 +337,15 @@ input[type="checkbox"] {
 //     .form-group>#nombre label label {
 //         margin-bottom: 1.3em;
 //     }
-
 .form-group>#descripcion {
     width: 58%;
     padding-right: 3em;
 }
 
-    .form-group #descripcion>textarea {
-        resize: none;
-        min-height: 80px;
-    }
+.form-group #descripcion>textarea {
+    resize: none;
+    min-height: 80px;
+}
 
 .form-group>#desde {
     width: 20%;
@@ -337,9 +361,11 @@ input[type="checkbox"] {
     display: block;
     padding-right: 3em;
 }
+
 .form-group #intentos {
     display: flex;
 }
+
 .form-group #intentos input[type="number"] {
     width: auto;
     margin-left: 1em;
@@ -388,9 +414,7 @@ input[type="checkbox"] {
     max-height: 37px;
 }
 
-
 /// UBICAR PACIENTES /////
-
 .paso {
     position: relative;
 }
@@ -403,13 +427,13 @@ input[type="checkbox"] {
     margin: 0 auto;
 }
 
-        .label-img-selected>label>img {
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-            cursor: pointer;
-            border-radius: 10px;
-        }
+.label-img-selected>label>img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    cursor: pointer;
+    border-radius: 10px;
+}
 
 .locate-patients label {
     cursor: pointer;
@@ -419,8 +443,8 @@ input[type="checkbox"] {
     border: 5px solid #145388;
 }
 
-.paso .tabla{
-    position:absolute;
+.paso .tabla {
+    position: absolute;
     top: 0;
     width: 100%;
     height: 58%;
@@ -432,45 +456,45 @@ table {
     cursor: pointer;
 }
 
-    .celda {
-        border: 1px solid #145388;
-        position: relative;
-    }
+.celda {
+    border: 1px solid #145388;
+    position: relative;
+}
 
-    .celda p {
-        position: absolute;
-    }
+.celda p {
+    position: absolute;
+}
 
-    .celda label {
-        height: 70px;
-        width: 70px;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        margin: auto;
-    }
+.celda label {
+    height: 70px;
+    width: 70px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
 
-        .celda label img {
-            height: 100%;
-            width: 100%;
-            object-fit: cover;
-        }
-    
-    .celda .simple-icon-close {
-        transform: none;
-        top: 0;
-        right: 0;
-    }
+.celda label img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
 
-    .celda .simple-icon-close::before {
-        font-size: 16px;
-    }
+.celda .simple-icon-close {
+    transform: none;
+    top: 0;
+    right: 0;
+}
 
-    .celdaVacia {
-        cursor: pointer;
-    }
+.celda .simple-icon-close::before {
+    font-size: 16px;
+}
+
+.celdaVacia {
+    cursor: pointer;
+}
 
 .complete-message-centered {
     margin-top: 2em;
@@ -478,38 +502,45 @@ table {
 
 ///////// SCROLLBAR /////////
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+    width: 10px;
+    height: 10px;
 }
+
 
 /* Track */
+
 ::-webkit-scrollbar-track {
-//   background: #f1f1f1;
-  border-radius: 10px;
+    //   background: #f1f1f1;
+    border-radius: 10px;
 }
+
 
 /* Handle */
+
 ::-webkit-scrollbar-thumb {
-  background: #145388;
-  border-radius: 10px;
+    background: #145388;
+    border-radius: 10px;
 }
 
+
 /* Handle on hover */
+
 // ::-webkit-scrollbar-thumb:hover {
 //   background: #145388;
 // }
-
 ///////// INPUT RANGE /////////
 input[type=range] {
     height: 38px;
     -webkit-appearance: none;
     // margin: 10px 0;
     width: 100%;
-  }
-  input[type=range]:focus {
+}
+
+input[type=range]:focus {
     outline: none;
-  }
-  input[type=range]::-webkit-slider-runnable-track {
+}
+
+input[type=range]::-webkit-slider-runnable-track {
     width: 100%;
     height: 8px;
     cursor: pointer;
@@ -517,8 +548,9 @@ input[type=range] {
     background: #145388;
     border-radius: 5px;
     // border: 1px solid #000000;
-  }
-  input[type=range]::-webkit-slider-thumb {
+}
+
+input[type=range]::-webkit-slider-thumb {
     // box-shadow: 1px 1px 1px #000000;
     border: 1px solid #145388;
     height: 24px;
@@ -528,11 +560,13 @@ input[type=range] {
     cursor: pointer;
     -webkit-appearance: none;
     margin-top: -8px;
-  }
-  input[type=range]:focus::-webkit-slider-runnable-track {
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
     background: #145388;
-  }
-  input[type=range]::-moz-range-track {
+}
+
+input[type=range]::-moz-range-track {
     width: 100%;
     height: 10px;
     cursor: pointer;
@@ -540,8 +574,9 @@ input[type=range] {
     background: #145388;
     border-radius: 5px;
     // border: 1px solid #000000;
-  }
-  input[type=range]::-moz-range-thumb {
+}
+
+input[type=range]::-moz-range-thumb {
     // box-shadow: 1px 1px 1px #000000;
     border: 1px solid #145388;
     height: 30px;
@@ -549,28 +584,32 @@ input[type=range] {
     border-radius: 5px;
     background: #FFFFFF;
     cursor: pointer;
-  }
-  input[type=range]::-ms-track {
+}
+
+input[type=range]::-ms-track {
     width: 100%;
     height: 10px;
     cursor: pointer;
     background: transparent;
     border-color: transparent;
     color: transparent;
-  }
-  input[type=range]::-ms-fill-lower {
+}
+
+input[type=range]::-ms-fill-lower {
     background: #145388;
     // border: 1px solid #000000;
     border-radius: 10px;
     // box-shadow: 1px 1px 1px #000000;
-  }
-  input[type=range]::-ms-fill-upper {
+}
+
+input[type=range]::-ms-fill-upper {
     background: #145388;
     // border: 1px solid #000000;
     border-radius: 10px;
     // box-shadow: 1px 1px 1px #000000;
-  }
-  input[type=range]::-ms-thumb {
+}
+
+input[type=range]::-ms-thumb {
     margin-top: 1px;
     // box-shadow: 1px 1px 1px #000000;
     border: 1px solid #145388;
@@ -579,17 +618,18 @@ input[type=range] {
     border-radius: 5px;
     background: #FFFFFF;
     cursor: pointer;
-  }
-  input[type=range]:focus::-ms-fill-lower {
-    background: #145388;
-  }
-  input[type=range]:focus::-ms-fill-upper {
-    background: #145388;
-  }
+}
 
-  @media (min-width: 1680px) {
-    .paso .tabla{
+input[type=range]:focus::-ms-fill-lower {
+    background: #145388;
+}
+
+input[type=range]:focus::-ms-fill-upper {
+    background: #145388;
+}
+
+@media (min-width: 1680px) {
+    .paso .tabla {
         height: 66%;
     }
 }
-  

@@ -1,6 +1,6 @@
 <!-- <h5 class="mb-4">{{ 'wizard.last-end' | translate }}</h5> -->
 <app-select-patient-img-modal #addNewModalRef (seleccionarImg)="getImgSelect($event)" (resetParentImg)="resetChildrenImg()" [parentImg]="childrenImg"></app-select-patient-img-modal>
-<app-add-patient-modal #addPatientModalRef (seleccionarImg)="getImgSelect($event)" (resetParentImg)="resetChildrenImg()" [parentImg]="childrenImg"></app-add-patient-modal>
+<app-add-patient-modal #addPatientModalRef (seleccionarVictimas)="getVictimas($event)" (resetParentImg)="resetChildrenImg()" [parentImg]="childrenImg"></app-add-patient-modal>
 <app-locate-patient #locateModalRef (seleccionarPaciente)="getPatientSelected($event)"></app-locate-patient>
 
 <div class="card mb-5">

@@ -11,12 +11,12 @@
         <p *ngIf="pacientes==undefined || pacientes.length == 0">No hay pacientes seleccionables</p>
         <div class="imgs">
             <div *ngFor="let p of pacientes; let i=index">
-                <label *ngIf="!incluye(p.uid)" class="noSelected" (click)='selectpacientes(p.uid)'>
+                <label *ngIf="!incluye(p.uid)" class="noSelected" (click)='selectpacientes(p)'>
                     <p  class="nombre">{{p.nombre}}</p>
                     <img id="{{p.uid}}" src={{urlPrefixPacientes+p.img}} >
                     <!-- <i class="simple-icon-check"></i> -->
                 </label>
-                <label *ngIf="incluye(p.uid)" class="selected" (click)='selectpacientes(p.uid)'>
+                <label *ngIf="incluye(p.uid)" class="selected" (click)='selectpacientes(p)'>
                     <p  class="nombre">{{p.nombre}}</p>
                     <img id="{{p.uid}}" src={{urlPrefixPacientes+p.img}}>
                     <!-- <i class="simple-icon-check"></i> -->

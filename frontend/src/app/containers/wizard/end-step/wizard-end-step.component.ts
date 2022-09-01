@@ -591,7 +591,18 @@ export class WizardEndStepComponent implements OnInit {
     this.addPatientModalRef.show();
   }
 
+  getVictimas(victimas){
+    if(victimas != null){
+      for(let i = 0; i< victimas.length; i++){
+        console.log(victimas[i]);
+        this.dataEjercicio.pacientes.push(victimas[i]);
+      }
+    }
 
+
+
+
+  }
   getImgSelect(e): void {
     this.dataPaciente.img = e;
     this.childrenImg = e;
