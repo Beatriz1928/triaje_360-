@@ -7,7 +7,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { NotificationsService, NotificationType } from 'angular2-notifications';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
-
+import equirectToCubemapFaces from 'equirect-cubemap-faces-js';
 @Component({
   selector: 'app-add-new-scene-modal',
   templateUrl: './add-new-scene-modal.component.html',
@@ -50,6 +50,22 @@ export class AddNewSceneModalComponent  {
       this.getScene(id);
     }
     this.modalRef = this.modalService.show(this.template, this.config);
+    this.myCanvas();
+
+  }
+
+   myCanvas() {
+    // cargamos en el canvas la imagen de la que tenemos que guardar los datos
+    var c = document.getElementById("myCanvas") as HTMLCanvasElement;
+    var ctx = c.getContext("2d");
+    var img = new Image();
+    img.src = "http://localhost:4200/assets/img/tiles/I-0014/preview.png";
+    ctx.drawImage(img,0,0 ,1600,800);
+  }
+
+  saveCanvas(){
+    // pasamos el canvas a imagen
+   // var imagen = canvas.toDataURL("image/png");
   }
 
   loadSceneData() {
@@ -67,7 +83,8 @@ export class AddNewSceneModalComponent  {
 
 
   cambioImagen( evento ): void {
-    if (evento.target.files && evento.target.files[0]) {
+
+    if (evento.target.files && evento.target.files[0] &&  evento.target.files[0] != null) {
       // Comprobamos si es una imagen jpg, jpet, png
       const extensiones = ['jpeg','jpg','png'];
       const nombre: string = evento.target.files[0].name;
@@ -103,6 +120,25 @@ export class AddNewSceneModalComponent  {
     }
   }
 
+  crear_images(){
+    console.log('llego master');
+    let i = document.getElementById('myCanvas');
+    var cs = equirectToCubemapFaces(i);
+    cs.forEach(function(c) {
+      console.log('llego master');
+      document.body.appendChild(c);
+    });
+
+  }
+
+  loadImage(src) {
+    return new Promise(function(resolve, reject) {
+        var i = new Image();
+        i.onload = function() { resolve(i); }
+        i.onerror = reject;
+        i.src = src;
+    });
+}
 
 updateImage(){
 
