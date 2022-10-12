@@ -92,6 +92,7 @@ export class ImagenService {
   }
 
   subirFoto( file: File, tipo) {
+    // subimos la escena con nombre de carpeta el nombre de la imagen y preview como nombre de archivo
     const url = `${environment.base_url}/upload/`+tipo;
     const token = localStorage.getItem('token');
       // HEADERS
@@ -107,6 +108,24 @@ export class ImagenService {
 
     return this.http.post(url, datos, { headers });
   }
+
+  subirescenario( file: File, tipo, name) {
+    const url = `${environment.base_url}/upload/`+tipo;
+    const token = localStorage.getItem('token');
+      // HEADERS
+    let headers = new HttpHeaders();
+    headers = headers.append('x-token', token);
+    // PARAMS
+   // PARAMS
+   let params = new HttpParams();
+   params = params.append('archivo', file + '');
+
+    const datos: FormData = new FormData();
+    datos.append('archivo', file, file.name);
+
+    return this.http.post(url, datos, { headers });
+  }
+
 
   dropImage(id: number, tipo: string) {
     const url = environment.base_url + '/imagenes/'+tipo+'/'+id;

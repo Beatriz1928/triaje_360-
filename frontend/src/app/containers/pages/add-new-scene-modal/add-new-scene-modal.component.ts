@@ -8,6 +8,7 @@ import { NotificationsService, NotificationType } from 'angular2-notifications';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import equirectToCubemapFaces from 'equirect-cubemap-faces-js';
+import {Canvas} from 'canvas';
 @Component({
   selector: 'app-add-new-scene-modal',
   templateUrl: './add-new-scene-modal.component.html',
@@ -63,9 +64,19 @@ export class AddNewSceneModalComponent  {
     ctx.drawImage(img,0,0 ,1600,800);
   }
 
-  saveCanvas(){
-    // pasamos el canvas a imagen
-   // var imagen = canvas.toDataURL("image/png");
+  crear_images(){
+    console.log('llego master');
+    let i = document.getElementById('myCanvas');
+    var cs = equirectToCubemapFaces(i);
+    cs.forEach(function(c) {
+      console.log('llego master');
+      var imagen =c.toDataURL("image/png");
+
+
+      // This next line will just add it to the <body> tag
+
+    });
+
   }
 
   loadSceneData() {
@@ -79,7 +90,6 @@ export class AddNewSceneModalComponent  {
     }
 
   }
-
 
 
   cambioImagen( evento ): void {
@@ -120,16 +130,6 @@ export class AddNewSceneModalComponent  {
     }
   }
 
-  crear_images(){
-    console.log('llego master');
-    let i = document.getElementById('myCanvas');
-    var cs = equirectToCubemapFaces(i);
-    cs.forEach(function(c) {
-      console.log('llego master');
-      document.body.appendChild(c);
-    });
-
-  }
 
   loadImage(src) {
     return new Promise(function(resolve, reject) {
@@ -153,7 +153,6 @@ updateImage(){
     });
   }
 }
-
 
   getScene(id:number): void{
     this.sceneService.getImage(id,'tiles').subscribe(
@@ -243,8 +242,6 @@ updateImage(){
     this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
     this.closeModal();
     }
-
-
   }
 
 
