@@ -5,7 +5,7 @@ const Imagen = require('../models/imagenes');
 const ImagenPaciente = require('../models/imagenesPaciente');
 // funciones
 const crearImagen = async(req, res = response) => {
-
+    console.log('Estoy subiendo img');
     //comprobamos si es admin
     const token = req.header('x-token');
     if (!(infoToken(token).rol === 'ROL_ADMIN')) {
@@ -44,12 +44,15 @@ const crearImagen = async(req, res = response) => {
 
     switch (tipo) {
         case 'tiles':
-            req.body.ruta = `${nom}/preview.${extension}`;
+            console.log('Paso por el ptrimerp');
+            req.body.ruta = `${nom}${extension}`;
             // console.log(req.body.ruta);
             const imagen = new Imagen(req.body);
             imagen.save();
             break;
         case 'tiles2':
+            console.log('Paso por el segundo');
+
             req.body.ruta = `${nom}/buenas.${extension}`;
             // console.log(req.body.ruta);
             const imagen1 = new Imagen(req.body);
@@ -73,6 +76,7 @@ const crearImagen = async(req, res = response) => {
 }
 
 const actualizarImagen = async(req, res = response) => {
+    console.log('Estoy actualizando img');
     //comprobamos si es admin
     const token = req.header('x-token');
     if (!(infoToken(token).rol === 'ROL_ADMIN')) {
@@ -103,8 +107,10 @@ const actualizarImagen = async(req, res = response) => {
 
         switch (tipo) {
             case 'tiles':
+
                 console.log('Estoy en tiles: ' + uid + ' ' + req.body.nombre + ' ' + req.body.descripcion + ' ' + req.body.ruta);
                 req.body.ruta = `${nom}/preview.${extension}`;
+
                 console.log(req.body.ruta);
                 const imagen = await Imagen.findByIdAndUpdate(uid, req.body, { new: true });
 

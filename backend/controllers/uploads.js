@@ -36,10 +36,12 @@ const crearImagen = async(req, res = response) => {
     const archivo = req.files.archivo;
     const nombrePartido = archivo.name.split('.');
     const nom = nombrePartido[0];
+    const nom2 = nombrePartido[1]; // para el nombre de los tiles2, si no se rellenaria con la extension,asi que no salta error
     const extension = nombrePartido[nombrePartido.length - 1];
     const archivosValidos = {
         tiles: ['jpeg', 'jpg', 'png'],
-        pacientes: ['jpeg', 'jpg', 'png']
+        pacientes: ['jpeg', 'jpg', 'png'],
+        tiles2: ['jpeg', 'jpg', 'png']
     }
     let patharchivo = '';
     let ruta = '';
@@ -69,6 +71,11 @@ const crearImagen = async(req, res = response) => {
             };
             patharchivo = `${process.env.PATHUPLOAD}/pacientes/${nom}.${extension}`;
             ruta = `${nom}.${extension}`;
+            break;
+        case 'tiles2':
+            patharchivo = `${process.env.PATHUPLOAD}/tiles/${nom}/${nom2}.${extension}`;
+
+            ruta = `${nom}/preview.${extension}`;
             break;
         default:
             patharchivo = `${process.env.PATHUPLOAD}/tiles/${nom}/preview.${extension}`;

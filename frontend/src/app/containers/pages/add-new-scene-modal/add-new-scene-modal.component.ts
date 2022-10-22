@@ -101,7 +101,7 @@ export class AddNewSceneModalComponent  {
         let file = new File([blob], "fileName.jpg", { type: "image/jpeg" })
         this.foto2 = file;
         console.log(this.foto2)
-        this.sceneService.subirimgescenario(this.foto2, 'tiles2', name[0])
+        this.sceneService.subirimgescenario(this.foto2, 'tiles2', 'I-0014.'+a+'.png')
         .subscribe( res => {
           console.log('se ha subido la imagen de escena');
         }, (err) => {
