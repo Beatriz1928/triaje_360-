@@ -451,13 +451,15 @@ input[type="checkbox"] {
 }
 
 table {
+    border: 3px solid #008ecc;
     height: 100%;
     width: 100%;
     cursor: pointer;
+    border-radius: 3%;
 }
 
 .celda {
-    border: 1px solid #145388;
+    border: 1px solid #ffffff;
     position: relative;
 }
 
