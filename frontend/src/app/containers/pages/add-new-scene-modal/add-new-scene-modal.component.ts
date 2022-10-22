@@ -8,7 +8,6 @@ import { NotificationsService, NotificationType } from 'angular2-notifications';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import equirectToCubemapFaces from 'equirect-cubemap-faces-js';
-import {Canvas} from 'canvas';
 @Component({
   selector: 'app-add-new-scene-modal',
   templateUrl: './add-new-scene-modal.component.html',
@@ -47,13 +46,11 @@ export class AddNewSceneModalComponent  {
   show(id? : number): void {
     this.ruta = "vacio";
     this.formData.reset();
-
     this.scene = undefined;
     if(id){
       this.getScene(id);
     }
     this.modalRef = this.modalService.show(this.template, this.config);
-    this.myCanvas();
 
   }
 
@@ -62,7 +59,7 @@ export class AddNewSceneModalComponent  {
     var c = document.getElementById("myCanvas") as HTMLCanvasElement;
     var ctx = c.getContext("2d");
     var img = new Image();
-    img.src = "http://localhost:4200/assets/img/tiles/I-0014/preview.png";
+    img.src = "http://localhost:4200/assets/img/tiles/"+this.ruta ;
     ctx.drawImage(img,0,0 ,1600,800);
   }
 
@@ -76,32 +73,13 @@ export class AddNewSceneModalComponent  {
     // });
     console.log(cs);
     for(let a =0; a < cs.length; a++){
-      // this.imagenes.push(cs[a].toDataURL("image/png"));
-
-    // var canvas = document.getElementById('canvas');
-    // var ctx = canvas.getContext('2d');
-    // let inCtx = i.getContext("2d");
-    // let imageData = inCtx.getImageData(0, 0, i.width, i.height);
-    // let imagen;
-    // var cs = equirectToCubemapFaces.transformSingleFace(i,0,imagen);
-    // let imagen2 = imagen.toDataURL("image/png")
-    //      this.sceneService.subirimgescenario(imagen2,'tiles2', 'I-0014')
-    //     .subscribe( res => {
-    //       console.log('se ha subido la imagen de escena');
-    //     }, (err) => {
-    //       const errtext = err.error.msg || 'No se pudo subir la imagen de escena';
-    //       Swal.fire({icon: 'error', title: 'Oops...', text: errtext});
-    //       return });
-
-        let name = 'I-0014'; //this.ruta.split('/',1);
-      // const blob = await file.blob();
-       // var img = cs[a].toDataURL("image/png").replace("image/png");
-       // console.log(img);
+        let name = this.ruta.split('/'); //this.ruta.split('/',1);
+        let name1 = name[0];
        await cs[a].toBlob((blob) => {
         let file = new File([blob], "fileName.jpg", { type: "image/jpeg" })
         this.foto2 = file;
         console.log(this.foto2)
-        this.sceneService.subirimgescenario(this.foto2, 'tiles2', 'I-0014.'+a+'.png')
+        this.sceneService.subirimgescenario(this.foto2, 'tiles2', name1+'.'+a+'.png')
         .subscribe( res => {
           console.log('se ha subido la imagen de escena');
         }, (err) => {
@@ -110,9 +88,6 @@ export class AddNewSceneModalComponent  {
           return;
         });
       }, 'image/jpeg');
-
-
-
       }
   }
 
@@ -139,12 +114,10 @@ export class AddNewSceneModalComponent  {
       //console.log('la foto es '+this.foto);
       this.ruta = this.scene.ruta;
     }
-
   }
 
 
   cambioImagen( evento ): void {
-
     if (evento.target.files && evento.target.files[0] &&  evento.target.files[0] != null) {
       // Comprobamos si es una imagen jpg, jpet, png
       const extensiones = ['jpeg','jpg','png'];
@@ -191,13 +164,12 @@ export class AddNewSceneModalComponent  {
     });
 }
 
-
-
   getScene(id:number): void{
     this.sceneService.getImage(id,'tiles').subscribe(
       data =>{
         this.scene = data['imagenes'];
         this.loadSceneData();
+        this.myCanvas();
       },
     error => {
       this.notifications.create('Error', 'No se ha podido obtener la escena', NotificationType.Error, {
@@ -282,7 +254,6 @@ export class AddNewSceneModalComponent  {
     this.closeModal();
     }
   }
-
 
   closeModal(): void {
     this.modalRef.hide();
