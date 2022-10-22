@@ -24,8 +24,10 @@ export class AddNewSceneModalComponent  {
 
   scene: Imagen;
   ruta="vacio";
-  public foto: File = null;
+  imagenes: File[];
 
+  public foto: File = null;
+  public foto2: File = null;
   //FORM
   private formSubmited = false;
   public formData=this.fb.group({
@@ -64,19 +66,68 @@ export class AddNewSceneModalComponent  {
     ctx.drawImage(img,0,0 ,1600,800);
   }
 
-  crear_images(){
+  async crear_images(){
     console.log('llego master');
-    let i = document.getElementById('myCanvas');
+    let i =  document.getElementById('myCanvas');
     var cs = equirectToCubemapFaces(i);
-    cs.forEach(function(c) {
-      console.log('llego master');
-      var imagen =c.toDataURL("image/png");
+    // cs.forEach(function(c) {
+    //   console.log('llego master');
+
+    // });
+    console.log(cs);
+    for(let a =0; a < cs.length; a++){
+      // this.imagenes.push(cs[a].toDataURL("image/png"));
+
+    // var canvas = document.getElementById('canvas');
+    // var ctx = canvas.getContext('2d');
+    // let inCtx = i.getContext("2d");
+    // let imageData = inCtx.getImageData(0, 0, i.width, i.height);
+    // let imagen;
+    // var cs = equirectToCubemapFaces.transformSingleFace(i,0,imagen);
+    // let imagen2 = imagen.toDataURL("image/png")
+    //      this.sceneService.subirimgescenario(imagen2,'tiles2', 'I-0014')
+    //     .subscribe( res => {
+    //       console.log('se ha subido la imagen de escena');
+    //     }, (err) => {
+    //       const errtext = err.error.msg || 'No se pudo subir la imagen de escena';
+    //       Swal.fire({icon: 'error', title: 'Oops...', text: errtext});
+    //       return });
+
+        let name = 'I-0014'; //this.ruta.split('/',1);
+      // const blob = await file.blob();
+       // var img = cs[a].toDataURL("image/png").replace("image/png");
+       // console.log(img);
+       await cs[a].toBlob((blob) => {
+        let file = new File([blob], "fileName.jpg", { type: "image/jpeg" })
+        this.foto2 = file;
+        console.log(this.foto2)
+        this.sceneService.subirimgescenario(this.foto2, 'tiles2', name[0])
+        .subscribe( res => {
+          console.log('se ha subido la imagen de escena');
+        }, (err) => {
+          const errtext = err.error.msg || 'No se pudo subir la imagen de escena';
+          Swal.fire({icon: 'error', title: 'Oops...', text: errtext});
+          return;
+        });
+      }, 'image/jpeg');
 
 
-      // This next line will just add it to the <body> tag
 
-    });
+      }
+  }
 
+  updateImage(){
+
+    if (this.foto ) {
+      this.sceneService.subirFoto( this.foto,'tiles')
+      .subscribe( res => {
+        console.log('se ha subido la imagen');
+      }, (err) => {
+        const errtext = err.error.msg || 'No se pudo subir la imagen';
+        Swal.fire({icon: 'error', title: 'Oops...', text: errtext});
+        return;
+      });
+    }
   }
 
   loadSceneData() {
@@ -140,19 +191,7 @@ export class AddNewSceneModalComponent  {
     });
 }
 
-updateImage(){
 
-  if (this.foto ) {
-    this.sceneService.subirFoto( this.foto,'tiles')
-    .subscribe( res => {
-      console.log('se ha cambiado la foto');
-    }, (err) => {
-      const errtext = err.error.msg || 'No se pudo cargar la imagen';
-      Swal.fire({icon: 'error', title: 'Oops...', text: errtext});
-      return;
-    });
-  }
-}
 
   getScene(id:number): void{
     this.sceneService.getImage(id,'tiles').subscribe(

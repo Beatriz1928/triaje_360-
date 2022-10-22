@@ -109,7 +109,7 @@ export class ImagenService {
     return this.http.post(url, datos, { headers });
   }
 
-  subirescenario( file: File, tipo, name) {
+ subirimgescenario( file, tipo, name) {
     const url = `${environment.base_url}/upload/`+tipo;
     const token = localStorage.getItem('token');
       // HEADERS
@@ -121,7 +121,8 @@ export class ImagenService {
    params = params.append('archivo', file + '');
 
     const datos: FormData = new FormData();
-    datos.append('archivo', file, file.name);
+
+    datos.append('archivo',file, name);
 
     return this.http.post(url, datos, { headers });
   }

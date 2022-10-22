@@ -49,6 +49,12 @@ const crearImagen = async(req, res = response) => {
             const imagen = new Imagen(req.body);
             imagen.save();
             break;
+        case 'tiles2':
+            req.body.ruta = `${nom}/buenas.${extension}`;
+            // console.log(req.body.ruta);
+            const imagen1 = new Imagen(req.body);
+            imagen2.save();
+            break;
         case 'pacientes':
             //console.log(req.body.ruta);
             const img = new ImagenPaciente(req.body);
