@@ -41,6 +41,7 @@ export class WizardEndStepComponent implements OnInit {
   tomorrowString: string = '';
   imgsSelect: Imagen[] = [];
   imgSelected: Imagen;
+  rutaScene: any;
   // imgsSelectId: any[] = [];
   imgs: Imagen[] = [];
   urlPrefix: string = environment.prefix_url;
@@ -643,6 +644,7 @@ export class WizardEndStepComponent implements OnInit {
     }
 
     this.imgSelected = i;
+    this.rutaScene = this.imgSelected.ruta.split('/');
     this.getExercisePatients();
     // console.log(this.imgSelected);
 

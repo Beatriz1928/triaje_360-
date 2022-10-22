@@ -63,7 +63,7 @@ export class AddNewSceneModalComponent  {
     ctx.drawImage(img,0,0 ,1600,800);
   }
 
-  async crear_images(){
+  async crearImagenesEscena(){
     console.log('llego master');
     let i =  document.getElementById('myCanvas');
     var cs = equirectToCubemapFaces(i);
@@ -73,7 +73,7 @@ export class AddNewSceneModalComponent  {
     // });
     console.log(cs);
     for(let a =0; a < cs.length; a++){
-        let name = this.ruta.split('/'); //this.ruta.split('/',1);
+        let name = this.ruta.split('.'); //this.ruta.split('/',1);
         let name1 = name[0];
        await cs[a].toBlob((blob) => {
         let file = new File([blob], "fileName.jpg", { type: "image/jpeg" })
@@ -97,12 +97,15 @@ export class AddNewSceneModalComponent  {
       this.sceneService.subirFoto( this.foto,'tiles')
       .subscribe( res => {
         console.log('se ha subido la imagen');
+        this.myCanvas();
+        this.crearImagenesEscena();
       }, (err) => {
         const errtext = err.error.msg || 'No se pudo subir la imagen';
         Swal.fire({icon: 'error', title: 'Oops...', text: errtext});
         return;
       });
     }
+    this.myCanvas();
   }
 
   loadSceneData() {
@@ -140,7 +143,7 @@ export class AddNewSceneModalComponent  {
 
       console.log(evento.target.files[0]);
      this.formData.get('ruta').setValue(evento.target.files[0].name);
-
+      this.ruta=evento.target.files[0].name;
      // this.formData.get('ruta').setValue(this.foto.name);
       this.foto =evento.target.files[0];
       //this.formData.get('archivo').setValue(reader.readAsDataURL(evento.target.files[0]));
@@ -185,7 +188,7 @@ export class AddNewSceneModalComponent  {
   }
 
   createUpdateScene(): void{
-    if(this.foto.name!=''){
+    if(this.foto !=null && this.foto.name!=''){
       console.log('Envío formulario');
      // this.loadSceneData();
       this.formSubmited = true;
@@ -248,13 +251,15 @@ export class AddNewSceneModalComponent  {
       });
 
       }
+
+      this.myCanvas();
+      this.crearImagenesEscena();
       this.updateImage();
 
     this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
     this.closeModal();
     }
   }
-
   closeModal(): void {
     this.modalRef.hide();
   }
