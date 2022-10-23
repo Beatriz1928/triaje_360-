@@ -119,7 +119,7 @@ textarea,
     background-color: #145388;
     color: #fff;
     padding: 0em;
-    border-radius: 50px;
+    border-radius: 18px;
     border-color: #fff;
     font-size: 26px;
 }
@@ -234,6 +234,7 @@ input[type="checkbox"] {
     border-radius: 15px;
     height: 300px;
     overflow-y: scroll;
+    margin-bottom: 50px;
     position: relative;
 }
 
@@ -306,9 +307,41 @@ input[type="checkbox"] {
 // #asignatura, #nombre, #descripcion {
 //     display: flex;
 // }
+.control {
+    margin-top: -7px;
+}
+
+.centrado {
+    position: relative;
+}
+
 .form-group {
     display: table;
     width: 100%;
+}
+
+.mid {
+    padding: 12px;
+    width: 95%;
+    background: #96969614;
+}
+
+.titletop {
+    background: #96969614;
+    margin-bottom: 0 !important;
+    padding: 12px;
+    width: 95%;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.botonbot {
+    padding: 12px;
+    width: 95%;
+    background: #96969614;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+    margin-top: 0px !important;
 }
 
 .form-group>div {

@@ -55,14 +55,16 @@
                         <div id="intentos_limitados">
                             <label class="mb-0 mt-1">{{ 'pages.exercise-limited-attempts' | translate }}</label>
                             <label class="custom-control custom-checkbox mb-2 mt-1 align-self-center pr-4">
-                <input type="checkbox" class="custom-control-input" id="customCheck100" [(ngModel)]="dataEjercicio.intentos_limitados" placeholder="" required>
+                <input type="checkbox" class="custom-control-input centrado" id="customCheck100" [(ngModel)]="dataEjercicio.intentos_limitados" placeholder="" required>
+
                 <label class="custom-control-label" for="customCheck100"></label>
+                            <input type="number" class="form-control control" [(ngModel)]="dataEjercicio.max_intentos" min="1" value="1" onkeypress="return event.charCode >= 48" (input)="changeValue($event.target.value, false)" [disabled]="!dataEjercicio.intentos_limitados">
+
                             </label>
-                        </div>
-                        <label class="db mb-0">{{ 'pages.exercise-max-attempts' | translate }}</label>
-                        <div id="intentos">
-                            <input type="range" [(ngModel)]="dataEjercicio.range_max_intentos" min="1" max="10" value="1" (input)="changeValue($event.target.value, true)" [disabled]="!dataEjercicio.intentos_limitados">
-                            <input type="number" class="form-control" [(ngModel)]="dataEjercicio.max_intentos" min="1" max="10" value="1" (input)="changeValue($event.target.value, false)" [disabled]="!dataEjercicio.intentos_limitados">
+                            <!-- </div> -->
+                            <!-- <label class="db mb-0">{{ 'pages.exercise-max-attempts' | translate }}</label> -->
+                            <!-- <div id="intentos"> -->
+                            <!-- <input type="number" [(ngModel)]="dataEjercicio.range_max_intentos" min="1" value="1" onkeypress="return event.charCode >= 48" (input)="changeValue($event.target.value, true)" [disabled]="!dataEjercicio.intentos_limitados"> -->
                         </div>
                     </div>
                 </div>
@@ -105,9 +107,10 @@
             <aw-wizard-step stepTitle="{{ 'Añadir pacientes existentes' | translate }}" style="min-height: 120px;">
                 <div class="pacientes">
                     <h3 class="mb-2">{{ 'wizard.third-step' | translate }}</h3>
-                    <button type="button" class="btn btn-primary" (click)="showAddPatientImgModal()">{{ 'Añadir pacientes' | translate }}</button>
-                    <h3 class="mb-2">Editar o crear paciente</h3>
-                    <div class="form-group configurar-pacientes">
+
+                    <h3 class="mb-2 titletop">Editar o crear nuevo paciente</h3>
+                    <div class="form-group configurar-pacientes mid">
+
                         <div class="separated">
                             <div id="descripcion">
                                 <label>{{ 'wizard.description' | translate }}</label>
@@ -143,11 +146,11 @@
                   <label class="custom-control-label" [for]="'customCheck'+i"></label>
                                 </label>
                                 <p class="accion mb-0 text-muted text-small w-xs-100">{{p.nombre}}</p>
-                                <input type="number" class="form-control" [(ngModel)]="p.tiempo" [disabled]="!isSelected(p)" placeholder="">
+                                <input type="number" class="form-control" [(ngModel)]="p.tiempo" onkeypress="return event.charCode >= 48" [disabled]="!isSelected(p)" placeholder="" min="0">
                             </div>
                         </div>
                     </div>
-                    <div class="form-group configurar-pacientes">
+                    <div class="form-group configurar-pacientes mid"><br>
 
                         <div id="empeora">
                             <label>{{ 'wizard.gets-worse' | translate }}</label>
@@ -159,7 +162,7 @@
                         </div>
                         <div id="tiempoEmpeora">
                             <label>{{ 'wizard.time-gw' | translate }}</label>
-                            <input type="text" class="form-control" [(ngModel)]="dataPaciente.tiempoEmpeora" [disabled]="!dataPaciente.empeora" placeholder="">
+                            <input type="number" class="form-control" [(ngModel)]="dataPaciente.tiempoEmpeora" onkeypress="return event.charCode >= 48" [disabled]="!dataPaciente.empeora" placeholder="" min="0">
                         </div>
                         <div class="mt-2" id="img">
                             <label>{{ 'wizard.img' | translate }}</label>
@@ -175,11 +178,11 @@
                             </div>
                         </div>
                     </div>
-                    <div *ngIf="dataPaciente.img" class="mt-0">
+                    <div *ngIf="dataPaciente.img" class="mt-0 botonbot">
                         <button *ngIf="dataPaciente['uid'] == undefined" type="button" class="btn btn-primary" (click)="createPatient()">{{ 'wizard.add' | translate }}</button>
                         <button *ngIf="dataPaciente['uid'] != undefined" type="button" class="btn btn-primary" (click)="createPatient()">Guardar</button>
                     </div>
-                    <div *ngIf="!dataPaciente.img" class="mt-4">
+                    <div *ngIf="!dataPaciente.img" class="mt-4 botonbot">
                         <button *ngIf="dataPaciente['uid'] == undefined" type="button" class="btn btn-primary" (click)="createPatient()">{{ 'wizard.add' | translate }}</button>
                         <button *ngIf="dataPaciente['uid'] != undefined" type="button" class="btn btn-primary" (click)="createPatient()">Guardar</button>
                     </div>
@@ -199,6 +202,8 @@
                                 </div>
                             </div>
                         </div>
+
+                        <button type="button" class="btn btn-primary" (click)="showAddPatientImgModal()">{{ 'Añadir pacientes previamente creados' | translate }}</button>
                     </div>
                 </div>
 
