@@ -8,6 +8,7 @@ import { PacienteEjercicio } from 'src/app/models/pacienteEjercicio.model';
 import { environment } from 'src/environments/environment';
 import { TriarPatientComponent } from '../../../../containers/pages/triar-patient/triar-patient.component';
 import { DatePipe } from '@angular/common';
+import { ImagenService } from '../../../../data/imagen.service';
 import { ActividadService } from 'src/app/data/actividad.service';
 import { Paciente } from 'src/app/models/paciente.model';
 import { Router } from '@angular/router';
@@ -33,6 +34,7 @@ export class DoExerciseComponent implements OnInit {
   data = {
     "scenes": [],
     "name": "",
+    "ruta": "",
     "settings": {
       "mouseViewMode": "drag",
       "autorotateEnabled": false,
@@ -69,6 +71,7 @@ export class DoExerciseComponent implements OnInit {
     private datePipe: DatePipe,
     private actividadService: ActividadService,
     private router: Router,
+    private sceneService: ImagenService,
     private renderer: Renderer2,
     ) {}
 
@@ -135,7 +138,8 @@ export class DoExerciseComponent implements OnInit {
       });
 
       return;
-    })
+    });
+
   }
 
   setPatientsScene() {
@@ -175,6 +179,7 @@ export class DoExerciseComponent implements OnInit {
       this.data.scenes.push({
         "id": this.ejercicio.imgs[i].img.nombre,
         "name": this.ejercicio.imgs[i].img.descripcion,
+        "ruta": this.ejercicio.imgs[i].img.ruta,
         "levels": [
           {
             "tileSize": 256,
@@ -411,7 +416,10 @@ export class DoExerciseComponent implements OnInit {
     var scenes = this.data.scenes.map(function(data) {
       var urlPrefix = "././././assets/img/tiles";
       var source = Marzipano.ImageUrlSource.fromString(
-        urlPrefix + "/" + data.id + "/preview.png");
+      //  urlPrefix + "/" + data.id + "/preview.png");
+      urlPrefix + "/" +data.ruta);
+
+
         var geometry = new Marzipano.EquirectGeometry([{ width: 4000 }]);
 
         var limiter = Marzipano.RectilinearView.limit.traditional(1024, 100*Math.PI/180);

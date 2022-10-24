@@ -24,6 +24,7 @@ export class AddNewSceneModalComponent  {
   scene: Imagen;
   ruta="vacio";
   imagenes: File[];
+  uid: any;
 
   public foto: File = null;
   public foto2: File = null;
@@ -79,7 +80,7 @@ export class AddNewSceneModalComponent  {
         let file = new File([blob], "fileName.jpg", { type: "image/jpeg" })
         this.foto2 = file;
         console.log(this.foto2)
-        this.sceneService.subirimgescenario(this.foto2, 'tiles2', name1+'.'+a+'.png')
+        this.sceneService.subirimgescenario(this.foto2, 'tiles2', name1+'.'+a+'.png',this.uid)
         .subscribe( res => {
           console.log('se ha subido la imagen de escena');
         }, (err) => {
@@ -97,6 +98,7 @@ export class AddNewSceneModalComponent  {
       this.sceneService.subirFoto( this.foto,'tiles')
       .subscribe( res => {
         console.log('se ha subido la imagen');
+
         this.myCanvas();
         this.crearImagenesEscena();
       }, (err) => {
@@ -115,6 +117,7 @@ export class AddNewSceneModalComponent  {
       this.formData.get('descripcion').setValue(this.scene.descripcion);
       this.formData.get('ruta').setValue(this.scene.ruta);
       //console.log('la foto es '+this.foto);
+      this.uid = this.scene.uid
       this.ruta = this.scene.ruta;
     }
   }

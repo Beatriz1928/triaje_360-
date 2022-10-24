@@ -107,7 +107,7 @@ const crearImagen = async(req, res = response) => {
 }
 
 const actualizarImagen = async(req, res = response) => {
-
+    console.log('LLegp a lo de actualizar');
     //comprobamos si es admin
     const token = req.header('x-token');
     if (!(infoToken(token).rol === 'ROL_ADMIN')) {
@@ -174,6 +174,10 @@ const actualizarImagen = async(req, res = response) => {
         }
 
         const nom = uuidv4();
+
+        const nombrePartido = archivo.name.split('.');
+        const nom1 = nombrePartido[0];
+        const nom2 = nombrePartido[1]; // para el nombre de los tiles2, si no se rellenaria con la extension,asi que no salta error
         //comprobamos tipo operación realizada
         switch (tipo) {
             case 'tiles':
@@ -196,6 +200,11 @@ const actualizarImagen = async(req, res = response) => {
 
                     });
                 };
+            case 'tiles2':
+                patharchivo = `${process.env.PATHUPLOAD}/tiles/${nom}/${nom2}.${extension}`;
+
+                ruta = `${nom}/preview.${extension}`;
+                break;
                 patharchivo = `${process.env.PATHUPLOAD}${tipo}/${nom}.${extension}`;
                 ruta = `${nom}.${extension}`;
                 break;

@@ -69,6 +69,31 @@ export class ImagenService {
 
     return this.http.put(url, sendData, { headers, params });
   }
+  subirimgescenario( file, tipo, name,id) {
+    const url = `${environment.base_url}/upload/`+tipo;
+    const token = localStorage.getItem('token');
+      // HEADERS
+    let headers = new HttpHeaders();
+    headers = headers.append('x-token', token);
+    // PARAMS
+   // PARAMS
+   let params = new HttpParams();
+   console.log('JEJE EL ID: '+id)
+   params = params.append('id', id + '');
+   params = params.append('archivo', file + '');
+   // DATA
+    const sendData = {
+      "nombre": file['nombre'],
+      "descripcion": file['descripcion'],
+      "ruta": file['ruta']
+    }
+   // const datos: FormData = new FormData();
+
+    //datos.append('archivo',file, name);
+  console.log(name, 'y el tipo, '+ tipo);
+
+    return this.http.put(url, sendData , { headers, params });
+  }
 
   createImage(data: Imagen,tipo) {
     const url = environment.base_url + '/imagenes/'+tipo;
@@ -109,23 +134,7 @@ export class ImagenService {
     return this.http.post(url, datos, { headers });
   }
 
- subirimgescenario( file, tipo, name) {
-    const url = `${environment.base_url}/upload/`+tipo;
-    const token = localStorage.getItem('token');
-      // HEADERS
-    let headers = new HttpHeaders();
-    headers = headers.append('x-token', token);
-    // PARAMS
-   // PARAMS
-   let params = new HttpParams();
-   params = params.append('archivo', file + '');
 
-    const datos: FormData = new FormData();
-
-    datos.append('archivo',file, name);
-  console.log(name, 'y el tipo, '+ tipo);
-    return this.http.post(url, datos, { headers });
-  }
 
 
   dropImage(id: number, tipo: string) {
