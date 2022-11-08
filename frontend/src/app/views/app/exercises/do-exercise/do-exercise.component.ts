@@ -13,6 +13,7 @@ import { ActividadService } from 'src/app/data/actividad.service';
 import { Paciente } from 'src/app/models/paciente.model';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import {Howl, Howler} from 'howler';
 var Marzipano = require('marzipano');
 
 @Component({
@@ -61,6 +62,9 @@ export class DoExerciseComponent implements OnInit {
     "color": undefined,
     "accion": undefined
   }
+  sound = new Howl({
+    src: ['././././assets/audio/ambulancia.mp3']
+  });
 
 
   constructor(
@@ -82,6 +86,8 @@ export class DoExerciseComponent implements OnInit {
     this.createActivity("Empieza el Ejercicio", 0);
     setInterval(() => this.tick(), 1000);
     document.getElementById("navbar").style.display = "none";
+
+    this.sound.play();
   }
 
   resetTimer() {
@@ -350,6 +356,7 @@ export class DoExerciseComponent implements OnInit {
     this.actividadService.createActivity(this.actividad).subscribe(data => {
       if(data['actividad'].nombre == "Terminar Ejercicio") {
         this.sender.ejercicioUsuario = undefined;
+        this.sound.pause();
         this.router.navigate(['app/dashboards/all/exercises/data-list']);
       }
       this.setPenalizacion(this.actividad.tiempo);

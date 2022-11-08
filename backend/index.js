@@ -37,6 +37,7 @@ app.use('/api/pacientes', require('./routes/pacientes'));
 app.use('/api/pacienteEjercicio', require('./routes/pacienteEjercicio'));
 app.use('/api/actividades', require('./routes/actividades'));
 app.use('/api/upload', require('./routes/uploads'));
+app.use('/api/sonidos', require('./routes/sonidos'));
 
 
 
