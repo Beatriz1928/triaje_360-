@@ -22,6 +22,12 @@ textarea,
     border: none;
 }
 
+#sonido .ng-select,
+#color .ng-select {
+    padding: 0 !important;
+    border: none;
+}
+
 .gallery {
     height: 260px;
     overflow-y: scroll;
@@ -315,6 +321,23 @@ input[type="checkbox"] {
     position: relative;
 }
 
+.pre-musica {
+    width: 22%;
+}
+
+.multiple {
+    margin-top: 40px;
+    border-radius: 25px !important;
+    width: 205%;
+}
+
+.ng-select.ng-select-single .ng-select-container {
+    margin-top: 12px;
+    height: 36px;
+    border-radius: 25px !important;
+    width: 205%;
+}
+
 .form-group {
     display: table;
     width: 100%;
@@ -359,6 +382,15 @@ input[type="checkbox"] {
 }
 
 #asignatura>.db {
+    width: 100%;
+}
+
+.form-group>#sonido {
+    width: 15%;
+    padding-right: 3em;
+}
+
+#sonido>.db {
     width: 100%;
 }
 

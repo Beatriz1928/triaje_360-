@@ -97,20 +97,9 @@ const actualizarSonido = async(req, res = response) => {
 const getSonidos = async(req, res = response) => {
 
     // parametros
-    var ObjectId = require('mongodb').ObjectID;
     const id = req.query.id;
     const texto = req.query.texto;
-    let textoBusqueda = '';
-    if (texto) {
-        textoBusqueda = new RegExp(texto, 'i');
-    }
-    const currentPage = Number(req.query.currentPage);
-    const pageSize = Number(req.query.pageSize) || 0;
-    const desde = (currentPage - 1) * pageSize;
-    //const imagen = req.query.;
-    const userId = req.query.userId;
-    const tipo = req.params.tipo //fotoEscena o fotoVictima
-        // Comprobamos roles
+    // Comprobamos roles
     const token = req.header('x-token');
 
     if (!(infoToken(token).rol === 'ROL_ADMIN') && !(infoToken(token).rol === 'ROL_PROFESOR') && !(infoToken(token).rol === 'ROL_ALUMNO')) {
@@ -122,7 +111,6 @@ const getSonidos = async(req, res = response) => {
 
     try {
         var sonidos, totalSonidos;
-
         if (id) { // si nos pasan un id
             [sonidos, totalSonidos] = await Promise.all([
                 Sonido.findById(id),
@@ -131,9 +119,7 @@ const getSonidos = async(req, res = response) => {
 
         } else { // si no nos pasan el id
             [sonidos, totalSonidos] = await Promise.all([
-                Sonido
-                .find({}, 'nombre descripcion ruta')
-                .skip(desde).limit(pageSize),
+                Sonido.find(),
                 Sonido.countDocuments()
             ]);
 

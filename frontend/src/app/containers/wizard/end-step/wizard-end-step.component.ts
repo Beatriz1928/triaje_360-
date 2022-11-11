@@ -10,8 +10,10 @@ import { Asignatura } from 'src/app/models/asignatura.model';
 import { Ejercicio } from 'src/app/models/ejercicio.model';
 import { ImagenService } from 'src/app/data/imagen.service';
 import { Imagen } from 'src/app/models/imagen.model';
+import { Sonido } from 'src/app/models/sonido.model';
 import { environment } from 'src/environments/environment';
 import { PacienteService } from 'src/app/data/paciente.service';
+import { SonidoService } from 'src/app/data/sonido.service';
 import { PacienteEjercicioService } from 'src/app/data/pacienteEjercicio.service';
 import { Paciente } from 'src/app/models/paciente.model';
 import { PacienteEjercicio } from 'src/app/models/pacienteEjercicio.model';
@@ -34,6 +36,8 @@ export class WizardEndStepComponent implements OnInit {
   exercise: Ejercicio;
   subject: Asignatura;
   subjects: Asignatura[];
+  sonido: Sonido;
+  sonidos: Sonido[];
   uid: any;
   uidEx: number;
   totalItem: 0;
@@ -95,7 +99,7 @@ export class WizardEndStepComponent implements OnInit {
   @ViewChild('addPatientModalRef', { static: true }) addPatientModalRef: AddPatientModalComponent;
   @ViewChild('locateModalRef', { static: true }) locateModalRef: LocatePatientComponent;
 
-  constructor(private asignaturaService: AsignaturaService, private ejercicioService: EjercicioService, private fb: FormBuilder,
+  constructor(private asignaturaService: AsignaturaService, private sonidoService: SonidoService, private ejercicioService: EjercicioService, private fb: FormBuilder,
     private router: Router, private datePipe: DatePipe, private location: Location, private sender: SenderService,
     private notifications: NotificationsService, private imagenService: ImagenService, private pacienteService: PacienteService,
     private accionService: AccionService, private pacienteEjercicioService: PacienteEjercicioService, private auth: AuthService) { }
@@ -104,6 +108,7 @@ export class WizardEndStepComponent implements OnInit {
     this.initData();
     this.getImages();
     this.getActions();
+    this.getSonidos();
 
   }
 
@@ -142,6 +147,25 @@ export class WizardEndStepComponent implements OnInit {
       },
       error => {
         this.notifications.create('Error', 'No se han podidio obtener las Asignaturas', NotificationType.Error, {
+          theClass: 'outline primary',
+          timeOut: 6000,
+          showProgressBar: false
+        });
+
+        return;
+      }
+    );
+  }
+
+  getSonidos() {
+    this.sonidoService.getSonidos().subscribe(
+      data => {
+        if (data['ok']) {
+          this.sonidos = data['sonidos'];
+        }
+      },
+      error => {
+        this.notifications.create('Error', 'No se han podidio obtener los sonidos', NotificationType.Error, {
           theClass: 'outline primary',
           timeOut: 6000,
           showProgressBar: false

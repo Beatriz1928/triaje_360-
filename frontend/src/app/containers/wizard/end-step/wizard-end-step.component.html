@@ -65,18 +65,16 @@
                             </label>
                         </div>
                     </div>
-                    <div id="pre-musica">
-                        <div id="musica">
-                            <label class="mb-0 mt-1">{{ 'pages.music' | translate }}</label>
-                            <label class="custom-control custom-checkbox mb-2 mt-1 align-self-center pr-4">
-                <select class="selectpicker" multiple>
-                  <option>Mustard</option>
-                  <option>Ketchup</option>
-                  <option>Relish</option>
-                </select>
-
-              </label>
-                        </div>
+                    <div *ngIf="!sonido" id="asignatura" class="mt-2">
+                        <label class="db">{{ 'pages.music' | translate }}</label>
+                        <label>
+              <ng-select appearance="outline" [searchable]="false" class="form-control" name="asignatura"
+                [(ngModel)]="dataEjercicio.asignatura" required>
+                <ng-option *ngFor="let item of sonidos" [value]="item.uid">{{item.nombre}}
+                </ng-option>
+              </ng-select>
+            </label>
+                        <!-- <input type="text" class="form-control" formControlName="asignatura" placeholder="" required> -->
                     </div>
 
                 </div>
