@@ -1,4 +1,5 @@
 import { Asignatura } from './asignatura.model';
+import { Sonido } from './sonido.model';
 import { Imagen } from './imagen.model';
 import { Paciente } from './paciente.model';
 
@@ -13,5 +14,6 @@ export class Ejercicio {
                public intentos_limitados: boolean,
                public max_intentos: number,
                public imgs: Array< { img: Imagen, _id: number } >,
+               public sonidos: Sonido,
                public pacientes: Array< { paciente: Paciente, _id: number } >) {}
 }

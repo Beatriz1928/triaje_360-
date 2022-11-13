@@ -40,6 +40,7 @@ export class WizardEndStepComponent implements OnInit {
   sonidos: Sonido[];
   uid: any;
   uidEx: number;
+  uidSonido: number;
   totalItem: 0;
   todayString: string = '';
   tomorrowString: string = '';
@@ -79,6 +80,7 @@ export class WizardEndStepComponent implements OnInit {
     "hasta": '',
     "asignatura": undefined,
     "imgs": [],
+    "sonido": undefined,
     "pacientes": [],
     "intentos_limitados": false,
     "max_intentos": 1,
@@ -136,6 +138,10 @@ export class WizardEndStepComponent implements OnInit {
     if(this.sender.idExercise) {
       this.uidEx = this.sender.idExercise;
     }
+    if(this.sender.idSonido) {
+      this.uidSonido = this.sender.idSonido;
+    }
+
   }
 
   getSubjects() {
@@ -176,6 +182,11 @@ export class WizardEndStepComponent implements OnInit {
     );
   }
 
+  ActualizarSonido(valor){
+   // console.log(valor)
+    this.dataEjercicio.sonido = valor;
+  }
+
   setSubject(): void {
     // si tenemos el id del ejercicio --> editar
     if(this.uidEx != null) {
@@ -193,6 +204,7 @@ export class WizardEndStepComponent implements OnInit {
             this.dataEjercicio.intentos_limitados = this.exercise.intentos_limitados;
             this.dataEjercicio.max_intentos = this.exercise.max_intentos;
             this.dataEjercicio.range_max_intentos = this.exercise.max_intentos;
+            this.dataEjercicio.sonido = this.exercise.sonidos.uid;
             this.getImagesRoutes();
             this.formatExercisePatients();
           }
@@ -211,6 +223,8 @@ export class WizardEndStepComponent implements OnInit {
 
     // obtenemos datos de la asignatura
     this.loadSubjectData(this.uid);
+    this.loadSoundData(this.uid);
+
   }
 
   loadSubjectData(uid: number) {
@@ -229,6 +243,26 @@ export class WizardEndStepComponent implements OnInit {
           showProgressBar: false
         });
 
+        return;
+      }
+    );
+  }
+
+  loadSoundData(uid: number) {
+    this.sonidoService.getSonido(uid).subscribe(
+      data => {
+        if (data['ok']) {
+          this.sonido = data['sonidos'];
+          this.dataEjercicio.sonido = this.sonido.uid;
+        }
+      },
+      error => {
+        this.router.navigateByUrl('/app/dashboards/all/subjects/data-list');
+        this.notifications.create('Error', 'No se han podidio obtener los datos de la Asignatura', NotificationType.Error, {
+          theClass: 'outline primary',
+          timeOut: 6000,
+          showProgressBar: false
+        });
         return;
       }
     );
@@ -281,6 +315,8 @@ export class WizardEndStepComponent implements OnInit {
       });
     } else {
       // no tenemos ejercicio -> CREAR
+      console.log('El sonido: '+this.dataEjercicio.sonido);
+
       this.ejercicioService.createExercise(this.dataEjercicio)
         .subscribe( res => {
           this.exercise = res['ejercicio'];
@@ -296,8 +332,6 @@ export class WizardEndStepComponent implements OnInit {
 
           return;
       });
-
-
     }
   }
 
@@ -440,7 +474,6 @@ export class WizardEndStepComponent implements OnInit {
     return valid;
   }
 
-
   // ***************** ACTIONS METHODS ********************
 
   getActions(): void {
@@ -487,7 +520,6 @@ export class WizardEndStepComponent implements OnInit {
       this.selectAllState = '';
     }
   }
-
 
   // ***************** CONFIGURE PATIENT METHODS ********************
 
@@ -623,9 +655,6 @@ export class WizardEndStepComponent implements OnInit {
         this.dataEjercicio.pacientes.push(victimas[i]);
       }
     }
-
-
-
 
   }
   getImgSelect(e): void {

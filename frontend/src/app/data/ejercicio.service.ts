@@ -55,7 +55,7 @@ export class EjercicioService {
     // HEADERS
     let headers = new HttpHeaders();
     headers = headers.append('x-token', token);
-    
+
     return this.http.delete(url, { headers });
   }
 
@@ -76,7 +76,8 @@ export class EjercicioService {
       "asignatura": data['asignatura'],
       "intentos_limitados": data['intentos_limitados'],
       "max_intentos": data['max_intentos'],
-      "imgs": data['imgs']
+      "imgs": data['imgs'],
+      "sonido": data['sonido']
     }
 
     return this.http.post(url, sendData, { headers });

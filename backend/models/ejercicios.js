@@ -42,12 +42,11 @@ const EjercicioSchema = Schema({
             ref: 'Paciente'
         }
     }],
-    sonidos: [{
-        sonido: {
-            type: Schema.Types.ObjectId,
-            ref: 'Sonido'
-        }
-    }],
+    sonido: {
+        type: Schema.Types.ObjectId,
+        ref: 'Sonido',
+        require: true
+    },
 }, { collection: 'ejercicios' });
 
 // Modificamos Schema para que no aparezcan todos los datos

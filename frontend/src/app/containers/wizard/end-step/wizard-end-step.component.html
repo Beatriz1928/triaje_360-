@@ -68,10 +68,9 @@
                     <div *ngIf="!sonido" id="asignatura" class="mt-2">
                         <label class="db">{{ 'pages.music' | translate }}</label>
                         <label>
-              <ng-select appearance="outline" [searchable]="false" class="form-control" name="asignatura"
-                [(ngModel)]="dataEjercicio.asignatura" required>
-                <ng-option *ngFor="let item of sonidos" [value]="item.uid">{{item.nombre}}
-                </ng-option>
+              <ng-select appearance="outline" [searchable]="false" class="form-control" name="asignatura" multiple
+                [(ngModel)]="dataEjercicio.sonidos"  (change)="ActualizarSonido(dataEjercicio.sonidos)" >
+                <ng-option *ngFor="let item of sonidos" [value]="item.uid">{{item.nombre}}</ng-option>
               </ng-select>
             </label>
                         <!-- <input type="text" class="form-control" formControlName="asignatura" placeholder="" required> -->
