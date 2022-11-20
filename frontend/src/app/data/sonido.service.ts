@@ -28,7 +28,7 @@ export class SonidoService {
   }
 
   getSonido(id: number) {
-    const url = environment.base_url;
+    const url = environment.base_url+ '/sonidos';
     const token = localStorage.getItem('token');
 
     // HEADERS
@@ -41,7 +41,6 @@ export class SonidoService {
 
     return this.http.get(url, { headers, params });
   }
-
 
   updateSonido(data: Sonido, id: number) {
     const url = environment.base_url;

@@ -204,7 +204,7 @@ export class WizardEndStepComponent implements OnInit {
             this.dataEjercicio.intentos_limitados = this.exercise.intentos_limitados;
             this.dataEjercicio.max_intentos = this.exercise.max_intentos;
             this.dataEjercicio.range_max_intentos = this.exercise.max_intentos;
-            this.dataEjercicio.sonido = this.exercise.sonidos.uid;
+            this.dataEjercicio.sonido = this.exercise.sonido;
             this.getImagesRoutes();
             this.formatExercisePatients();
           }

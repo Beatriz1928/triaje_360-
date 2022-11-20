@@ -12,6 +12,8 @@ import { ImagenService } from '../../../../data/imagen.service';
 import { ActividadService } from 'src/app/data/actividad.service';
 import { Paciente } from 'src/app/models/paciente.model';
 import { Router } from '@angular/router';
+import { SonidoService } from 'src/app/data/sonido.service';
+import { Sonido } from 'src/app/models/sonido.model';
 import Swal from 'sweetalert2';
 import {Howl, Howler} from 'howler';
 var Marzipano = require('marzipano');
@@ -62,9 +64,8 @@ export class DoExerciseComponent implements OnInit {
     "color": undefined,
     "accion": undefined
   }
-  sound = new Howl({
-    src: ['././././assets/audio/ambulancia.mp3']
-  });
+  sonido : Sonido;
+  sound = undefined;
 
 
   constructor(
@@ -77,6 +78,7 @@ export class DoExerciseComponent implements OnInit {
     private router: Router,
     private sceneService: ImagenService,
     private renderer: Renderer2,
+    private sonidoService: SonidoService
     ) {}
 
   ngOnInit(): void {
@@ -87,6 +89,12 @@ export class DoExerciseComponent implements OnInit {
     setInterval(() => this.tick(), 1000);
     document.getElementById("navbar").style.display = "none";
 
+  }
+  ngAfterContentInit(): void{
+    this.sound = new Howl({
+     //src: ['././././assets/audio/'+this.sonido.ruta+'']
+       src: ['././././assets/audio/'+'fuego.mp3']
+    });
     this.sound.play();
   }
 
@@ -114,11 +122,33 @@ export class DoExerciseComponent implements OnInit {
     this.time = this.datePipe.transform(time, 'HH:mm:ss');
     // console.log('TIME: ', this.time);
   }
+  async setSound(){
+  await this.sonidoService.getSonido(this.ejercicio.sonido).subscribe(data => {
+      this.sonido = data['sonidos'];
+      console.log( data['sonidos'])
+      console.log(data['sonidos'].nombre);
+      console.log(data['sonidos'].ruta);
+      console.log(this.sonido.nombre);
+      console.log(this.sonido.ruta);
+    },
+      error => {
+        this.notifications.create('Error', 'No se ha podido cargar el sonido del ejercicio', NotificationType.Error, {
+          theClass: 'outline primary',
+          timeOut: 6000,
+          showProgressBar: false
+        });
+
+        return;
+      });
+
+
+  }
 
   getExercise() {
     this.ejercicioService.getExercise(this.sender.idExercise).subscribe(data => {
       this.ejercicio = data['ejercicios'];
       this.setImagesScene();
+      this.setSound();
     },
       error => {
         this.notifications.create('Error', 'No se ha podido cargar el Ejercicio', NotificationType.Error, {
@@ -173,18 +203,18 @@ export class DoExerciseComponent implements OnInit {
     for(let i=0; i<this.ejercicio.imgs.length; i++) {
       let targetLeft, targetRight;
       if(i == 0) {
-        targetLeft = this.ejercicio.imgs[this.ejercicio.imgs.length-1].img.nombre;
-        targetRight = this.ejercicio.imgs[i+1].img.nombre;
+        targetLeft = this.ejercicio.imgs[this.ejercicio.imgs.length-1].img.ruta;
+        targetRight = this.ejercicio.imgs[i+1].img.ruta;
       } else if (i == this.ejercicio.imgs.length-1) {
-        targetLeft = this.ejercicio.imgs[i-1].img.nombre;
-        targetRight = this.ejercicio.imgs[0].img.nombre;
+        targetLeft = this.ejercicio.imgs[i-1].img.ruta;
+        targetRight = this.ejercicio.imgs[0].img.ruta;
       } else {
-        targetLeft = this.ejercicio.imgs[i-1].img.nombre;
-        targetRight = this.ejercicio.imgs[i+1].img.nombre;
+        targetLeft = this.ejercicio.imgs[i-1].img.ruta;
+        targetRight = this.ejercicio.imgs[i+1].img.ruta;
       }
       this.data.scenes.push({
-        "id": this.ejercicio.imgs[i].img.nombre,
-        "name": this.ejercicio.imgs[i].img.descripcion,
+        "id": this.ejercicio.imgs[i].img.uid,
+        "name": this.ejercicio.imgs[i].img.nombre,
         "ruta": this.ejercicio.imgs[i].img.ruta,
         "levels": [
           {

@@ -140,12 +140,9 @@ const getSonidos = async(req, res = response) => {
     }
 }
 
-
 const getSonido = async(req, res = response) => {
 
     const uid = req.params.id;
-    const tipo = req.params.tipo //fotoEscena o fotoVictima
-        // Solo puede borrar cursos un admin
     const token = req.header('x-token');
     // lo puede obtener cualquier usuario
     if (!(infoToken(token).rol === 'ROL_ADMIN') && !(infoToken(token).rol === 'ROL_PROFESOR') && !(infoToken(token).rol === 'ROL_ALUMNO')) {
@@ -154,33 +151,23 @@ const getSonido = async(req, res = response) => {
             msg: 'No tiene permisos para obtener el recurso',
         });
     }
-    try {
-        // comprobamos si la imagen que se esta intentando obtener existe
-        const existeSonido = await Sonido.findById(uid);
-        if (!existeSonido) {
-            return res.status(400).json({
-                ok: false,
-                msg: 'El sonido no existe'
-            });
-        }
-        sonido = existeSonido;
 
-        res.json({
-            ok: true,
-            msg: 'Sonido obtenido',
-            sonido
-        });
-    } catch (error) {
-        console.log(error);
-        res.status(400).json({
+    // comprobamos si el sonido que se esta intentando obtener existe
+    const existeSonido = await Sonido.findById(uid);
+    if (!existeSonido) {
+        return res.status(400).json({
             ok: false,
-            msg: 'Error obteniendo el sonido'
+            msg: 'El sonido no existe'
         });
     }
+    sonido = existeSonido;
 
-
+    res.json({
+        ok: true,
+        msg: 'Sonido obtenida',
+        sonido
+    });
 }
-
 
 
 const borrarSonido = async(req, res = response) => {
