@@ -4,7 +4,7 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { ConversionRatesChartCardComponent } from './conversion-rates-chart-card/conversion-rates-chart-card.component';
 import { GradientCardContainerComponent } from './gradient-card-container/gradient-card-container.component';
 import { IconCardsCarouselComponent } from './icon-cards-carousel/icon-cards-carousel.component';
-import { NewCommentsComponent } from './new-comments/new-comments.component';
+
 import { OrderStockRadarChartComponent } from './order-stock-radar-chart/order-stock-radar-chart.component';
 import { ProductCategoriesDoughnutComponent } from './product-categories-doughnut/product-categories-doughnut.component';
 import { ProductCategoriesPolarAreaComponent } from './product-categories-polar-area/product-categories-polar-area.component';
@@ -49,7 +49,6 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
         ConversionRatesChartCardComponent,
         GradientCardContainerComponent,
         IconCardsCarouselComponent,
-        NewCommentsComponent,
         OrderStockRadarChartComponent,
         ProductCategoriesDoughnutComponent,
         ProductCategoriesPolarAreaComponent,
@@ -86,7 +85,6 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
         ConversionRatesChartCardComponent,
         GradientCardContainerComponent,
         IconCardsCarouselComponent,
-        NewCommentsComponent,
         OrderStockRadarChartComponent,
         ProductCategoriesDoughnutComponent,
         ProductCategoriesPolarAreaComponent,
