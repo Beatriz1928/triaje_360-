@@ -1,7 +1,5 @@
 import { NgModule, Injectable } from '@angular/core';
 import { AdvancedSearchComponent } from './advanced-search/advanced-search.component';
-import { BestSellersComponent } from './best-sellers/best-sellers.component';
-import { CakesComponent } from './cakes/cakes.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { ConversionRatesChartCardComponent } from './conversion-rates-chart-card/conversion-rates-chart-card.component';
 import { GradientCardContainerComponent } from './gradient-card-container/gradient-card-container.component';
@@ -10,14 +8,10 @@ import { NewCommentsComponent } from './new-comments/new-comments.component';
 import { OrderStockRadarChartComponent } from './order-stock-radar-chart/order-stock-radar-chart.component';
 import { ProductCategoriesDoughnutComponent } from './product-categories-doughnut/product-categories-doughnut.component';
 import { ProductCategoriesPolarAreaComponent } from './product-categories-polar-area/product-categories-polar-area.component';
-import { ProfileStatusesComponent } from './profile-statuses/profile-statuses.component';
 import { QuickPostComponent } from './quick-post/quick-post.component';
-import { RecentOrdersComponent } from './recent-orders/recent-orders.component';
 import { SalesChartCardComponent } from './sales-chart-card/sales-chart-card.component';
 import { SmallLineChartsComponent } from './small-line-charts/small-line-charts.component';
 import { SortableStatisticsRowComponent } from './sortable-statistics-row/sortable-statistics-row.component';
-import { TicketsComponent } from './tickets/tickets.component';
-import { TopRatedItemsComponent } from './top-rated-items/top-rated-items.component';
 import { WebsiteVisitsChartCardComponent } from './website-visits-chart-card/website-visits-chart-card.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ComponentsCarouselModule } from 'src/app/components/carousel/components.carousel.module';
@@ -51,8 +45,6 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
 @NgModule({
     declarations: [
         AdvancedSearchComponent,
-        BestSellersComponent,
-        CakesComponent,
         CalendarComponent,
         ConversionRatesChartCardComponent,
         GradientCardContainerComponent,
@@ -61,14 +53,10 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
         OrderStockRadarChartComponent,
         ProductCategoriesDoughnutComponent,
         ProductCategoriesPolarAreaComponent,
-        ProfileStatusesComponent,
         QuickPostComponent,
-        RecentOrdersComponent,
         SalesChartCardComponent,
         SmallLineChartsComponent,
         SortableStatisticsRowComponent,
-        TicketsComponent,
-        TopRatedItemsComponent,
         WebsiteVisitsChartCardComponent,
         IconDashboardsCarouselComponent,
         CardSchoolYearsComponent,
@@ -82,7 +70,6 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
         ComponentsCarouselModule,
         ComponentsChartModule,
         FullCalendarModule,
-        ComponentsCardsModule,
         NgxDatatableModule,
         SortablejsModule,
         RatingModule.forRoot(),
@@ -95,8 +82,6 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     providers: [ ],
     exports: [
         AdvancedSearchComponent,
-        BestSellersComponent,
-        CakesComponent,
         CalendarComponent,
         ConversionRatesChartCardComponent,
         GradientCardContainerComponent,
@@ -105,14 +90,10 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
         OrderStockRadarChartComponent,
         ProductCategoriesDoughnutComponent,
         ProductCategoriesPolarAreaComponent,
-        ProfileStatusesComponent,
         QuickPostComponent,
-        RecentOrdersComponent,
         SalesChartCardComponent,
         SmallLineChartsComponent,
         SortableStatisticsRowComponent,
-        TicketsComponent,
-        TopRatedItemsComponent,
         WebsiteVisitsChartCardComponent,
         IconDashboardsCarouselComponent,
     ]
