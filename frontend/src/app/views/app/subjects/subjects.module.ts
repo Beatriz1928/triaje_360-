@@ -2,11 +2,9 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ThumbListComponent } from './thumb-list/thumb-list.component';
 import { ImageListComponent } from './image-list/image-list.component';
-import { DetailsComponent } from './details/details.component';
 import { DataListComponent } from './data-list/data-list.component';
 import { SubjectsRoutingModule } from './subjects.routing';
 import { SubjectsComponent } from './subjects.component';
-import { DetailsAltComponent } from './details-alt/details-alt.component';
 import { ComponentsCarouselModule } from 'src/app/components/carousel/components.carousel.module';
 import { PagesContainersModule } from 'src/app/containers/pages/pages.containers.module';
 import { HotkeyModule } from 'angular2-hotkeys';
@@ -26,7 +24,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { WizardsContainersModule } from 'src/app/containers/wizard/wizards.containers.module';
 @NgModule({
-  declarations: [DataListComponent, DetailsComponent, ImageListComponent, ThumbListComponent, SubjectsComponent, DetailsAltComponent, AddExerciseComponent],
+  declarations: [DataListComponent,ImageListComponent, ThumbListComponent, SubjectsComponent, AddExerciseComponent],
   imports: [
     SharedModule,
     SubjectsRoutingModule,

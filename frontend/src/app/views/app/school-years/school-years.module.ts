@@ -2,11 +2,9 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ThumbListComponent } from './thumb-list/thumb-list.component';
 import { ImageListComponent } from './image-list/image-list.component';
-import { DetailsComponent } from './details/details.component';
 import { DataListComponent } from './data-list/data-list.component';
 import { SchoolYearsRoutingModule } from './school-years.routing';
 import { SchoolYearsComponent } from './school-years.component';
-import { DetailsAltComponent } from './details-alt/details-alt.component';
 import { ComponentsCarouselModule } from 'src/app/components/carousel/components.carousel.module';
 import { PagesContainersModule } from 'src/app/containers/pages/pages.containers.module';
 import { HotkeyModule } from 'angular2-hotkeys';
@@ -24,7 +22,7 @@ import { RatingModule } from 'ngx-bootstrap/rating';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 
 @NgModule({
-  declarations: [DataListComponent, DetailsComponent, ImageListComponent, ThumbListComponent, SchoolYearsComponent, DetailsAltComponent],
+  declarations: [DataListComponent, ImageListComponent, ThumbListComponent, SchoolYearsComponent],
   imports: [
     SharedModule,
     SchoolYearsRoutingModule,

@@ -2,7 +2,6 @@ import { NgModule, Injectable } from '@angular/core';
 import { AdvancedSearchComponent } from './advanced-search/advanced-search.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { ConversionRatesChartCardComponent } from './conversion-rates-chart-card/conversion-rates-chart-card.component';
-import { GradientCardContainerComponent } from './gradient-card-container/gradient-card-container.component';
 import { IconCardsCarouselComponent } from './icon-cards-carousel/icon-cards-carousel.component';
 
 import { OrderStockRadarChartComponent } from './order-stock-radar-chart/order-stock-radar-chart.component';
@@ -11,7 +10,6 @@ import { ProductCategoriesPolarAreaComponent } from './product-categories-polar-
 import { QuickPostComponent } from './quick-post/quick-post.component';
 import { SalesChartCardComponent } from './sales-chart-card/sales-chart-card.component';
 import { SmallLineChartsComponent } from './small-line-charts/small-line-charts.component';
-import { SortableStatisticsRowComponent } from './sortable-statistics-row/sortable-statistics-row.component';
 import { WebsiteVisitsChartCardComponent } from './website-visits-chart-card/website-visits-chart-card.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { ComponentsCarouselModule } from 'src/app/components/carousel/components.carousel.module';
@@ -47,7 +45,6 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
         AdvancedSearchComponent,
         CalendarComponent,
         ConversionRatesChartCardComponent,
-        GradientCardContainerComponent,
         IconCardsCarouselComponent,
         OrderStockRadarChartComponent,
         ProductCategoriesDoughnutComponent,
@@ -55,7 +52,6 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
         QuickPostComponent,
         SalesChartCardComponent,
         SmallLineChartsComponent,
-        SortableStatisticsRowComponent,
         WebsiteVisitsChartCardComponent,
         IconDashboardsCarouselComponent,
         CardSchoolYearsComponent,
@@ -83,7 +79,6 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
         AdvancedSearchComponent,
         CalendarComponent,
         ConversionRatesChartCardComponent,
-        GradientCardContainerComponent,
         IconCardsCarouselComponent,
         OrderStockRadarChartComponent,
         ProductCategoriesDoughnutComponent,
@@ -91,7 +86,6 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
         QuickPostComponent,
         SalesChartCardComponent,
         SmallLineChartsComponent,
-        SortableStatisticsRowComponent,
         WebsiteVisitsChartCardComponent,
         IconDashboardsCarouselComponent,
     ]

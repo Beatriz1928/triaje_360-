@@ -19,7 +19,8 @@ import { BlogContentComponent } from './blog-content/blog-content.component';
 import { FeatureComparisonComponent } from './feature-comparison/feature-comparison.component';
 import { ComponentsPlayerModule } from 'src/app/components/player/components.player.module';
 import { LayoutContainersModule } from '../layout/layout.containers.module';
-import { ProductDetailInfoAltComponent } from './product-detail-info-alt/product-detail-info-alt.component'
+// import { ProductDetailInfoAltComponent } from './product-detail-info-alt/product-detail-info-alt.component';
+// import { ProductDetailInfoComponent } from './product-detail-info/product-detail-info.component';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { RatingModule } from 'ngx-bootstrap/rating';
 import { TabsModule } from 'ngx-bootstrap/tabs';
@@ -54,7 +55,8 @@ import { TriarPatientComponent } from './triar-patient/triar-patient.component';
     BlogSideVideoComponent,
     BlogContentComponent,
     FeatureComparisonComponent,
-    ProductDetailInfoAltComponent,
+    // ProductDetailInfoAltComponent,
+    // ProductDetailInfoComponent,
     AddNewUserModalComponent,
     AddNewSchoolYearModalComponent,
     AddNewSubjectModalComponent,
@@ -107,7 +109,8 @@ import { TriarPatientComponent } from './triar-patient/triar-patient.component';
     BlogSideVideoComponent,
     BlogContentComponent,
     FeatureComparisonComponent,
-    ProductDetailInfoAltComponent,
+    // ProductDetailInfoAltComponent,
+    // ProductDetailInfoComponent,
     ShowStudentRegisterModalComponent,
     SelectPatientImgModalComponent,
     LocatePatientComponent,
