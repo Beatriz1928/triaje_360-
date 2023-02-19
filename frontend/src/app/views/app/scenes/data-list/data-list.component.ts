@@ -25,6 +25,9 @@ export class DataListComponent implements OnInit {
   totalPage = 0;
   itemScene = '';
 
+
+
+
   @ViewChild('addNewModalRef', { static: true }) addNewModalRef: AddNewSceneModalComponent;
 
 
@@ -38,6 +41,7 @@ export class DataListComponent implements OnInit {
     //this.sender.idExercise = undefined;
     this.loadScenes(this.itemsPerPage, this.currentPage, this.itemScene, '');
   }
+
 
   loadScenes(pageSize: number, currentPage: number, nomScene: string, search?: string): void {
 
@@ -123,7 +127,6 @@ export class DataListComponent implements OnInit {
 
 }
 
-
   confirmDelete(imagen: Imagen): void {
     Swal.fire({
       title: 'Eliminar Escena',
@@ -191,5 +194,15 @@ export class DataListComponent implements OnInit {
   // changeOrderBy(item: any): void {
   //   this.loadData(this.itemsPerPage, 1, this.search, item.value);
   // }
+
+  imagenmodal(ruta){
+
+    Swal.fire({
+      html:
+        `<img alt="Image" class="imagen" src="./../../../../../assets/img/tiles/${ruta}" alt="Imagen escena"  width="100%" height="100%"> `,
+    })
+
+  }
+
 
 }

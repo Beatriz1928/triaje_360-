@@ -221,6 +221,15 @@ export class DataListComponent implements OnInit {
     myInput.focus()
   }
 
+  imagenmodal(ruta){
+
+    Swal.fire({
+      html:
+        `<img alt="Image" class="imagen" src="./../../../../../assets/img/pacientes/${ruta}" alt="Imagen escena"  width="100%" height="100%"> `,
+
+    })
+
+  }
 
 }
 

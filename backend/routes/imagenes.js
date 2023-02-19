@@ -19,6 +19,7 @@ router.get('/:tipo', [
     check('texto', 'Desde debe ser una cadena de texto').optional().isString(),
     check('userId', 'Desde debe ser una cadena de texto').optional().isString(),
     validarCampos
+
 ], getImagenes);
 
 

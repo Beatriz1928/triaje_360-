@@ -55,7 +55,7 @@
                         {{p.nombre}}
                     </p>
                     <p class="img1 mb-0 text-muted text-small w-xs-100">
-                        <img class="imagen" src="./../../../../../assets/img/pacientes/{{p.img}}" alt="Imagen escena">
+                        <img class="imagen" src="./../../../../../assets/img/pacientes/{{p.img}}" (click)="imagenmodal(p.img)" alt="Imagen escena">
                     </p>
                     <p class=" descripcion2 list-item-heading mb-0 text-small w-xs-100">
                         {{p.descripcion}}

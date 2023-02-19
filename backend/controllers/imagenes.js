@@ -4,8 +4,19 @@ const { infoToken } = require('../helpers/infotoken');
 const Imagen = require('../models/imagenes');
 const ImagenPaciente = require('../models/imagenesPaciente');
 // funciones
+
+generarIdUnico = () => {
+    return 'nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn'.replace(/[nt]/g, function(c) {
+        var r = Math.random() * 16 | 0,
+            v = c == 'n' ? r : (r & 0x3 | 0x8);
+        return v.toString(16);
+    });
+}
+
+
+
 const crearImagen = async(req, res = response) => {
-    console.log('Estoy subiendo img');
+
     //comprobamos si es admin
     const token = req.header('x-token');
     if (!(infoToken(token).rol === 'ROL_ADMIN')) {
@@ -15,14 +26,13 @@ const crearImagen = async(req, res = response) => {
         });
     }
     //comprobamos que se manda un archivo
-
     const nombre = req.body.nombre;
     const tipo = req.params.tipo //fotoEscena o fotoVictima
     const archivo = req.body.ruta;
     // console.log(archivo);
-    const nombrePartido = archivo.split('.');
-    const extension = nombrePartido[nombrePartido.length - 1];
-    const nom = nombrePartido[0];
+    const nombreExtension = archivo.split('.');
+    const extension = nombreExtension[nombreExtension.length - 1];
+    const nom = nombreExtension[0];
     // comprobamos si ya existe el nombre
     const existeImagen = await Imagen.findOne({ nombre });
     if (existeImagen) {
@@ -31,7 +41,6 @@ const crearImagen = async(req, res = response) => {
             msg: 'El nombre ya existe para otra imagen'
         });
     }
-
     // comprobamos si ya existe el nombre
     const existeImagen2 = await ImagenPaciente.findOne({ nombre });
     if (existeImagen2) {
@@ -41,14 +50,19 @@ const crearImagen = async(req, res = response) => {
         });
     }
 
-
     switch (tipo) {
         case 'tiles':
-            console.log('Paso por el ptrimerp');
-            req.body.ruta = `${nom}${extension}`;
+            let uid = generarIdUnico();
+            req.body.ruta = `${uid}/${nom}.${extension}`;
             // console.log(req.body.ruta);
             const imagen = new Imagen(req.body);
             imagen.save();
+            res.json({
+                ok: true,
+                msg: 'Subir archivo',
+                imagen
+            });
+
             break;
         case 'tiles2':
             console.log('Paso por el segundo');
@@ -57,20 +71,27 @@ const crearImagen = async(req, res = response) => {
             // console.log(req.body.ruta);
             const imagen1 = new Imagen(req.body);
             imagen2.save();
+            res.json({
+                ok: true,
+                msg: 'Subir archivo',
+                imagen2
+            });
+
             break;
         case 'pacientes':
             //console.log(req.body.ruta);
             const img = new ImagenPaciente(req.body);
             img.save();
+            res.json({
+                ok: true,
+                msg: 'Subir archivo',
+                img
+            });
 
             break;
     }
 
 
-    res.json({
-        ok: true,
-        msg: 'Subir archivo',
-    });
 
 
 }
@@ -192,8 +213,6 @@ const getImagenes = async(req, res = response) => {
                             Imagen.countDocuments()
                         ]);
                     }
-
-
                 }
 
                 res.json({
@@ -422,6 +441,7 @@ const borrarImagen = async(req, res = response) => {
 
             });
     }
+
 
 
 }

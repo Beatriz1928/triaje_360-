@@ -181,7 +181,7 @@ export class AddNewVictimImageModalComponent  {
 
       }
       if (this.foto ) {
-        this.imageService.subirFoto( this.foto,'pacientes')
+        this.imageService.subirPaciente( this.foto,'pacientes')
         .subscribe( res => {
           // cambiamos el DOM el objeto que contiene la fot
         }, (err) => {

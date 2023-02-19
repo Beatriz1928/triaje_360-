@@ -40,20 +40,22 @@
                         {{p.nombre}}
                     </p>
                     <p class="desde mb-0 text-muted text-small w-xs-100">
-                        <img class="imagen" src="./../../../../../assets/img/tiles/{{p.ruta}}" alt="Imagen escena">
-                    </p>
-                    <p class="desde mb-0 text-muted text-small w-xs-100">{{p.descripcion}}</p>
-                    <!-- <p class="hasta mb-0 text-muted text-small w-xs-100">{{p.hasta}}</p> -->
+                        <img alt="Image" class="imagen" src="./../../../../../assets/img/tiles/{{p.ruta}}" alt="Imagen escena" (click)="imagenmodal(p.ruta)">
 
-                    <div [className]="userRole!=2 ? 'acciones atc up d-flex mb-0 text-muted text-small w-xs-100' : 'acciones atc d-flex mb-0 text-muted text-small w-xs-100'">
-                        <i *ngIf="userRole!=2" class="simple-icon-pencil ml-3" data-toggle="tooltip" data-placement="bottom" title="Editar Curso Académico" (click)="showAddNewModal(p)"></i>
-                        <i *ngIf="userRole!=2" class="last-icon simple-icon-trash ml-3" data-toggle="tooltip" data-placement="bottom" title="Eliminar Curso Académico" (click)="confirmDelete(p)"></i>
-                        <label *ngIf="userRole == 0" class="custom-control custom-checkbox mb-1 align-self-center pr-4">
+
+
+                        <p class="desde mb-0 text-muted text-small w-xs-100">{{p.descripcion}}</p>
+                        <!-- <p class="hasta mb-0 text-muted text-small w-xs-100">{{p.hasta}}</p> -->
+
+                        <div [className]="userRole!=2 ? 'acciones atc up d-flex mb-0 text-muted text-small w-xs-100' : 'acciones atc d-flex mb-0 text-muted text-small w-xs-100'">
+                            <i *ngIf="userRole!=2" class="simple-icon-pencil ml-3" data-toggle="tooltip" data-placement="bottom" title="Editar Curso Académico" (click)="showAddNewModal(p)"></i>
+                            <i *ngIf="userRole!=2" class="last-icon simple-icon-trash ml-3" data-toggle="tooltip" data-placement="bottom" title="Eliminar Curso Académico" (click)="confirmDelete(p)"></i>
+                            <label *ngIf="userRole == 0" class="custom-control custom-checkbox mb-1 align-self-center pr-4">
                             <input type="checkbox" class="custom-control-input" [id]="'customCheck'+i" [checked]="isSelected(p)"
                                 (change)="onSelect(p)">
                             <label class="custom-control-label" [for]="'customCheck'+i"></label>
-                        </label>
-                    </div>
+                            </label>
+                        </div>
                 </div>
             </div>
         </div>

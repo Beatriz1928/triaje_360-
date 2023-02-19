@@ -98,11 +98,10 @@ export class ImagenService {
   createImage(data: Imagen,tipo) {
     const url = environment.base_url + '/imagenes/'+tipo;
     const token = localStorage.getItem('token');
-
     // HEADERS
     let headers = new HttpHeaders();
     headers = headers.append('x-token', token);
-
+    console.log( url);
     // DATA
     const sendData = {
       "nombre": data['nombre'],
@@ -112,13 +111,12 @@ export class ImagenService {
 
     // PARAMS
     let params = new HttpParams();
-
     return this.http.post(url, sendData, { headers, params });
   }
 
-  subirFoto( file: File, tipo) {
+  subirFoto( file: File, tipo, path) {
     // subimos la escena con nombre de carpeta el nombre de la imagen y preview como nombre de archivo
-    const url = `${environment.base_url}/upload/`+tipo;
+    const url = `${environment.base_url}/upload/${tipo}`;
     const token = localStorage.getItem('token');
       // HEADERS
     let headers = new HttpHeaders();
@@ -130,12 +128,25 @@ export class ImagenService {
 
     const datos: FormData = new FormData();
     datos.append('archivo', file, file.name);
-
+    datos.append('path', path);
     return this.http.post(url, datos, { headers });
   }
+  subirPaciente( file: File, tipo) {
+    // subimos la escena con nombre de carpeta el nombre de la imagen y preview como nombre de archivo
+    const url = `${environment.base_url}/upload/${tipo}`;
+    const token = localStorage.getItem('token');
+      // HEADERS
+    let headers = new HttpHeaders();
+    headers = headers.append('x-token', token);
+    // PARAMS
+   // PARAMS
+   let params = new HttpParams();
+   params = params.append('archivo', file + '');
 
-
-
+    const datos: FormData = new FormData();
+    datos.append('archivo', file, file.name);
+    return this.http.post(url, datos, { headers });
+  }
 
   dropImage(id: number, tipo: string) {
     const url = environment.base_url + '/imagenes/'+tipo+'/'+id;

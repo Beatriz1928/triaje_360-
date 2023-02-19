@@ -191,5 +191,13 @@ export class DataListComponent implements OnInit {
   // changeOrderBy(item: any): void {
   //   this.loadData(this.itemsPerPage, 1, this.search, item.value);
   // }
+  imagenmodal(ruta){
 
+    Swal.fire({
+      html:
+        `<img alt="Image" class="imagen" src="./../../../../../assets/img/pacientes/${ruta}" alt="Imagen escena"  width="100%" height="100%"> `,
+      showCloseButton: true,
+    })
+
+  }
 }
