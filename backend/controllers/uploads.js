@@ -6,7 +6,7 @@ const ImagenPaciente = require('../models/imagenesPaciente');
 const { v4: uuidv4 } = require('uuid');
 // funciones
 const crearImagen = async(req, res = response) => {
-
+    console.log(req);
     //comprobamos si es admin
     const token = req.header('x-token');
     if (!(infoToken(token).rol === 'ROL_ADMIN')) {
@@ -75,9 +75,10 @@ const crearImagen = async(req, res = response) => {
             ruta = `${nom}.${extension}`;
             break;
         case 'tiles2':
-            patharchivo = `${process.env.PATHUPLOAD}/tiles/${nom}/${nom2}.${extension}`;
+            console.log(req.files.archivo);
+            patharchivo = `${process.env.PATHUPLOAD}/tiles/${req.body.path}`;
 
-            ruta = `${nom}/preview.${extension}`;
+            ruta = `${req.body.path}`;
             break;
         default:
             patharchivo = `${process.env.PATHUPLOAD}/tiles/${nom}/preview.${extension}`;

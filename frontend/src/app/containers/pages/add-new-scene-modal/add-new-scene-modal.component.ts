@@ -60,37 +60,60 @@ export class AddNewSceneModalComponent {
   }
 
   myCanvas() {
+    console.log('FILE:' + this.selectedFile.target.files[0]);
+    var canvas =  document.getElementById('myCanvas') as  HTMLCanvasElement;
+    var context = canvas.getContext("2d");
+    context.clearRect(0, 0, canvas.width, canvas.height);
+    let imgSrc = '';
+    if (this.selectedFile.target.files[0] !== '') {
+      imgSrc = window.URL.createObjectURL(this.selectedFile.target.files[0]);
+    }
+    const img = new Image();
+    img.onload = function() {
+      context.drawImage(img, 0, 0);
+    }
+    img.src = imgSrc;
     // cargamos en el canvas la imagen de la que tenemos que guardar los datos
-    var c = document.getElementById('myCanvas') as HTMLCanvasElement;
-    var ctx = c.getContext('2d');
-    var img = new Image();
-    img.src = 'http://localhost:4200/assets/img/tiles/' + this.ruta;
-    ctx.drawImage(img, 0, 0, 1600, 800);
+    // var fileInput = document.getElementById('fileInput') as HTMLInputElement;
+    // const canvas = document.getElementById('canvas') as  HTMLCanvasElement;
+    // const ctx = canvas.getContext('2d');
+    // const file = fileInput.files[0];
+    // const reader = new FileReader();
+    // reader.readAsDataURL(file);
+    // var img = new Image();
+    // var imgSrc = URL.createObjectURL(file);
+    // img.src = imgSrc;
+    // img.onload = function() {
+    //   ctx .drawImage(img, 0, 0);
+    // }
+
+    // ctx.drawImage(img, 0, 0);
+    // ctx.drawImage(img, 0, 0);
+
   }
+
+
 
   async crearImagenesEscena() {
     console.log('llego master');
-    let i = document.getElementById('myCanvas');
-    var cs = equirectToCubemapFaces(i);
-    // cs.forEach(function(c) {
-    //   console.log('llego master');
+    console.log(this.ruta)
 
-    // });
+    let i = document.getElementById('myCanvas') ;
+    var cs = equirectToCubemapFaces(i);
+    cs.forEach(function(c) {
+       console.log('llego master', cs);
+       var imagen =c.toDataURL("image/png");
+     });
     console.log(cs);
     for (let a = 0; a < cs.length; a++) {
-      let name = this.ruta.split('.'); //this.ruta.split('/',1);
-      let name1 = name[0];
+      let name = this.ruta.split('/'); //this.ruta.split('/',1);
+      console.log(this.ruta);
+      let id = name[0];
       await cs[a].toBlob((blob) => {
-        let file = new File([blob], 'fileName.jpg', { type: 'image/jpeg' });
+        let file = new File([blob], `$().jpg`, { type: 'image/jpeg' });
         this.foto2 = file;
         console.log(this.foto2);
-        this.sceneService
-          .subirimgescenario(
-            this.foto2,
-            'tiles2',
-            name1 + '.' + a + '.png',
-            this.uid
-          )
+        this.sceneService.subirimgescenario( this.foto2,'tiles2',id + '/' + a + '.png' ,a + '.png')
           .subscribe(
             (res) => {
               console.log('se ha subido la imagen de escena');
@@ -146,6 +169,7 @@ export class AddNewSceneModalComponent {
   }
   onFireSelected(event) {
     this.selectedFile = event;
+    this.myCanvas();
   }
 
   cambioImagen() {
@@ -266,11 +290,11 @@ export class AddNewSceneModalComponent {
               }
             );
             this.ruta = res['imagen'].ruta;
-            // this.cambioImagen();
+             //this.cambioImagen();
             this.subirImage();
             // this.closeModal();
             // this.myCanvas();
-            // this.crearImagenesEscena();
+             this.crearImagenesEscena();
 
 
           },

@@ -69,30 +69,24 @@ export class ImagenService {
 
     return this.http.put(url, sendData, { headers, params });
   }
-  subirimgescenario( file, tipo, name,id) {
-    const url = `${environment.base_url}/upload/`+tipo;
+  subirimgescenario( file, tipo, ruta,nombre) {
+    const url = `${environment.base_url}/upload/${tipo}`;
     const token = localStorage.getItem('token');
-      // HEADERS
+    // HEADERS
     let headers = new HttpHeaders();
     headers = headers.append('x-token', token);
-    // PARAMS
-   // PARAMS
-   let params = new HttpParams();
-   console.log('JEJE EL ID: '+id)
-   params = params.append('id', id + '');
-   params = params.append('archivo', file + '');
-   // DATA
-    const sendData = {
-      "nombre": file['nombre'],
-      "descripcion": file['descripcion'],
-      "ruta": file['ruta']
-    }
+    console.log( url);
+    // DATA
+    let params = new HttpParams();
+    params = params.append('archivo', file + '');
+    const datos: FormData = new FormData();
+    datos.append('archivo', file, nombre);
+    datos.append('path', ruta);
    // const datos: FormData = new FormData();
-
     //datos.append('archivo',file, name);
-  console.log(name, 'y el tipo, '+ tipo);
+  console.log(ruta, 'y el tipo '+ tipo);
 
-    return this.http.put(url, sendData , { headers, params });
+    return this.http.post(url, datos, { headers });
   }
 
   createImage(data: Imagen,tipo) {
@@ -131,6 +125,9 @@ export class ImagenService {
     datos.append('path', path);
     return this.http.post(url, datos, { headers });
   }
+
+
+
   subirPaciente( file: File, tipo) {
     // subimos la escena con nombre de carpeta el nombre de la imagen y preview como nombre de archivo
     const url = `${environment.base_url}/upload/${tipo}`;
