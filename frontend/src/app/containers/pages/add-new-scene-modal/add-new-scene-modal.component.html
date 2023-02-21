@@ -16,30 +16,30 @@
     </div>
     <form id="formElem" class="form-horizontal m-t-20 scrollMio" [formGroup]="formData" (ngSubmit)="createUpdateScene()">
         <div class="modal-body">
-            <div>
+            <div class="mt-4">
                 <label>{{ 'pages.nombre' | translate }}</label>
-                <input type="email" class="form-control" formControlName="nombre" placeholder="" placeholder="">
+                <input id="nombre" type="email" class="form-control" formControlName="nombre" placeholder="" placeholder="">
             </div>
             <div class="mt-4">
                 <label>{{ 'pages.descripcion' | translate }}</label>
-                <textarea class="form-control" formControlName="descripcion" placeholder="" rows="3"></textarea>
+                <textarea id="descripcion" class="form-control" formControlName="descripcion" placeholder="" rows="3"></textarea>
             </div>
             <div *ngIf="ruta!='vacio'">
                 <p class="mt-4">
                     <label>{{ 'pages.archivo' | translate }}</label>
-                    <!-- <img id="imagen" class="imagen" src="./../../../../../assets/img/tiles/{{ruta}}" width="325" height="100" alt="Imagen escena"> -->
-                    <input id="fileInput" class="form-control" rows="3" type="file" id="file-selector" (change)="onFireSelected($event)" name="imagenEscena" />
+                    <img id="imagen" class="imagen" src="./../../../../../assets/img/tiles/{{ruta}}" width="324" height="100" alt="Imagen escena">
+                    <input id="fileInput" class="form-control" formControlName="archivo" rows="3" type="file" id="file-selector" (change)="onFireSelected($event)" name="imagenEscena" />
                 </p>
             </div>
             <div *ngIf="ruta=='vacio'">
                 <p class="mt-4">
                     <label>{{ 'pages.archivo' | translate }}</label>
-                    <input id="fileInput" class="form-control" rows="3" type="file" (change)="onFireSelected($event)" id="file-selector" name="imagenEscena" />
+                    <img id="imagen" class="imagen" src="./../../../../../assets/img/tiles/{{ruta}}" width="324" height="100" alt="Imagen escena">
+                    <input id="fileInput" id='archivo' class="form-control" formControlName="archivo" rows="3" type="file" (change)="onFireSelected($event)" id="file-selector" name="imagenEscena" />
                 </p>
             </div>
         </div>
     </form>
-    <iframe id="uploader_iframe" name="uploader_iframe" style="display: none;"></iframe>
     <canvas id="myCanvas" width="1560" height="780" style="position: absolute; left:30000px; border:1px solid #000000;"></canvas>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline-primary" (click)="modalRef.hide()">{{'pages.cancel' | translate }}</button>

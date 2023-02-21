@@ -159,15 +159,6 @@ const actualizarImagen = async(req, res = response) => {
         }
 
         // comprobamos si ya existe el id
-        const existeImagen3 = await Imagen.findOne({ nombre });
-        if (existeImagen3) {
-            return res.status(400).json({
-                ok: false,
-                msg: 'El nombre ya existe para otra imagen'
-            });
-        }
-
-        // comprobamos si ya existe el id
         const existeImagen4 = await ImagenPaciente.findOne({ nombre });
         if (existeImagen4) {
             return res.status(400).json({

@@ -4,7 +4,7 @@ export class Imagen {
                  public nombre: string,
                  public descripcion: string,
                  public ruta: string,
-                // public archivo?: string
+                 public archivo?: string
                  ) {}
 
   }

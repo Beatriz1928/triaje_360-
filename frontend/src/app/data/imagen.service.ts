@@ -47,7 +47,7 @@ export class ImagenService {
   }
 
 
-  updateImage(data: Imagen,id: number, tipo) {
+  updateImage(ruta, data: Imagen,id: number, tipo) {
     const url = environment.base_url + '/imagenes/'+tipo+'/'+id;
     const token = localStorage.getItem('token');
 
@@ -59,7 +59,7 @@ export class ImagenService {
     const sendData = {
       "nombre": data['nombre'],
       "descripcion": data['descripcion'],
-      "ruta": data['ruta']
+      "ruta": ruta
     }
 
     // PARAMS

@@ -8,6 +8,7 @@ import { NotificationsService, NotificationType } from 'angular2-notifications';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import equirectToCubemapFaces from 'equirect-cubemap-faces-js';
+import { element } from 'protractor';
 @Component({
   selector: 'app-add-new-scene-modal',
   templateUrl: './add-new-scene-modal.component.html',
@@ -35,7 +36,7 @@ export class AddNewSceneModalComponent {
     nombre: ['', [Validators.required]],
     descripcion: ['', [Validators.required]],
     ruta: [''],
-    archivo: [''],
+    archivo: ['',],
   });
 
   @ViewChild('template', { static: true }) template: TemplateRef<any>;
@@ -60,7 +61,6 @@ export class AddNewSceneModalComponent {
   }
 
   myCanvas() {
-    console.log('FILE:' + this.selectedFile.target.files[0]);
     var canvas =  document.getElementById('myCanvas') as  HTMLCanvasElement;
     var context = canvas.getContext("2d");
     context.clearRect(0, 0, canvas.width, canvas.height);
@@ -73,26 +73,9 @@ export class AddNewSceneModalComponent {
       context.drawImage(img, 0, 0);
     }
     img.src = imgSrc;
-    // cargamos en el canvas la imagen de la que tenemos que guardar los datos
-    // var fileInput = document.getElementById('fileInput') as HTMLInputElement;
-    // const canvas = document.getElementById('canvas') as  HTMLCanvasElement;
-    // const ctx = canvas.getContext('2d');
-    // const file = fileInput.files[0];
-    // const reader = new FileReader();
-    // reader.readAsDataURL(file);
-    // var img = new Image();
-    // var imgSrc = URL.createObjectURL(file);
-    // img.src = imgSrc;
-    // img.onload = function() {
-    //   ctx .drawImage(img, 0, 0);
-    // }
-
-    // ctx.drawImage(img, 0, 0);
-    // ctx.drawImage(img, 0, 0);
-
+    var pic = document.getElementById('imagen') as HTMLImageElement ;
+    pic.src = imgSrc;
   }
-
-
 
   async crearImagenesEscena() {
     console.log('llego master');
@@ -157,7 +140,10 @@ export class AddNewSceneModalComponent {
     // this.myCanvas();
   }
 
+
+
   loadSceneData() {
+    console.log(this.scene);
     if (this.scene) {
       this.formData.get('nombre').setValue(this.scene.nombre);
       this.formData.get('descripcion').setValue(this.scene.descripcion);
@@ -169,6 +155,7 @@ export class AddNewSceneModalComponent {
   }
   onFireSelected(event) {
     this.selectedFile = event;
+
     this.myCanvas();
   }
 
@@ -238,7 +225,7 @@ export class AddNewSceneModalComponent {
     this.sceneService.getImage(id, 'tiles').subscribe(
       (data) => {
         this.scene = data['imagenes'];
-        // this.loadSceneData();
+         this.loadSceneData();
         // this.myCanvas();
       },
       (error) => {
@@ -259,21 +246,22 @@ export class AddNewSceneModalComponent {
   }
 
   createUpdateScene(): void {
+    if (this.selectedFile.target.files[0] != null){
     this.foto = this.selectedFile.target.files[0];
     if (this.foto != null) { // si hemos seleccionando una foto
       console.log('Envío formulario');
-       this.loadSceneData();
+       //this.loadSceneData();
       this.formSubmited = true;
       if (this.formData.invalid) { // comprobamos que el formulario es valido
+        console.log(this.formData)
         console.log('el form data es invalido');
         return;
       }
-      this.formData.value['archivo']=this.foto;
-      this.formData.value['ruta'] = this.foto['name'];
-      console.log(this.foto);
       console.log(this.formData)
-      // this.foto = this.formData.value['archivo'];
+
       if (this.scene == null) { // si no tenemos escena, creamos una nueva imagen
+        this.formData.value['archivo'] = this.foto;
+        this.formData.value['ruta'] = this.foto['name'];
         console.log('CREACION IMAGEN');
         // si no tenemos id de escena, creamos una
         this.sceneService.createImage(this.formData.value, 'tiles')
@@ -290,13 +278,9 @@ export class AddNewSceneModalComponent {
               }
             );
             this.ruta = res['imagen'].ruta;
-             //this.cambioImagen();
             this.subirImage();
-            // this.closeModal();
-            // this.myCanvas();
              this.crearImagenesEscena();
-
-
+             this.closeModal();
           },
           (err) => {
             this.notifications.create(
@@ -313,32 +297,37 @@ export class AddNewSceneModalComponent {
           }
         );
       } else { // si no editamos la escena que tenemos
+        this.formData.value['archivo'] = this.foto;
         console.log('Estoy editando');
         // si tenemos id de escena, la editamos
-        this.sceneService
-          .updateImage(this.formData.value, this.scene.uid, 'tiles')
+        let nombre = document.getElementById('nombre')as HTMLFormElement;
+        let descripcion = document.getElementById('descripcion')as HTMLFormElement;
+        this.formData.get('nombre').setValue(nombre.value);
+        this.formData.get('descripcion').setValue(descripcion.value);
+        this.formData.get('ruta').setValue(this.scene.ruta);
+        console.log(this.ruta);
+        this.formData.value
+        this.sceneService.updateImage(this.ruta, this.formData.value, this.scene.uid, 'tiles')
           .subscribe(
             (res) => {
-              this.dataList.loadScenes(
-                this.dataList.itemsPerPage,
-                this.dataList.currentPage,
-                this.dataList.itemScene
-              );
-              this.closeModal();
-
+              // this.dataList.loadScenes(
+              //   this.dataList.itemsPerPage,
+              //   this.dataList.currentPage,
+              //   this.dataList.itemScene
+              // );
               this.notifications.create(
-                'Escena editada',
-                'Se ha editado la escena correctamente',
+                'Escena creada',
+                'Se ha modificado la escena correctamente',
                 NotificationType.Info,
                 {
                   theClass: 'outline primary',
                   timeOut: 6000,
-                  showProgressBar: false,
+                  showProgressBar: true,
                 }
               );
               this.subirImage();
-              // this.myCanvas();
-              // this.crearImagenesEscena();
+              this.crearImagenesEscena();
+              this.closeModal();
 
             },
             (err) => {
@@ -361,18 +350,14 @@ export class AddNewSceneModalComponent {
       // this.closeModal();
     }
     else{
-      this.notifications.create(
-        'Error',
-        'Selecciona una imagen',
-        NotificationType.Error,
-        {
-          theClass: 'outline primary',
-          timeOut: 6000,
-          showProgressBar: false,
-        }
-      );
+      Swal.fire({ icon: 'error', title: 'Oops...', text: 'Es necesario seleccionar una imagen' });
+              return;
+    }
 
-
+    }
+    else{
+      Swal.fire({ icon: 'error', title: 'Oops...', text: 'Es necesario seleccionar una imagen' });
+      return;
     }
   }
 

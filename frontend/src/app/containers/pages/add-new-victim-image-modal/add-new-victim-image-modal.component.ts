@@ -158,7 +158,7 @@ export class AddNewVictimImageModalComponent  {
         console.log('Estoy editando');
         // si tenemos id de escena, la editamos
         console.log('el id  es: '+ escena);
-        this.imageService.updateImage(this.formData.value, escena,'pacientes')
+        this.imageService.updateImage('',this.formData.value, escena,'pacientes')
         .subscribe(res => {
           this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
           this.closeModal();

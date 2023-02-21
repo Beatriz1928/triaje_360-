@@ -130,7 +130,7 @@ const actualizarImagen = async(req, res = response) => {
             case 'tiles':
 
                 console.log('Estoy en tiles: ' + uid + ' ' + req.body.nombre + ' ' + req.body.descripcion + ' ' + req.body.ruta);
-                req.body.ruta = `${nom}/preview.${extension}`;
+                req.body.ruta = `${req.body.ruta}`;
 
                 console.log(req.body.ruta);
                 const imagen = await Imagen.findByIdAndUpdate(uid, req.body, { new: true });
