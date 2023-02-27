@@ -33,13 +33,8 @@ const crearImagen = async(req, res = response) => {
     const tipo = req.params.tipo //fotoEscena o fotoVictima
     console.log(req.files.archivo);
     console.log(req.params);
-    console.log(req.body.path);
+
     const archivo = req.files.archivo;
-    archivo.name = req.body.path;
-    const nombrePartido = archivo.name.split('.');
-    const nom = nombrePartido[0];
-    const nom2 = nombrePartido[1]; // para el nombre de los tiles2, si no se rellenaria con la extension,asi que no salta error
-    const extension = nombrePartido[nombrePartido.length - 1];
     const archivosValidos = {
         tiles: ['jpeg', 'jpg', 'png'],
         pacientes: ['jpeg', 'jpg', 'png'],
@@ -53,6 +48,11 @@ const crearImagen = async(req, res = response) => {
     //comprobamos tipo operación realizada
     switch (tipo) {
         case 'tiles':
+            archivo.name = req.body.path;
+            const nombrePartido = archivo.name.split('.');
+            const nom = nombrePartido[0];
+            const nom2 = nombrePartido[1]; // para el nombre de los tiles2, si no se rellenaria con la extension,asi que no salta error
+            const extension = nombrePartido[nombrePartido.length - 1];
             if (!archivosValidos.tiles.includes(extension)) {
                 return res.status(400).json({
                     ok: false,
@@ -60,34 +60,47 @@ const crearImagen = async(req, res = response) => {
 
                 });
             };
+
+
+
             patharchivo = `${process.env.PATHUPLOAD}/tiles/${req.body.path}`;
             ruta = req.body.path;
             break;
         case 'pacientes':
-            if (!archivosValidos.pacientes.includes(extension)) {
+            archivo.name = req.body.path;
+            const nombrePartido_ = archivo.name.split('.');
+            const nom_ = nombrePartido_[0];
+            const nom2_ = nombrePartido_[1]; // para el nombre de los tiles2, si no se rellenaria con la extension,asi que no salta error
+            const extension_ = nombrePartido_[nombrePartido_.length - 1];
+            if (!archivosValidos.pacientes.includes(extension_)) {
                 return res.status(400).json({
                     ok: false,
-                    msg: `El tipo de archivo ${extension} no es valido (${archivosValidos.fotoVictima}) `,
+                    msg: `El tipo de archivo ${extension_} no es valido (${archivosValidos.fotoVictima}) `,
 
                 });
             };
-            patharchivo = `${process.env.PATHUPLOAD}/pacientes/${nom}.${extension}`;
-            ruta = `${nom}.${extension}`;
+
+            patharchivo = `${process.env.PATHUPLOAD}/pacientes/${nom_}.${extension_ }`;
+            ruta = `${nom_}.${nom2_}`;
             break;
         case 'tiles2':
             console.log(req.files.archivo);
             patharchivo = `${process.env.PATHUPLOAD}/tiles/${req.body.path}`;
+            archivo.name = req.body.name;
+            const nombrePartido_1 = archivo.name.split('.');
+            const nom_1 = nombrePartido_[0];
+            const nom2_1 = nombrePartido_[1]; // para el nombre de los tiles2, si no se rellenaria con la extension,asi que no salta error
+            const extension_1 = nombrePartido[nombrePartido_1.length - 1];
+            if (!archivosValidos.pacientes.includes(extension_1)) {
+                return res.status(400).json({
+                    ok: false,
+                    msg: `El tipo de archivo ${extension_1} no es valido (${archivosValidos.fotoVictima}) `,
 
+                });
+            };
             ruta = `${req.body.path}`;
             break;
-        default:
-            patharchivo = `${process.env.PATHUPLOAD}/tiles/${nom}/preview.${extension}`;
-            ruta = `${nom}/preview.${extension}`;
-            // return res.status(400).json({
-            //     ok: false,
-            //     msg: `El tipo de operación no es permitido `,
 
-            // });
     }
 
     console.log(patharchivo);

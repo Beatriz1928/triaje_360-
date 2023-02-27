@@ -24,10 +24,21 @@
                 <label>{{ 'pages.descripcion' | translate }}</label>
                 <textarea class="form-control" formControlName="descripcion" placeholder="" rows="3"></textarea>
             </div>
-            <div class="mt-4">
-                <label>{{ 'pages.archivo' | translate }}</label>
-                <input class="form-control" rows="3" type="file" id="file-selector" (change)="cambioImagen( $event )" name="imagenEscena" />
+            <div *ngIf="!scene">
+                <div class="mt-4">
+                    <!-- <label>{{ 'pages.archivo' | translate }}</label> -->
+                    <img id="imagen" class="imagen" src="" width="50%" height="50%" alt="Imagen escena">
+                    <input class="form-control" rows="3" type="file" id="file-selector" (change)="cambioImagen( $event )" name="imagenEscena" />
+                </div>
             </div>
+            <div *ngIf="scene">
+                <div class="mt-4">
+                    <!-- <label>{{ 'pages.archivo' | translate }}</label> -->
+                    <img id="imagen" class="imagen" src="./../../../../../assets/img/pacientes/{{ruta}}" width="50%" height="50%" alt="Imagen escena">
+                    <input class="form-control" rows="3" type="file" id="file-selector" (change)="cambioImagen( $event )" name="imagenEscena" />
+                </div>
+            </div>
+
         </div>
     </form>
     <div class="modal-footer">
