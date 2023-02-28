@@ -10,6 +10,7 @@ const AccionSchema = Schema({
         type: Number,
         require: true,
     }
+
 }, { collection: 'acciones' });
 
 AccionSchema.method('toJSON', function() {

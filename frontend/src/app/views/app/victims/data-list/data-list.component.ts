@@ -72,7 +72,8 @@ export class DataListComponent implements OnInit {
        for (let a = 0; a < p.acciones.length; a++){
         let nombre =p.acciones[a].accion.nombre;
         let tiempo =p.acciones[a].accion.tiempo;
-         this.acciones.push({nombre,tiempo});
+        let cantidad =p.acciones[a].accion.cantidad;
+         this.acciones.push({nombre,tiempo,cantidad});
        }
       this.tratamientos.show(p);
       }
@@ -84,7 +85,6 @@ export class DataListComponent implements OnInit {
 
   showAddNewModal(img? : Paciente): void {
     if(img) {
-      console.log(img.uid);
       this.addNewModalRef.show(img.uid);
     } else {
       this.addNewModalRef.show();
@@ -216,7 +216,6 @@ export class DataListComponent implements OnInit {
   // }
 
   modal(p){
-    console.log('llego al modal sweettie');
     var myInput = document.getElementById('exampleModalPromo2');
     myInput.focus()
   }

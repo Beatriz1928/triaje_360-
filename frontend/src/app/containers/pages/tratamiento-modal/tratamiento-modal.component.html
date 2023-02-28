@@ -22,10 +22,10 @@
                         <td><input id='{{index.nombre}}' class="input" type="number" id="name" name="name" required size="5" value="{{index.tiempo}}" style="width: 70px;margin-top: 0.3rem;"></td>
                         <div *ngIf="i<cantidad; then thenBlock else elseBlock"></div>
                         <ng-template #thenBlock>
-                            <td><input class="input" type="number" class="messageCheckbox" value="{{index.cantidad}}" (click)="UpdateTreatment(index.nombre,index.tiempo, index.cantidad)" style="width: 70px; ;margin-top: 0.3rem;"></td>
+                            <td><input class="input" id='{{index.nombre}}cb' type="number" class="messageCheckbox" value="{{index.cantidad}}" (click)="UpdateTreatment(index.nombre,index.tiempo, index.cantidad)" style="width: 70px; ;margin-top: 0.3rem;"></td>
                         </ng-template>
                         <ng-template #elseBlock>
-                            <td><input class="input" type="number" class="messageCheckbox" value="0" (click)="UpdateTreatment(index.nombre,index.tiempo, index.cantidad)" style=" width: 70px ;margin-top: 0.3rem;"></td>
+                            <td><input class="input" id='{{index.nombre}}cb' type="number" class="messageCheckbox" value="0" (click)="UpdateTreatment(index.nombre,index.tiempo, index.cantidad)" style=" width: 70px ;margin-top: 0.3rem;"></td>
                         </ng-template>
                     </tr>
                 </tbody>

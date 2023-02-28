@@ -22,7 +22,7 @@ export class TratamientoModalComponent  {
     class: 'modal-right'
   };
   tratamientos: AccionPaciente[];
-  acciones: Accion[];
+  acciones: AccionPaciente[];
   tratamientos_vista: AccionPaciente[];
   cantidad: number;
   nombresAcciones = [];
@@ -45,12 +45,13 @@ export class TratamientoModalComponent  {
 
   show(p?: Paciente): void {
     //cargamos todos los tratamientos y despues comprobamos si la victima ya los tiene añadidos
-    console.log(p.acciones);
+
     this.tratamientos_vista =[];
     this.tratamientos = [];
     this.nombresAcciones = [];
     this.cantidad = p.acciones.length;
      for (let a = 0; a < p.acciones.length ;a++){
+      console.log(p.acciones[a].accion);
      this.tratamientos.push(p.acciones[a].accion);
      this.tratamientos_vista.push(p.acciones[a].accion);
      this.nombresAcciones.push(p.acciones[a].accion.nombre);
@@ -82,7 +83,7 @@ export class TratamientoModalComponent  {
 
         for (let a = 0; a < this.acciones.length; a++){
           if(!this.nombresAcciones.includes(this.acciones[a].nombre)){
-            var trata = new AccionPaciente(this.acciones[a].nombre,this.acciones[a].tiempo)
+            var trata = new AccionPaciente(this.acciones[a].nombre,this.acciones[a].tiempo, this.acciones[a].cantidad)
             this.tratamientos_vista.push(trata);
           }
         }
@@ -118,14 +119,16 @@ UpdateTreatment(nom){
   this.tratamientos = [];
   for (let a = 0; a < this.nombresAcciones.length ; a++){
     var time = +(<HTMLInputElement>document.getElementById(this.nombresAcciones[a])).value;
-    let uno = new AccionPaciente(this.nombresAcciones[a], time);
+    var times = +(<HTMLInputElement>document.getElementById(this.nombresAcciones[a]+'cb')).value;
+    let uno = new AccionPaciente(this.nombresAcciones[a], time, times);
     this.tratamientos.push(uno);
   }
   for(let i=0; i<this.tratamientos.length; i++) {
     this.dataPaciente.acciones[i] = {
       "accion": {
         "nombre": this.tratamientos[i].nombre,
-        "tiempo": this.tratamientos[i].tiempo
+        "tiempo": this.tratamientos[i].tiempo,
+        "cantidad": this.tratamientos[i].cantidad
       }
     }
   }
