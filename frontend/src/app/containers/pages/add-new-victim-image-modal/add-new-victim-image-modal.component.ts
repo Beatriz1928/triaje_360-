@@ -23,7 +23,7 @@ export class AddNewVictimImageModalComponent  {
 
   scene: Imagen;
   public foto: File = null;
-
+  ruta: string;
   //FORM
   private formSubmited = false;
   public formData=this.fb.group({
@@ -51,9 +51,12 @@ export class AddNewVictimImageModalComponent  {
   }
 
   loadSceneData() {
+    console.log(this.scene);
     if(this.scene ) {
       this.formData.get('nombre').setValue(this.scene.nombre);
       this.formData.get('descripcion').setValue(this.scene.descripcion);
+      this.formData.get('ruta').setValue(this.scene.ruta);
+      this.ruta = this.scene.ruta;
       //console.log('la foto es '+this.foto);
     }
   }
@@ -89,8 +92,10 @@ export class AddNewVictimImageModalComponent  {
       var data = new FormData();
       data.append("archivo", evento.target.files[0]);
       //req.send(formData);
-
-
+      let imgSrc = '';
+      imgSrc = window.URL.createObjectURL(evento.target.files[0]);
+      var pic = document.getElementById('imagen') as HTMLImageElement ;
+      pic.src = imgSrc;
 
 
     } else {
@@ -99,6 +104,7 @@ export class AddNewVictimImageModalComponent  {
   }
 
   getScene(id:number): void{
+    this.ruta = '';
     this.imageService.getImage(id,'pacientes').subscribe(
       data =>{
         this.scene = data['imagenes'];
@@ -118,7 +124,7 @@ export class AddNewVictimImageModalComponent  {
   }
 
   createUpdateVictimImage(): void{
-    if(this.foto.name!=''){
+
       console.log('Envío formulario');
      // this.loadSceneData();
       this.formSubmited = true;
@@ -136,9 +142,29 @@ export class AddNewVictimImageModalComponent  {
         // si no tenemos id de escena, creamos una
         this.imageService.createImage(this.formData.value,'pacientes')
         .subscribe(res => {
-          this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
-          this.closeModal();
-
+          this.notifications.create(
+            'Escena creada',
+            'Se ha creado la escena correctamente',
+            NotificationType.Info,
+            {
+              theClass: 'outline primary',
+              timeOut: 6000,
+              showProgressBar: true,
+            }
+          );
+          // this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
+          // this.closeModal();
+          console.log(this.foto);
+          if (this.foto ) {
+            this.imageService.subirPaciente( this.foto,'pacientes')
+            .subscribe( res => {
+              // cambiamos el DOM el objeto que contiene la fot
+            }, (err) => {
+              const errtext = err.error.msg || 'No se pudo cargar la imagen';
+              Swal.fire({icon: 'error', title: 'Oops...', text: errtext});
+              return;
+            });
+          }
           this.notifications.create('Imagen creada', 'Se ha creado la imagen correctamente', NotificationType.Info, {
             theClass: 'outline primary',
             timeOut: 6000,
@@ -157,17 +183,34 @@ export class AddNewVictimImageModalComponent  {
       }else{
         console.log('Estoy editando');
         // si tenemos id de escena, la editamos
-        console.log('el id  es: '+ escena);
-        this.imageService.updateImage('',this.formData.value, escena,'pacientes')
-        .subscribe(res => {
-          this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
-          this.closeModal();
 
-          this.notifications.create('Imagen editada', 'Se ha editado la imagen correctamente', NotificationType.Info, {
-            theClass: 'outline primary',
-            timeOut: 6000,
-            showProgressBar: false
-          });
+        this.imageService.updateImage(this.formData.value['ruta'],this.formData.value, escena,'pacientes')
+        .subscribe(res => {
+          this.notifications.create(
+            'Escena creada',
+            'Se ha modificado la escena correctamente',
+            NotificationType.Info,
+            {
+              theClass: 'outline primary',
+              timeOut: 6000,
+              showProgressBar: true,
+            }
+
+          );
+          if (this.foto ) {
+            this.imageService.subirPaciente( this.foto,'pacientes')
+            .subscribe( res => {
+              // cambiamos el DOM el objeto que contiene la fot
+            }, (err) => {
+              const errtext = err.error.msg || 'No se pudo cargar la imagen';
+              Swal.fire({icon: 'error', title: 'Oops...', text: errtext});
+              return;
+            });
+          }
+          // this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
+          // this.closeModal();
+
+
         }, (err) => {
 
           this.notifications.create('Error', 'No se ha podido editar la imagen', NotificationType.Error, {
@@ -180,20 +223,11 @@ export class AddNewVictimImageModalComponent  {
       });
 
       }
-      if (this.foto ) {
-        this.imageService.subirPaciente( this.foto,'pacientes')
-        .subscribe( res => {
-          // cambiamos el DOM el objeto que contiene la fot
-        }, (err) => {
-          const errtext = err.error.msg || 'No se pudo cargar la imagen';
-          Swal.fire({icon: 'error', title: 'Oops...', text: errtext});
-          return;
-        });
-      }
 
-    this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
-    this.closeModal();
-    }
+
+    // this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
+    // this.closeModal();
+
 
 
   }

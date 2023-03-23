@@ -142,6 +142,7 @@ export class ImagenService {
 
     const datos: FormData = new FormData();
     datos.append('archivo', file, file.name);
+    datos.append('path', file.name);
     return this.http.post(url, datos, { headers });
   }
 

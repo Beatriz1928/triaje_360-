@@ -4,14 +4,14 @@
         <ng-template #crear>
             <h4 class="modal-title pull-left">{{'pages.add-new-scene' | translate}}</h4>
             <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
-      <span aria-hidden="true">&times;</span>
-  </button>
+    <span aria-hidden="true">&times;</span>
+</button>
         </ng-template>
         <ng-template #editar>
             <h4 class="modal-title pull-left">{{'pages.edit-scene' | translate}}</h4>
             <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
-      <span aria-hidden="true">&times;</span>
-  </button>
+    <span aria-hidden="true">&times;</span>
+</button>
         </ng-template>
     </div>
     <form id="formElem" class="form-horizontal m-t-20 scrollMio" [formGroup]="formData" (ngSubmit)="createUpdateVictimImage()">
@@ -24,10 +24,21 @@
                 <label>{{ 'pages.descripcion' | translate }}</label>
                 <textarea class="form-control" formControlName="descripcion" placeholder="" rows="3"></textarea>
             </div>
-            <div class="mt-4">
-                <label>{{ 'pages.archivo' | translate }}</label>
-                <input class="form-control" rows="3" type="file" id="file-selector" (change)="cambioImagen( $event )" name="imagenEscena" />
+            <div *ngIf="!scene">
+                <div class="mt-4">
+                    <!-- <label>{{ 'pages.archivo' | translate }}</label> -->
+                    <img id="imagen" class="imagen" src="" width="50%" height="50%" alt="Imagen escena">
+                    <input class="form-control" rows="3" type="file" id="file-selector" (change)="cambioImagen( $event )" name="imagenEscena" />
+                </div>
             </div>
+            <div *ngIf="scene">
+                <div class="mt-4">
+                    <!-- <label>{{ 'pages.archivo' | translate }}</label> -->
+                    <img id="imagen" class="imagen" src="./../../../../../assets/img/pacientes/{{ruta}}" width="50%" height="50%" alt="Imagen escena">
+                    <input class="form-control" rows="3" type="file" id="file-selector" (change)="cambioImagen( $event )" name="imagenEscena" />
+                </div>
+            </div>
+
         </div>
     </form>
     <div class="modal-footer">
