@@ -1,0 +1,87 @@
+.no-intentos {
+    font-size: 1.8em !important;
+}
+
+audio::-webkit-media-controls-panel {
+    background-color: #f3f3f3;
+}
+
+.tc {
+    padding: 1em 1.75em;
+    background-color: #145388;
+    border: 3px solid transparent;
+    border-radius: 10px;
+    box-shadow: 0 1px 15px rgb(0 0 0 / 4%), 0 1px 6px rgb(0 0 0 / 4%);
+    text-align: center;
+}
+
+.atc {
+    text-align: center !important;
+}
+
+.atc>div>.nombre,
+.tc>.nombre {
+    text-align: left !important;
+    padding-left: 1em;
+}
+
+.title-card {
+    line-height: 2.5;
+}
+
+.title-card>span {
+    background-color: #145388;
+    color: white;
+    padding: .15rem .4em;
+    border-bottom: 1.5px solid white;
+}
+
+.nombre {
+    width: 25% !important;
+}
+
+.acciones {
+    width: 25% !important;
+    justify-content: center;
+}
+
+.descripcion {
+    width: 25% !important;
+    justify-content: center;
+}
+
+.audio {
+    width: 25% !important;
+    justify-content: center;
+}
+
+.imagen1 {
+    width: 25%;
+}
+
+.imagen {
+    height: 28px;
+}
+
+.imagen {
+    height: 28px;
+}
+
+.up>i {
+    transform: translateY(6px);
+}
+
+.acciones>label {
+    transform: translateY(4px);
+}
+
+.last-icon {
+    padding-right: 3em;
+}
+
+// SWAL ALERTS
+.swal-confirm-button {
+    color: #145388 !important;
+    background-color: #fff !important;
+    border: 1px solid #145388 !important;
+}

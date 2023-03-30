@@ -43,7 +43,8 @@ const crearImagen = async(req, res = response) => {
     const archivosValidos = {
         tiles: ['jpeg', 'jpg', 'png'],
         pacientes: ['jpeg', 'jpg', 'png'],
-        tiles2: ['jpeg', 'jpg', 'png']
+        tiles2: ['jpeg', 'jpg', 'png'],
+        sonidos: ['mp3', 'wav']
     }
     let patharchivo = '';
     let ruta = '';
@@ -78,6 +79,11 @@ const crearImagen = async(req, res = response) => {
             console.log(req.files.archivo);
             patharchivo = `${process.env.PATHUPLOAD}/tiles/${req.body.path}`;
 
+            ruta = `${req.body.path}`;
+            break;
+        case 'sonidos':
+            console.log(req.files.archivo);
+            patharchivo = `${process.env.PATHUPLOAD}/audio/${req.body.path}`;
             ruta = `${req.body.path}`;
             break;
         default:

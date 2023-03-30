@@ -33,6 +33,7 @@ import { AddNewSceneModalComponent } from './add-new-scene-modal/add-new-scene-m
 import { AddNewVictimImageModalComponent } from './add-new-victim-image-modal/add-new-victim-image-modal.component';
 import { TratamientoModalComponent } from './tratamiento-modal/tratamiento-modal-component';
 import { AddNewVictimModalComponent } from './add-new-victim-modal/add-new-victim-modal.component';
+import { AddNewSonidoModalComponent } from './add-new-sonido-modal/add-new-sonido-modal.component';
 import { AddNewSubjectModalComponent } from './add-new-subject-modal/add-new-subject-modal.component';
 import { AddPatientModalComponent } from './add-patient-modal/add-patient-modal.component';
 import { ManageSubjectModalComponent } from './manage-subject-modal/manage-subject-modal.component';
@@ -69,7 +70,8 @@ import { TriarPatientComponent } from './triar-patient/triar-patient.component';
     SelectPatientImgModalComponent,
     LocatePatientComponent,
     TriarPatientComponent,
-    TratamientoModalComponent
+    TratamientoModalComponent,
+    AddNewSonidoModalComponent
   ],
   imports: [
     CommonModule,
@@ -99,6 +101,7 @@ import { TriarPatientComponent } from './triar-patient/triar-patient.component';
     AddNewVictimModalComponent,
     AddNewVictimImageModalComponent,
     AddPatientModalComponent,
+    AddNewSonidoModalComponent ,
     ManageSubjectModalComponent,
     ListPageHeaderComponent,
     ProfileUserSocialComponent,
@@ -115,7 +118,9 @@ import { TriarPatientComponent } from './triar-patient/triar-patient.component';
     SelectPatientImgModalComponent,
     LocatePatientComponent,
     TriarPatientComponent,
-    TratamientoModalComponent
+    TratamientoModalComponent,
+
+
   ]
 })
 export class PagesContainersModule { }

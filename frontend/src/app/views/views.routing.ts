@@ -72,6 +72,13 @@ let routes: Routes = [
     canActivate: [AuthGuard],
     canActivateChild: [AuthGuard],
   },
+  {
+    path: 'sonido',
+    loadChildren: () => import('./app/sonido/sonido.module').then((m) => m.SonidoModule),
+      data: { roles: [UserRole.Admin, UserRole.Teacher] },
+      canActivate: [AuthGuard],
+      canActivateChild: [AuthGuard],
+  },
   { path: 'error', component: ErrorComponent },
   { path: 'unauthorized', component: UnauthorizedComponent },
   { path: '**', redirectTo: '/error' },
@@ -112,6 +119,10 @@ if (!environment.isAuthGuardActive) {
     {
       path: 'victims-images',
       loadChildren: () => import('./app/victims-images/victims-images.module').then((m) => m.VictimsImagesModule),
+    },
+    {
+      path: 'sonido',
+      loadChildren: () => import('./app/sonido/sonido.module').then((m) => m.SonidoModule),
     },
     { path: 'error', component: ErrorComponent },
     { path: '**', redirectTo: '/error' },

@@ -36,7 +36,12 @@ export class AddNewVictimImageModalComponent  {
 
   @ViewChild('template', { static: true }) template: TemplateRef<any>;
 
-  constructor(private modalService: BsModalService, private imageService: ImagenService, private fb: FormBuilder, private router: Router , private dataList: DataListComponent,
+  constructor(
+    private modalService: BsModalService,
+    private imageService: ImagenService,
+    private fb: FormBuilder,
+    private router: Router ,
+    private dataList: DataListComponent,
     private notifications: NotificationsService) { }
 
 

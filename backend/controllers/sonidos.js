@@ -1,5 +1,4 @@
 const { response } = require('express');
-require('dotenv').config();
 const { infoToken } = require('../helpers/infotoken');
 const Sonido = require('../models/sonidos');
 // funciones
@@ -97,8 +96,17 @@ const actualizarSonido = async(req, res = response) => {
 const getSonidos = async(req, res = response) => {
 
     // parametros
+    let texto = req.query.texto;
     const id = req.query.id;
-    const texto = req.query.texto;
+    let textoBusqueda = '';
+    if (texto) {
+        textoBusqueda = new RegExp(texto, 'i');
+    }
+    const currentPage = Number(req.query.currentPage);
+    const pageSize = Number(req.query.pageSize) || 0;
+    const desde = (currentPage - 1) * pageSize;
+
+
     // Comprobamos roles
     const token = req.header('x-token');
 
@@ -113,22 +121,22 @@ const getSonidos = async(req, res = response) => {
         var sonidos, totalSonidos;
         if (id) { // si nos pasan un id
             [sonidos, totalSonidos] = await Promise.all([
-                Sonido.findById(id),
+                Sonido.findById(id).skip(desde).limit(pageSize),
                 Sonido.countDocuments()
             ]);
 
         } else { // si no nos pasan el id
             [sonidos, totalSonidos] = await Promise.all([
-                Sonido.find(),
-                Sonido.countDocuments()
-            ]);
+                Sonido.find().skip(desde).limit(pageSize),
+                Sonido.countDocuments({})
 
+            ]);
         }
         res.json({
             ok: true,
             msg: 'Recursos obtenidos',
             sonidos,
-            totalSonidos,
+            totalSonidos
         });
 
     } catch (error) {
@@ -176,7 +184,7 @@ const borrarSonido = async(req, res = response) => {
     console.log('es :' + uid);
     const token = req.header('x-token');
     // lo puede actualizar un administrador
-    if (!(infoToken(token).rol === 'ROL_ADMIN')) {
+    if (!(infoToken(token).rol === 'ROL_ADMIN') && !(infoToken(token).rol === 'ROL_PROFESOR')) {
         return res.status(400).json({
             ok: false,
             msg: 'No tiene permisos para borrar sonidos',
