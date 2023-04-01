@@ -75,9 +75,11 @@ export class AddNewSonidoModalComponent {
 
   onFireSelected(event) {
     this.selectedFile = event;
-    if (this.selectedFile.target.files[0] !== '') {
-      this.ruta = window.URL.createObjectURL(this.selectedFile.target.files[0]);
-    }
+    console.log('La ruta: '+this.selectedFile.target.files[0]);
+    // if (this.selectedFile.target.files[0] !== '') {
+    //   this.ruta = window.URL.createObjectURL(this.selectedFile.target.files[0]);
+    // }
+
   }
 
 
@@ -145,34 +147,6 @@ export class AddNewSonidoModalComponent {
  }
 
 
- subirSonido() {
-  console.log(this.audio);
-  console.log(this.ruta);
-  if (this.audio != null) {
-    this.sonidoService.subirAudio(this.audio, this.ruta).subscribe(
-      (res) => {
-        console.log('se ha subido la imagen');
-
-        // this.myCanvas();
-        // this.crearImagenesEscena();
-      },
-      (err) => {
-        const errtext = err.error.msg || 'No se pudo subir la imagen';
-        Swal.fire({ icon: 'error', title: 'Oops...', text: errtext });
-        return;
-      }
-    );
-  }
-  else{
-    Swal.fire({
-      icon: 'error',
-      title: 'Oops...',
-      text: 'No se ha reconocido el archivo',
-    });
-  }
-  // this.myCanvas();
-}
-
  createUpdateSonido(): void {
   if (this.selectedFile.target.files[0] != null){
   this.audio = this.selectedFile.target.files[0];
@@ -205,9 +179,26 @@ export class AddNewSonidoModalComponent {
               showProgressBar: true,
             }
           );
-          this.ruta = res['sonidos'].ruta;
-          this.subirSonido();
-           this.closeModal();
+          if (this.audio ) {
+            this.sonidoService.subirAudio(this.audio).subscribe(
+              (res) => {
+                console.log('se ha subido el sonido');
+              },
+              (err) => {
+                const errtext = err.error.msg || 'No se pudo subir la imagen';
+                Swal.fire({ icon: 'error', title: 'Oops...', text: errtext });
+                return;
+              }
+            );
+          }
+          else{
+            Swal.fire({
+              icon: 'error',
+              title: 'Oops...',
+              text: 'No se ha reconocido el archivo',
+            });
+          }
+          this.closeModal();
         },
         (err) => {
           this.notifications.create(
@@ -237,11 +228,6 @@ export class AddNewSonidoModalComponent {
       this.sonidoService.updateSonido(this.ruta, this.formData.value, this.sonido.uid)
         .subscribe(
           (res) => {
-            // this.dataList.loadScenes(
-            //   this.dataList.itemsPerPage,
-            //   this.dataList.currentPage,
-            //   this.dataList.itemScene
-            // );
             this.notifications.create(
               'Escena creada',
               'Se ha modificado la escena correctamente',
@@ -252,7 +238,21 @@ export class AddNewSonidoModalComponent {
                 showProgressBar: true,
               }
             );
-            this.subirSonido();
+            if (this.audio ) {
+              this.sonidoService.subirAudio(this.audio).subscribe(
+                (res) => {
+                  console.log('se ha subido el sonido');
+
+                  // this.myCanvas();
+                  // this.crearImagenesEscena();
+                },
+                (err) => {
+                  const errtext = err.error.msg || 'No se pudo subir la imagen';
+                  Swal.fire({ icon: 'error', title: 'Oops...', text: errtext });
+                  return;
+                }
+              );
+            }
             this.closeModal();
 
           },

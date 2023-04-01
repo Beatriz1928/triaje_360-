@@ -129,23 +129,6 @@ export class DoExerciseComponent implements OnInit {
    this.sonido = result['sonidos'];
    this.cargarsonido();
 
-    // this.sonidoService.getSonido(this.ejercicio.sonido).subscribe(data => {
-    //   this.sonido = data['sonidos'];
-    //   console.log(data['sonidos'])
-    //   console.log(data['sonidos'].nombre);
-    //   console.log(data['sonidos'].ruta);
-    //   console.log(this.sonido.nombre);
-    //   console.log(this.sonido.ruta);
-    // },
-    //   error => {
-    //     this.notifications.create('Error', 'No se ha podido cargar el sonido del ejercicio', NotificationType.Error, {
-    //       theClass: 'outline primary',
-    //       timeOut: 6000,
-    //       showProgressBar: false
-    //     });
-
-    //     return;
-    //   });
 
 
   }
@@ -160,23 +143,6 @@ export class DoExerciseComponent implements OnInit {
        await this.setSound();
        console.log("DESPUES SET SOUND" );
 
-    // this.ejercicioService.getExercise(this.sender.idExercise).subscribe(async data => {
-    //   this.ejercicio = data['ejercicios'];
-    //   console.log(this.ejercicio);
-    //   this.setImagesScene();
-    //   console.log("ANTES SET SOUND" );
-    //   await this.setSound();
-    //   console.log("DESPUES SET SOUND" );
-    // },
-    //   error => {
-    //     this.notifications.create('Error', 'No se ha podido cargar el Ejercicio', NotificationType.Error, {
-    //       theClass: 'outline primary',
-    //       timeOut: 6000,
-    //       showProgressBar: false
-    //     });
-
-    //     return;
-      // });
   }
 
   getExercisePatients() {

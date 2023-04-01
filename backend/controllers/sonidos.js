@@ -21,12 +21,12 @@ const crearSonido = async(req, res = response) => {
     const nom = nombrePartido[0];
     // comprobamos si ya existe el nombre
     const existeSonido = await Sonido.findOne({ nombre });
-    if (existeSonido) {
-        return res.status(400).json({
-            ok: false,
-            msg: 'El nombre ya existe para otro Sonido'
-        });
-    }
+    // if (existeSonido) {
+    //     return res.status(400).json({
+    //         ok: false,
+    //         msg: 'El nombre ya existe para otro Sonido'
+    //     });
+    // }
 
     req.body.ruta = `${nom}.${extension}`;
     // console.log(req.body.ruta);

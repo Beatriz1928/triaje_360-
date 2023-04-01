@@ -29,10 +29,10 @@
                 <!-- <label>{{ 'pages.archivo' | translate }}</label> -->
                 <div *ngIf="ruta != 'vacio'">
                     <!-- <audio id="player" src="{{ruta}}" controls="true" class="audio-1"></audio> -->
-                    <input class="form-control" rows="3" type="file" id="sonido" (change)="cambioSonido( $event )" name="imagenEscena" />
+                    <input class="form-control" rows="3" type="file" id="sonido" (change)="onFireSelected( $event )" name="imagenEscena" />
                 </div>
                 <div *ngIf="ruta == 'vacio'">
-                    <input class="form-control" rows="3" type="file" id="sonido" (change)="cambioSonido( $event )" name="imagenEscena" />
+                    <input class="form-control" rows="3" type="file" id="sonido" (change)="onFireSelected( $event )" name="imagenEscena" />
                 </div>
 
             </div>

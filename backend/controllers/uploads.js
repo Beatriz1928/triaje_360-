@@ -12,7 +12,7 @@ const crearImagen = async(req, res = response) => {
     if (!(infoToken(token).rol === 'ROL_ADMIN')) {
         return res.status(400).json({
             ok: false,
-            msg: 'No tiene permisos para crear imagenes',
+            msg: 'No tiene permisos',
         });
     }
     //comprobamos que se manda un archivo
@@ -31,8 +31,6 @@ const crearImagen = async(req, res = response) => {
         });
     }
     const tipo = req.params.tipo //fotoEscena o fotoVictima
-    console.log(req.files.archivo);
-    console.log(req.params);
     console.log(req.body.path);
     const archivo = req.files.archivo;
     archivo.name = req.body.path;
@@ -82,7 +80,7 @@ const crearImagen = async(req, res = response) => {
             ruta = `${req.body.path}`;
             break;
         case 'sonidos':
-            console.log(req.files.archivo);
+            console.log('ESTOY LLEGANDO A IF SONIDOS');
             patharchivo = `${process.env.PATHUPLOAD}/audio/${req.body.path}`;
             ruta = `${req.body.path}`;
             break;

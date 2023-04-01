@@ -116,7 +116,6 @@ export class ImagenService {
     let headers = new HttpHeaders();
     headers = headers.append('x-token', token);
     // PARAMS
-   // PARAMS
    let params = new HttpParams();
    params = params.append('archivo', file + '');
 
@@ -124,6 +123,7 @@ export class ImagenService {
     datos.append('archivo', file, file.name);
     datos.append('path', path);
     return this.http.post(url, datos, { headers });
+
   }
 
 
