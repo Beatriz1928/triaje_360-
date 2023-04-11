@@ -41,3 +41,5 @@ import { PagesContainersModule } from 'src/app/containers/pages/pages.containers
 })
 
 export class WizardsContainersModule { }
+
+export { WizardEndStepComponent };

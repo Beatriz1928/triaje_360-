@@ -570,6 +570,7 @@ export class WizardEndStepComponent implements OnInit {
         data => {
           if (data['ok']) {
             this.dataEjercicio.pacientes.push(data['paciente']);
+            console.log(this.dataEjercicio);
             this.resetDataPaciente();
             this.notifications.create('Paciente creado', 'Se ha creado el Paciente correctamente y se ha añadido al Ejercicio', NotificationType.Info, {
               theClass: 'outline primary',
@@ -885,6 +886,16 @@ export class WizardEndStepComponent implements OnInit {
     }
 
     return valid;
+  }
+
+  loadCreatedPatients(uids: Paciente[]){
+    let paciente : Paciente;
+    if (uids != null){
+      for(let i = 0 ; i < uids.length; i++){
+        this.dataEjercicio.pacientes.push(uids[i])
+      }
+    }
+
   }
 
 }

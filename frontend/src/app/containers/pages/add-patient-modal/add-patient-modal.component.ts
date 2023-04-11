@@ -3,6 +3,7 @@ import { SenderService } from 'src/app/data/sender.service';
 import { ImagenPacienteService } from 'src/app/data/imagenPaciente.service';
 import { ImagenPaciente } from 'src/app/models/imagenPaciente.model';
 import { PacienteService } from 'src/app/data/paciente.service';
+import { WizardEndStepComponent } from '../../../../../src/app/containers/wizard/wizards.containers.module';
 import { AuthService } from 'src/app/shared/auth.service';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { NotificationsService, NotificationType } from 'angular2-notifications';
@@ -39,7 +40,8 @@ export class AddPatientModalComponent implements OnInit {
     private auth: AuthService,
     private sender: SenderService,
     private notifications: NotificationsService,
-    private pacienteService: PacienteService) { }
+    private pacienteService: PacienteService,
+    ) { }
 
 
   ngOnInit(): void {
@@ -100,6 +102,7 @@ export class AddPatientModalComponent implements OnInit {
 
   closeModal(): void {
     this.seleccionarVictimas.emit(this.idAnyadidos);
+
     this.modalRef.hide();
   }
 
