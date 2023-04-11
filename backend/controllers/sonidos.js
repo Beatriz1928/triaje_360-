@@ -57,8 +57,8 @@ const actualizarSonido = async(req, res = response) => {
         const nom = nombrePartido[0];
         // comprobamos si ya existe el nombre
 
-        const existeImagen = await Imagen.findById(uid);
-        if (!existeImagen) {
+        const existeSonido = await Sonido.findById(uid);
+        if (!existeSonido) {
             return res.status(400).json({
                 ok: false,
                 msg: 'no hay sonido con ese id'
@@ -70,10 +70,7 @@ const actualizarSonido = async(req, res = response) => {
         req.body.ruta = `${nom}.${extension}`;
 
         console.log(req.body.ruta);
-        const imagen = await Imagen.findByIdAndUpdate(uid, req.body, { new: true });
-
-
-
+        const imagen = await Sonido.findByIdAndUpdate(uid, req.body, { new: true });
         res.json({
             ok: true,
             msg: 'Actualizar archivo',
