@@ -183,7 +183,7 @@ export class WizardEndStepComponent implements OnInit {
   }
 
   ActualizarSonido(valor){
-   // console.log(valor)
+    // console.log(valor)
     this.dataEjercicio.sonido = valor;
   }
 

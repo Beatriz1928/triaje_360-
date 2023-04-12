@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, QueryList, Renderer2, ViewChild, ViewChildren, } from '@angular/core';
+import { Component, OnInit, ElementRef, QueryList, Renderer2, ViewChild,ViewChildren, } from '@angular/core';
 import { NotificationsService, NotificationType } from 'angular2-notifications';
 import { EjercicioService } from 'src/app/data/ejercicio.service';
 import { PacienteEjercicioService } from 'src/app/data/pacienteEjercicio.service';
@@ -12,11 +12,11 @@ import { ImagenService } from '../../../../data/imagen.service';
 import { ActividadService } from 'src/app/data/actividad.service';
 import { Paciente } from 'src/app/models/paciente.model';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 import { SonidoService } from 'src/app/data/sonido.service';
 import { Sonido } from 'src/app/models/sonido.model';
-import Swal from 'sweetalert2';
-import { Howl, Howler } from 'howler';
 var Marzipano = require('marzipano');
+import { Howl, Howler } from 'howler';
 
 @Component({
   selector: 'app-do-exercise',
@@ -46,10 +46,10 @@ export class DoExerciseComponent implements OnInit {
     }
   };
   posiciones: any[][] = [
-    [{ "yaw": -2.3, "pitch": -0.55 }, { "yaw": -1.91, "pitch": -0.55 }, { "yaw": -1.52, "pitch": -0.55 }, { "yaw": -1.13, "pitch": -0.55 }, { "yaw": -0.74, "pitch": -0.55 }, { "yaw": -0.35, "pitch": -0.55 }, { "yaw": 0.04, "pitch": -0.55 }, { "yaw": 0.43, "pitch": -0.55 }, { "yaw": 0.82, "pitch": -0.55 }, { "yaw": 1.21, "pitch": -0.55 }, { "yaw": 1.6, "pitch": -0.55 }, { "yaw": 1.99, "pitch": -0.55 }, { "yaw": 2.38, "pitch": -0.55 }, { "yaw": 2.77, "pitch": -0.55 }, { "yaw": 3.16, "pitch": -0.55 }, { "yaw": 3.55, "pitch": -0.55 }],
-    [{ "yaw": -2.3, "pitch": -0.25 }, { "yaw": -1.91, "pitch": -0.25 }, { "yaw": -1.52, "pitch": -0.25 }, { "yaw": -1.13, "pitch": -0.25 }, { "yaw": -0.74, "pitch": -0.25 }, { "yaw": -0.35, "pitch": -0.25 }, { "yaw": 0.04, "pitch": -0.25 }, { "yaw": 0.43, "pitch": -0.25 }, { "yaw": 0.82, "pitch": -0.25 }, { "yaw": 1.21, "pitch": -0.25 }, { "yaw": 1.6, "pitch": -0.25 }, { "yaw": 1.99, "pitch": -0.25 }, { "yaw": 2.38, "pitch": -0.25 }, { "yaw": 2.77, "pitch": -0.25 }, { "yaw": 3.16, "pitch": -0.25 }, { "yaw": 3.55, "pitch": -0.25 }],
-    [{ "yaw": -2.3, "pitch": 0.05 }, { "yaw": -1.91, "pitch": 0.05 }, { "yaw": -1.52, "pitch": 0.05 }, { "yaw": -1.13, "pitch": 0.05 }, { "yaw": -0.74, "pitch": 0.05 }, { "yaw": -0.35, "pitch": 0.05 }, { "yaw": 0.04, "pitch": 0.05 }, { "yaw": 0.43, "pitch": 0.05 }, { "yaw": 0.82, "pitch": 0.05 }, { "yaw": 1.21, "pitch": 0.05 }, { "yaw": 1.6, "pitch": 0.05 }, { "yaw": 1.99, "pitch": 0.05 }, { "yaw": 2.38, "pitch": 0.05 }, { "yaw": 2.77, "pitch": 0.05 }, { "yaw": 3.16, "pitch": 0.05 }, { "yaw": 3.55, "pitch": 0.05 }],
-    [{ "yaw": -2.3, "pitch": 0.35 }, { "yaw": -1.91, "pitch": 0.35 }, { "yaw": -1.52, "pitch": 0.35 }, { "yaw": -1.13, "pitch": 0.35 }, { "yaw": -0.74, "pitch": 0.35 }, { "yaw": -0.35, "pitch": 0.35 }, { "yaw": 0.04, "pitch": 0.35 }, { "yaw": 0.43, "pitch": 0.35 }, { "yaw": 0.82, "pitch": 0.35 }, { "yaw": 1.21, "pitch": 0.35 }, { "yaw": 1.6, "pitch": 0.35 }, { "yaw": 1.99, "pitch": 0.35 }, { "yaw": 2.38, "pitch": 0.35 }, { "yaw": 2.77, "pitch": 0.35 }, { "yaw": 3.16, "pitch": 0.35 }, { "yaw": 3.55, "pitch": 0.35 }]
+    [{"yaw":-2.3,"pitch":-0.55}, {"yaw":-1.91,"pitch":-0.55}, {"yaw":-1.52,"pitch":-0.55}, {"yaw":-1.13,"pitch":-0.55}, {"yaw":-0.74,"pitch":-0.55}, {"yaw":-0.35,"pitch":-0.55}, {"yaw":0.04,"pitch":-0.55}, {"yaw":0.43,"pitch":-0.55}, {"yaw":0.82,"pitch":-0.55}, {"yaw":1.21,"pitch":-0.55}, {"yaw":1.6,"pitch":-0.55}, {"yaw":1.99,"pitch":-0.55}, {"yaw":2.38,"pitch":-0.55}, {"yaw":2.77,"pitch":-0.55}, {"yaw":3.16,"pitch":-0.55}, {"yaw":3.55,"pitch":-0.55}],
+    [{"yaw":-2.3,"pitch":-0.25}, {"yaw":-1.91,"pitch":-0.25}, {"yaw":-1.52,"pitch":-0.25}, {"yaw":-1.13,"pitch":-0.25}, {"yaw":-0.74,"pitch":-0.25}, {"yaw":-0.35,"pitch":-0.25}, {"yaw":0.04,"pitch":-0.25}, {"yaw":0.43,"pitch":-0.25}, {"yaw":0.82,"pitch":-0.25}, {"yaw":1.21,"pitch":-0.25}, {"yaw":1.6,"pitch":-0.25}, {"yaw":1.99,"pitch":-0.25}, {"yaw":2.38,"pitch":-0.25}, {"yaw":2.77,"pitch":-0.25}, {"yaw":3.16,"pitch":-0.25}, {"yaw":3.55,"pitch":-0.25}],
+    [{"yaw":-2.3,"pitch":0.05},  {"yaw":-1.91,"pitch":0.05},  {"yaw":-1.52,"pitch":0.05},  {"yaw":-1.13,"pitch":0.05},  {"yaw":-0.74,"pitch":0.05},  {"yaw":-0.35,"pitch":0.05},  {"yaw":0.04,"pitch":0.05},  {"yaw":0.43,"pitch":0.05},  {"yaw":0.82,"pitch":0.05},  {"yaw":1.21,"pitch":0.05},  {"yaw":1.6,"pitch":0.05},  {"yaw":1.99,"pitch":0.05},  {"yaw":2.38,"pitch":0.05},  {"yaw":2.77,"pitch":0.05},  {"yaw":3.16,"pitch":0.05},  {"yaw":3.55,"pitch":0.05}],
+    [{"yaw":-2.3,"pitch":0.35},  {"yaw":-1.91,"pitch":0.35},  {"yaw":-1.52,"pitch":0.35},  {"yaw":-1.13,"pitch":0.35},  {"yaw":-0.74,"pitch":0.35},  {"yaw":-0.35,"pitch":0.35},  {"yaw":0.04,"pitch":0.35},  {"yaw":0.43,"pitch":0.35},  {"yaw":0.82,"pitch":0.35},  {"yaw":1.21,"pitch":0.35},  {"yaw":1.6,"pitch":0.35},  {"yaw":1.99,"pitch":0.35},  {"yaw":2.38,"pitch":0.35},  {"yaw":2.77,"pitch":0.35},  {"yaw":3.16,"pitch":0.35},  {"yaw":3.55,"pitch":0.35}]
   ];
   horas: number;
   minutos: number;
@@ -79,19 +79,17 @@ export class DoExerciseComponent implements OnInit {
     private sceneService: ImagenService,
     private renderer: Renderer2,
     private sonidoService: SonidoService
-  ) { }
+    ) {}
 
   async ngOnInit() {
-    console.log("Antes get exercise");
-    await this.getExercise();
-    console.log("DESPUES get exercise");
+   await this.getExercise();
     this.resetTimer();
     this.formatTime();
     this.createActivity("Empieza el Ejercicio", 0);
     setInterval(() => this.tick(), 1000);
     document.getElementById("navbar").style.display = "none";
-
   }
+
   cargarsonido(): void {
     console.log("Sonido: " ,this.sonido);
     this.sound = new Howl({
@@ -100,6 +98,13 @@ export class DoExerciseComponent implements OnInit {
     this.sound.play();
   }
 
+  async setSound() {
+    let result = await this.sonidoService.getSonido(this.ejercicio.sonido).toPromise();
+    this.sonido = result['sonidos'];
+    this.cargarsonido();
+   }
+
+
   resetTimer() {
     this.horas = 0;
     this.minutos = 0;
@@ -107,11 +112,11 @@ export class DoExerciseComponent implements OnInit {
   }
 
   tick(): void {
-    if (++this.segundos > 59) {
+    if(++this.segundos > 59) {
       this.segundos = 0;
-      if (++this.minutos > 59) {
+      if(++this.minutos > 59) {
         this.minutos = 0;
-        if (++this.horas > 23) {
+        if(++this.horas > 23) {
           this.horas = 0;
         }
       }
@@ -124,17 +129,9 @@ export class DoExerciseComponent implements OnInit {
     this.time = this.datePipe.transform(time, 'HH:mm:ss');
     // console.log('TIME: ', this.time);
   }
-  async setSound() {
-   let result = await this.sonidoService.getSonido(this.ejercicio.sonido).toPromise();
-   this.sonido = result['sonidos'];
-   this.cargarsonido();
-
-
-
-  }
 
   async getExercise() {
-     let result = await this.ejercicioService.getExercise(this.sender.idExercise).toPromise();
+    let result = await this.ejercicioService.getExercise(this.sender.idExercise).toPromise();
 
      this.ejercicio = result['ejercicios'];
        console.log(this.ejercicio);
@@ -142,7 +139,6 @@ export class DoExerciseComponent implements OnInit {
        console.log("ANTES SET SOUND" );
        await this.setSound();
        console.log("DESPUES SET SOUND" );
-
   }
 
   getExercisePatients() {
@@ -150,23 +146,23 @@ export class DoExerciseComponent implements OnInit {
       this.pacientesEjercicio = data['pacientesEjercicio'];
       this.setPatientsScene();
     },
-      error => {
-        this.notifications.create('Error', 'No se han podido obtener los Pacientes del Ejercicio', NotificationType.Error, {
-          theClass: 'outline primary',
-          timeOut: 6000,
-          showProgressBar: false
-        });
-
-        return;
+    error => {
+      this.notifications.create('Error', 'No se han podido obtener los Pacientes del Ejercicio', NotificationType.Error, {
+        theClass: 'outline primary',
+        timeOut: 6000,
+        showProgressBar: false
       });
+
+      return;
+    });
 
   }
 
   setPatientsScene() {
-    for (let i = 0; i < this.pacientesEjercicio.length; i++) {
-      for (let j = 0; j < this.data.scenes.length; j++) {
-        if (this.pacientesEjercicio[i].idImagen['nombre'] == this.data.scenes[j].id) {
-          this.data.scenes[j].infoHotspots.push({
+    for(let i=0; i<this.pacientesEjercicio.length; i++) {
+      for(let j=0; j<this.data.scenes.length; j++) {
+        if(this.pacientesEjercicio[i].idImagen['nombre'] == this.data.scenes[j].id) {
+            this.data.scenes[j].infoHotspots.push({
             "yaw": this.posiciones[this.pacientesEjercicio[i].x][this.pacientesEjercicio[i].y].yaw,
             "pitch": this.posiciones[this.pacientesEjercicio[i].x][this.pacientesEjercicio[i].y].pitch,
             "src": this.urlPrefixPacientes + this.pacientesEjercicio[i].idPaciente['img'],
@@ -184,29 +180,26 @@ export class DoExerciseComponent implements OnInit {
   setImagesScene() {
     // console.log(this.data);
     this.data.name = this.ejercicio.nombre;
-    for (let i = 0; i < this.ejercicio.imgs.length; i++) {
-
-
+    for(let i=0; i<this.ejercicio.imgs.length; i++) {
       let targetLeft, targetRight;
       if (this.ejercicio.imgs.length == 1) {
         targetRight = this.ejercicio.imgs[0].img.ruta;
         targetLeft = targetRight;
       } else {
-        if (i == 0) {
-          targetLeft = this.ejercicio.imgs[this.ejercicio.imgs.length - 1].img.ruta;
-          targetRight = this.ejercicio.imgs[i + 1].img.ruta;
-        } else if (i == this.ejercicio.imgs.length - 1) {
-          targetLeft = this.ejercicio.imgs[i - 1].img.ruta;
-          targetRight = this.ejercicio.imgs[0].img.ruta;
-        } else {
-          targetLeft = this.ejercicio.imgs[i - 1].img.ruta;
-          targetRight = this.ejercicio.imgs[i + 1].img.ruta;
-        }
+        if(i == 0) {
+        targetLeft = this.ejercicio.imgs[this.ejercicio.imgs.length-1].img.nombre;
+        targetRight = this.ejercicio.imgs[i+1].img.nombre;
+      } else if (i == this.ejercicio.imgs.length-1) {
+        targetLeft = this.ejercicio.imgs[i-1].img.nombre;
+        targetRight = this.ejercicio.imgs[0].img.nombre;
+      } else {
+        targetLeft = this.ejercicio.imgs[i-1].img.nombre;
+        targetRight = this.ejercicio.imgs[i+1].img.nombre;
       }
-
+    }
       this.data.scenes.push({
-        "id": this.ejercicio.imgs[i].img.uid,
-        "name": this.ejercicio.imgs[i].img.nombre,
+        "id": this.ejercicio.imgs[i].img.nombre,
+        "name": this.ejercicio.imgs[i].img.descripcion,
         "ruta": this.ejercicio.imgs[i].img.ruta,
         "levels": [
           {
@@ -248,14 +241,14 @@ export class DoExerciseComponent implements OnInit {
   setColour(event): void {
 
     var icon, encontrado = false;
-    for (let i = 0; i < this.pacientesEjercicio.length; i++) {
-      if (event.paciente['_id'] == this.pacientesEjercicio[i].idPaciente['_id'] && !encontrado) {
+    for(let i=0; i<this.pacientesEjercicio.length; i++) {
+      if(event.paciente['_id'] == this.pacientesEjercicio[i].idPaciente['_id'] && !encontrado) {
         encontrado = true;
-        icon = document.getElementById('paciente' + i);
+        icon = document.getElementById('paciente'+i);
         // recorrido para cargar el color de un paciente clasificado
-        for (let j = 0; j < this.data.scenes.length; j++) {
-          for (let k = 0; k < this.data.scenes[j].infoHotspots.length; k++) {
-            if (this.data.scenes[j].infoHotspots[k].paciente['_id'] == event.paciente['_id']) {
+        for(let j=0; j<this.data.scenes.length; j++) {
+          for(let k=0; k<this.data.scenes[j].infoHotspots.length; k++) {
+            if(this.data.scenes[j].infoHotspots[k].paciente['_id'] == event.paciente['_id']) {
               this.data.scenes[j].infoHotspots[k].color = event.color;
             }
           }
@@ -309,9 +302,9 @@ export class DoExerciseComponent implements OnInit {
 
   setAction(event) {
     let accionAsiganda = false;
-    for (let j = 0; j < this.data.scenes.length && !accionAsiganda; j++) {
-      for (let k = 0; k < this.data.scenes[j].infoHotspots.length; k++) {
-        if (this.data.scenes[j].infoHotspots[k].paciente['_id'] == event.paciente['_id']) {
+    for(let j=0; j<this.data.scenes.length && !accionAsiganda; j++) {
+      for(let k=0; k<this.data.scenes[j].infoHotspots.length; k++) {
+        if(this.data.scenes[j].infoHotspots[k].paciente['_id'] == event.paciente['_id']) {
           accionAsiganda = true;
           this.data.scenes[j].infoHotspots[k].acciones.push(event.accion);
         }
@@ -329,20 +322,20 @@ export class DoExerciseComponent implements OnInit {
   setPenalizacion(tiempo) {
     this.segundos += tiempo;
     // console.log('aumento el crono: ', tiempo);
-    if (this.segundos > 59) {
-      this.minutos += Math.trunc(this.segundos / 60);
-      if (this.minutos > 59) {
-        this.horas += Math.trunc(this.minutos / 60);
-        this.minutos = this.minutos % 60;
+    if(this.segundos > 59) {
+      this.minutos += Math.trunc(this.segundos/60);
+      if(this.minutos > 59) {
+        this.horas += Math.trunc(this.minutos/60);
+        this.minutos = this.minutos%60;
       }
-      this.segundos = this.segundos % 60;
+      this.segundos = this.segundos%60;
     }
   }
 
   searchPatient(uid: number): number {
-    for (let i = 0; i < this.ejercicio.pacientes.length; i++) {
-      if (this.ejercicio.pacientes[i].paciente['_id'] == uid) {
-        return i + 1;
+    for(let i=0; i<this.ejercicio.pacientes.length; i++) {
+      if(this.ejercicio.pacientes[i].paciente['_id'] == uid) {
+        return i+1;
       }
     }
     return -1;
@@ -353,10 +346,10 @@ export class DoExerciseComponent implements OnInit {
     this.actividad.tiempo = tiempo;
     this.actividad.momento = this.time;
     this.actividad.ejercicioUsuario = this.sender.ejercicioUsuario;
-    if (paciente) {
+    if(paciente) {
       this.actividad.paciente = paciente['_id'];
-      if (color) {
-        switch (color) {
+      if(color) {
+        switch(color) {
           case 'Verde':
             this.actividad.color = 'verde';
             break;
@@ -370,13 +363,13 @@ export class DoExerciseComponent implements OnInit {
             this.actividad.color = 'negro';
             break;
         }
-      } else if (accion) {
+      } else if(accion) {
         this.actividad.accion = accion;
       }
     }
 
     this.actividadService.createActivity(this.actividad).subscribe(data => {
-      if (data['actividad'].nombre == "Terminar Ejercicio") {
+      if(data['actividad'].nombre == "Terminar Ejercicio") {
         this.sender.ejercicioUsuario = undefined;
         this.sound.pause();
         this.router.navigate(['app/dashboards/all/exercises/data-list']);
@@ -417,7 +410,7 @@ export class DoExerciseComponent implements OnInit {
     }).then((result) => {
       if (result.isConfirmed) {
         this.createActivity("Terminar Ejercicio", 0);
-        document.getElementById("navbar").style.display = "flex";
+      document.getElementById("navbar").style.display = "flex";
       } else if (result.isDenied) {
         Swal.close();
       }
@@ -442,17 +435,17 @@ export class DoExerciseComponent implements OnInit {
     var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
 
     // Create scenes.
-    var scenes = this.data.scenes.map(function (data) {
+    var scenes = this.data.scenes.map(function(data) {
       var urlPrefix = "././././assets/img/tiles";
       var source = Marzipano.ImageUrlSource.fromString(
-        //  urlPrefix + "/" + data.id + "/preview.png");
-        urlPrefix + "/" + data.ruta);
+      //  urlPrefix + "/" + data.id + "/preview.png");
+      urlPrefix + "/" +data.ruta);
 
 
-      var geometry = new Marzipano.EquirectGeometry([{ width: 4000 }]);
+        var geometry = new Marzipano.EquirectGeometry([{ width: 4000 }]);
 
-      var limiter = Marzipano.RectilinearView.limit.traditional(1024, 100 * Math.PI / 180);
-      var view = new Marzipano.RectilinearView({ yaw: Math.PI }, limiter);
+        var limiter = Marzipano.RectilinearView.limit.traditional(1024, 100*Math.PI/180);
+        var view = new Marzipano.RectilinearView({ yaw: Math.PI }, limiter);
 
       var scene = viewer.createScene({
         source: source,
@@ -462,13 +455,13 @@ export class DoExerciseComponent implements OnInit {
       });
 
       // Create link hotspots.
-      data.linkHotspots.forEach(function (hotspot) {
+      data.linkHotspots.forEach(function(hotspot) {
         var element = createLinkHotspotElement(hotspot);
         scene.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
       });
 
       // Create info hotspots.
-      data.infoHotspots.forEach(function (hotspot) {
+      data.infoHotspots.forEach(function(hotspot) {
         var element = createInfoHotspotElement(hotspot);
         scene.hotspotContainer().createHotspot(element, { yaw: hotspot.yaw, pitch: hotspot.pitch });
       });
@@ -494,12 +487,12 @@ export class DoExerciseComponent implements OnInit {
 
     // Associate view controls with elements.
     var controls = viewer.controls();
-    controls.registerMethod('upElement', new Marzipano.ElementPressControlMethod(viewUpElement, 'y', -velocity, friction), true);
-    controls.registerMethod('downElement', new Marzipano.ElementPressControlMethod(viewDownElement, 'y', velocity, friction), true);
-    controls.registerMethod('leftElement', new Marzipano.ElementPressControlMethod(viewLeftElement, 'x', -velocity, friction), true);
-    controls.registerMethod('rightElement', new Marzipano.ElementPressControlMethod(viewRightElement, 'x', velocity, friction), true);
-    controls.registerMethod('inElement', new Marzipano.ElementPressControlMethod(viewInElement, 'zoom', -velocity, friction), true);
-    controls.registerMethod('outElement', new Marzipano.ElementPressControlMethod(viewOutElement, 'zoom', velocity, friction), true);
+    controls.registerMethod('upElement',    new Marzipano.ElementPressControlMethod(viewUpElement,     'y', -velocity, friction), true);
+    controls.registerMethod('downElement',  new Marzipano.ElementPressControlMethod(viewDownElement,   'y',  velocity, friction), true);
+    controls.registerMethod('leftElement',  new Marzipano.ElementPressControlMethod(viewLeftElement,   'x', -velocity, friction), true);
+    controls.registerMethod('rightElement', new Marzipano.ElementPressControlMethod(viewRightElement,  'x',  velocity, friction), true);
+    controls.registerMethod('inElement',    new Marzipano.ElementPressControlMethod(viewInElement,  'zoom', -velocity, friction), true);
+    controls.registerMethod('outElement',   new Marzipano.ElementPressControlMethod(viewOutElement, 'zoom',  velocity, friction), true);
 
     function sanitize(s) {
       return s.replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;');
@@ -532,14 +525,14 @@ export class DoExerciseComponent implements OnInit {
       icon.style['height'] = '100%';
 
       // Set rotation transform.
-      var transformProperties = ['-ms-transform', '-webkit-transform', 'transform'];
+      var transformProperties = [ '-ms-transform', '-webkit-transform', 'transform' ];
       for (var i = 0; i < transformProperties.length; i++) {
         var property = transformProperties[i];
         icon.style[property] = 'rotate(' + hotspot.rotation + 'rad)';
       }
 
       // Add click event handler.
-      wrapper.addEventListener('click', function () {
+      wrapper.addEventListener('click', function() {
         switchScene(findSceneById(hotspot.target));
         that.createActivity("Desplazamiento por la escena", 15);
       });
@@ -568,9 +561,9 @@ export class DoExerciseComponent implements OnInit {
       wrapper.style['height'] = '120px';
 
       // Add click event handler.
-      wrapper.addEventListener('click', function () {
+      wrapper.addEventListener('click', function() {
         var i = that.searchPatient(hotspot.paciente['_id']);
-        if (i > -1) {
+        if(i > -1) {
           that.triarModalRef.show(hotspot.paciente, hotspot.color, hotspot.acciones);
           // that.createActivity("Entra a atender a Paciente " + i, 10, hotspot.paciente);
           that.createActivity("Entra a atender a", 10, hotspot.paciente);
@@ -603,10 +596,10 @@ export class DoExerciseComponent implements OnInit {
 
     // Prevent touch and scroll events from reaching the parent element.
     function stopTouchAndScrollEventPropagation(element): void {
-      var eventList = ['touchstart', 'touchmove', 'touchend', 'touchcancel',
-        'wheel', 'mousewheel'];
+      var eventList = [ 'touchstart', 'touchmove', 'touchend', 'touchcancel',
+                        'wheel', 'mousewheel' ];
       for (var i = 0; i < eventList.length; i++) {
-        element.addEventListener(eventList[i], function (event) {
+        element.addEventListener(eventList[i], function(event) {
           event.stopPropagation();
         });
       }
