@@ -350,6 +350,7 @@ export class WizardEndStepComponent implements OnInit {
     }
   }
   toExercises(): void {
+    this.createExercise();
     this.router.navigateByUrl('app/dashboards/all/exercises/data-list');
   }
 
@@ -680,6 +681,7 @@ export class WizardEndStepComponent implements OnInit {
   // ***************** LOCATE PATIENT METHODS ********************
 
   initLocatePatient() {
+    this.createExercise()
     this.setImgSelected(this.imgsSelect[0]);
     // this.getExercisePatients();
   }
