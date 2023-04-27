@@ -122,7 +122,11 @@
         "users": "Usuarios",
         "exercises": "Ejercicios",
         "prueba": "Prueba",
-        "all": "Todos"
+        "all": "Todos",
+        "victims-images": "Imagenes de victimas",
+        "sonido": "Sonidos",
+        "victims": "Victimas",
+        "scenes": "Escenas"
     },
     "dashboards": {
         "pending-orders": "Pedidos Pendientes",
@@ -237,6 +241,16 @@
         "images": "IMAGENES",
         "purchase": "COMPRA",
         "view-all": "Ver Todo",
+        "name": "Nombre",
+        "descripcion": "Descripción",
+        "archivo": "Archivo",
+        "victim-name": "Nombre",
+        "imagen": "Archivo",
+        "color": "Color",
+        "victim-description": "Description",
+        "victim-time": "Time",
+        "edit-scene": "Edit Scene",
+        "music": "Sound",
         "prices": {
             "developer": "REVELADOR",
             "team": "EQUIPO",

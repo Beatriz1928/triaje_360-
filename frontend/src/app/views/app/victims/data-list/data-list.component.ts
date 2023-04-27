@@ -69,16 +69,16 @@ export class DataListComponent implements OnInit {
   showTratamientos(p: Paciente ){
     this.acciones = [];
     if(p.acciones) {
+
        for (let a = 0; a < p.acciones.length; a++){
         let nombre =p.acciones[a].accion.nombre;
         let tiempo =p.acciones[a].accion.tiempo;
-         this.acciones.push({nombre,tiempo});
+         this.acciones.push(new AccionPaciente(nombre,tiempo));
        }
-      this.tratamientos.show(p);
+       this.tratamientos.show(p);
       }
-      else {
-        this.tratamientos.show();
-      }
+else{this.tratamientos.show();}
+
   }
 
 

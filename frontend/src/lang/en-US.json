@@ -122,7 +122,12 @@
         "subjects": "Subjects",
         "users": "Users",
         "exercises": "Exercises",
-        "all": "All"
+        "all": "All",
+        "victims-images": "Victims Images",
+        "sonido": "Sounds",
+        "victims": "Victims",
+        "scenes": "Scenes"
+
     },
     "dashboards": {
         "pending-orders": "Pending Orders",
@@ -235,6 +240,23 @@
         "images": "IMAGES",
         "purchase": "PURCHASE",
         "view-all": "View All",
+        "name": "Name",
+        "nombre": "Name",
+        "descripcion": "Description",
+        "archivo": "File",
+        "victim-name": "Name",
+        "imagen": "File",
+        "color": "Color",
+        "victim-description": "Description",
+        "victim-time": "Time",
+        "edit-scene": "Edit Scene",
+        "exercise-subject": "Subject",
+        "exercise-name": "Name",
+        "exercise-from": "From",
+        "exercise-to": "To",
+        "exercise-description": "Description",
+        "exercise-limited-attempts": "Limited attempts",
+        "music": "Sound",
         "prices": {
             "developer": "DEVELOPER",
             "team": "TEAM",

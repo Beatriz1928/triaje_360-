@@ -4,14 +4,14 @@
         <ng-template #crear>
             <h4 class="modal-title pull-left">{{'pages.add-new-scene' | translate}}</h4>
             <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
-      <span aria-hidden="true">&times;</span>
-  </button>
+    <span aria-hidden="true">&times;</span>
+</button>
         </ng-template>
         <ng-template #editar>
             <h4 class="modal-title pull-left">{{'pages.edit-scene' | translate}}</h4>
             <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
-      <span aria-hidden="true">&times;</span>
-  </button>
+    <span aria-hidden="true">&times;</span>
+</button>
         </ng-template>
     </div>
     <form id="formElem" class="form-horizontal m-t-20 scrollMio" [formGroup]="formData" (ngSubmit)="createUpdateScene()">
@@ -28,7 +28,8 @@
                 <p class="mt-4">
                     <label>{{ 'pages.archivo' | translate }}</label>
                     <img id="imagen" class="imagen" src="./../../../../../assets/img/tiles/{{ruta}}" width="324" height="100" alt="Imagen escena">
-                    <input id="fileInput" class="form-control" formControlName="archivo" rows="3" type="file" id="file-selector" (change)="onFireSelected($event)" name="imagenEscena" />
+                    <input id="fileInput" id='archivo' class="form-control" formControlName="archivo" rows="3" type="file" (change)="onFireSelected($event)" id="file-selector" name="imagenEscena" />
+                    <!-- <input id="fileInput" class="form-control" formControlName="archivo" rows="3" type="file" id="file-selector" (change)="onFireSelected($event)" name="imagenEscena" /> -->
                 </p>
             </div>
             <div *ngIf="ruta=='vacio'">

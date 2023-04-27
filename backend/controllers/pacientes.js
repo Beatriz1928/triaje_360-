@@ -69,6 +69,47 @@ const getPacientes = async(req, res = response) => {
     }
 }
 
+
+const getPaciente = async(req, res = response) => {
+
+    // parametros
+    const id = req.query.id;
+    const texto = req.query.texto;
+    let textoBusqueda = '';
+    // Comprobamos roles
+    const token = req.header('x-token');
+
+    if (!(infoToken(token).rol === 'ROL_ADMIN') && !(infoToken(token).rol === 'ROL_PROFESOR') && !(infoToken(token).rol === 'ROL_ALUMNO')) {
+        return res.status(400).json({
+            ok: false,
+            msg: 'No tiene permisos para obtener paciente',
+        });
+    }
+
+    try {
+        var paciente;
+
+        if (id) { // si nos pasan un id
+            [paciente] = await Promise.all([
+                Paciente.findById(id)
+            ]);
+        }
+
+        res.json({
+            ok: true,
+            msg: 'Paciente obtenido',
+            paciente
+        });
+
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({
+            ok: false,
+            msg: 'error obteniendo paciente'
+        })
+    }
+}
+
 const crearPaciente = async(req, res = response) => {
 
     // const idEjercicio = req.query.exerciseId;
@@ -200,4 +241,4 @@ const borrarPaciente = async(req, res = response) => {
 }
 
 // exportamos las funciones 
-module.exports = { getPacientes, crearPaciente, actualizarPaciente, borrarPaciente };
+module.exports = { getPacientes, crearPaciente, actualizarPaciente, borrarPaciente, getPaciente };

@@ -212,8 +212,8 @@ export class AddNewVictimImageModalComponent  {
               return;
             });
           }
-          // this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
-          // this.closeModal();
+          this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
+          this.closeModal();
 
 
         }, (err) => {

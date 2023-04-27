@@ -90,10 +90,6 @@ const crearImagen = async(req, res = response) => {
 
             break;
     }
-
-
-
-
 }
 
 const actualizarImagen = async(req, res = response) => {
@@ -125,29 +121,34 @@ const actualizarImagen = async(req, res = response) => {
                 msg: 'no hay imagen con ese id'
             });
         }
-
         switch (tipo) {
             case 'tiles':
 
                 console.log('Estoy en tiles: ' + uid + ' ' + req.body.nombre + ' ' + req.body.descripcion + ' ' + req.body.ruta);
                 req.body.ruta = `${req.body.ruta}`;
-
                 console.log(req.body.ruta);
                 const imagen = await Imagen.findByIdAndUpdate(uid, req.body, { new: true });
+                imagen.save();
+                res.json({
+                    ok: true,
+                    msg: 'Actualizar archivo',
+                    imagen
+                });
 
                 break;
             case 'pacientes':
                 console.log('Estoy en pacientes: ' + uid + ' ' + req.body.nombre + ' ' + req.body.descripcion + ' ' + req.body.ruta);
                 console.log(req.body.ruta);
                 const img = await ImagenPaciente.findByIdAndUpdate(uid, req.body, { new: true });
+                res.json({
+                    ok: true,
+                    msg: 'Actualizar archivo',
+                    img
+                });
 
                 break;
         }
 
-        res.json({
-            ok: true,
-            msg: 'Actualizar archivo',
-        });
 
 
     } catch (error) {

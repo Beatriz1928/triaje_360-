@@ -154,6 +154,7 @@ export class AddNewSceneModalComponent {
     }
   }
   onFireSelected(event) {
+    console.log ("estoy cambiando la imagen");
     this.selectedFile = event;
 
     this.myCanvas();
@@ -222,6 +223,7 @@ export class AddNewSceneModalComponent {
   }
 
   getScene(id: number): void {
+    console.log(id);
     this.sceneService.getImage(id, 'tiles').subscribe(
       (data) => {
         this.scene = data['imagenes'];
@@ -246,6 +248,7 @@ export class AddNewSceneModalComponent {
   }
 
   createUpdateScene(): void {
+    // this.selectedFile
     if (this.selectedFile.target.files[0] != null){
     this.foto = this.selectedFile.target.files[0];
     if (this.foto != null) { // si hemos seleccionando una foto
@@ -257,6 +260,7 @@ export class AddNewSceneModalComponent {
         console.log('el form data es invalido');
         return;
       }
+    }
       console.log(this.formData)
 
       if (this.scene == null) { // si no tenemos escena, creamos una nueva imagen
@@ -325,8 +329,10 @@ export class AddNewSceneModalComponent {
                   showProgressBar: true,
                 }
               );
+              this.ruta = res['imagen'].ruta;
               this.subirImage();
               this.crearImagenesEscena();
+              this.dataList.loadScenes(this.dataList.itemsPerPage, this.dataList.currentPage, this.dataList.itemScene)
               this.closeModal();
 
             },
@@ -354,11 +360,11 @@ export class AddNewSceneModalComponent {
               return;
     }
 
-    }
-    else{
-      Swal.fire({ icon: 'error', title: 'Oops...', text: 'Es necesario seleccionar una imagen' });
-      return;
-    }
+
+    // else{
+    //   Swal.fire({ icon: 'error', title: 'Oops...', text: 'Es necesario seleccionar una imagen' });
+    //   return;
+    // }
   }
 
 

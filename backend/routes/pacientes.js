@@ -1,7 +1,7 @@
 // RUTA BASE: /api/acciones
 
 const { Router } = require('express');
-const { getPacientes, crearPaciente, actualizarPaciente, borrarPaciente } = require('../controllers/pacientes');
+const { getPacientes, crearPaciente, actualizarPaciente, borrarPaciente, getPaciente } = require('../controllers/pacientes');
 const { check } = require('express-validator');
 const { validarCampos } = require('../middleware/validar-campos');
 const { validarJWT } = require('../middleware/validar-jwt');
@@ -15,6 +15,13 @@ router.get('/', [
     check('id', 'El id debe ser válido').optional().isMongoId(),
     validarCampos
 ], getPacientes);
+
+router.get('/:id', [
+    validarJWT,
+    // comprobamos campos opcionales
+    check('id', 'El id debe ser válido').optional().isMongoId(),
+    validarCampos
+], getPaciente);
 
 router.post('/', [
     validarJWT,
