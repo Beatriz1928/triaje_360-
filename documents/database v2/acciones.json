@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "6263d3628d92883a78686f3b"
+  },
+  "nombre": "Drenaje Torácico",
+  "tiempo": 60,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6263d3af8d92883a78686f3e"
+  },
+  "nombre": "Compresión Sangrado",
+  "tiempo": 60,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6263d4098d92883a78686f44"
+  },
+  "nombre": "Collarín Cervical",
+  "tiempo": 60,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6263d43c8d92883a78686f47"
+  },
+  "nombre": "Guedel",
+  "tiempo": 10,
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "628bdaf2b06fd83f94d9375a"
+  },
+  "nombre": "PLS",
+  "tiempo": 30,
+  "__v": 0
+}]

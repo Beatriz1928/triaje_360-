@@ -1,0 +1,49 @@
+[{
+  "_id": {
+    "$oid": "63f2a1ad26b5934b9024e95d"
+  },
+  "nombre": "jungla 1",
+  "descripcion": "escena con en un bosque 1",
+  "ruta": "b46daa9525b6b3a3a83f487d388c5c9b28400d505188858c9ee/phalzer_forest_01.png",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63f5430401be21356c911f42"
+  },
+  "nombre": "edificios",
+  "descripcion": "Escena ejecutiva",
+  "ruta": "ec90fdd8e08f64b225d4f47ee0d2b6a14b924627c96dafafcc8/altos.png",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "641cd6dcad487d2d70c7b447"
+  },
+  "nombre": "calle vacia",
+  "descripcion": "escena de una calle vacia con naturaleza alrededor",
+  "ruta": "7eeb63eb836386052998c1d4821897fa3456727303bca7eaab0/park_parking.png",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "641cddfe399b5d5188747420"
+  },
+  "nombre": "patio",
+  "descripcion": "patio de una casa con cesped",
+  "ruta": "276f6e8c94fc566a9adc169a78e12f464b79ff21f4c54e111ea/solitude_night.png",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6446c90927211d3964151770"
+  },
+  "nombre": "fabrica",
+  "descripcion": "escena industrial en una fabrica cerrada",
+  "ruta": "22487f925510cd397316f586a5ce4afa27261f4f7722458a446/industrial.png",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c440f047ee7334c8c78fe"
+  },
+  "nombre": "Feria",
+  "descripcion": "Escena de una feria",
+  "ruta": "c3be88438dc6e5758ca19053efd0cd0d7f672ef7701a4e9d53b/feria.png",
+  "__v": 0
+}]

@@ -1,0 +1,73 @@
+[{
+  "_id": {
+    "$oid": "636ad1cdfbde8b380c711271"
+  },
+  "nombre": "ambulancia",
+  "descripcion": "sonido de una ambulancia1234\n",
+  "ruta": "ambulancia.mp3",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636ad23ffbde8b380c711277"
+  },
+  "nombre": "fuego",
+  "descripcion": "sonido de un fuego",
+  "ruta": "fuego.mp3",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636ad258fbde8b380c71127a"
+  },
+  "nombre": "hombre_quejandose",
+  "descripcion": "sonido de un hombre_quejandose",
+  "ruta": "hombre_quejandose.mp3",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636ad272fbde8b380c71127d"
+  },
+  "nombre": "medicos_trabajando",
+  "descripcion": "sonido de un medicos_trabajando",
+  "ruta": "medicos_trabajando.mp3",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "636ad2abfbde8b380c711283"
+  },
+  "nombre": "sonido_hospital",
+  "descripcion": "sonido de una sonido_hospital",
+  "ruta": "sonido_hospital.mp3",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c469f047ee7334c8c7b56"
+  },
+  "nombre": "Bebe",
+  "descripcion": "Soniso de bebes llorando",
+  "ruta": "bbc_babies---3_07011218.mp3",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c472a047ee7334c8c7b6a"
+  },
+  "nombre": "Cueva agua",
+  "descripcion": "Sonido de agua en una cueva",
+  "ruta": "bbc_caves--cav_07072006.mp3",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c4787047ee7334c8c7b7e"
+  },
+  "nombre": "Andando en metal",
+  "descripcion": "Sonido de gente andando sobre metal",
+  "ruta": "bbc_footsteps-_07064259.mp3",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c47fa047ee7334c8c7b90"
+  },
+  "nombre": "Maquinaria",
+  "descripcion": "Sonido de maquinaria para una fabrica",
+  "ruta": "bbc_offices--p_07071096.mp3",
+  "__v": 0
+}]

@@ -1,0 +1,263 @@
+[{
+  "_id": {
+    "$oid": "644ae47e202fb8096c22cbdc"
+  },
+  "camina": true,
+  "empeora": false,
+  "nombre": "Niño ojo",
+  "descripcion": "Niño con el ojo inflamado, esta llorando ",
+  "color": "Amarillo",
+  "img": "/niño_ojo.png",
+  "acciones": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c100e047ee7334c8c765d"
+  },
+  "camina": true,
+  "empeora": false,
+  "nombre": "Hombre gritando",
+  "descripcion": "Hombre mayor caminando y gritando por ayuda",
+  "color": "Verde",
+  "img": "/man_shouting.png",
+  "acciones": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c1157047ee7334c8c767e"
+  },
+  "camina": false,
+  "empeora": false,
+  "nombre": "Mujer arcen",
+  "descripcion": "Mujer tendida en el arcén. Consciente, ventilación espontánea. Herida penetrante en abdomen, sangra",
+  "color": "Rojo",
+  "img": "/arcen.png",
+  "acciones": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c11a6047ee7334c8c7684"
+  },
+  "camina": false,
+  "empeora": false,
+  "nombre": "Joven tumbado",
+  "descripcion": "Joven tumbado en al carretera. No respira, sin pulso. Midriasis bilateral",
+  "color": "Negro",
+  "img": "/istockphoto-171450493-170667a.jpg",
+  "acciones": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c1370047ee7334c8c76a1"
+  },
+  "camina": true,
+  "empeora": false,
+  "nombre": "Chica shock",
+  "descripcion": "Chica joven en el exterior de un vehiculo. De pie, sin heridas visibles, respira expontaneamente",
+  "color": "Verde",
+  "img": "/Shock.png",
+  "acciones": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c1459047ee7334c8c76a7"
+  },
+  "camina": true,
+  "empeora": false,
+  "nombre": "Abrasion",
+  "descripcion": "Hombre joven con multiples abrasiones y heridas no profundas, presenta deformidad en el fémur derecho y aplastamiento de la mano izquierda. Está alerta.",
+  "color": "Amarillo",
+  "img": "/ElmodeloREAL_principal-1.png",
+  "acciones": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c14c9047ee7334c8c76c4"
+  },
+  "camina": false,
+  "empeora": false,
+  "nombre": "Mijer inconsciente",
+  "descripcion": "Mujer inconsciente, con respuesta limitada a estímulos externos dolorosos. Presenta heridas en la cabeza y sus constantes con PAS = 90 y FC = 100",
+  "color": "Rojo",
+  "img": "/inconsciente.png",
+  "acciones": [
+    {
+      "_id": {
+        "$oid": "644c14d9ce55e945fe6a5665"
+      },
+      "accion": {
+        "nombre": "Guedel",
+        "tiempo": 40
+      }
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c1548047ee7334c8c76d5"
+  },
+  "camina": false,
+  "empeora": false,
+  "nombre": "Niño pequeño",
+  "descripcion": "Niño pequeño nervioso y desorientado. Deformidad en la cadera derecha e incapacidad para mantenerse en pie. Pulso débil, palido y sudando",
+  "color": "Rojo",
+  "img": "/rodilla_Raspada.png",
+  "acciones": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c169c047ee7334c8c770a"
+  },
+  "camina": true,
+  "empeora": false,
+  "nombre": "Fractura brazo",
+  "descripcion": "Chico quejandose de dolor con una fractura de brazo. PAS de 95 y FC de 100",
+  "color": "Amarillo",
+  "img": "/fractura brazo.png",
+  "acciones": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c17b7047ee7334c8c773f"
+  },
+  "camina": true,
+  "empeora": false,
+  "nombre": "Señora mayor ok",
+  "descripcion": "Señora mayor gritando, pulso racial normal y FC de 120. Sin lesiones aparentes",
+  "color": "Verde",
+  "img": "/persona_mayor.png",
+  "acciones": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c1837047ee7334c8c774b"
+  },
+  "camina": true,
+  "empeora": true,
+  "nombre": "Chica cuello",
+  "descripcion": "Chica con corte en el cuello y quemaduras faciales de segundo y tercer grado, constantes normales.",
+  "color": "Rojo",
+  "img": "/cuello.png",
+  "acciones": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c221f047ee7334c8c778b"
+  },
+  "camina": true,
+  "empeora": false,
+  "nombre": "Corte en la frente",
+  "descripcion": "Presenta un corte no profundo en la frente, un poco de sangrado. Paciente merodea por la zona del accidente",
+  "color": "Verde",
+  "img": "/corte_cabeza.png",
+  "acciones": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c23c0047ee7334c8c77ae"
+  },
+  "camina": false,
+  "empeora": false,
+  "nombre": "Fractura craneo",
+  "descripcion": "Presenta multiples heridas, fractura de craneo profunda y una frecuencia respiratoria de 18 por minuto. No se encuentran pulsaciones",
+  "color": "Negro",
+  "img": "/craneo.png",
+  "acciones": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c28fd047ee7334c8c77e3"
+  },
+  "camina": false,
+  "empeora": false,
+  "nombre": "trabajador herido",
+  "descripcion": "Paciente que no respira pero al despejar su via aerea se restablece",
+  "color": "Rojo",
+  "img": "/trabajador.png",
+  "acciones": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c2a5f047ee7334c8c7831"
+  },
+  "camina": false,
+  "empeora": false,
+  "nombre": "Embarazada peligro",
+  "descripcion": "Embarazada que se muestra somnolienta y con perdida de visión. Presenta hemorragia y FC menor a 45",
+  "color": "Rojo",
+  "img": "/embarazo.png",
+  "acciones": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c2acc047ee7334c8c7837"
+  },
+  "camina": true,
+  "empeora": false,
+  "nombre": "Embarazada de pie",
+  "descripcion": "Embarazada consciente sin alteraciones en la ventilación. No presenta daños visibles",
+  "color": "Verde",
+  "img": "/embarazada_.png",
+  "acciones": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c2fce047ee7334c8c785a"
+  },
+  "camina": false,
+  "empeora": false,
+  "nombre": "Heridas multiples cara",
+  "descripcion": "Sangre en la nariz, boca y orejas, no respira",
+  "color": "Rojo",
+  "img": "/heridasmultiples.png",
+  "acciones": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c304e047ee7334c8c7862"
+  },
+  "camina": false,
+  "empeora": false,
+  "nombre": "Herida estomago",
+  "descripcion": "No responde, herida penetrante en el estomago. Apneico",
+  "color": "Negro",
+  "img": "/estomago.png",
+  "acciones": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c3f70047ee7334c8c7883"
+  },
+  "camina": false,
+  "empeora": false,
+  "nombre": "Traquea desviada",
+  "descripcion": "Persona con la traquea desviada y pulso debil. Presenta un tono azulado en la piel",
+  "color": "Rojo",
+  "img": "/heridas_1.png",
+  "acciones": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c420f047ee7334c8c78a4"
+  },
+  "camina": false,
+  "empeora": false,
+  "nombre": "Rodilla rota",
+  "descripcion": "Presenta varias fracturas en las extremidades y sangre en las orejas. Presentaun pulso bastante acelerado",
+  "color": "Amarillo",
+  "img": "/kneecap fracture teaser.jpg",
+  "acciones": [],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c43ca047ee7334c8c78f6"
+  },
+  "camina": true,
+  "empeora": false,
+  "nombre": "Golpe en la cabeza",
+  "descripcion": "Tiene un golpe en la cabeza y un varios dedos amputados, responde correctamente al dolor y puede moverse de manera autonoma",
+  "color": "Verde",
+  "img": "/Pequeña herida.png",
+  "acciones": [],
+  "__v": 0
+}]

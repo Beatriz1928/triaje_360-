@@ -1,0 +1,145 @@
+[{
+  "_id": {
+    "$oid": "6203b0d7191faf035c218df1"
+  },
+  "rol": "ROL_ADMIN",
+  "activo": true,
+  "nombre": "Admin",
+  "apellidos": "Default",
+  "email": "default@gmail.com",
+  "password": "$2a$10$wt/RHChi6M4ZR.FtIAHAZeYDTKFzFrInyh3jXvy0H/KeaXipMdeme",
+  "alta": {
+    "$date": {
+      "$numberLong": "1644409047788"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "620697b5a3aa831858c87dfe"
+  },
+  "rol": "ROL_PROFESOR",
+  "activo": true,
+  "nombre": "Prof",
+  "apellidos": "1",
+  "email": "prof1@gmail.es",
+  "password": "$2a$10$ILkviefgo/4lI1CTzMKv6eXncVJ12SYIuhjeYK0g8445CnUhwmqTW",
+  "alta": {
+    "$date": {
+      "$numberLong": "1644599221172"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "620697cba3aa831858c87e05"
+  },
+  "rol": "ROL_PROFESOR",
+  "activo": true,
+  "nombre": "Prof",
+  "apellidos": "2",
+  "email": "prof2@ua.com",
+  "password": "$2a$10$JZ8AnyzsHeHp7uz./d7WX.j1BFVNXrgrc4c7YcNPKDmkRRpBJtK4q",
+  "alta": {
+    "$date": {
+      "$numberLong": "1644599243531"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "620697f0a3aa831858c87e0c"
+  },
+  "rol": "ROL_PROFESOR",
+  "activo": true,
+  "nombre": "Prof",
+  "apellidos": "3",
+  "email": "prof3@ua.es",
+  "password": "$2a$10$HJ3czknehZ62C9Bv.ub.4.RCcKz5X7fZXNvUjrZdou4rkVH/viOle",
+  "alta": {
+    "$date": {
+      "$numberLong": "1644599280266"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62069820a3aa831858c87e23"
+  },
+  "rol": "ROL_ALUMNO",
+  "activo": true,
+  "nombre": "Alu",
+  "apellidos": "1",
+  "email": "alu1@gmail.com",
+  "password": "$2a$10$2B2eXhirc/GEyNGiQ3eH/.2nDY97rg6.4wk2H7KHl/CwucHr9WJRa",
+  "alta": {
+    "$date": {
+      "$numberLong": "1644599328706"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "62069837a3aa831858c87e2a"
+  },
+  "rol": "ROL_ALUMNO",
+  "activo": true,
+  "nombre": "Alu",
+  "apellidos": "2",
+  "email": "alu2@ua.es",
+  "password": "$2a$10$cOLQlqfmQrK5mCE3F.h/Y.aVN9/Zt4w4rixL.oOIdTPAd.Geu4MVe",
+  "alta": {
+    "$date": {
+      "$numberLong": "1644599351810"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6206984fa3aa831858c87e31"
+  },
+  "rol": "ROL_ALUMNO",
+  "activo": true,
+  "nombre": "Alu",
+  "apellidos": "3",
+  "email": "alu3@ua.es",
+  "password": "$2a$10$ZW9BAKiODw8yBSfLLlmXnevQ6FYLdDPSdUaDWqXV4ccNO84noeCpy",
+  "alta": {
+    "$date": {
+      "$numberLong": "1644599375088"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "620f8a3da8d91e33c424e7eb"
+  },
+  "rol": "ROL_ALUMNO",
+  "activo": true,
+  "nombre": "Alu",
+  "apellidos": "4",
+  "email": "alu4@ua.es",
+  "password": "$2a$10$Dpz9nX/8r9TFaBpq3Hvfbu7FqgCkq7mw8POMsW31EesUltgVilE8e",
+  "alta": {
+    "$date": {
+      "$numberLong": "1645185597954"
+    }
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6218eed5c97ed30124f472f0"
+  },
+  "rol": "ROL_ALUMNO",
+  "activo": true,
+  "nombre": "Alejandro",
+  "apellidos": "Chica Gutiérrez",
+  "email": "acg199@alu.ua.es",
+  "password": "$2a$10$jHZL.KEdD8dvb0eTeo8Kj.oXg4HTbXH4N.OjMJyoy7C5JgxpZ3mcC",
+  "alta": {
+    "$date": {
+      "$numberLong": "1645801173187"
+    }
+  },
+  "__v": 0
+}]

@@ -1,0 +1,769 @@
+[{
+  "_id": {
+    "$oid": "63fe87ed2258ce2928ee014f"
+  },
+  "idImagen": {
+    "$oid": "63f5430401be21356c911f42"
+  },
+  "x": 1,
+  "y": 11,
+  "idPaciente": {
+    "$oid": "637a74469a50b823c8b79105"
+  },
+  "idEjercicio": {
+    "$oid": "63fe87ae2258ce2928ee0131"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6424db2cd9cbe11c68a0aa8c"
+  },
+  "idImagen": {
+    "$oid": "641cd6dcad487d2d70c7b447"
+  },
+  "x": 1,
+  "y": 10,
+  "idPaciente": {
+    "$oid": "637a74469a50b823c8b79105"
+  },
+  "idEjercicio": {
+    "$oid": "63fe8cba2258ce2928ee0254"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6424db30d9cbe11c68a0aa94"
+  },
+  "idImagen": {
+    "$oid": "641cd6dcad487d2d70c7b447"
+  },
+  "x": 1,
+  "y": 4,
+  "idPaciente": {
+    "$oid": "637a74ba9a50b823c8b7910d"
+  },
+  "idEjercicio": {
+    "$oid": "63fe8cba2258ce2928ee0254"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6424db34d9cbe11c68a0aa9c"
+  },
+  "idImagen": {
+    "$oid": "641cd6dcad487d2d70c7b447"
+  },
+  "x": 1,
+  "y": 14,
+  "idPaciente": {
+    "$oid": "641cd6a6ad487d2d70c7b411"
+  },
+  "idEjercicio": {
+    "$oid": "63fe8cba2258ce2928ee0254"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6435eaa87a18132b0405eef0"
+  },
+  "idImagen": {
+    "$oid": "641cddfe399b5d5188747420"
+  },
+  "x": 1,
+  "y": 7,
+  "idPaciente": {
+    "$oid": "637a74469a50b823c8b79105"
+  },
+  "idEjercicio": {
+    "$oid": "6435a4ab82d62306d0c168bb"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6435eaab7a18132b0405eef8"
+  },
+  "idImagen": {
+    "$oid": "641cddfe399b5d5188747420"
+  },
+  "x": 2,
+  "y": 11,
+  "idPaciente": {
+    "$oid": "637a74ba9a50b823c8b7910d"
+  },
+  "idEjercicio": {
+    "$oid": "6435a4ab82d62306d0c168bb"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6435eab17a18132b0405ef00"
+  },
+  "idImagen": {
+    "$oid": "641cddfe399b5d5188747420"
+  },
+  "x": 2,
+  "y": 3,
+  "idPaciente": {
+    "$oid": "641cd6a6ad487d2d70c7b411"
+  },
+  "idEjercicio": {
+    "$oid": "6435a4ab82d62306d0c168bb"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6436f92424b9b721c467558a"
+  },
+  "idImagen": {
+    "$oid": "63f5430401be21356c911f42"
+  },
+  "x": 2,
+  "y": 5,
+  "idPaciente": {
+    "$oid": "637a74469a50b823c8b79105"
+  },
+  "idEjercicio": {
+    "$oid": "6436f91a24b9b721c467557c"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6436f92624b9b721c4675592"
+  },
+  "idImagen": {
+    "$oid": "63f5430401be21356c911f42"
+  },
+  "x": 2,
+  "y": 11,
+  "idPaciente": {
+    "$oid": "637a74ba9a50b823c8b7910d"
+  },
+  "idEjercicio": {
+    "$oid": "6436f91a24b9b721c467557c"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6436f92a24b9b721c467559a"
+  },
+  "idImagen": {
+    "$oid": "63f5430401be21356c911f42"
+  },
+  "x": 2,
+  "y": 14,
+  "idPaciente": {
+    "$oid": "641cd6a6ad487d2d70c7b411"
+  },
+  "idEjercicio": {
+    "$oid": "6436f91a24b9b721c467557c"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6436fd1a24b9b721c46756e8"
+  },
+  "idImagen": {
+    "$oid": "63f5430401be21356c911f42"
+  },
+  "x": 1,
+  "y": 5,
+  "idPaciente": {
+    "$oid": "637a74469a50b823c8b79105"
+  },
+  "idEjercicio": {
+    "$oid": "6436fd1124b9b721c46756d1"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6436fd1e24b9b721c46756f5"
+  },
+  "idImagen": {
+    "$oid": "641cddfe399b5d5188747420"
+  },
+  "x": 1,
+  "y": 8,
+  "idPaciente": {
+    "$oid": "637a74ba9a50b823c8b7910d"
+  },
+  "idEjercicio": {
+    "$oid": "6436fd1124b9b721c46756d1"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6436fd2124b9b721c46756fd"
+  },
+  "idImagen": {
+    "$oid": "641cddfe399b5d5188747420"
+  },
+  "x": 1,
+  "y": 12,
+  "idPaciente": {
+    "$oid": "641cd6a6ad487d2d70c7b411"
+  },
+  "idEjercicio": {
+    "$oid": "6436fd1124b9b721c46756d1"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6436fdc624b9b721c4675798"
+  },
+  "idImagen": {
+    "$oid": "641cddfe399b5d5188747420"
+  },
+  "x": 1,
+  "y": 7,
+  "idPaciente": {
+    "$oid": "637a74469a50b823c8b79105"
+  },
+  "idEjercicio": {
+    "$oid": "6436fdbe24b9b721c4675783"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6436fdc924b9b721c46757a0"
+  },
+  "idImagen": {
+    "$oid": "641cddfe399b5d5188747420"
+  },
+  "x": 2,
+  "y": 11,
+  "idPaciente": {
+    "$oid": "637a74ba9a50b823c8b7910d"
+  },
+  "idEjercicio": {
+    "$oid": "6436fdbe24b9b721c4675783"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6436fdcd24b9b721c46757a8"
+  },
+  "idImagen": {
+    "$oid": "641cddfe399b5d5188747420"
+  },
+  "x": 2,
+  "y": 3,
+  "idPaciente": {
+    "$oid": "641cd6a6ad487d2d70c7b411"
+  },
+  "idEjercicio": {
+    "$oid": "6436fdbe24b9b721c4675783"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6437116c24b9b721c4675b9e"
+  },
+  "idImagen": {
+    "$oid": "63f2a1ad26b5934b9024e95d"
+  },
+  "x": 1,
+  "y": 6,
+  "idPaciente": {
+    "$oid": "637a74469a50b823c8b79105"
+  },
+  "idEjercicio": {
+    "$oid": "6437116124b9b721c4675b87"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6437117024b9b721c4675ba6"
+  },
+  "idImagen": {
+    "$oid": "63f2a1ad26b5934b9024e95d"
+  },
+  "x": 2,
+  "y": 11,
+  "idPaciente": {
+    "$oid": "637a74ba9a50b823c8b7910d"
+  },
+  "idEjercicio": {
+    "$oid": "6437116124b9b721c4675b87"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6437117324b9b721c4675bae"
+  },
+  "idImagen": {
+    "$oid": "63f2a1ad26b5934b9024e95d"
+  },
+  "x": 2,
+  "y": 2,
+  "idPaciente": {
+    "$oid": "641cd6a6ad487d2d70c7b411"
+  },
+  "idEjercicio": {
+    "$oid": "6437116124b9b721c4675b87"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6437150224b9b721c4675d63"
+  },
+  "idImagen": {
+    "$oid": "63f2a1ad26b5934b9024e95d"
+  },
+  "x": 1,
+  "y": 8,
+  "idPaciente": {
+    "$oid": "637a74ba9a50b823c8b7910d"
+  },
+  "idEjercicio": {
+    "$oid": "643714f624b9b721c4675d4c"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6437150524b9b721c4675d6b"
+  },
+  "idImagen": {
+    "$oid": "63f2a1ad26b5934b9024e95d"
+  },
+  "x": 1,
+  "y": 3,
+  "idPaciente": {
+    "$oid": "637a74469a50b823c8b79105"
+  },
+  "idEjercicio": {
+    "$oid": "643714f624b9b721c4675d4c"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6437150a24b9b721c4675d73"
+  },
+  "idImagen": {
+    "$oid": "63f2a1ad26b5934b9024e95d"
+  },
+  "x": 1,
+  "y": 13,
+  "idPaciente": {
+    "$oid": "641cd6a6ad487d2d70c7b411"
+  },
+  "idEjercicio": {
+    "$oid": "643714f624b9b721c4675d4c"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643719b024b9b721c4675e65"
+  },
+  "idImagen": {
+    "$oid": "63f5430401be21356c911f42"
+  },
+  "x": 1,
+  "y": 5,
+  "idPaciente": {
+    "$oid": "637a74469a50b823c8b79105"
+  },
+  "idEjercicio": {
+    "$oid": "643719a724b9b721c4675e4e"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643719b324b9b721c4675e6d"
+  },
+  "idImagen": {
+    "$oid": "63f5430401be21356c911f42"
+  },
+  "x": 2,
+  "y": 12,
+  "idPaciente": {
+    "$oid": "641cd6a6ad487d2d70c7b411"
+  },
+  "idEjercicio": {
+    "$oid": "643719a724b9b721c4675e4e"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643719b524b9b721c4675e75"
+  },
+  "idImagen": {
+    "$oid": "63f5430401be21356c911f42"
+  },
+  "x": 1,
+  "y": 15,
+  "idPaciente": {
+    "$oid": "637a74ba9a50b823c8b7910d"
+  },
+  "idEjercicio": {
+    "$oid": "643719a724b9b721c4675e4e"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c447c047ee7334c8c794f"
+  },
+  "idImagen": {
+    "$oid": "641cd6dcad487d2d70c7b447"
+  },
+  "x": 2,
+  "y": 6,
+  "idPaciente": {
+    "$oid": "644c14c9047ee7334c8c76c4"
+  },
+  "idEjercicio": {
+    "$oid": "644c4460047ee7334c8c792f"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c4480047ee7334c8c7957"
+  },
+  "idImagen": {
+    "$oid": "641cd6dcad487d2d70c7b447"
+  },
+  "x": 2,
+  "y": 13,
+  "idPaciente": {
+    "$oid": "644c2acc047ee7334c8c7837"
+  },
+  "idEjercicio": {
+    "$oid": "644c4460047ee7334c8c792f"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c448e047ee7334c8c795f"
+  },
+  "idImagen": {
+    "$oid": "641cd6dcad487d2d70c7b447"
+  },
+  "x": 1,
+  "y": 2,
+  "idPaciente": {
+    "$oid": "644c100e047ee7334c8c765d"
+  },
+  "idEjercicio": {
+    "$oid": "644c4460047ee7334c8c792f"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c4494047ee7334c8c796c"
+  },
+  "idImagen": {
+    "$oid": "641cddfe399b5d5188747420"
+  },
+  "x": 2,
+  "y": 10,
+  "idPaciente": {
+    "$oid": "644c1459047ee7334c8c76a7"
+  },
+  "idEjercicio": {
+    "$oid": "644c4460047ee7334c8c792f"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c44a5047ee7334c8c7999"
+  },
+  "idImagen": {
+    "$oid": "641cd6dcad487d2d70c7b447"
+  },
+  "x": 2,
+  "y": 9,
+  "idPaciente": {
+    "$oid": "644ae47e202fb8096c22cbdc"
+  },
+  "idEjercicio": {
+    "$oid": "644c4460047ee7334c8c792f"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c44ae047ee7334c8c79a6"
+  },
+  "idImagen": {
+    "$oid": "641cddfe399b5d5188747420"
+  },
+  "x": 2,
+  "y": 3,
+  "idPaciente": {
+    "$oid": "644c1370047ee7334c8c76a1"
+  },
+  "idEjercicio": {
+    "$oid": "644c4460047ee7334c8c792f"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c44b4047ee7334c8c79ae"
+  },
+  "idImagen": {
+    "$oid": "641cddfe399b5d5188747420"
+  },
+  "x": 2,
+  "y": 14,
+  "idPaciente": {
+    "$oid": "644c304e047ee7334c8c7862"
+  },
+  "idEjercicio": {
+    "$oid": "644c4460047ee7334c8c792f"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c44ba047ee7334c8c79bb"
+  },
+  "idImagen": {
+    "$oid": "641cd6dcad487d2d70c7b447"
+  },
+  "x": 3,
+  "y": 3,
+  "idPaciente": {
+    "$oid": "644c11a6047ee7334c8c7684"
+  },
+  "idEjercicio": {
+    "$oid": "644c4460047ee7334c8c792f"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c44bd047ee7334c8c79c3"
+  },
+  "idImagen": {
+    "$oid": "641cd6dcad487d2d70c7b447"
+  },
+  "x": 3,
+  "y": 15,
+  "idPaciente": {
+    "$oid": "644c1157047ee7334c8c767e"
+  },
+  "idEjercicio": {
+    "$oid": "644c4460047ee7334c8c792f"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c44c4047ee7334c8c79d0"
+  },
+  "idImagen": {
+    "$oid": "641cddfe399b5d5188747420"
+  },
+  "x": 3,
+  "y": 6,
+  "idPaciente": {
+    "$oid": "644c221f047ee7334c8c778b"
+  },
+  "idEjercicio": {
+    "$oid": "644c4460047ee7334c8c792f"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c44c8047ee7334c8c79d8"
+  },
+  "idImagen": {
+    "$oid": "641cddfe399b5d5188747420"
+  },
+  "x": 3,
+  "y": 12,
+  "idPaciente": {
+    "$oid": "644c2a5f047ee7334c8c7831"
+  },
+  "idEjercicio": {
+    "$oid": "644c4460047ee7334c8c792f"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c4534047ee7334c8c7a4c"
+  },
+  "idImagen": {
+    "$oid": "6446c90927211d3964151770"
+  },
+  "x": 2,
+  "y": 6,
+  "idPaciente": {
+    "$oid": "644c1459047ee7334c8c76a7"
+  },
+  "idEjercicio": {
+    "$oid": "644c44fd047ee7334c8c7a0c"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c4538047ee7334c8c7a54"
+  },
+  "idImagen": {
+    "$oid": "6446c90927211d3964151770"
+  },
+  "x": 2,
+  "y": 13,
+  "idPaciente": {
+    "$oid": "644c420f047ee7334c8c78a4"
+  },
+  "idEjercicio": {
+    "$oid": "644c44fd047ee7334c8c7a0c"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c453d047ee7334c8c7a61"
+  },
+  "idImagen": {
+    "$oid": "63f5430401be21356c911f42"
+  },
+  "x": 2,
+  "y": 8,
+  "idPaciente": {
+    "$oid": "644c17b7047ee7334c8c773f"
+  },
+  "idEjercicio": {
+    "$oid": "644c44fd047ee7334c8c7a0c"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c4540047ee7334c8c7a69"
+  },
+  "idImagen": {
+    "$oid": "63f5430401be21356c911f42"
+  },
+  "x": 3,
+  "y": 13,
+  "idPaciente": {
+    "$oid": "644c2fce047ee7334c8c785a"
+  },
+  "idEjercicio": {
+    "$oid": "644c44fd047ee7334c8c7a0c"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c4545047ee7334c8c7a71"
+  },
+  "idImagen": {
+    "$oid": "63f5430401be21356c911f42"
+  },
+  "x": 3,
+  "y": 3,
+  "idPaciente": {
+    "$oid": "644c304e047ee7334c8c7862"
+  },
+  "idEjercicio": {
+    "$oid": "644c44fd047ee7334c8c7a0c"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c4548047ee7334c8c7a79"
+  },
+  "idImagen": {
+    "$oid": "63f5430401be21356c911f42"
+  },
+  "x": 2,
+  "y": 5,
+  "idPaciente": {
+    "$oid": "644c43ca047ee7334c8c78f6"
+  },
+  "idEjercicio": {
+    "$oid": "644c44fd047ee7334c8c7a0c"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c454e047ee7334c8c7a81"
+  },
+  "idImagen": {
+    "$oid": "63f5430401be21356c911f42"
+  },
+  "x": 2,
+  "y": 15,
+  "idPaciente": {
+    "$oid": "644c1548047ee7334c8c76d5"
+  },
+  "idEjercicio": {
+    "$oid": "644c44fd047ee7334c8c7a0c"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c4551047ee7334c8c7a8e"
+  },
+  "idImagen": {
+    "$oid": "6446c90927211d3964151770"
+  },
+  "x": 2,
+  "y": 2,
+  "idPaciente": {
+    "$oid": "644c3f70047ee7334c8c7883"
+  },
+  "idEjercicio": {
+    "$oid": "644c44fd047ee7334c8c7a0c"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c4555047ee7334c8c7a96"
+  },
+  "idImagen": {
+    "$oid": "6446c90927211d3964151770"
+  },
+  "x": 3,
+  "y": 4,
+  "idPaciente": {
+    "$oid": "644c14c9047ee7334c8c76c4"
+  },
+  "idEjercicio": {
+    "$oid": "644c44fd047ee7334c8c7a0c"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c455a047ee7334c8c7a9e"
+  },
+  "idImagen": {
+    "$oid": "6446c90927211d3964151770"
+  },
+  "x": 2,
+  "y": 10,
+  "idPaciente": {
+    "$oid": "644c1370047ee7334c8c76a1"
+  },
+  "idEjercicio": {
+    "$oid": "644c44fd047ee7334c8c7a0c"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c455e047ee7334c8c7aa6"
+  },
+  "idImagen": {
+    "$oid": "6446c90927211d3964151770"
+  },
+  "x": 2,
+  "y": 8,
+  "idPaciente": {
+    "$oid": "644c28fd047ee7334c8c77e3"
+  },
+  "idEjercicio": {
+    "$oid": "644c44fd047ee7334c8c7a0c"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c4561047ee7334c8c7aae"
+  },
+  "idImagen": {
+    "$oid": "6446c90927211d3964151770"
+  },
+  "x": 3,
+  "y": 15,
+  "idPaciente": {
+    "$oid": "644c11a6047ee7334c8c7684"
+  },
+  "idEjercicio": {
+    "$oid": "644c44fd047ee7334c8c7a0c"
+  },
+  "__v": 0
+}]

@@ -1,0 +1,275 @@
+[{
+  "_id": {
+    "$oid": "644c4460047ee7334c8c792f"
+  },
+  "nombre": "Ejercicio 1",
+  "descripcion": "Ejercicio practica 1",
+  "desde": {
+    "$date": {
+      "$numberLong": "1682726400000"
+    }
+  },
+  "hasta": {
+    "$date": {
+      "$numberLong": "1703894400000"
+    }
+  },
+  "intentos_limitados": false,
+  "max_intentos": 1,
+  "imgs": [
+    {
+      "_id": {
+        "$oid": "644c44cb047ee7334c8c79df"
+      },
+      "img": {
+        "$oid": "641cd6dcad487d2d70c7b447"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "644c44cb047ee7334c8c79e0"
+      },
+      "img": {
+        "$oid": "641cddfe399b5d5188747420"
+      }
+    }
+  ],
+  "sonido": {
+    "$oid": "636ad272fbde8b380c71127d"
+  },
+  "asignatura": {
+    "$oid": "6206986fa3aa831858c87e3f"
+  },
+  "pacientes": [
+    {
+      "_id": {
+        "$oid": "644c44cb047ee7334c8c79e1"
+      },
+      "paciente": {
+        "$oid": "644ae47e202fb8096c22cbdc"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "644c44cb047ee7334c8c79e2"
+      },
+      "paciente": {
+        "$oid": "644c100e047ee7334c8c765d"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "644c44cb047ee7334c8c79e3"
+      },
+      "paciente": {
+        "$oid": "644c1157047ee7334c8c767e"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "644c44cb047ee7334c8c79e4"
+      },
+      "paciente": {
+        "$oid": "644c11a6047ee7334c8c7684"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "644c44cb047ee7334c8c79e5"
+      },
+      "paciente": {
+        "$oid": "644c1370047ee7334c8c76a1"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "644c44cb047ee7334c8c79e6"
+      },
+      "paciente": {
+        "$oid": "644c1459047ee7334c8c76a7"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "644c44cb047ee7334c8c79e7"
+      },
+      "paciente": {
+        "$oid": "644c14c9047ee7334c8c76c4"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "644c44cb047ee7334c8c79e8"
+      },
+      "paciente": {
+        "$oid": "644c221f047ee7334c8c778b"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "644c44cb047ee7334c8c79e9"
+      },
+      "paciente": {
+        "$oid": "644c2a5f047ee7334c8c7831"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "644c44cb047ee7334c8c79ea"
+      },
+      "paciente": {
+        "$oid": "644c2acc047ee7334c8c7837"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "644c44cb047ee7334c8c79eb"
+      },
+      "paciente": {
+        "$oid": "644c304e047ee7334c8c7862"
+      }
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c44fd047ee7334c8c7a0c"
+  },
+  "nombre": "Ejercicio 2 de prueba",
+  "descripcion": "Ejercicio de prueba 2",
+  "desde": {
+    "$date": {
+      "$numberLong": "1682726400000"
+    }
+  },
+  "hasta": {
+    "$date": {
+      "$numberLong": "1700870400000"
+    }
+  },
+  "intentos_limitados": false,
+  "max_intentos": 1,
+  "imgs": [
+    {
+      "_id": {
+        "$oid": "644c481a047ee7334c8c7bf8"
+      },
+      "img": {
+        "$oid": "6446c90927211d3964151770"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "644c481a047ee7334c8c7bf9"
+      },
+      "img": {
+        "$oid": "63f5430401be21356c911f42"
+      }
+    }
+  ],
+  "sonido": {
+    "$oid": "636ad23ffbde8b380c711277"
+  },
+  "asignatura": {
+    "$oid": "6206986fa3aa831858c87e3f"
+  },
+  "pacientes": [
+    {
+      "_id": {
+        "$oid": "644c481a047ee7334c8c7bfa"
+      },
+      "paciente": {
+        "$oid": "644c43ca047ee7334c8c78f6"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "644c481a047ee7334c8c7bfb"
+      },
+      "paciente": {
+        "$oid": "644c3f70047ee7334c8c7883"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "644c481a047ee7334c8c7bfc"
+      },
+      "paciente": {
+        "$oid": "644c304e047ee7334c8c7862"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "644c481a047ee7334c8c7bfd"
+      },
+      "paciente": {
+        "$oid": "644c2fce047ee7334c8c785a"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "644c481a047ee7334c8c7bfe"
+      },
+      "paciente": {
+        "$oid": "644c420f047ee7334c8c78a4"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "644c481a047ee7334c8c7bff"
+      },
+      "paciente": {
+        "$oid": "644c28fd047ee7334c8c77e3"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "644c481a047ee7334c8c7c00"
+      },
+      "paciente": {
+        "$oid": "644c17b7047ee7334c8c773f"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "644c481a047ee7334c8c7c01"
+      },
+      "paciente": {
+        "$oid": "644c1459047ee7334c8c76a7"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "644c481a047ee7334c8c7c02"
+      },
+      "paciente": {
+        "$oid": "644c14c9047ee7334c8c76c4"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "644c481a047ee7334c8c7c03"
+      },
+      "paciente": {
+        "$oid": "644c1548047ee7334c8c76d5"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "644c481a047ee7334c8c7c04"
+      },
+      "paciente": {
+        "$oid": "644c11a6047ee7334c8c7684"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "644c481a047ee7334c8c7c05"
+      },
+      "paciente": {
+        "$oid": "644c1370047ee7334c8c76a1"
+      }
+    }
+  ],
+  "__v": 0
+}]

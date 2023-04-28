@@ -1,0 +1,267 @@
+[{
+  "_id": {
+    "$oid": "6206986fa3aa831858c87e3f"
+  },
+  "nombre": "Asignatura 1",
+  "nombrecorto": "A1",
+  "codigo": "000001",
+  "curso": {
+    "$oid": "6206977fa3aa831858c87de9"
+  },
+  "profesores": [
+    {
+      "_id": {
+        "$oid": "620698d832fdecb799f5a919"
+      },
+      "usuario": {
+        "$oid": "620697b5a3aa831858c87dfe"
+      }
+    }
+  ],
+  "alumnos": [
+    {
+      "_id": {
+        "$oid": "620698dc32fdecb799f5a91b"
+      },
+      "usuario": {
+        "$oid": "62069837a3aa831858c87e2a"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62278c38cabbd84628e2ab94"
+      },
+      "usuario": {
+        "$oid": "62069820a3aa831858c87e23"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62278c39cabbd84628e2aba2"
+      },
+      "usuario": {
+        "$oid": "6206984fa3aa831858c87e31"
+      }
+    }
+  ],
+  "ejercicios": [
+    {
+      "_id": {
+        "$oid": "6206991932fdecb799f5a925"
+      },
+      "ejercicio": {
+        "$oid": "62069919a3aa831858c87eb6"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "6206994832fdecb799f5a926"
+      },
+      "ejercicio": {
+        "$oid": "62069948a3aa831858c87eec"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "620fc3e1cfe7c6e6c03675c5"
+      },
+      "ejercicio": {
+        "$oid": "620fc3e1432ab32cd8bf7a2e"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "6262c5aaee600a42bc7c4223"
+      },
+      "ejercicio": {
+        "$oid": "6262c5aaee600a42bc7c421f"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "6262c989ee600a42bc7c42b0"
+      },
+      "ejercicio": {
+        "$oid": "6262c989ee600a42bc7c42ac"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "628fab785014db3f2811c9cc"
+      },
+      "ejercicio": {
+        "$oid": "628fab785014db3f2811c9c6"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62ab442185c9c055dc83f099"
+      },
+      "ejercicio": {
+        "$oid": "62ab442185c9c055dc83f093"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "6310d2273c83fe6d6c22793f"
+      },
+      "ejercicio": {
+        "$oid": "6310d2273c83fe6d6c227938"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "644c4460047ee7334c8c7935"
+      },
+      "ejercicio": {
+        "$oid": "644c4460047ee7334c8c792f"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "644c44fd047ee7334c8c7a12"
+      },
+      "ejercicio": {
+        "$oid": "644c44fd047ee7334c8c7a0c"
+      }
+    }
+  ],
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6206989ca3aa831858c87e48"
+  },
+  "nombre": "Asignatura 2",
+  "nombrecorto": "A2",
+  "codigo": "000002",
+  "curso": {
+    "$oid": "6206977fa3aa831858c87de9"
+  },
+  "profesores": [
+    {
+      "_id": {
+        "$oid": "620698e532fdecb799f5a91d"
+      },
+      "usuario": {
+        "$oid": "620697b5a3aa831858c87dfe"
+      }
+    }
+  ],
+  "alumnos": [
+    {
+      "_id": {
+        "$oid": "620698e732fdecb799f5a91e"
+      },
+      "usuario": {
+        "$oid": "62069820a3aa831858c87e23"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "620698e932fdecb799f5a91f"
+      },
+      "usuario": {
+        "$oid": "6206984fa3aa831858c87e31"
+      }
+    }
+  ],
+  "ejercicios": [
+    {
+      "_id": {
+        "$oid": "6206995f32fdecb799f5a927"
+      },
+      "ejercicio": {
+        "$oid": "6206995fa3aa831858c87f0a"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "620fbfeea88d8f65b9d7b563"
+      },
+      "ejercicio": {
+        "$oid": "620fbfee432ab32cd8bf79b1"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62aaf04e4166bf46e0666052"
+      },
+      "ejercicio": {
+        "$oid": "62aaf04e4166bf46e066604a"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "62ac63443345e855885f2d6e"
+      },
+      "ejercicio": {
+        "$oid": "62ac63433345e855885f2d69"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "6370b82d1e6ed9347caeb671"
+      },
+      "ejercicio": {
+        "$oid": "6370b82d1e6ed9347caeb66b"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "63711a1e639dd62b88b8edb5"
+      },
+      "ejercicio": {
+        "$oid": "63711a1e639dd62b88b8edb0"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "63711ad7639dd62b88b8ee16"
+      },
+      "ejercicio": {
+        "$oid": "63711ad7639dd62b88b8ee11"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "63711bb9639dd62b88b8eea8"
+      },
+      "ejercicio": {
+        "$oid": "63711bb9639dd62b88b8eea3"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "63711d12639dd62b88b8eef1"
+      },
+      "ejercicio": {
+        "$oid": "63711d12639dd62b88b8eeec"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "63726d0d1d338b42fc7a439e"
+      },
+      "ejercicio": {
+        "$oid": "63726d0d1d338b42fc7a4399"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "6372719c1d338b42fc7a43e4"
+      },
+      "ejercicio": {
+        "$oid": "6372719c1d338b42fc7a43df"
+      }
+    },
+    {
+      "_id": {
+        "$oid": "6372764c1d338b42fc7a46f7"
+      },
+      "ejercicio": {
+        "$oid": "6372764c1d338b42fc7a46f2"
+      }
+    }
+  ],
+  "__v": 0
+}]

@@ -1,0 +1,939 @@
+[{
+  "_id": {
+    "$oid": "63fe8c622258ce2928ee01ed"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "63fe8c622258ce2928ee01e6"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "63fe8c732258ce2928ee01f1"
+  },
+  "nombre": "Terminar Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:17",
+  "ejercicioUsuario": {
+    "$oid": "63fe8c622258ce2928ee01e6"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6424dad9d9cbe11c68a0aa10"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "6424dad8d9cbe11c68a0aa0a"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6424daf8d9cbe11c68a0aa14"
+  },
+  "nombre": "Terminar Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:31",
+  "ejercicioUsuario": {
+    "$oid": "6424dad8d9cbe11c68a0aa0a"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6424db61d9cbe11c68a0aac9"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "6424db61d9cbe11c68a0aac5"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6424db69d9cbe11c68a0aacf"
+  },
+  "nombre": "Terminar Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:08",
+  "ejercicioUsuario": {
+    "$oid": "6424db61d9cbe11c68a0aac5"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6425ba3d00d2b9233cd2d685"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "6425ba3d00d2b9233cd2d67f"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6425bc0800d2b9233cd2d6ae"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "6425bc0800d2b9233cd2d6a8"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6425bca800d2b9233cd2d6d5"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "6425bca800d2b9233cd2d6d1"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6425bdae00d2b9233cd2d6fe"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "6425bdae00d2b9233cd2d6fa"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6425be8f00d2b9233cd2d734"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "6425be8f00d2b9233cd2d730"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6425c15800d2b9233cd2d73a"
+  },
+  "nombre": "Terminar Ejercicio",
+  "tiempo": 0,
+  "momento": "00:10:57",
+  "ejercicioUsuario": {
+    "$oid": "6425be8f00d2b9233cd2d730"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6425c1dc00d2b9233cd2d774"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "6425c1dc00d2b9233cd2d76e"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6425c20c00d2b9233cd2d79d"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "6425c20b00d2b9233cd2d797"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6425c41a00d2b9233cd2d7c8"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "6425c41900d2b9233cd2d7c0"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6425c4a400d2b9233cd2d7f6"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "6425c4a300d2b9233cd2d7f0"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6425c71200d2b9233cd2d826"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "6425c71100d2b9233cd2d820"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6425c82100d2b9233cd2d87d"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "6425c82000d2b9233cd2d877"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6425c8f400d2b9233cd2d8b6"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "6425c8f200d2b9233cd2d8a7"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6425c97300d2b9233cd2d8e6"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "6425c97100d2b9233cd2d8d7"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6425c9a800d2b9233cd2d8e8"
+  },
+  "nombre": "Terminar Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:52",
+  "ejercicioUsuario": {
+    "$oid": "6425c97100d2b9233cd2d8d7"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6425ca9f00d2b9233cd2d90d"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "6425ca9e00d2b9233cd2d8fe"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64272e519a56094ab012a974"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "64272e519a56094ab012a965"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64272e719a56094ab012a976"
+  },
+  "nombre": "Terminar Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:32",
+  "ejercicioUsuario": {
+    "$oid": "64272e519a56094ab012a965"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6435ea3b7a18132b0405ee80"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "6435ea3b7a18132b0405ee70"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6435ea4a7a18132b0405ee82"
+  },
+  "nombre": "Terminar Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:14",
+  "ejercicioUsuario": {
+    "$oid": "6435ea3b7a18132b0405ee70"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6435eaca7a18132b0405ef3f"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "6435eac97a18132b0405ef2f"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6435eafc7a18132b0405ef41"
+  },
+  "nombre": "Terminar Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:50",
+  "ejercicioUsuario": {
+    "$oid": "6435eac97a18132b0405ef2f"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6435eb177a18132b0405ef68"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "6435eb177a18132b0405ef58"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6435eb1a7a18132b0405ef6a"
+  },
+  "nombre": "Terminar Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:03",
+  "ejercicioUsuario": {
+    "$oid": "6435eb177a18132b0405ef58"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643706f324b9b721c4675990"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "643706f324b9b721c467598c"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6437076c24b9b721c46759ce"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "6437076c24b9b721c46759ca"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6437081224b9b721c4675a0c"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "6437081224b9b721c4675a08"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6437081524b9b721c4675a18"
+  },
+  "nombre": "Desplazamiento por la escena",
+  "tiempo": 15,
+  "momento": "00:00:03",
+  "ejercicioUsuario": {
+    "$oid": "6437081224b9b721c4675a08"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6437081b24b9b721c4675a1a"
+  },
+  "nombre": "Desplazamiento por la escena",
+  "tiempo": 15,
+  "momento": "00:00:24",
+  "ejercicioUsuario": {
+    "$oid": "6437081224b9b721c4675a08"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64370aad24b9b721c4675a4e"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "64370aad24b9b721c4675a4a"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6437153924b9b721c4675dbc"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "6437153924b9b721c4675dac"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6437154224b9b721c4675dbe"
+  },
+  "nombre": "Terminar Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:08",
+  "ejercicioUsuario": {
+    "$oid": "6437153924b9b721c4675dac"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6437189524b9b721c4675e14"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "6437189524b9b721c4675e04"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6437189924b9b721c4675e16"
+  },
+  "nombre": "Desplazamiento por la escena",
+  "tiempo": 15,
+  "momento": "00:00:04",
+  "ejercicioUsuario": {
+    "$oid": "6437189524b9b721c4675e04"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6437189d24b9b721c4675e18"
+  },
+  "nombre": "Terminar Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:22",
+  "ejercicioUsuario": {
+    "$oid": "6437189524b9b721c4675e04"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643719c824b9b721c4675ebe"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "643719c824b9b721c4675eae"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643719d024b9b721c4675ec0"
+  },
+  "nombre": "Entra a atender a",
+  "tiempo": 10,
+  "momento": "00:00:07",
+  "ejercicioUsuario": {
+    "$oid": "643719c824b9b721c4675eae"
+  },
+  "paciente": {
+    "$oid": "637a74469a50b823c8b79105"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643719ec24b9b721c4675ec2"
+  },
+  "nombre": "Asignación de color 'Verde' a",
+  "tiempo": 10,
+  "momento": "00:00:45",
+  "ejercicioUsuario": {
+    "$oid": "643719c824b9b721c4675eae"
+  },
+  "paciente": {
+    "$oid": "637a74469a50b823c8b79105"
+  },
+  "color": "verde",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643719ed24b9b721c4675ec4"
+  },
+  "nombre": "Volver a la escena",
+  "tiempo": 10,
+  "momento": "00:00:56",
+  "ejercicioUsuario": {
+    "$oid": "643719c824b9b721c4675eae"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643719f124b9b721c4675ec6"
+  },
+  "nombre": "Desplazamiento por la escena",
+  "tiempo": 15,
+  "momento": "00:01:10",
+  "ejercicioUsuario": {
+    "$oid": "643719c824b9b721c4675eae"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643719f424b9b721c4675ec8"
+  },
+  "nombre": "Desplazamiento por la escena",
+  "tiempo": 15,
+  "momento": "00:01:28",
+  "ejercicioUsuario": {
+    "$oid": "643719c824b9b721c4675eae"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643719f824b9b721c4675eca"
+  },
+  "nombre": "Entra a atender a",
+  "tiempo": 10,
+  "momento": "00:01:47",
+  "ejercicioUsuario": {
+    "$oid": "643719c824b9b721c4675eae"
+  },
+  "paciente": {
+    "$oid": "641cd6a6ad487d2d70c7b411"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "643719fb24b9b721c4675ecc"
+  },
+  "nombre": "Asignación de color 'Negro' a",
+  "tiempo": 10,
+  "momento": "00:02:00",
+  "ejercicioUsuario": {
+    "$oid": "643719c824b9b721c4675eae"
+  },
+  "paciente": {
+    "$oid": "641cd6a6ad487d2d70c7b411"
+  },
+  "color": "negro",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64371a0124b9b721c4675ece"
+  },
+  "nombre": "Volver a la escena",
+  "tiempo": 10,
+  "momento": "00:02:16",
+  "ejercicioUsuario": {
+    "$oid": "643719c824b9b721c4675eae"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64371a0724b9b721c4675ed0"
+  },
+  "nombre": "Entra a atender a",
+  "tiempo": 10,
+  "momento": "00:02:32",
+  "ejercicioUsuario": {
+    "$oid": "643719c824b9b721c4675eae"
+  },
+  "paciente": {
+    "$oid": "637a74ba9a50b823c8b7910d"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64371a0924b9b721c4675ed2"
+  },
+  "nombre": "Asignación de color 'Amarillo' a",
+  "tiempo": 10,
+  "momento": "00:02:44",
+  "ejercicioUsuario": {
+    "$oid": "643719c824b9b721c4675eae"
+  },
+  "paciente": {
+    "$oid": "637a74ba9a50b823c8b7910d"
+  },
+  "color": "amarillo",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64371a0b24b9b721c4675ed4"
+  },
+  "nombre": "Volver a la escena",
+  "tiempo": 10,
+  "momento": "00:02:56",
+  "ejercicioUsuario": {
+    "$oid": "643719c824b9b721c4675eae"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64371a0f24b9b721c4675ed6"
+  },
+  "nombre": "Terminar Ejercicio",
+  "tiempo": 0,
+  "momento": "00:03:10",
+  "ejercicioUsuario": {
+    "$oid": "643719c824b9b721c4675eae"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64447b47c7883b29d05e0f31"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "64447b46c7883b29d05e0f21"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64447b48c7883b29d05e0f33"
+  },
+  "nombre": "Entra a atender a",
+  "tiempo": 10,
+  "momento": "00:00:01",
+  "ejercicioUsuario": {
+    "$oid": "64447b46c7883b29d05e0f21"
+  },
+  "paciente": {
+    "$oid": "637a74469a50b823c8b79105"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64447b6bc7883b29d05e0f35"
+  },
+  "nombre": "Entra a atender a",
+  "tiempo": 10,
+  "momento": "00:00:46",
+  "ejercicioUsuario": {
+    "$oid": "64447b46c7883b29d05e0f21"
+  },
+  "paciente": {
+    "$oid": "641cd6a6ad487d2d70c7b411"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64447b6ec7883b29d05e0f37"
+  },
+  "nombre": "Volver a la escena",
+  "tiempo": 10,
+  "momento": "00:00:59",
+  "ejercicioUsuario": {
+    "$oid": "64447b46c7883b29d05e0f21"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64447b71c7883b29d05e0f39"
+  },
+  "nombre": "Terminar Ejercicio",
+  "tiempo": 0,
+  "momento": "00:01:12",
+  "ejercicioUsuario": {
+    "$oid": "64447b46c7883b29d05e0f21"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64447c0bc7883b29d05e0f63"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "64447c0bc7883b29d05e0f53"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64447c0cc7883b29d05e0f65"
+  },
+  "nombre": "Entra a atender a",
+  "tiempo": 10,
+  "momento": "00:00:01",
+  "ejercicioUsuario": {
+    "$oid": "64447c0bc7883b29d05e0f53"
+  },
+  "paciente": {
+    "$oid": "637a74469a50b823c8b79105"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64447c0fc7883b29d05e0f67"
+  },
+  "nombre": "Realización de Acción 'Drenaje Torácico' a",
+  "tiempo": 60,
+  "momento": "00:00:13",
+  "ejercicioUsuario": {
+    "$oid": "64447c0bc7883b29d05e0f53"
+  },
+  "paciente": {
+    "$oid": "637a74469a50b823c8b79105"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64447c11c7883b29d05e0f69"
+  },
+  "nombre": "Realización de Acción 'Compresión Sangrado' a",
+  "tiempo": 60,
+  "momento": "00:01:16",
+  "ejercicioUsuario": {
+    "$oid": "64447c0bc7883b29d05e0f53"
+  },
+  "paciente": {
+    "$oid": "637a74469a50b823c8b79105"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64447c16c7883b29d05e0f6b"
+  },
+  "nombre": "Realización de Acción 'Drenaje Torácico' a",
+  "tiempo": 60,
+  "momento": "00:02:20",
+  "ejercicioUsuario": {
+    "$oid": "64447c0bc7883b29d05e0f53"
+  },
+  "paciente": {
+    "$oid": "637a74469a50b823c8b79105"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64447c21c7883b29d05e0f6d"
+  },
+  "nombre": "Asignación de color 'Verde' a",
+  "tiempo": 10,
+  "momento": "00:03:31",
+  "ejercicioUsuario": {
+    "$oid": "64447c0bc7883b29d05e0f53"
+  },
+  "paciente": {
+    "$oid": "637a74469a50b823c8b79105"
+  },
+  "color": "verde",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64447c2ac7883b29d05e0f6f"
+  },
+  "nombre": "Volver a la escena",
+  "tiempo": 10,
+  "momento": "00:03:50",
+  "ejercicioUsuario": {
+    "$oid": "64447c0bc7883b29d05e0f53"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64447c2ec7883b29d05e0f71"
+  },
+  "nombre": "Terminar Ejercicio",
+  "tiempo": 0,
+  "momento": "00:04:04",
+  "ejercicioUsuario": {
+    "$oid": "64447c0bc7883b29d05e0f53"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64447ecdc7883b29d05e0f9b"
+  },
+  "nombre": "Empieza el Ejercicio",
+  "tiempo": 0,
+  "momento": "00:00:00",
+  "ejercicioUsuario": {
+    "$oid": "64447ecdc7883b29d05e0f8b"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64447ed2c7883b29d05e0f9d"
+  },
+  "nombre": "Entra a atender a",
+  "tiempo": 10,
+  "momento": "00:00:04",
+  "ejercicioUsuario": {
+    "$oid": "64447ecdc7883b29d05e0f8b"
+  },
+  "paciente": {
+    "$oid": "637a74469a50b823c8b79105"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64447ed3c7883b29d05e0f9f"
+  },
+  "nombre": "Asignación de color 'Verde' a",
+  "tiempo": 10,
+  "momento": "00:00:16",
+  "ejercicioUsuario": {
+    "$oid": "64447ecdc7883b29d05e0f8b"
+  },
+  "paciente": {
+    "$oid": "637a74469a50b823c8b79105"
+  },
+  "color": "verde",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64447ed6c7883b29d05e0fa1"
+  },
+  "nombre": "Realización de Acción 'Compresión Sangrado' a",
+  "tiempo": 60,
+  "momento": "00:00:29",
+  "ejercicioUsuario": {
+    "$oid": "64447ecdc7883b29d05e0f8b"
+  },
+  "paciente": {
+    "$oid": "637a74469a50b823c8b79105"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64447edac7883b29d05e0fa3"
+  },
+  "nombre": "Realización de Acción 'Guedel' a",
+  "tiempo": 10,
+  "momento": "00:01:32",
+  "ejercicioUsuario": {
+    "$oid": "64447ecdc7883b29d05e0f8b"
+  },
+  "paciente": {
+    "$oid": "637a74469a50b823c8b79105"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64447edec7883b29d05e0fa5"
+  },
+  "nombre": "Realización de Acción 'Collarín Cervical' a",
+  "tiempo": 60,
+  "momento": "00:01:46",
+  "ejercicioUsuario": {
+    "$oid": "64447ecdc7883b29d05e0f8b"
+  },
+  "paciente": {
+    "$oid": "637a74469a50b823c8b79105"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64447ee3c7883b29d05e0fa7"
+  },
+  "nombre": "Volver a la escena",
+  "tiempo": 10,
+  "momento": "00:02:52",
+  "ejercicioUsuario": {
+    "$oid": "64447ecdc7883b29d05e0f8b"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64447ee7c7883b29d05e0fa9"
+  },
+  "nombre": "Entra a atender a",
+  "tiempo": 10,
+  "momento": "00:03:05",
+  "ejercicioUsuario": {
+    "$oid": "64447ecdc7883b29d05e0f8b"
+  },
+  "paciente": {
+    "$oid": "641cd6a6ad487d2d70c7b411"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64447ee9c7883b29d05e0fab"
+  },
+  "nombre": "Asignación de color 'Rojo' a",
+  "tiempo": 10,
+  "momento": "00:03:17",
+  "ejercicioUsuario": {
+    "$oid": "64447ecdc7883b29d05e0f8b"
+  },
+  "paciente": {
+    "$oid": "641cd6a6ad487d2d70c7b411"
+  },
+  "color": "rojo",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64447eebc7883b29d05e0fad"
+  },
+  "nombre": "Realización de Acción 'Guedel' a",
+  "tiempo": 10,
+  "momento": "00:03:30",
+  "ejercicioUsuario": {
+    "$oid": "64447ecdc7883b29d05e0f8b"
+  },
+  "paciente": {
+    "$oid": "641cd6a6ad487d2d70c7b411"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64447eecc7883b29d05e0faf"
+  },
+  "nombre": "Volver a la escena",
+  "tiempo": 10,
+  "momento": "00:03:41",
+  "ejercicioUsuario": {
+    "$oid": "64447ecdc7883b29d05e0f8b"
+  },
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "64447f39c7883b29d05e0fb1"
+  },
+  "nombre": "Terminar Ejercicio",
+  "tiempo": 0,
+  "momento": "00:05:08",
+  "ejercicioUsuario": {
+    "$oid": "64447ecdc7883b29d05e0f8b"
+  },
+  "__v": 0
+}]

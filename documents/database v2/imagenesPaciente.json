@@ -1,0 +1,177 @@
+[{
+  "_id": {
+    "$oid": "637a73e69a50b823c8b790d7"
+  },
+  "nombre": "corte cuello",
+  "descripcion": "Persona con corte en el cuello no se mueve",
+  "ruta": "cuello.png",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "641cd50aad487d2d70c7b390"
+  },
+  "nombre": "Pierna quemada",
+  "descripcion": "presenta una quemadura severa",
+  "ruta": "ElmodeloREAL_principal-1.png",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "641cd6b2ad487d2d70c7b41b"
+  },
+  "nombre": "Cortes en la cabeza",
+  "descripcion": "Presenta varios cortes profundos en la cabeza",
+  "ruta": "cabezon.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6446c69427211d39641516f4"
+  },
+  "nombre": "embarazada",
+  "descripcion": "mujer embazarada confundida y alarmada",
+  "ruta": "embarazada_.png",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6446c6d727211d396415170d"
+  },
+  "nombre": "persona tirada",
+  "descripcion": "Persona en el suelo que no responde a estimulos",
+  "ruta": "istockphoto-171450493-170667a.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6446c73927211d3964151727"
+  },
+  "nombre": "herida estomago y mano",
+  "descripcion": "Persona con una herida importante en el estomago y en la mano",
+  "ruta": "estomago.png",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "6447147c6837d220c080ecbd"
+  },
+  "nombre": "persona mayor",
+  "descripcion": "persona mayor sin problemas",
+  "ruta": "persona_mayor.png",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644714dc6837d220c080ecd4"
+  },
+  "nombre": "niño ojo",
+  "descripcion": "niño que presenta un chichón en el ojo",
+  "ruta": "niño_ojo.png",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c0fad047ee7334c8c763d"
+  },
+  "nombre": "hombre gritando",
+  "descripcion": "hombre gritando enfadado",
+  "ruta": "man_shouting.png",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c110b047ee7334c8c7669"
+  },
+  "nombre": "arcen",
+  "descripcion": "Mujer tendida en el arcen",
+  "ruta": "arcen.png",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c1325047ee7334c8c768e"
+  },
+  "nombre": "Shock sin heridas",
+  "descripcion": "Chica en shock",
+  "ruta": "Shock.png",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c1472047ee7334c8c76b1"
+  },
+  "nombre": "Inconsciente",
+  "descripcion": "Mujer insconciente en carretera",
+  "ruta": "inconsciente.png",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c161a047ee7334c8c76df"
+  },
+  "nombre": "fractura brazo",
+  "descripcion": "Fractura brazo dentro coche\n",
+  "ruta": "fractura brazo.png",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c21d3047ee7334c8c7776"
+  },
+  "nombre": "Corte frente",
+  "descripcion": "Corte no profundo en la frente",
+  "ruta": "corte_cabeza.png",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c236d047ee7334c8c7799"
+  },
+  "nombre": "Rotura craneo",
+  "descripcion": "Presenta lesiones profundas en la cabeza\n",
+  "ruta": "craneo.png",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c28c8047ee7334c8c77d0"
+  },
+  "nombre": "trabajador herido",
+  "descripcion": "Trabajador desmayado",
+  "ruta": "trabajador.png",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c29be047ee7334c8c781a"
+  },
+  "nombre": "Embarazada mal",
+  "descripcion": "Embarazada en arcen",
+  "ruta": "embarazo.png",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c2f7a047ee7334c8c783f"
+  },
+  "nombre": "Sangre cara",
+  "descripcion": "Chica que presenta varias lesiones en la cara",
+  "ruta": "heridasmultiples.png",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c3f0d047ee7334c8c786c"
+  },
+  "nombre": "Varias heridas cara",
+  "descripcion": "Hombre con varias heridas en la cara",
+  "ruta": "heridas_1.png",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c4056047ee7334c8c788d"
+  },
+  "nombre": "Rodilla rota",
+  "descripcion": "Persona tocandose la rodilla por que presenta molestias",
+  "ruta": "kneecap fracture teaser.jpg",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c4365047ee7334c8c78df"
+  },
+  "nombre": "Pequeña herida cabeza",
+  "descripcion": "Pequeña herida en la cabeza, una chica joven",
+  "ruta": "Pequeña herida.png",
+  "__v": 0
+},{
+  "_id": {
+    "$oid": "644c45e6047ee7334c8c7af8"
+  },
+  "nombre": "rodilla raspada",
+  "descripcion": "Niño con rodilla raspada",
+  "ruta": "rodilla_Raspada.png",
+  "__v": 0
+}]
