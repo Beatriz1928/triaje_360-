@@ -44,7 +44,7 @@ const data: IMenuItem[] = [
     roles: [UserRole.Admin],
   },
   {
-    icon: 'iconsminds-stethoscope',
+    icon: 'iconsminds-ambulance',
     label: 'menu.victims',
     to: `${adminRoot}/victims/data-list`,
     roles: [UserRole.Admin, UserRole.Teacher],
