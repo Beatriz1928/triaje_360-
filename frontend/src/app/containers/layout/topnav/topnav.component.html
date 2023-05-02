@@ -28,14 +28,14 @@
       </span>
         </div> -->
 
-        <!-- <div class="btn-group ml-2" dropdown *ngIf="!isSingleLang">
+        <div class="btn-group ml-2" dropdown *ngIf="!isSingleLang">
             <button dropdownToggle type="button" class="language-button dropdown-toggle btn btn-light btn-sm">
         {{currentLanguage | uppercase}} <span class="caret"></span>
       </button>
             <ul *dropdownMenu class="dropdown-menu" role="menu">
                 <li role="menuitem" *ngFor="let item of languages" (click)="onLanguageChange(item)"><a class="dropdown-item" href="javascript:;">{{item.label}}</a></li>
             </ul>
-        </div> -->
+        </div>
 
         <!-- <a class="btn btn-sm btn-outline-primary ml-2 d-none d-xl-inline-block" [href]="buyUrl" target="_blank">&nbsp;BUY&nbsp;</a> -->
     </div>
@@ -114,11 +114,10 @@
                     </div>
                 </div> -->
             </div>
-
-            <button class="header-icon btn btn-empty d-none d-sm-inline-block" type="button" id="fullScreenButton" (click)="fullScreenClick()">
-        <i *ngIf="!isFullScreen" class="simple-icon-size-fullscreen"></i>
-        <i *ngIf="isFullScreen" class="simple-icon-size-actual"></i>
-      </button>
+            <button type="button" id="fullScreenButton" class="header-icon btn btn-empty d-none d-sm-inline-block">
+        <i *ngIf="!isFullScreen" class="simple-icon-size-fullscreen ng-star-inserted"></i>
+        <i *ngIf="isFullScreen"class="simple-icon-size-fullscreen ng-star-inserted"></i>
+            </button>
 
         </div>
 

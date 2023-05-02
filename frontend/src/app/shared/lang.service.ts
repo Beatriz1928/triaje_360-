@@ -18,12 +18,12 @@ export class LangService {
   supportedLanguages: Language[] = [
     { code: 'en-US', direction: 'ltr', label: 'English', shorthand: 'en' },
     { code: 'es-ES', direction: 'ltr', label: 'Español', shorthand: 'es' },
-    {
-      code: 'en-EN',
-      direction: 'rtl',
-      label: 'English - RTL',
-      shorthand: 'enrtl',
-    },
+    // {
+    //   code: 'en-EN',
+    //   direction: 'rtl',
+    //   label: 'English - RTL',
+    //   shorthand: 'enrtl',
+    // },
   ];
 
   constructor(

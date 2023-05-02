@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, QueryList, Renderer2, ViewChild,ViewChildren, } from '@angular/core';
+import { Component, OnInit, ElementRef, QueryList, Renderer2, ViewChild,ViewChildren, HostListener } from '@angular/core';
 import { NotificationsService, NotificationType } from 'angular2-notifications';
 import { EjercicioService } from 'src/app/data/ejercicio.service';
 import { PacienteEjercicioService } from 'src/app/data/pacienteEjercicio.service';
@@ -45,6 +45,7 @@ export class DoExerciseComponent implements OnInit {
       "viewControlButtons": false
     }
   };
+  isFullScreen = false;
   posiciones: any[][] = [
     [{"yaw":-2.3,"pitch":-0.55}, {"yaw":-1.91,"pitch":-0.55}, {"yaw":-1.52,"pitch":-0.55}, {"yaw":-1.13,"pitch":-0.55}, {"yaw":-0.74,"pitch":-0.55}, {"yaw":-0.35,"pitch":-0.55}, {"yaw":0.04,"pitch":-0.55}, {"yaw":0.43,"pitch":-0.55}, {"yaw":0.82,"pitch":-0.55}, {"yaw":1.21,"pitch":-0.55}, {"yaw":1.6,"pitch":-0.55}, {"yaw":1.99,"pitch":-0.55}, {"yaw":2.38,"pitch":-0.55}, {"yaw":2.77,"pitch":-0.55}, {"yaw":3.16,"pitch":-0.55}, {"yaw":3.55,"pitch":-0.55}],
     [{"yaw":-2.3,"pitch":-0.25}, {"yaw":-1.91,"pitch":-0.25}, {"yaw":-1.52,"pitch":-0.25}, {"yaw":-1.13,"pitch":-0.25}, {"yaw":-0.74,"pitch":-0.25}, {"yaw":-0.35,"pitch":-0.25}, {"yaw":0.04,"pitch":-0.25}, {"yaw":0.43,"pitch":-0.25}, {"yaw":0.82,"pitch":-0.25}, {"yaw":1.21,"pitch":-0.25}, {"yaw":1.6,"pitch":-0.25}, {"yaw":1.99,"pitch":-0.25}, {"yaw":2.38,"pitch":-0.25}, {"yaw":2.77,"pitch":-0.25}, {"yaw":3.16,"pitch":-0.25}, {"yaw":3.55,"pitch":-0.25}],
@@ -88,6 +89,23 @@ export class DoExerciseComponent implements OnInit {
     this.createActivity("Empieza el Ejercicio", 0);
     setInterval(() => this.tick(), 1000);
     document.getElementById("navbar").style.display = "none";
+  }
+
+  @HostListener('document:fullscreenchange', ['$event'])
+  handleFullscreen(event): void {
+    if (document.fullscreenElement) {
+      this.isFullScreen = true;
+    } else {
+      this.isFullScreen = false;
+    }
+  }
+
+  fullScreenClick(): void {
+    if (document.fullscreenElement) {
+      document.exitFullscreen();
+    } else {
+      document.documentElement.requestFullscreen();
+    }
   }
 
   cargarsonido(): void {

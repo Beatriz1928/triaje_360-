@@ -21,7 +21,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     LayoutContainersModule,
     BrowserAnimationsModule,
-    TranslateModule.forRoot(),
+    TranslateModule.forRoot({
+      defaultLanguage: 'es-ES'
+    }),
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebase),
     FormsModule,

@@ -1,16 +1,15 @@
-
 const { response } = require('express');
 const { infoToken } = require('../helpers/infotoken');
 const Accion = require('../models/acciones');
 
 // funciones
 const getAcciones = async(req, res = response) => {
-    
+
     // parametros
     const id = req.query.id;
 
     // Comprobamos roles
-    const token = req.header('x-token');
+    const token = req.('x-token');
 
     if (!(infoToken(token).rol === 'ROL_ADMIN') && !(infoToken(token).rol === 'ROL_PROFESOR') && !(infoToken(token).rol === 'ROL_ALUMNO')) {
         return res.status(400).json({
@@ -33,7 +32,7 @@ const getAcciones = async(req, res = response) => {
                 Accion.find({}, 'nombre tiempo'),
                 Accion.countDocuments()
             ]);
-            
+
 
         }
 
@@ -177,7 +176,7 @@ const borrarAccion = async(req, res = response) => {
 
         // si se ha superado la comprobacion, eliminamos el curso
         const accion = await Accion.findByIdAndRemove(uid);
-        
+
         res.json({
             ok: true,
             msg: 'Accion borrada',

@@ -1,31 +1,36 @@
 <app-triar-patient #triarModalRef (enviarColor)="setColour($event)" (realizarAccion)="setAction($event)" (volverEscena)="backScene()"></app-triar-patient>
 
-<div id="contador">
-  <p>{{time}}</p>
-  <button type="button" class="btn btn-primary" (click)="terminarEjercicio()">Terminar Ejercicio</button>
+<div id="contador" class="header-icons">
+    <p>{{time}}</p>
+
+    <button type="button" class="btn btn-primary" (click)="terminarEjercicio()">Terminar Ejercicio</button>
+    <button type="button" class="btn btn-primary header-icon" type="button" id="fullScreenButton" (click)="fullScreenClick()">
+      <i *ngIf="!isFullScreen" class="simple-icon-size-fullscreen"></i>
+      <i *ngIf="isFullScreen" class="simple-icon-size-actual"></i>
+    </button>
 </div>
 <div id="pano"></div>
-  
+
 <div id="titleBar">
-  <h1 class="sceneName"></h1>
+    <h1 class="sceneName"></h1>
 </div>
 
-  
-  <a href="javascript:void(0)" id="viewUp" class="viewControlButton viewControlButton-1">
+
+<a href="javascript:void(0)" id="viewUp" class="viewControlButton viewControlButton-1">
     <img class="icon" src="././././assets/img/marzipano/up.png">
-  </a>
-  <a href="javascript:void(0)" id="viewDown" class="viewControlButton viewControlButton-2">
+</a>
+<a href="javascript:void(0)" id="viewDown" class="viewControlButton viewControlButton-2">
     <img class="icon" src="././././assets/img/marzipano/down.png">
-  </a>
-  <a href="javascript:void(0)" id="viewLeft" class="viewControlButton viewControlButton-3">
+</a>
+<a href="javascript:void(0)" id="viewLeft" class="viewControlButton viewControlButton-3">
     <img class="icon" src="././././assets/img/marzipano/left.png">
-  </a>
-  <a href="javascript:void(0)" id="viewRight" class="viewControlButton viewControlButton-4">
+</a>
+<a href="javascript:void(0)" id="viewRight" class="viewControlButton viewControlButton-4">
     <img class="icon" src="././././assets/img/marzipano/right.png">
-  </a>
-  <a href="javascript:void(0)" id="viewIn" class="viewControlButton viewControlButton-5">
+</a>
+<a href="javascript:void(0)" id="viewIn" class="viewControlButton viewControlButton-5">
     <img class="icon" src="././././assets/img/marzipano/plus.png">
-  </a>
-  <a href="javascript:void(0)" id="viewOut" class="viewControlButton viewControlButton-6">
+</a>
+<a href="javascript:void(0)" id="viewOut" class="viewControlButton viewControlButton-6">
     <img class="icon" src="././././assets/img/marzipano/minus.png">
-  </a>
+</a>

@@ -14,19 +14,19 @@ export interface IMenuItem {
 
 const data: IMenuItem[] = [
   {
-    icon: 'iconsminds-digital-drawing',
+    icon: 'iconsminds-student-hat',
     label: 'menu.schoolYears',
     to: `${adminRoot}/school-years/data-list`,
     roles: [UserRole.Admin],
   },
   {
-    icon: 'iconsminds-air-balloon-1',
+    icon: 'iconsminds-notepad',
     label: 'menu.subjects',
     to: `${adminRoot}/subjects/data-list`,
     roles: [UserRole.Admin, UserRole.Teacher, UserRole.Student],
   },
   {
-    icon: 'iconsminds-pantone',
+    icon: 'iconsminds-conference',
     label: 'menu.users',
     to: `${adminRoot}/users/data-list`,
     roles: [UserRole.Admin],
@@ -38,25 +38,25 @@ const data: IMenuItem[] = [
     roles: [UserRole.Admin, UserRole.Teacher, UserRole.Student],
   },
   {
-    icon: 'iconsminds-file',
+    icon: 'iconsminds-photo',
     label: 'menu.scenes',
     to: `${adminRoot}/scenes/data-list`,
     roles: [UserRole.Admin],
   },
   {
-    icon: 'iconsminds-file',
+    icon: 'iconsminds-stethoscope',
     label: 'menu.victims',
     to: `${adminRoot}/victims/data-list`,
     roles: [UserRole.Admin, UserRole.Teacher],
   },
   {
-    icon: 'iconsminds-file',
+    icon: 'iconsminds-camera-3',
     label: 'menu.victims-images',
     to: `${adminRoot}/victims-images/data-list`,
     roles: [UserRole.Admin, UserRole.Teacher],
   },
   {
-    icon: 'iconsminds-file',
+    icon: 'iconsminds-speaker-1',
     label: 'menu.sonido',
     to: `${adminRoot}/sonido/data-list`,
     roles: [UserRole.Admin, UserRole.Teacher],

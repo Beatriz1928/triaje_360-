@@ -450,6 +450,15 @@ body.single-scene #sceneListToggle {
     transition: -ms-transform 0.3s, -webkit-transform 0.3s, transform 0.3s, opacity 0.3s;
 }
 
+.simple-icon-size-fullscreen,
+.simple-icon-size-actual {
+    width: 100%;
+    height: 100%;
+    color: white;
+    position: initial !important;
+    display: contents;
+}
+
 .mobile .link-hotspot {
     top: 19px;
     /* ( 70 - (16 + 2*8) ) / 2 */
