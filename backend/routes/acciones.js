@@ -16,6 +16,13 @@ router.get('/', [
     validarCampos
 ], getAcciones);
 
+router.get('/:id', [
+    validarJWT,
+    // comprobamos campos opcionales
+    check('id', 'El id debe ser válido').optional().isMongoId(),
+    validarCampos
+], getAcciones);
+
 router.post('/', [
     validarJWT,
     check('nombre', 'El argumento nombre es obligatorio').not().isEmpty().trim(),

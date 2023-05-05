@@ -111,7 +111,8 @@ export class EjercicioService {
       "intentos_limitados": data['intentos_limitados'],
       "max_intentos": data['max_intentos'],
       "imgs": data['imgs'],
-      "pacientes": pacs
+      "pacientes": pacs,
+      "sonido": data['sonido']
     }
 
     return this.http.put(url, sendData, { headers });

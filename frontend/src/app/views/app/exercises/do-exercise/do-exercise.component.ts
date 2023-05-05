@@ -111,7 +111,8 @@ export class DoExerciseComponent implements OnInit {
   cargarsonido(): void {
     console.log("Sonido: " ,this.sonido);
     this.sound = new Howl({
-      src: ['././././assets/img/audio/' + this.sonido.ruta + '']
+      src: ['././././assets/img/audio/' + this.sonido.ruta + ''],
+      loop: true,
     });
     this.sound.play();
   }

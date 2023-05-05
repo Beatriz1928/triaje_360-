@@ -21,23 +21,23 @@
                     <span class="nombre title-card list-item-heading mb-0 w-xs-100">
                       <span>Nombre</span>
                     </span>
-                    <span class="img1 title-card list-item-heading mb-0 w-xs-100">
+                    <span class="img1 title-card list-item-heading mb-0 ">
                       <span>Imagen</span>
                     </span>
-                    <span class="descripcion title-card list-item-heading mb-0 w-xs-100">
+                    <span class="descripcion title-card list-item-heading mb-0">
                       <span>Descripcion</span>
                     </span>
 
-                    <span class="item title-card list-item-heading mb-0 w-xs-100">
+                    <span class="item title-card list-item-heading mb-0">
                       <span>Camina</span>
                     </span>
-                    <span class="item title-card list-item-heading mb-0 w-xs-100">
+                    <span class="item title-card list-item-heading mb-0 ">
                       <span>Color</span>
                     </span>
-                    <span class="item title-card list-item-heading mb-0 w-xs-100">
+                    <span class="item title-card list-item-heading mb-0">
                       <span>Empeora</span>
                     </span>
-                    <span class="item title-card list-item-heading mb-0 w-xs-100">
+                    <span class="item title-card list-item-heading mb-0">
                       <span>Tratamiento</span>
                     </span>
                     <span class="acciones title-card list-item-heading mb-0 w-xs-100">
@@ -51,16 +51,16 @@
         <div [ngClass]="{'card d-flex flex-row mb-3': true, 'active':isSelected(p)}" *ngFor="let p of data; let i=index">
             <div class="d-flex flex-grow-1 min-width-zero atc">
                 <div class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
-                    <p class="nombre list-item-heading mb-0 truncate w-xs-100">
+                    <p class="nombre1 list-item-heading mb-0 truncate w-xs-100">
                         {{p.nombre}}
                     </p>
-                    <p class="img1 mb-0 text-muted text-small w-xs-100">
+                    <p class="img1 title-card list-item-heading mb-0">
                         <img class="imagen" src="./../../../../../assets/img/pacientes/{{p.img}}" (click)="imagenmodal(p.img)" alt="Imagen escena">
                     </p>
-                    <p class=" descripcion2 list-item-heading mb-0 text-small w-xs-100">
+                    <p class=" descripcion2 title-card list-item-heading mb-0 text-small">
                         {{p.descripcion}}
                     </p>
-                    <p class="item list-item-heading mb-0 truncate w-xs-100">
+                    <p class="item1 list-item-heading mb-0 ">
                         <i class="activo w-xs-100 simple-icon-check" *ngIf="p.camina"></i>
                         <i class="activo w-xs-100 simple-icon-close" *ngIf="!p.camina"></i>
                     </p>

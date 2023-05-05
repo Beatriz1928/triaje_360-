@@ -68,9 +68,11 @@
                     <div *ngIf="!sonido" id="asignatura" class="mt-2">
                         <label class="db">{{ 'pages.music' | translate }}</label>
                         <label>
-              <ng-select appearance="outline" [searchable]="false" class="form-control" name="asignatura" multiple
-                [(ngModel)]="dataEjercicio.sonidos"  (change)="ActualizarSonido(dataEjercicio.sonidos)" >
-                <ng-option *ngFor="let item of sonidos" [value]="item.uid">{{item.nombre}}</ng-option>
+              <ng-select appearance="outline" [searchable]="false" class="form-control" name="sound" multiple
+                [(ngModel)]="dataEjercicio.sonidos" [bindValue]="id" placeholder='{{sound}}' bindLabel="nombre" (change)="ActualizarSonido(dataEjercicio.sonidos)" >
+                <ng-option *ngFor="let item of sonidos" [value]="item.uid">{{item.nombre}}
+
+                </ng-option>
               </ng-select>
             </label>
                         <!-- <input type="text" class="form-control" formControlName="asignatura" placeholder="" required> -->
@@ -79,7 +81,7 @@
                 </div>
                 <div class="text-center mt-4">
                     <!-- <button type="button" class="btn btn-primary" awPreviousStep>{{ 'wizard.prev' | translate }}</button>{{" "}} -->
-                    <button type="button" class="btn btn-primary" [disabled]="!datosGeneralesValid()" awNextStep>{{ 'wizard.next'
+                    <button type="button" class="btn btn-primary" [disabled]="!datosGeneralesValid()" (click)="createExercise()" awNextStep>{{ 'wizard.next'
             | translate }}</button>
                 </div>
             </aw-wizard-step>
@@ -219,8 +221,7 @@
                             </div>
                         </div>
 
-                        <button type="button" class="btn btn-primary" (click)="showAddPatientImgModal()">{{ 'Añadir pacientes
-              previamente creados' | translate }}</button>
+                        <button type="button" class="btn btn-primary" (click)="showAddPatientImgModal()">{{ 'Añadir pacientes previamente creados' | translate }}</button>
                     </div>
                 </div>
 

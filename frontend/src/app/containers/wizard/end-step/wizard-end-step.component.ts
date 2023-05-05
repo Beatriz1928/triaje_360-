@@ -23,6 +23,7 @@ import { SelectPatientImgModalComponent } from 'src/app/containers/pages/select-
 import { AddPatientModalComponent } from 'src/app/containers/pages/add-patient-modal/add-patient-modal.component';
 import { LocatePatientComponent } from '../../pages/locate-patient/locate-patient.component';
 import { AuthService } from 'src/app/shared/auth.service';
+import { NgSelectComponent } from '@ng-select/ng-select';
 
 @Component({
   selector: 'app-wizard-end-step',
@@ -38,6 +39,7 @@ export class WizardEndStepComponent implements OnInit {
   subjects: Asignatura[];
   sonido: Sonido;
   sonidos: Sonido[];
+  sound: string;
   uid: any;
   uidEx: number;
   uidSonido: number;
@@ -183,7 +185,7 @@ export class WizardEndStepComponent implements OnInit {
   }
 
   ActualizarSonido(valor){
-    // console.log(valor)
+    console.log(valor)
     this.dataEjercicio.sonido = valor;
   }
 
@@ -205,8 +207,12 @@ export class WizardEndStepComponent implements OnInit {
             this.dataEjercicio.max_intentos = this.exercise.max_intentos;
             this.dataEjercicio.range_max_intentos = this.exercise.max_intentos;
             this.dataEjercicio.sonido = this.exercise.sonido;
+            console.log(this.exercise);
             this.getImagesRoutes();
             this.formatExercisePatients();
+                // obtenemos datos de la asignatura
+            this.loadSubjectData(this.uid);
+             this.loadSoundData(this.dataEjercicio.sonido);
           }
         },
         error => {
@@ -221,9 +227,9 @@ export class WizardEndStepComponent implements OnInit {
       );
     }
 
-    // obtenemos datos de la asignatura
-    this.loadSubjectData(this.uid);
-    this.loadSoundData(this.uid);
+    // // obtenemos datos de la asignatura
+    // this.loadSubjectData(this.uid);
+    // this.loadSoundData(this.sonido.uid);
 
   }
 
@@ -252,13 +258,19 @@ export class WizardEndStepComponent implements OnInit {
     this.sonidoService.getSonido(uid).subscribe(
       data => {
         if (data['ok']) {
-          this.sonido = data['sonidos'];
-          this.dataEjercicio.sonido = this.sonido.uid;
+          console.log(data);
+          // let select =document.getElementById('sonido') as NgSelectComponent;
+          // this.sonidos;
+           let select  = data['sonidos'];
+
+            this.sound = select.nombre
+
+          // this.dataEjercicio.sonido = this.sonido.uid;
         }
       },
       error => {
-        this.router.navigateByUrl('/app/dashboards/all/subjects/data-list');
-        this.notifications.create('Error', 'No se han podidio obtener los datos de la Asignatura', NotificationType.Error, {
+        this.router.navigateByUrl('/app/dashboards/all/exercises/data-list');
+        this.notifications.create('Error', 'No se han podido obtener los datos de la Asignatura', NotificationType.Error, {
           theClass: 'outline primary',
           timeOut: 6000,
           showProgressBar: false
@@ -294,6 +306,7 @@ export class WizardEndStepComponent implements OnInit {
 
     // si tenemos ejercicio -> EDITAR
     if(this.exercise) {
+      console.log(this.dataEjercicio.sonido);
       this.ejercicioService.updateExercise(this.dataEjercicio, this.exercise.uid)
         .subscribe( res => {
           // this.router.navigateByUrl('app/dashboards/all/subjects/data-list');
@@ -681,7 +694,7 @@ export class WizardEndStepComponent implements OnInit {
   // ***************** LOCATE PATIENT METHODS ********************
 
   initLocatePatient() {
-    this.createExercise()
+    this.createExercise();
     this.setImgSelected(this.imgsSelect[0]);
     // this.getExercisePatients();
   }

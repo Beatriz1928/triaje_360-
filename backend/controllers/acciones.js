@@ -7,9 +7,8 @@ const getAcciones = async(req, res = response) => {
 
     // parametros
     const id = req.query.id;
-
     // Comprobamos roles
-    const token = req.('x-token');
+    const token = req.header('x-token');
 
     if (!(infoToken(token).rol === 'ROL_ADMIN') && !(infoToken(token).rol === 'ROL_PROFESOR') && !(infoToken(token).rol === 'ROL_ALUMNO')) {
         return res.status(400).json({
@@ -51,6 +50,45 @@ const getAcciones = async(req, res = response) => {
         })
     }
 }
+
+const getAccion = async(req, res = response) => {
+
+    // parametros
+    const uid = req.params.id;
+    console.log(uid);
+    // Comprobamos roles
+    const token = req.header('x-token');
+
+    if (!(infoToken(token).rol === 'ROL_ADMIN') && !(infoToken(token).rol === 'ROL_PROFESOR') && !(infoToken(token).rol === 'ROL_ALUMNO')) {
+        return res.status(400).json({
+            ok: false,
+            msg: 'No tiene permisos para obtener acciones',
+        });
+    }
+
+    try {
+        var accion;
+
+        if (id) { // si nos pasan un id
+            accion = await Accion.findById(uid);
+
+        }
+        res.json({
+            ok: true,
+            msg: 'Acciones obtenidas',
+            accion,
+        });
+
+    } catch (error) {
+        console.log(error);
+        res.status(400).json({
+            ok: false,
+            msg: 'error obteniendo cursos'
+        })
+    }
+}
+
+
 
 const crearAccion = async(req, res = response) => {
 
@@ -194,4 +232,4 @@ const borrarAccion = async(req, res = response) => {
 }
 
 // exportamos las funciones 
-module.exports = { getAcciones, crearAccion, actualizarAccion, borrarAccion };
+module.exports = { getAcciones, getAccion, crearAccion, actualizarAccion, borrarAccion };
