@@ -46,7 +46,7 @@ const getAcciones = async(req, res = response) => {
         console.log(error);
         res.status(400).json({
             ok: false,
-            msg: 'error obteniendo cursos'
+            msg: 'error obteniendo acciones'
         })
     }
 }
@@ -144,7 +144,7 @@ const actualizarAccion = async(req, res = response) => {
     if (!(infoToken(token).rol === 'ROL_ADMIN')) {
         return res.status(400).json({
             ok: false,
-            msg: 'No tiene permisos para actualizar cursos',
+            msg: 'No tiene permisos para actualizar acciones',
         });
     }
 

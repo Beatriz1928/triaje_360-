@@ -4,13 +4,13 @@
     <div class="modal-header">
         <ng-template *ngIf="paciente then editar else crear"> </ng-template>
         <ng-template #crear>
-            <h4 class="modal-title pull-left">{{'pages.add-new-scene' | translate}}</h4>
+            <h4 class="modal-title pull-left">{{'pages.add-new-victim' | translate}}</h4>
             <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
     <span aria-hidden="true">&times;</span>
 </button>
         </ng-template>
         <ng-template #editar>
-            <h4 class="modal-title pull-left">{{'pages.edit-scene' | translate}}</h4>
+            <h4 class="modal-title pull-left">{{'pages.edit-victim' | translate}}</h4>
             <button type="button" class="close pull-right" aria-label="Close" (click)="closeModal()">
     <span aria-hidden="true">&times;</span>
 </button>
@@ -23,7 +23,7 @@
                 <input type="text" class="form-control" formControlName="nombre" id="nombre" placeholder="" required>
             </div>
             <div class="mt-4">
-                <label>{{ 'pages.imagen:' | translate }}</label>
+                <label>{{ 'pages.imagen' | translate }}</label>
                 <button type="button" class="btn btn-outline-primary selecimg" (click)="showSelectPatientImgModal()">Seleccionar Imagen</button>
             </div>
             <div class="mt-4">

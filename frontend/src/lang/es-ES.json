@@ -186,6 +186,15 @@
         "exercises": "Ejercicios"
     },
     "pages": {
+        "add-new-victim": "Añadir nueva víctima",
+        "edit-victim": "Editar víctima",
+        "edit-victim-image": "Editar imagen víctima",
+        "add-new-victim-image": "Añadir nueva imagen víctima",
+        "edit-scene": "Editar escena",
+        "add-new-scene": "Añadir nueva escena",
+        "add-new-sonido": "Añadir nuevo sonido",
+        "edit-sonido": "Editar sonido",
+        "name": "Nombre",
         "add-new": "AGREGAR NUEVO",
         "add-new-modal-title": "Agregar ítem nuevo",
         "display-options": "Opciones de Pantalla",
@@ -241,7 +250,6 @@
         "images": "IMAGENES",
         "purchase": "COMPRA",
         "view-all": "Ver Todo",
-        "name": "Nombre",
         "descripcion": "Descripción",
         "archivo": "Archivo",
         "victim-name": "Nombre",
@@ -249,7 +257,6 @@
         "color": "Color",
         "victim-description": "Description",
         "victim-time": "Time",
-        "edit-scene": "Edit Scene",
         "music": "Sound",
         "prices": {
             "developer": "REVELADOR",

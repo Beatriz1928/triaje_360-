@@ -186,6 +186,16 @@
         "exercises": "Exercises"
     },
     "pages": {
+
+        "add-new-victim": "Add new victim",
+        "edit-victim": "Edit victim",
+        "edit-victim-image": "Edit victim image",
+        "add-new-victim-image": "Add new victim image",
+        "edit-scene": "Edit  scene",
+        "add-new-scene": "Add new scene",
+        "add-new-sonido": "Add new sound",
+        "edit-sonido": "Edit sound",
+        "name": "Name",
         "add-new": "ADD NEW",
         "add-new-modal-title": "Add New Item",
         "display-options": "Display Options",
@@ -240,7 +250,6 @@
         "images": "IMAGES",
         "purchase": "PURCHASE",
         "view-all": "View All",
-        "name": "Name",
         "nombre": "Name",
         "descripcion": "Description",
         "archivo": "File",
@@ -249,7 +258,6 @@
         "color": "Color",
         "victim-description": "Description",
         "victim-time": "Time",
-        "edit-scene": "Edit Scene",
         "exercise-subject": "Subject",
         "exercise-name": "Name",
         "exercise-from": "From",
