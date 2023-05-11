@@ -267,7 +267,7 @@
                                 <tr *ngFor="let item of table; let i=index">
                                     <td *ngFor="let it of item; let j=index" class="celda">
                                         <label *ngIf="!celdaVacia(j, i)">
-                      <img class="paciente_ubicado" src="{{urlPrefixPacientes+table[i][j].img}}">
+                      <img class="paciente_ubicado" id ="{{table[i][j].color}}"src="{{urlPrefixPacientes+table[i][j].img}}">
                       <i class="simple-icon-close" (click)="dislocatePatient(j, i)"></i>
                     </label>
                                         <label *ngIf="celdaVacia(j, i)" class="celdaVacia" (click)="showLocatePatientModal(j, i)">

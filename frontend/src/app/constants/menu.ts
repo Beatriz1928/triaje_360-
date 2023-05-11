@@ -47,19 +47,19 @@ const data: IMenuItem[] = [
     icon: 'iconsminds-ambulance',
     label: 'menu.victims',
     to: `${adminRoot}/victims/data-list`,
-    roles: [UserRole.Admin, UserRole.Teacher],
+    roles: [UserRole.Admin],
   },
   {
     icon: 'iconsminds-camera-3',
     label: 'menu.victims-images',
     to: `${adminRoot}/victims-images/data-list`,
-    roles: [UserRole.Admin, UserRole.Teacher],
+    roles: [UserRole.Admin],
   },
   {
     icon: 'iconsminds-speaker-1',
     label: 'menu.sonido',
     to: `${adminRoot}/sonido/data-list`,
-    roles: [UserRole.Admin, UserRole.Teacher],
+    roles: [UserRole.Admin],
   },
 ];
 export default data;

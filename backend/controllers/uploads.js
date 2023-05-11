@@ -39,9 +39,9 @@ const crearImagen = async(req, res = response) => {
     const nom2 = nombrePartido[1]; // para el nombre de los tiles2, si no se rellenaria con la extension,asi que no salta error
     const extension = nombrePartido[nombrePartido.length - 1];
     const archivosValidos = {
-        tiles: ['jpeg', 'jpg', 'png'],
-        pacientes: ['jpeg', 'jpg', 'png'],
-        tiles2: ['jpeg', 'jpg', 'png'],
+        tiles: ['jpeg', 'jpg', 'png', 'PNG'],
+        pacientes: ['jpeg', 'jpg', 'png', 'PNG'],
+        tiles2: ['jpeg', 'jpg', 'png', 'PNG'],
         sonidos: ['mp3', 'wav']
     }
     let patharchivo = '';
