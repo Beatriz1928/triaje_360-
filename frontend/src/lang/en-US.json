@@ -750,6 +750,7 @@
         "bootstrap-hoverable": "Hoverable Rows"
     },
     "wizard": {
+        "nombre": "Name",
         "add": "Añadir",
         "description": "Descripción",
         "walk": "Camina",

@@ -24,6 +24,7 @@ import { AddPatientModalComponent } from 'src/app/containers/pages/add-patient-m
 import { LocatePatientComponent } from '../../pages/locate-patient/locate-patient.component';
 import { AuthService } from 'src/app/shared/auth.service';
 import { NgSelectComponent } from '@ng-select/ng-select';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-wizard-end-step',
@@ -89,6 +90,7 @@ export class WizardEndStepComponent implements OnInit {
     "range_max_intentos": 1
   }
   dataPaciente = {
+    "nombre":'',
     "descripcion": '',
     "color": '',
     "camina": false,
@@ -538,71 +540,85 @@ export class WizardEndStepComponent implements OnInit {
   // ***************** CONFIGURE PATIENT METHODS ********************
 
   createPatient(): void {
+   let image = document.getElementsByClassName('helpimage') ;
+   console.log(this.dataPaciente.img);
 
-    for(let i=0; i<this.selected.length; i++) {
-      this.dataPaciente.acciones[i] = {
-        "accion": {
-          "nombre": this.selected[i].nombre,
-          "tiempo": this.selected[i].tiempo
+    if(this.dataPaciente.img.length == 0){
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Se debe seleccionar una foto para el paciente',
+      });
+
+
+    }
+    else{
+      for(let i=0; i<this.selected.length; i++) {
+        this.dataPaciente.acciones[i] = {
+          "accion": {
+            "nombre": this.selected[i].nombre,
+            "tiempo": this.selected[i].tiempo
+          }
         }
       }
-    }
 
-    if(this.dataPaciente['uid']) {
-      this.pacienteService.updatePatient(this.dataPaciente).subscribe(
-        data => {
+      if(this.dataPaciente['uid']) {
+        this.pacienteService.updatePatient(this.dataPaciente).subscribe(
+          data => {
 
-          let parar = false;
-          for(let i=0; i<this.dataEjercicio.pacientes.length && !parar; i++) {
-            if(this.dataEjercicio.pacientes[i].uid == data['paciente'].uid) {
-              this.dataEjercicio.pacientes[i] = data['paciente'];
-              parar = true;
+            let parar = false;
+            for(let i=0; i<this.dataEjercicio.pacientes.length && !parar; i++) {
+              if(this.dataEjercicio.pacientes[i].uid == data['paciente'].uid) {
+                this.dataEjercicio.pacientes[i] = data['paciente'];
+                parar = true;
+              }
             }
-          }
 
-          this.resetDataPaciente();
-
-          this.notifications.create('Paciente editado', 'Se ha editado el Paciente correctamente', NotificationType.Info, {
-            theClass: 'outline primary',
-            timeOut: 6000,
-            showProgressBar: false
-          });
-
-      }, (err) => {
-
-          this.notifications.create('Error', 'No se ha podido editar el Usuario', NotificationType.Error, {
-            theClass: 'outline primary',
-            timeOut: 6000,
-            showProgressBar: false
-          });
-
-          return;
-      });
-    }
-    else {
-      this.pacienteService.createPatient(this.dataPaciente, this.exercise.uid).subscribe(
-        data => {
-          if (data['ok']) {
-            this.dataEjercicio.pacientes.push(data['paciente']);
-            console.log(this.dataEjercicio);
             this.resetDataPaciente();
-            this.notifications.create('Paciente creado', 'Se ha creado el Paciente correctamente y se ha añadido al Ejercicio', NotificationType.Info, {
+
+            this.notifications.create('Paciente editado', 'Se ha editado el Paciente correctamente', NotificationType.Info, {
               theClass: 'outline primary',
               timeOut: 6000,
               showProgressBar: false
             });
-          }
-        },
-        error => {
-          this.notifications.create('Error', 'No se ha podido crear el Paciente', NotificationType.Error, {
-            theClass: 'outline primary',
-            timeOut: 6000,
-            showProgressBar: false
-          });
 
-          return;
-        }
-      );
+        }, (err) => {
+
+            this.notifications.create('Error', 'No se ha podido editar el Usuario', NotificationType.Error, {
+              theClass: 'outline primary',
+              timeOut: 6000,
+              showProgressBar: false
+            });
+
+            return;
+        });
+      }
+      else {
+        this.pacienteService.createPatient(this.dataPaciente, this.exercise.uid).subscribe(
+          data => {
+            if (data['ok']) {
+              this.dataEjercicio.pacientes.push(data['paciente']);
+              console.log(this.dataEjercicio);
+              this.resetDataPaciente();
+              this.notifications.create('Paciente creado', 'Se ha creado el Paciente correctamente y se ha añadido al Ejercicio', NotificationType.Info, {
+                theClass: 'outline primary',
+                timeOut: 6000,
+                showProgressBar: false
+              });
+            }
+          },
+          error => {
+            this.notifications.create('Error', 'No se ha podido crear el Paciente', NotificationType.Error, {
+              theClass: 'outline primary',
+              timeOut: 6000,
+              showProgressBar: false
+            });
+
+            return;
+          }
+        );
+      }
+
     }
 
   }
@@ -636,6 +652,7 @@ export class WizardEndStepComponent implements OnInit {
     if(this.dataPaciente['uid']) {
       this.dataPaciente['uid'] = undefined;
     }
+    this.dataPaciente.nombre = '';
     this.dataPaciente.descripcion = '';
     this.dataPaciente.color = '';
     this.dataPaciente.camina = false;

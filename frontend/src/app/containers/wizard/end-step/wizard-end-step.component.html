@@ -6,27 +6,41 @@
 <div class="card mb-5">
     <div class="card-body">
         <aw-wizard>
-
-            <aw-wizard-step stepTitle="{{ 'wizard.first-step' | translate }}" style="min-height: 120px;">
-                <h3 class="mb-3 mt-2">{{ 'wizard.first-step' | translate }}</h3>
+            <aw-wizard-step stepTitle="{{ 'wizard.first-step' | translate }}" style="min-height: 120px">
+                <h3 class="mb-3 mt-2">{{ "wizard.first-step" | translate }}</h3>
                 <div class="form-group">
                     <div *ngIf="subject" id="asignatura">
-                        <label class="db">{{ 'pages.exercise-subject' | translate }}</label>
+                        <label class="db">{{ "pages.exercise-subject" | translate }}</label>
                         <!-- <input type="text" class="form-control" [(ngModel)]="dataEjercicio.asignatura" placeholder="" required disabled value=""> -->
                         <label>
-              <ng-select appearance="outline" [searchable]="false" class="form-control s-dis" name="asignatura"
-                [(ngModel)]="dataEjercicio.asignatura" required disabled>
-                <ng-option [value]="dataEjercicio.asignatura">{{subject.nombrecorto}}
+              <ng-select
+                appearance="outline"
+                [searchable]="false"
+                class="form-control s-dis"
+                name="asignatura"
+                [(ngModel)]="dataEjercicio.asignatura"
+                required
+                disabled
+              >
+                <ng-option [value]="dataEjercicio.asignatura"
+                  >{{ subject.nombrecorto }}
                 </ng-option>
               </ng-select>
             </label>
                     </div>
                     <div *ngIf="!subject" id="asignatura" class="mt-2">
-                        <label class="db">{{ 'pages.exercise-subject' | translate }}</label>
+                        <label class="db">{{ "pages.exercise-subject" | translate }}</label>
                         <label>
-              <ng-select appearance="outline" [searchable]="false" class="form-control" name="asignatura"
-                [(ngModel)]="dataEjercicio.asignatura" required>
-                <ng-option *ngFor="let item of subjects" [value]="item.uid">{{item.nombrecorto}}
+              <ng-select
+                appearance="outline"
+                [searchable]="false"
+                class="form-control"
+                name="asignatura"
+                [(ngModel)]="dataEjercicio.asignatura"
+                required
+              >
+                <ng-option *ngFor="let item of subjects" [value]="item.uid"
+                  >{{ item.nombrecorto }}
                 </ng-option>
               </ng-select>
             </label>
@@ -34,65 +48,87 @@
                     </div>
                     <div id="nombre">
                         <label>
-              <label>{{ 'pages.exercise-name' | translate }}</label>
-                        <input type="text" class="form-control" [(ngModel)]="dataEjercicio.nombre" placeholder="" required>
+              <label>{{ "pages.exercise-name" | translate }}</label>
+                        <input type="text" class="form-control" [(ngModel)]="dataEjercicio.nombre" placeholder="" required />
                         </label>
                     </div>
                     <div class="mt-2" id="desde">
-                        <label>{{ 'pages.exercise-from' | translate }}</label>
-                        <input type="date" class="form-control" [(ngModel)]="dataEjercicio.desde" placeholder="" min="{{todayString}}" required>
+                        <label>{{ "pages.exercise-from" | translate }}</label>
+                        <input type="date" class="form-control" [(ngModel)]="dataEjercicio.desde" placeholder="" min="{{ todayString }}" required />
                     </div>
                     <div class="mt-2" id="hasta">
-                        <label>{{ 'pages.exercise-to' | translate }}</label>
-                        <input type="date" class="form-control" [(ngModel)]="dataEjercicio.hasta" placeholder="" min="{{tomorrowString}}" required>
+                        <label>{{ "pages.exercise-to" | translate }}</label>
+                        <input type="date" class="form-control" [(ngModel)]="dataEjercicio.hasta" placeholder="" min="{{ tomorrowString }}" required />
                     </div>
                 </div>
                 <div class="form-group">
                     <div class="mt-2" id="descripcion">
-                        <label>{{ 'pages.exercise-description' | translate }}</label>
+                        <label>{{ "pages.exercise-description" | translate }}</label>
                         <textarea type="text" class="form-control" [(ngModel)]="dataEjercicio.descripcion" placeholder="" required></textarea>
                         <!-- <input type="text" class="form-control" [(ngModel)]="dataEjercicio.descripcion" placeholder="" required> -->
                     </div>
-                    <div id="pre-intentos">
+                    <div id="asignatura" class="mt-2 smaller">
                         <div id="intentos_limitados">
-                            <label class="mb-0 mt-1">{{ 'pages.exercise-limited-attempts' | translate }}</label>
-                            <label class="custom-control custom-checkbox mb-2 mt-1 align-self-center pr-4">
-                <input type="checkbox" class="custom-control-input centrado" id="customCheck100"
-                  [(ngModel)]="dataEjercicio.intentos_limitados" placeholder="" required>
+                            <label class="mb-0 mt-1">{{
+                "pages.exercise-limited-attempts" | translate
+              }}</label>
+                            <label id="limited" class="custom-control custom-checkbox mb-2 mt-1 align-self-center pr-4 smaller">
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  id="customCheck100"
+                  [(ngModel)]="dataEjercicio.intentos_limitados"
+                  placeholder=""
+                  required
+                />
 
-                <label class="custom-control-label" for="customCheck100"></label>
-                            <input type="number" class="form-control control" [(ngModel)]="dataEjercicio.max_intentos" min="1" value="1" onkeypress="return event.charCode >= 48" (input)="changeValue($event.target.value, false)" [disabled]="!dataEjercicio.intentos_limitados">
+                <label
+                  class="custom-control-label smaller"
+                  for="customCheck100"
+                ></label>
+                            <input type="number" class="form-control control" [(ngModel)]="dataEjercicio.max_intentos" min="1" value="1" onkeypress="return event.charCode >= 48" (input)="changeValue($event.target.value, false)" [disabled]="!dataEjercicio.intentos_limitados" />
                             </label>
                         </div>
                     </div>
                     <div *ngIf="!sonido" id="asignatura" class="mt-2">
-                        <label class="db">{{ 'pages.music' | translate }}</label>
-                        <label>
-              <ng-select appearance="outline" [searchable]="false" class="form-control" name="sound" multiple
-                [(ngModel)]="dataEjercicio.sonidos" [bindValue]="id" placeholder='{{sound}}' bindLabel="nombre" (change)="ActualizarSonido(dataEjercicio.sonidos)" >
-                <ng-option *ngFor="let item of sonidos" [value]="item.uid">{{item.nombre}}
-
+                        <div id="s">
+                            <label class="db">{{ "pages.music" | translate }}</label>
+                            <label>
+              <ng-select
+                appearance="outline"
+                [searchable]="false"
+                class="form-control"
+                name="sound"
+                multiple
+                [(ngModel)]="dataEjercicio.sonidos"
+                [bindValue]="id"
+                placeholder="{{ sound }}"
+                bindLabel="nombre"
+                (change)="ActualizarSonido(dataEjercicio.sonidos)"
+              >
+                <ng-option *ngFor="let item of sonidos" [value]="item.uid"
+                  >{{ item.nombre }}
                 </ng-option>
               </ng-select>
             </label>
-                        <!-- <input type="text" class="form-control" formControlName="asignatura" placeholder="" required> -->
+                        </div>
                     </div>
-
                 </div>
                 <div class="text-center mt-4">
                     <!-- <button type="button" class="btn btn-primary" awPreviousStep>{{ 'wizard.prev' | translate }}</button>{{" "}} -->
-                    <button type="button" class="btn btn-primary" [disabled]="!datosGeneralesValid()" (click)="createExercise()" awNextStep>{{ 'wizard.next'
-            | translate }}</button>
+                    <button type="button" class="btn btn-primary" [disabled]="!datosGeneralesValid()" (click)="createExercise()" awNextStep>
+            {{ "wizard.next" | translate }}
+          </button>
                 </div>
             </aw-wizard-step>
 
-            <aw-wizard-step stepTitle="{{ 'wizard.second-step' | translate }}" style="min-height: 120px;">
-                <h3 class="mb-2">{{ 'wizard.second-step' | translate }}</h3>
+            <aw-wizard-step stepTitle="{{ 'wizard.second-step' | translate }}" style="min-height: 120px">
+                <h3 class="mb-2">{{ "wizard.second-step" | translate }}</h3>
                 <div class="gallery">
                     <!-- <h5>Imágenes</h5> -->
-                    <label class="noSelected" *ngFor="let p of imgs; let i=index">
-            <img src={{urlPrefix+p.ruta}} (click)='selectImgs(p)'>
-            <p>{{p.descripcion}}</p>
+                    <label class="noSelected" *ngFor="let p of imgs; let i = index">
+            <img src="{{ urlPrefix + p.ruta }}" (click)="selectImgs(p)" />
+            <p>{{ p.descripcion }}</p>
             <i class="simple-icon-check"></i>
           </label>
                 </div>
@@ -100,51 +136,88 @@
                 <div class="imgsSelected">
                     <h5>Imágenes Seleccionadas</h5>
                     <div class="is">
-                        <label *ngFor="let p of imgsSelect; let i=index">
-              <img src={{urlPrefix+p.ruta}}>
+                        <label *ngFor="let p of imgsSelect; let i = index">
+              <img src="{{ urlPrefix + p.ruta }}" />
               <i class="simple-icon-close" (click)="unselectImg(p, i)"></i>
-              <i *ngIf="i>0" class="simple-icon-arrow-left-circle" (click)="moveImgL(p, i)"></i>
-              <i *ngIf="i<imgsSelect.length-1" class="simple-icon-arrow-right-circle" (click)="moveImgR(p, i)"></i>
+              <i
+                *ngIf="i > 0"
+                class="simple-icon-arrow-left-circle"
+                (click)="moveImgL(p, i)"
+              ></i>
+              <i
+                *ngIf="i < imgsSelect.length - 1"
+                class="simple-icon-arrow-right-circle"
+                (click)="moveImgR(p, i)"
+              ></i>
             </label>
                     </div>
                 </div>
 
                 <div class="text-center mt-2">
-                    <button type="button" class="btn btn-primary" awPreviousStep>{{ 'wizard.prev' | translate }}</button>{{" "}}
-                    <button type="button" class="btn btn-primary" [disabled]="!escenaValid()" (click)="checkDate()" awNextStep>{{
-            'wizard.next' | translate }}</button>
+                    <button type="button" class="btn btn-primary" awPreviousStep>
+            {{ "wizard.prev" | translate }}</button
+          >{{ " " }}
+          <button
+            type="button"
+            class="btn btn-primary"
+            [disabled]="!escenaValid()"
+            (click)="checkDate()"
+            awNextStep
+          >
+            {{ "wizard.next" | translate }}
+          </button>
                 </div>
             </aw-wizard-step>
 
             <!-- <aw-wizard-step stepTitle="{{ 'wizard.third-step' | translate }}" style="min-height: 120px;"> -->
-            <aw-wizard-step stepTitle="{{ 'Añadir pacientes existentes' | translate }}" style="min-height: 120px;">
+            <aw-wizard-step stepTitle="{{ 'Añadir pacientes existentes' | translate }}" style="min-height: 120px">
                 <div class="pacientes">
-                    <h3 class="mb-2">{{ 'wizard.third-step' | translate }}</h3>
+                    <h3 class="mb-2">{{ "wizard.third-step" | translate }}</h3>
 
                     <h3 class="mb-2 titletop">Editar o crear nuevo paciente</h3>
                     <div class="form-group configurar-pacientes mid">
-
                         <div class="separated">
+                            <div id="nombre">
+                                <label>{{ "wizard.nombre" | translate }}</label>
+                                <input type="text" class="form-control btn" [(ngModel)]="dataPaciente.nombre" placeholder="" required />
+                                <!-- <textarea type="text" class="form-control" [(ngModel)]="dataPaciente.nombre" placeholder="" required></textarea> -->
+                            </div>
                             <div id="descripcion">
-                                <label>{{ 'wizard.description' | translate }}</label>
+                                <label>{{ "wizard.description" | translate }}</label>
                                 <!-- <input type="text" class="form-control" [(ngModel)]="dataPaciente.descripcion" placeholder="" required> -->
                                 <textarea type="text" class="form-control" [(ngModel)]="dataPaciente.descripcion" placeholder="" required></textarea>
                             </div>
                             <div class="separated2">
                                 <div id="camina">
-                                    <label class="mt-2">{{ 'wizard.walk' | translate }}</label>
+                                    <label class="mt-2">{{ "wizard.walk" | translate }}</label>
                                     <label class="custom-control custom-checkbox mb-1 align-self-center pr-4">
-                    <input type="checkbox" class="custom-control-input" id="customCheck101"
-                      [(ngModel)]="dataPaciente.camina" placeholder="" required>
-                    <label class="custom-control-label" for="customCheck101"></label>
+                    <input
+                      type="checkbox"
+                      class="custom-control-input"
+                      id="customCheck101"
+                      [(ngModel)]="dataPaciente.camina"
+                      placeholder=""
+                      required
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="customCheck101"
+                    ></label>
                                     </label>
                                 </div>
                                 <div class="mt-2" id="color">
-                                    <label>{{ 'wizard.colour' | translate }}</label>
-                                    <label class="w-100">
-                    <ng-select appearance="outline" [searchable]="false" class="form-control" name="color"
-                      [(ngModel)]="dataPaciente.color" required>
-                      <ng-option *ngFor="let item of colours" [value]="item">{{item}}
+                                    <label>{{ "wizard.colour" | translate }}</label>
+                                    <label class="smaller">
+                    <ng-select
+                      appearance="outline"
+                      [searchable]="false"
+                      class="form-control"
+                      name="color"
+                      [(ngModel)]="dataPaciente.color"
+                      required
+                    >
+                      <ng-option *ngFor="let item of colours" [value]="item"
+                        >{{ item }}
                       </ng-option>
                     </ng-select>
                   </label>
@@ -152,123 +225,193 @@
                             </div>
                         </div>
                         <div id="acciones" class="mt-2">
-                            <label>{{ 'wizard.actions' | translate }}</label>
-                            <div [ngClass]="{'active':isSelected(p)}" *ngFor="let p of actions; let i=index">
+                            <label>{{ "wizard.actions" | translate }}</label>
+                            <div [ngClass]="{ active: isSelected(p) }" *ngFor="let p of actions; let i = index">
                                 <!-- CHECKBOX SELECCIONAR -->
                                 <label class="custom-control custom-checkbox mb-1 align-self-center pr-4">
-                  <input type="checkbox" class="custom-control-input" [id]="'customCheck'+i" [checked]="isSelected(p)"
-                    (change)="onSelect(p)">
-                  <label class="custom-control-label" [for]="'customCheck'+i"></label>
+                  <input
+                    type="checkbox"
+                    class="custom-control-input"
+                    [id]="'customCheck' + i"
+                    [checked]="isSelected(p)"
+                    (change)="onSelect(p)"
+                  />
+                  <label
+                    class="custom-control-label"
+                    [for]="'customCheck' + i"
+                  ></label>
                                 </label>
-                                <p class="accion mb-0 text-muted text-small w-xs-100">{{p.nombre}}</p>
-                                <input type="number" class="form-control" [(ngModel)]="p.tiempo" onkeypress="return event.charCode >= 48" [disabled]="!isSelected(p)" placeholder="" min="0">
+                                <p class="accion mb-0 text-muted text-small w-xs-100">
+                                    {{ p.nombre }}
+                                </p>
+                                <input type="number" class="form-control" [(ngModel)]="p.tiempo" onkeypress="return event.charCode >= 48" [disabled]="!isSelected(p)" placeholder="" min="0" />
                             </div>
                         </div>
                     </div>
-                    <div class="form-group configurar-pacientes mid"><br>
+                    <div class="form-group configurar-pacientes mid">
+                        <br />
 
                         <div id="empeora">
-                            <label>{{ 'wizard.gets-worse' | translate }}</label>
+                            <label>{{ "wizard.gets-worse" | translate }}</label>
                             <label class="custom-control custom-checkbox mb-1 align-self-center pr-4">
-                <input type="checkbox" class="custom-control-input" id="customCheck102"
-                  [(ngModel)]="dataPaciente.empeora" placeholder="" required>
-                <label class="custom-control-label" for="customCheck102"></label>
+                <input
+                  type="checkbox"
+                  class="custom-control-input"
+                  id="customCheck102"
+                  [(ngModel)]="dataPaciente.empeora"
+                  placeholder=""
+                  required
+                />
+                <label
+                  class="custom-control-label"
+                  for="customCheck102"
+                ></label>
                             </label>
                             <!-- <input type="checkbox" class="form-control" [(ngModel)]="dataPaciente.empeora" placeholder="" required> -->
                         </div>
                         <div id="tiempoEmpeora">
-                            <label>{{ 'wizard.time-gw' | translate }}</label>
-                            <input type="number" class="form-control" [(ngModel)]="dataPaciente.tiempoEmpeora" onkeypress="return event.charCode >= 48" [disabled]="!dataPaciente.empeora" placeholder="" min="0">
+                            <label>{{ "wizard.time-gw" | translate }}</label>
+                            <input type="number" class="form-control smaller" [(ngModel)]="dataPaciente.tiempoEmpeora" onkeypress="return event.charCode >= 48" [disabled]="!dataPaciente.empeora" placeholder="" min="0" />
                         </div>
                         <div class="mt-2" id="img">
-                            <label>{{ 'wizard.img' | translate }}</label>
+                            <label>{{ "wizard.img" | translate }}</label>
                             <div class="img-content">
                                 <!-- <input type="text" class="form-control" [(ngModel)]="dataPaciente.img" placeholder="" required> -->
-                                <button type="button" class="btn btn-outline-primary" (click)="showSelectPatientImgModal()">Seleccionar
-                  Imagen</button>
-                                <input type="text" class="form-control invisible" [(ngModel)]="dataPaciente.img" placeholder="" required disabled>
+                                <button type="button" class="btn btn-outline-primary" (click)="showSelectPatientImgModal()">
+                  Seleccionar Imagen
+                </button>
+                                <input type="text" class="form-control invisible" [(ngModel)]="dataPaciente.img" placeholder="" required disabled />
                                 <div class="mini-img">
                                     <label *ngIf="dataPaciente.img">
-                    <img src={{urlPrefixPacientes+dataPaciente.img}}>
+                    <img
+                      class="helpimage"
+                      src="{{ urlPrefixPacientes + dataPaciente.img }}"
+                    />
                   </label>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div *ngIf="dataPaciente.img" class="mt-0 botonbot">
-                        <button *ngIf="dataPaciente['uid'] == undefined" type="button" class="btn btn-primary" (click)="createPatient()">{{ 'wizard.add' | translate }}</button>
-                        <button *ngIf="dataPaciente['uid'] != undefined" type="button" class="btn btn-primary" (click)="createPatient()">Guardar</button>
+                        <button *ngIf="dataPaciente['uid'] == undefined" type="button" class="btn btn-primary" (click)="createPatient()">
+              {{ "wizard.add" | translate }}
+            </button>
+                        <button *ngIf="dataPaciente['uid'] != undefined" type="button" class="btn btn-primary" (click)="createPatient()">
+              Guardar
+            </button>
                     </div>
                     <div *ngIf="!dataPaciente.img" class="mt-4 botonbot">
-                        <button *ngIf="dataPaciente['uid'] == undefined" type="button" class="btn btn-primary" (click)="createPatient()">{{ 'wizard.add' | translate }}</button>
-                        <button *ngIf="dataPaciente['uid'] != undefined" type="button" class="btn btn-primary" (click)="createPatient()">Guardar</button>
+                        <button *ngIf="dataPaciente['uid'] == undefined" type="button" class="btn btn-primary" (click)="createPatient()">
+              {{ "wizard.add" | translate }}
+            </button>
+                        <button *ngIf="dataPaciente['uid'] != undefined" type="button" class="btn btn-primary" (click)="createPatient()">
+              Guardar
+            </button>
                     </div>
 
                     <div class="lista-pacientes">
                         <h3 class="mb-2">Lista Pacientes</h3>
                         <div class="lista">
-                            <p *ngIf="dataEjercicio.pacientes.length == 0">Aún no hay Pacientes creados para el Ejercicio</p>
-                            <div *ngFor="let p of dataEjercicio.pacientes; let i=index">
-                                <div class="activo" *ngIf="dataPaciente.uid != undefined && dataPaciente.uid == p.uid">
-                                    <p class="paciente mb-0 text-muted text-small w-xs-100" (click)="createPatient()">Paciente {{i+1}}</p>
+                            <p *ngIf="dataEjercicio.pacientes.length == 0">
+                                Aún no hay Pacientes creados para el Ejercicio
+                            </p>
+                            <div *ngFor="let p of dataEjercicio.pacientes; let i = index">
+                                <div class="activo" *ngIf="
+                    dataPaciente.uid != undefined && dataPaciente.uid == p.uid
+                  ">
+                                    <p class="paciente mb-0 text-muted text-small w-xs-100" (click)="createPatient()">
+                                        {{ p.nombre }}
+                                    </p>
                                     <i class="simple-icon-close" (click)="deletePatient(i)"></i>
                                 </div>
-                                <div class="noActivo" *ngIf="dataPaciente.uid == undefined || dataPaciente.uid != p.uid">
-                                    <p class="paciente mb-0 text-muted text-small w-xs-100" (click)="loadPatientData(p, i)">Paciente {{i+1}}
+                                <div class="noActivo" *ngIf="
+                    dataPaciente.uid == undefined || dataPaciente.uid != p.uid
+                  ">
+                                    <p class="paciente mb-0 text-muted text-small w-xs-100" (click)="loadPatientData(p, i)">
+                                        {{ p.nombre }}
                                     </p>
                                     <i class="simple-icon-close" (click)="deletePatient(i)"></i>
                                 </div>
                             </div>
                         </div>
 
-                        <button type="button" class="btn btn-primary" (click)="showAddPatientImgModal()">{{ 'Añadir pacientes previamente creados' | translate }}</button>
+                        <button type="button" class="btn btn-primary" (click)="showAddPatientImgModal()">
+              {{ "Añadir pacientes previamente creados" | translate }}
+            </button>
                     </div>
                 </div>
 
                 <div class="text-center mt-3">
-                    <button type="button" class="btn btn-primary" awPreviousStep>{{ 'wizard.prev' | translate }}</button>{{" "}}
-                    <!-- <button type="button" class="btn btn-primary" awNextStep>{{ 'wizard.next' | translate }}</button> -->
-                    <button type="button" class="btn btn-primary" [disabled]="!confPacientesValid()" (click)="initLocatePatient()" awNextStep>{{ 'wizard.next' | translate }}</button>
+                    <button type="button" class="btn btn-primary" awPreviousStep>
+            {{ "wizard.prev" | translate }}</button
+          >{{ " " }}
+          <!-- <button type="button" class="btn btn-primary" awNextStep>{{ 'wizard.next' | translate }}</button> -->
+                    <button type="button" class="btn btn-primary" [disabled]="!confPacientesValid()" (click)="initLocatePatient()" awNextStep>
+            {{ "wizard.next" | translate }}
+          </button>
                 </div>
             </aw-wizard-step>
 
-            <aw-wizard-step stepTitle="{{ 'wizard.fourth-step' | translate }}" style="min-height: 120px;">
-                <h3 class="mb-2">{{ 'wizard.fourth-step' | translate }}</h3>
+            <aw-wizard-step stepTitle="{{ 'wizard.fourth-step' | translate }}" style="min-height: 120px">
+                <h3 class="mb-2">{{ "wizard.fourth-step" | translate }}</h3>
                 <div class="paso">
                     <div class="label-img-selected">
                         <label *ngIf="imgSelected">
               <!-- <img src="{{urlPrefix + imgSelected.ruta}}"> -->
-              <img src="{{urlPrefix + rutaScene[0]+'/5.png'}}">
-              <img src="{{urlPrefix +rutaScene[0]+ '/1.png'}}">
-              <img src="{{urlPrefix +rutaScene[0]+ '/4.png'}}">
-              <img src="{{urlPrefix +rutaScene[0]+ '/0.png'}}">
+              <img src="{{ urlPrefix + rutaScene[0] + '/5.png' }}" />
+              <img src="{{ urlPrefix + rutaScene[0] + '/1.png' }}" />
+              <img src="{{ urlPrefix + rutaScene[0] + '/4.png' }}" />
+              <img src="{{ urlPrefix + rutaScene[0] + '/0.png' }}" />
             </label>
                     </div>
 
-                    <div *ngIf="imgsSelect.length > 0 && imgSelected!= undefined" class="imgsSelected locate-patients">
+                    <div *ngIf="imgsSelect.length > 0 && imgSelected != undefined" class="imgsSelected locate-patients">
                         <!-- <h5>Imágenes Seleccionadas</h5> -->
-                        <label *ngFor="let p of imgsSelect; let i=index">
-              <img *ngIf="p.ruta == imgSelected.ruta" class="selected" src={{urlPrefix+p.ruta}}
-                (click)="setImgSelected(p)">
-              <img *ngIf="p.ruta != imgSelected.ruta" class="noSelected" src={{urlPrefix+p.ruta}}
-                (click)="setImgSelected(p)">
+                        <label *ngFor="let p of imgsSelect; let i = index">
+              <img
+                *ngIf="p.ruta == imgSelected.ruta"
+                class="selected"
+                src="{{ urlPrefix + p.ruta }}"
+                (click)="setImgSelected(p)"
+              />
+              <img
+                *ngIf="p.ruta != imgSelected.ruta"
+                class="noSelected"
+                src="{{ urlPrefix + p.ruta }}"
+                (click)="setImgSelected(p)"
+              />
             </label>
                     </div>
 
                     <div class="text-center mt-2">
-                        <button type="button" class="btn btn-primary" awPreviousStep>{{ 'wizard.prev' | translate }}</button>{{" "}}
-                        <button type="button" class="btn btn-primary" [disabled]="!ubicarPacientesValid()" awNextStep>{{
-              'wizard.next' | translate }}</button>
+                        <button type="button" class="btn btn-primary" awPreviousStep>
+              {{ "wizard.prev" | translate }}</button
+            >{{ " " }}
+            <button
+              type="button"
+              class="btn btn-primary"
+              [disabled]="!ubicarPacientesValid()"
+              awNextStep
+            >
+              {{ "wizard.next" | translate }}
+            </button>
                     </div>
 
                     <div class="tabla">
                         <table>
                             <tbody>
-                                <tr *ngFor="let item of table; let i=index">
-                                    <td *ngFor="let it of item; let j=index" class="celda">
+                                <tr *ngFor="let item of table; let i = index">
+                                    <td *ngFor="let it of item; let j = index" class="celda">
                                         <label *ngIf="!celdaVacia(j, i)">
-                      <img class="paciente_ubicado" id ="{{table[i][j].color}}"src="{{urlPrefixPacientes+table[i][j].img}}">
-                      <i class="simple-icon-close" (click)="dislocatePatient(j, i)"></i>
+                      <img
+                        class="paciente_ubicado"
+                        id="{{ table[i][j].color }}"
+                        src="{{ urlPrefixPacientes + table[i][j].img }}"
+                      />
+                      <i
+                        class="simple-icon-close"
+                        (click)="dislocatePatient(j, i)"
+                      ></i>
                     </label>
                                         <label *ngIf="celdaVacia(j, i)" class="celdaVacia" (click)="showLocatePatientModal(j, i)">
                     </label>
@@ -279,15 +422,15 @@
                         </table>
                     </div>
                 </div>
-
             </aw-wizard-step>
 
-            <aw-wizard-completion-step stepTitle="{{ 'wizard.done' | translate }}" style="min-height: 120px;">
+            <aw-wizard-completion-step stepTitle="{{ 'wizard.done' | translate }}" style="min-height: 120px">
                 <div class="text-center complete-message-centered">
                     <h2 class="mb-2">¡Ejercicio Configurado!</h2>
                     <p>Se ha completado correctamente la configuración del Ejercicio</p>
-                    <button type="button" class="btn btn-primary" (click)="toExercises()">{{ 'wizard.finish' | translate
-            }}</button>
+                    <button type="button" class="btn btn-primary" (click)="toExercises()">
+            {{ "wizard.finish" | translate }}
+          </button>
                 </div>
             </aw-wizard-completion-step>
         </aw-wizard>

@@ -29,6 +29,17 @@ h3 {
     border-color: #393939 !important;
 }
 
+.btn {
+    margin-bottom: 1em !important;
+}
+
+// .smaller {
+// width: 180px !important;
+// }
+#limited {
+    padding-top: 0.5em;
+}
+
 input,
 textarea,
 .ng-select,
@@ -334,7 +345,7 @@ input[type="checkbox"] {
 //     display: flex;
 // }
 .control {
-    margin-top: -7px;
+    margin-top: -5px;
 }
 
 .centrado {
@@ -423,13 +434,15 @@ input[type="checkbox"] {
 //         margin-bottom: 1.3em;
 //     }
 .form-group>#descripcion {
-    width: 58%;
+    // width: 58%;
+    width: 41%;
     padding-right: 3em;
 }
 
 .form-group #descripcion>textarea {
     resize: none;
     min-height: 80px;
+    max-width: 1037px;
 }
 
 .form-group>#desde {

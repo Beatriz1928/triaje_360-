@@ -23,6 +23,7 @@
         "code": "Restablecer Código"
     },
     "menu": {
+
         "home": "Inicio",
         "app": "Inicio",
         "dashboards": "Tableros",
@@ -781,6 +782,7 @@
         "bootstrap-hoverable": "Hoverable Rows"
     },
     "wizard": {
+        "nombre": "Nombre",
         "add": "Añadir",
         "description": "Descripción",
         "walk": "Camina",
